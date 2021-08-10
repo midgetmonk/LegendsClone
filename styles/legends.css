@@ -19,7 +19,7 @@
   background-image: linear-gradient(#d0c39f 0%, #e7dfc7 10%, #e7dfc7 100%);
 }
 .legends.sheet .editor {
-  min-height: 200px;
+  height: 200px;
 }
 .legends.sheet input,
 .legends.sheet select,
