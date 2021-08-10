@@ -1,0 +1,25 @@
+{
+  "name": "legends",
+  "title": "Avatar Legends RPG (Unofficial)",
+  "description": "Unofficial system for Avatar Legends RPG character sheets.",
+  "author": "aniki21",
+  "version": 0.01,
+  "minimumCoreVersion": "0.8.8",
+  "compatibleCoreVersion": "0.8.8",
+  "esmodules":[
+    "legends.js"
+  ],
+  "styles": [
+    "styles/legends.css"
+  ],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English (US)",
+      "path": "lang/en.json"
+    }
+  ],
+  "primaryTokenAttribute": "fatigue",
+  "initiative": "2d6"
+}

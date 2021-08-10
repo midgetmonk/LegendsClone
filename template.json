@@ -1,0 +1,25 @@
+{
+  "Actor": {},
+  "Item": {
+    "types": [
+      "move",
+      "technique"
+    ],
+    "templates": {
+      "hasDescription": {
+        "description": ""
+      }
+    },
+    "move": {
+      "templates": ["hasDescription"]
+    },
+    "technique": {
+      "templates": ["hasDescription"],
+      "approach": "defend-maneuver",
+      "basic": false,
+      "learned": false,
+      "practiced": false,
+      "mastered": false
+    }
+  }
+}

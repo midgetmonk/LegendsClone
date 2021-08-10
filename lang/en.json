@@ -1,0 +1,34 @@
+{
+  "legends": {
+    "common": {
+      "description": "Description"
+    },
+    "stats": {
+      "creativity": "Creativity",
+      "focus": "Focus",
+      "harmony": "Harmony",
+      "passion": "Passion"
+    },
+    "moves": {
+      "noneStat": "None",
+      "creativity": "Creativity",
+      "focus": "Focus",
+      "harmony": "Harmony",
+      "passion": "Passion"
+    },
+    "techniques": {
+      "approach": "Approach",
+      "basic": "Basic",
+      "approaches": {
+        "defend-maneuver": "Defend & Maneuver",
+        "advance-attack": "Advance & Attack",
+        "evade-observe": "Evade & Observe"
+      },
+      "proficiency": {
+        "learned": "Learned",
+        "practiced": "Practiced",
+        "mastered": "Mastered"
+      }
+    }
+  }
+}
