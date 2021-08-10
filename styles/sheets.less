@@ -1,0 +1,37 @@
+// out: false
+
+@import "./config.less";
+
+.withSigils() { 
+  &::before{
+    content: url(./images/move-header-detail-l.png);
+    padding: 0 0.5rem;
+  }
+  &::after{
+    content: url(./images/move-header-detail-r.png);
+    padding: 0 0.5rem;
+  }
+}
+
+.legends.sheet{
+  margin: -8px;
+  padding: 0.5rem;
+  .bg-fade();
+
+  .editor{
+    min-height:200px;
+  }
+
+  input, select, textarea {
+    background: none;
+    border: 1px solid @accent-color;
+    margin: 0;
+  }
+
+  h2{
+    border-bottom: 2px solid @accent-color;
+    text-align: center;
+    margin-bottom:0;
+    .withSigils();
+  }
+}

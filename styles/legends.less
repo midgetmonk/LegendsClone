@@ -1,5 +1,15 @@
+@import "./config.less";
+
+@import "./sheets.less";
+
 .legends {
-  .editor{
-    height:200px;
+  p, li {
+    .main-font();
+  }
+
+  h1, h2, h3, h4 {
+    &, & input {
+      .title-font();
+    }
   }
 }

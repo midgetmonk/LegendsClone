@@ -1,3 +1,59 @@
-.legends .editor {
-  height: 200px;
+/**
+ * Fonts
+ **/
+@font-face {
+  font-family: "Village";
+  src: url(fonts/village.ttf);
+}
+@font-face {
+  font-family: "BenchNine";
+  src: url(fonts/BenchNine-Regular.ttf);
+}
+/**
+ * Colours
+ **/
+.legends.sheet {
+  margin: -8px;
+  padding: 0.5rem;
+  background-color: #e7dfc7;
+  background-image: linear-gradient(#d0c39f 0%, #e7dfc7 10%, #e7dfc7 100%);
+}
+.legends.sheet .editor {
+  min-height: 200px;
+}
+.legends.sheet input,
+.legends.sheet select,
+.legends.sheet textarea {
+  background: none;
+  border: 1px solid #baaf6b;
+  margin: 0;
+}
+.legends.sheet h2 {
+  border-bottom: 2px solid #baaf6b;
+  text-align: center;
+  margin-bottom: 0;
+}
+.legends.sheet h2::before {
+  content: url(images/move-header-detail-l.png);
+  padding: 0 0.5rem;
+}
+.legends.sheet h2::after {
+  content: url(images/move-header-detail-r.png);
+  padding: 0 0.5rem;
+}
+.legends p,
+.legends li {
+  font-family: 'BenchNine';
+  font-size: 1.1rem;
+}
+.legends h1,
+.legends h2,
+.legends h3,
+.legends h4,
+.legends h1 input,
+.legends h2 input,
+.legends h3 input,
+.legends h4 input {
+  font-family: 'Village';
+  font-variant: small-caps;
 }

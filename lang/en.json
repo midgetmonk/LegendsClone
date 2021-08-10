@@ -1,7 +1,8 @@
 {
   "legends": {
     "common": {
-      "description": "Description"
+      "description": "Description",
+      "none": "None"
     },
     "stats": {
       "creativity": "Creativity",

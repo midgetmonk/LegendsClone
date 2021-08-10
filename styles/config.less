@@ -1,0 +1,44 @@
+// out: false
+/**
+ * Fonts
+ **/
+@font-face {
+  font-family: "Village";
+  src: url(fonts/village.ttf);
+}
+
+@font-face {
+  font-family: "BenchNine";
+  src: url(fonts/BenchNine-Regular.ttf);
+}
+
+.title-font() {
+  font-family: 'Village';
+  font-variant: small-caps;
+}
+
+.main-font(){
+  font-family: 'BenchNine';
+  font-size: 1.1rem;
+}
+
+/**
+ * Colours
+ **/
+
+@bg-color: #e7dfc7;
+@bg-fade-color: #d0c39f;
+@accent-color: #baaf6b;
+@text-color: black;
+
+@firebender: darkred;
+@waterbender: blue;
+@earthbender: green;
+@airbender: orange;
+@weaponsmith: #555;
+@technologist: purple;
+
+.bg-fade() {
+  background-color: @bg-color;
+  background-image: linear-gradient(@bg-fade-color 0%, @bg-color 10%, @bg-color 100%);
+}
