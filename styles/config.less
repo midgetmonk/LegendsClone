@@ -4,12 +4,17 @@
  **/
 @font-face {
   font-family: "Village";
-  src: url(fonts/village.ttf);
+  src: url(fonts/prisoner/village.ttf);
 }
 
 @font-face {
   font-family: "BenchNine";
-  src: url(fonts/BenchNine-Regular.ttf);
+  src: url(fonts/bench_nine/BenchNine-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Hey August";
+  src: url(fonts/hey_august/HeyAugust.ttf);
 }
 
 .title-font() {
@@ -20,6 +25,10 @@
 .main-font(){
   font-family: 'BenchNine';
   font-size: 1.1rem;
+}
+
+.brush-font(){
+  font-family: "Hey August";
 }
 
 /**
@@ -40,5 +49,5 @@
 
 .bg-fade() {
   background-color: @bg-color;
-  background-image: linear-gradient(@bg-fade-color 0%, @bg-color 10%, @bg-color 100%);
+  background-image: linear-gradient(@bg-fade-color 0%, @bg-color 15%, @bg-color 100%);
 }
