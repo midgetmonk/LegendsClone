@@ -1,0 +1,14 @@
+<form class="legends sheet move-sheet {{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <h1>
+      <input name="name" type="text" value="{{item.name}}" placeholder="Name" class="editable" />
+    </h1>
+  </header>
+  <div>
+    </table>
+    <h2>{{localize "legends.common.description"}}</h2>
+    <div class="editor">
+      {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+    </div>
+  </div>
+</form>

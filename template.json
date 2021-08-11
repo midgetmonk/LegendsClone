@@ -1,9 +1,75 @@
 {
-  "Actor": {},
+  "Actor": {
+    "types": [
+      "player",
+      "npc",
+      "legend"
+    ],
+    "templates": {
+      "hasFatigue": {
+        "value": 0,
+        "max": 5
+      },
+      "hasDescription": {
+        "description": ""
+      },
+      "npcBalance":{
+        "balance": {
+          "label": "",
+          "value": 0,
+          "max": 3
+        }
+      }
+    },
+    "player": {
+      "templates": ["hasFatigue", "hasDescription"],
+      "playbook": "",
+      "background": "",
+      "demeanor": "",
+      "look": "",
+      "training": "",
+      "fighting_style": "",
+      "stats": {
+        "creativity": 0,
+        "focus": 0,
+        "harmony": 0,
+        "passion": 0
+      },
+      "balance": {
+        "center": 0,
+        "value": 0
+      },
+      "growth": {
+        "value": 0,
+        "max": 4
+      }
+    },
+    "npc-minor": {
+      "templates": ["hasDescription", "hasFatigue", "npcBalance"],
+      "drive": "",
+      "balance": { "max": 1 },
+      "fatigue": { "max": 3 }
+    },
+    "npc-moderate": {
+      "templates": ["hasDescription", "hasFatigue", "npcBalance"],
+      "drive": "",
+      "balance": { "max": 2 }
+    },
+    "npc-major": {
+      "templates": ["hasDescription", "hasFatigue", "npcBalance"],
+      "drive": "",
+      "balance": { "max": 3 },
+      "fatigue": { "max": 10 }
+    },
+    "legend": {
+      "templates": ["hasDescription"]
+    }
+  },
   "Item": {
     "types": [
       "move",
-      "technique"
+      "technique",
+      "condition"
     ],
     "templates": {
       "hasDescription": {
@@ -20,6 +86,10 @@
       "learned": false,
       "practiced": false,
       "mastered": false
+    },
+    "condition": {
+      "templates": ["hasDescription"],
+      "checked": false
     }
   }
 }

@@ -4,6 +4,16 @@
       "description": "Description",
       "none": "None"
     },
+    "actor-sheet": {
+      "stats": "Stats",
+      "fatigue": "Fatigue",
+      "balance": "Balance",
+      "conditions": "Conditions",
+      "moves": "Moves",
+      "techniques": "Fighting Techniques",
+      "momentOfBalance": "Moment of Balance",
+      "growth": "Growth"
+    },
     "stats": {
       "creativity": "Creativity",
       "focus": "Focus",
@@ -11,7 +21,6 @@
       "passion": "Passion"
     },
     "moves": {
-      "noneStat": "None",
       "creativity": "Creativity",
       "focus": "Focus",
       "harmony": "Harmony",
@@ -30,6 +39,14 @@
         "practiced": "Practiced",
         "mastered": "Mastered"
       }
+    },
+    "training": {
+      "water": "Waterbending",
+      "fire": "Firebending",
+      "earth": "Earthbending",
+      "air": "Airbending",
+      "weapons": "Weapons",
+      "technology": "Technology"
     }
   }
 }
