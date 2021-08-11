@@ -1,4 +1,4 @@
-<form class="legends sheet move-sheet {{cssClass}}" autocomplete="off">
+<form class="legends sheet technique-sheet {{cssClass}}" autocomplete="off">
   <header class="sheet-header">
     <h1>
       <input name="name" type="text" value="{{item.name}}" placeholder="Name" class="editable" />
@@ -9,9 +9,6 @@
       <tr>
         <th>{{localize "legends.techniques.approach"}}</th>
         <th>{{localize "legends.techniques.basic"}}</th>
-        <th>{{localize "legends.techniques.proficiency.learned"}}</th>
-        <th>{{localize "legends.techniques.proficiency.practiced"}}</th>
-        <th>{{localize "legends.techniques.proficiency.mastered"}}</th>
       </tr>
       <tr>
         <td>
@@ -24,9 +21,6 @@
           </select>
         </td>
         <td><input type="checkbox" name="data.basic" {{checked data.data.basic}}></td>
-        <td><input type="checkbox" name="data.learned" {{checked data.data.learned}}></td>
-        <td><input type="checkbox" name="data.practiced" {{checked data.data.practiced}}></td>
-        <td><input type="checkbox" name="data.mastered" {{checked data.data.mastered}}></td>
       </tr>
     </table>
     <h2>{{localize "legends.common.description"}}</h2>

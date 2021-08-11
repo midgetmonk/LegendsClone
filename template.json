@@ -69,7 +69,8 @@
     "types": [
       "move",
       "technique",
-      "condition"
+      "condition",
+      "balanceTrack"
     ],
     "templates": {
       "hasDescription": {
@@ -90,6 +91,7 @@
     "condition": {
       "templates": ["hasDescription"],
       "checked": false
-    }
+    },
+    "balanceTrack": {}
   }
 }
