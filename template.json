@@ -7,8 +7,10 @@
     ],
     "templates": {
       "hasFatigue": {
-        "value": 0,
-        "max": 5
+        "fatigue": {
+          "value": 0,
+          "max": 5
+        }
       },
       "hasDescription": {
         "description": ""
@@ -36,6 +38,8 @@
         "passion": 0
       },
       "balance": {
+        "topTrack": "",
+        "bottomTrack": "",
         "center": 0,
         "value": 0
       },

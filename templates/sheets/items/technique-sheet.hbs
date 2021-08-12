@@ -23,9 +23,7 @@
         <td><input type="checkbox" name="data.basic" {{checked data.data.basic}}></td>
       </tr>
     </table>
-    <h2 class="title">{{localize "legends.common.description"}}</h2>
-    <div class="editor">
-      {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
-    </div>
+
+    {{> "systems/legends/templates/partials/description-editor.hbs" }}
   </div>
 </form>

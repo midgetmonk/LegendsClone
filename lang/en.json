@@ -12,7 +12,12 @@
       "moves": "Moves",
       "techniques": "Fighting Techniques",
       "momentOfBalance": "Moment of Balance",
-      "growth": "Growth"
+      "growth": "Growth",
+      "player": {
+        "about": "Your Character",
+        "training": "Training",
+        "fighting-style": "Fighting Style"
+      }
     },
     "stats": {
       "creativity": "Creativity",
@@ -35,9 +40,9 @@
         "evade-observe": "Evade & Observe"
       },
       "proficiency": {
-        "learned": "Learned",
-        "practiced": "Practiced",
-        "mastered": "Mastered"
+        "learned": "L",
+        "practiced": "P",
+        "mastered": "M"
       }
     },
     "training": {

@@ -18,6 +18,10 @@
   padding: 0.5rem;
   .bg-fade();
 
+  header.sheet-header{
+    flex:none;
+  }
+
   .editor{
     height:200px;
   }
@@ -28,10 +32,138 @@
     margin: 0;
   }
 
-  h2.title{
+  .sigils{
     border-bottom: 2px solid @accent-color;
     text-align: center;
     margin-bottom:0;
     .withSigils();
+  }
+
+  .description h3{
+    .title-font();
+  }
+
+  &.player-sheet {
+    .training{
+      flex: 1;
+
+      .fighting-style {
+        text-align: center;
+
+        label{
+          padding: 0.5rem 0.5rem 0;
+          background: white;
+          input{
+            display: inline-block;
+            width: 40%;
+          }
+          border: 2px solid @accent-color;
+          border-bottom: none;
+          border-radius: 0.5rem 0.5rem 0 0;
+        }
+      }
+    }
+
+    .main{
+      flex: 1;
+      flex-direction: row;
+      display: flex;
+      margin: 0 0 1rem;
+      border-top: 2px solid @firebender;
+      border-bottom: 2px solid @firebender;
+      box-shadow: inset 0 0 100px @accent-color;
+
+      .stats-and-fatigue, .conditions{
+        flex: 3;
+        margin: 1rem 0.5rem;
+
+        .stats input{
+          text-align: center;
+          width: 2rem;
+          height: 2rem;
+          border: 3px solid black;
+          border-radius: 50%;
+          background: white;
+        }
+
+        .fatigue{
+          margin-top: 2rem;
+        }
+      }
+
+      .balance{
+        flex: 5;
+        margin: 1rem 0.5rem;
+      }
+
+      h1, h2, h3, h4{
+        border: none;
+        text-align: center;
+      }
+    }
+
+    .conditions{
+      flex: 1;
+      .condition{
+        margin-bottom: 0.5rem;
+        p{
+          margin-top: 0;
+          font-size: 1rem;
+          &.title{
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .moves{
+      flex: 1;
+      h1{
+        border: none;  
+      }
+      .columns{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 0 -0.5rem;
+      }
+      .move{
+        padding: 0 0.5rem 1rem;
+        margin: 0;
+        flex: 50%;
+        h3{
+          margin: 0;
+        }
+        p{
+          margin: 0;
+        }
+      }
+    }
+
+    .techniques{
+      flex: 1;
+      h1{
+        border: none;
+      }
+      .technique{
+        margin-bottom: 0.5rem;
+        h3, h4, p{
+          margin: 0;
+        }
+        h4{
+          color: @firebender;
+          font-size: 0.9rem;
+          .right{
+            float: right;
+            color: @text-color;
+
+            .fa-times-circle{
+              color: @firebender;
+            }
+          }
+        }
+      }
+    }
   }
 }

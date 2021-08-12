@@ -1,0 +1,12 @@
+<section class="technique">
+  <h3 class="title">{{name}}</h3>
+  <h4 class="accent title">
+    {{ localize (lookup "legends.techniques.approaches" data.approach) }}
+    <div class="right">
+      {{ localize "legends.techniques.proficiency.learned" }}<i class="far fa-{{#if data.learned}}times-{{/if}}circle"></i>
+      {{ localize "legends.techniques.proficiency.practiced" }}<i class="far fa-{{#if data.practiced}}times-{{/if}}circle"></i>
+      {{ localize "legends.techniques.proficiency.mastered" }}<i class="far fa-{{#if data.mastered}}times-{{/if}}circle"></i>
+    </div>
+  </h4>
+  {{{ data.description }}}
+</section>

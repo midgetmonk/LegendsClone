@@ -6,6 +6,7 @@
   p, li {
     .main-font();
   }
+  
 
   h1, h2, h3, h4 {
     input {
@@ -14,15 +15,46 @@
       font-variant: inherit;
       text-transform: inherit;
     }
+  }
 
-    &.block {
-      .block-font();
-    }
-    &.brush {
-      .brush-font();
-    }
-    &.title {
-      .title-font();
-    }
+  h1{
+    font-size: 1.8rem;
+  }
+
+  h2{
+    font-size: 1.5rem;
+  }
+
+  h3{
+    font-size: 1.2rem;
+  }
+
+  h4{
+    font-size: 1.1rem;
+  }
+
+  .block {
+    .block-font();
+  }
+  .brush {
+    .brush-font();
+  }
+  .title {
+    .title-font();
+  }
+  .hand {
+    .hand-font();
+  }
+
+  .large{
+    font-size: 1.5em;
+  }
+
+  .center{
+    text-align: center;
+  }
+
+  .no-margin{
+    margin: 0 !important;
   }
 }

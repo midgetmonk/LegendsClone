@@ -4,10 +4,7 @@
       <input name="name" type="text" value="{{item.name}}" placeholder="Name" class="editable" />
     </h1>
   </header>
-  <div>
-    <h2 class="title">{{localize "legends.common.description"}}</h2>
-    <div class="editor">
-      {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
-    </div>
-  </div>
+  <section class="sheet-body">
+    {{> "systems/legends/templates/partials/description-editor.hbs" }}
+  </section>
 </form>

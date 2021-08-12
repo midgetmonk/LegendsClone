@@ -1,0 +1,88 @@
+<form class="legends sheet player-sheet {{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
+    <h1 class="block charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Name' }}"/></h1>
+  </header>
+
+  <section class="sheet-body">
+    <section class="training">
+      <h2 class="title sigils">{{ localize "legends.actor-sheet.player.training" }}</h2>
+      <select name="data.training" data-type="String">
+        {{#select data.data.training}}
+          {{#each config.training as |name type|}}
+            <option value="{{type}}">{{localize name}}</option>
+          {{/each}}
+        {{/select}}
+      </select>
+
+      <section class="fighting-style">
+        <label class="title">
+          {{ localize "legends.actor-sheet.player.fighting-style" }}:
+          <input name="data.fighting_style" type="text" value="{{data.data.fighting_style}}" class="hand" />
+        </label>
+      </section>
+    </section>
+
+    <section class="main">
+      <!-- stats and fatigue -->
+      <section class="stats-and-fatigue">
+        <section class="stats">
+          <h2 class="block">{{ localize "legends.actor-sheet.stats" }}</h2>
+          {{#each data.data.stats as |val type| }}
+          <div>
+            <input name="data.stats.{{type}}" value="{{val}}" class="hand" />
+            <span class="large title">{{localize (lookup "legends.stats" type) }}</span>
+          </div>
+          {{/each}}
+        </section>
+        <section class="fatigue">
+          <h2 class="brush">{{ localize "legends.actor-sheet.fatigue" }}</h2>
+          <div class="center">
+            {{#times data.data.fatigue.max}}
+              <input type="checkbox" />
+            {{/times}}
+          </div>
+        </section>
+      </section>
+
+      <!-- balance -->
+      <section class="balance">
+        <h2 class="block">{{ localize "legends.actor-sheet.balance" }}</h2>
+        <p>To be determined</p>
+      </section>
+
+      <!-- conditions -->
+      <section class="conditions">
+        <h2 class="block">{{ localize "legends.actor-sheet.conditions" }}</h2>
+        {{#each conditions as |condition id|}}
+          {{> "systems/legends/templates/partials/condition-card.hbs" condition}}
+        {{/each}}
+      </section>
+    </section>
+
+    <section class="moves">
+      <h1 class="brush no-margin">{{localize "legends.actor-sheet.moves"}}</h1>
+      <div class="columns">
+        {{#each moves as |move id|}}
+          {{> "systems/legends/templates/partials/move-card.hbs" move}}
+        {{/each}}
+      </div>
+    </section>
+
+    <section class="techniques">
+      <h1 class="brush">{{localize "legends.actor-sheet.techniques"}}</h1>
+      {{#each techniques as |technique id|}}
+        {{> "systems/legends/templates/partials/technique-card.hbs" technique}}
+      {{/each}}
+    </section>
+
+    <section class="description-editor">
+      <h2 class="title sigils">{{localize "legends.actor-sheet.player.about"}}</h2>
+      
+      <div class="description">
+        {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+      </div>
+    </section>
+  </section>
+</form>
+

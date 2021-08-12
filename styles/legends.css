@@ -3,11 +3,23 @@
  **/
 @font-face {
   font-family: "Village";
-  src: url(fonts/village.ttf);
+  src: url(fonts/prisoner/village.ttf);
 }
 @font-face {
   font-family: "BenchNine";
-  src: url(fonts/BenchNine-Regular.ttf);
+  src: url(fonts/bench_nine/BenchNine-Regular.ttf);
+}
+@font-face {
+  font-family: "Hey August";
+  src: url(fonts/hey_august/HeyAugust.ttf);
+}
+@font-face {
+  font-family: "Squada One";
+  src: url(fonts/Squada_One/SquadaOne-Regular.ttf);
+}
+@font-face {
+  font-family: "Covered By Your Grace";
+  src: url(fonts/Covered_By_Your_Grace/CoveredByYourGrace-Regular.ttf);
 }
 /**
  * Colours
@@ -16,7 +28,10 @@
   margin: -8px;
   padding: 0.5rem;
   background-color: #e7dfc7;
-  background-image: linear-gradient(#d0c39f 0%, #e7dfc7 10%, #e7dfc7 100%);
+  background-image: linear-gradient(#d0c39f 0%, #e7dfc7 15%, #e7dfc7 100%);
+}
+.legends.sheet header.sheet-header {
+  flex: none;
 }
 .legends.sheet .editor {
   height: 200px;
@@ -28,32 +43,187 @@
   border: 1px solid #baaf6b;
   margin: 0;
 }
-.legends.sheet h2 {
+.legends.sheet .sigils {
   border-bottom: 2px solid #baaf6b;
   text-align: center;
   margin-bottom: 0;
 }
-.legends.sheet h2::before {
+.legends.sheet .sigils::before {
   content: url(images/move-header-detail-l.png);
   padding: 0 0.5rem;
 }
-.legends.sheet h2::after {
+.legends.sheet .sigils::after {
   content: url(images/move-header-detail-r.png);
   padding: 0 0.5rem;
+}
+.legends.sheet .description h3 {
+  font-family: 'Village';
+}
+.legends.sheet.player-sheet .training {
+  flex: 1;
+}
+.legends.sheet.player-sheet .training .fighting-style {
+  text-align: center;
+}
+.legends.sheet.player-sheet .training .fighting-style label {
+  padding: 0.5rem 0.5rem 0;
+  background: white;
+  border: 2px solid #baaf6b;
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.legends.sheet.player-sheet .training .fighting-style label input {
+  display: inline-block;
+  width: 40%;
+}
+.legends.sheet.player-sheet .main {
+  flex: 1;
+  flex-direction: row;
+  display: flex;
+  margin: 0 0 1rem;
+  border-top: 2px solid darkred;
+  border-bottom: 2px solid darkred;
+  box-shadow: inset 0 0 100px #baaf6b;
+}
+.legends.sheet.player-sheet .main .stats-and-fatigue,
+.legends.sheet.player-sheet .main .conditions {
+  flex: 3;
+  margin: 1rem 0.5rem;
+}
+.legends.sheet.player-sheet .main .stats-and-fatigue .stats input,
+.legends.sheet.player-sheet .main .conditions .stats input {
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid black;
+  border-radius: 50%;
+  background: white;
+}
+.legends.sheet.player-sheet .main .stats-and-fatigue .fatigue,
+.legends.sheet.player-sheet .main .conditions .fatigue {
+  margin-top: 2rem;
+}
+.legends.sheet.player-sheet .main .balance {
+  flex: 5;
+  margin: 1rem 0.5rem;
+}
+.legends.sheet.player-sheet .main h1,
+.legends.sheet.player-sheet .main h2,
+.legends.sheet.player-sheet .main h3,
+.legends.sheet.player-sheet .main h4 {
+  border: none;
+  text-align: center;
+}
+.legends.sheet.player-sheet .conditions {
+  flex: 1;
+}
+.legends.sheet.player-sheet .conditions .condition {
+  margin-bottom: 0.5rem;
+}
+.legends.sheet.player-sheet .conditions .condition p {
+  margin-top: 0;
+  font-size: 1rem;
+}
+.legends.sheet.player-sheet .conditions .condition p.title {
+  margin: 0;
+}
+.legends.sheet.player-sheet .moves {
+  flex: 1;
+}
+.legends.sheet.player-sheet .moves h1 {
+  border: none;
+}
+.legends.sheet.player-sheet .moves .columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 -0.5rem;
+}
+.legends.sheet.player-sheet .moves .move {
+  padding: 0 0.5rem 1rem;
+  margin: 0;
+  flex: 50%;
+}
+.legends.sheet.player-sheet .moves .move h3 {
+  margin: 0;
+}
+.legends.sheet.player-sheet .moves .move p {
+  margin: 0;
+}
+.legends.sheet.player-sheet .techniques {
+  flex: 1;
+}
+.legends.sheet.player-sheet .techniques h1 {
+  border: none;
+}
+.legends.sheet.player-sheet .techniques .technique {
+  margin-bottom: 0.5rem;
+}
+.legends.sheet.player-sheet .techniques .technique h3,
+.legends.sheet.player-sheet .techniques .technique h4,
+.legends.sheet.player-sheet .techniques .technique p {
+  margin: 0;
+}
+.legends.sheet.player-sheet .techniques .technique h4 {
+  color: darkred;
+  font-size: 0.9rem;
+}
+.legends.sheet.player-sheet .techniques .technique h4 .right {
+  float: right;
+  color: black;
+}
+.legends.sheet.player-sheet .techniques .technique h4 .right .fa-times-circle {
+  color: darkred;
 }
 .legends p,
 .legends li {
   font-family: 'BenchNine';
   font-size: 1.1rem;
 }
-.legends h1,
-.legends h2,
-.legends h3,
-.legends h4,
 .legends h1 input,
 .legends h2 input,
 .legends h3 input,
 .legends h4 input {
+  font-family: inherit;
+  font-size: inherit;
+  font-variant: inherit;
+  text-transform: inherit;
+}
+.legends h1 {
+  font-size: 1.8rem;
+}
+.legends h2 {
+  font-size: 1.5rem;
+}
+.legends h3 {
+  font-size: 1.2rem;
+}
+.legends h4 {
+  font-size: 1.1rem;
+}
+.legends .block {
+  font-family: "Squada One";
+  text-transform: uppercase;
+}
+.legends .brush {
+  font-family: "Hey August";
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.legends .title {
   font-family: 'Village';
-  font-variant: small-caps;
+}
+.legends .hand {
+  font-family: "Covered By Your Grace";
+  font-size: 1.5rem;
+}
+.legends .large {
+  font-size: 1.5em;
+}
+.legends .center {
+  text-align: center;
+}
+.legends .no-margin {
+  margin: 0 !important;
 }
