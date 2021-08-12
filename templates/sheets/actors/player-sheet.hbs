@@ -31,7 +31,7 @@
           {{#each data.data.stats as |val type| }}
           <div>
             <input name="data.stats.{{type}}" value="{{val}}" class="hand" />
-            <span class="large title">{{localize (lookup "legends.stats" type) }}</span>
+            <span class="large title">{{localize (tr_path "legends.stats" type) }}</span>
           </div>
           {{/each}}
         </section>

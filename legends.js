@@ -22,7 +22,7 @@ Hooks.once("init", function(){
     return result;
   });
 
-  Handlebars.registerHelper("lookup", function(path, key){
+  Handlebars.registerHelper("tr_path", function(path, key){
     let full_path = path+"."+key;
     return full_path;
   });

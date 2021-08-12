@@ -80,7 +80,8 @@
   flex: 1;
   flex-direction: row;
   display: flex;
-  margin: 0 0 1rem;
+  margin: 0 -8px 1rem;
+  padding: 0 8px;
   border-top: 2px solid darkred;
   border-bottom: 2px solid darkred;
   box-shadow: inset 0 0 100px #baaf6b;
