@@ -7,13 +7,14 @@
   <section class="sheet-body">
     <section class="training">
       <h2 class="title sigils">{{ localize "legends.actor-sheet.player.training" }}</h2>
-      <select name="data.training" data-type="String">
-        {{#select data.data.training}}
-          {{#each config.training as |name type|}}
-            <option value="{{type}}">{{localize name}}</option>
-          {{/each}}
-        {{/select}}
-      </select>
+      <div class="trainings">
+        {{#each config.training as |name type|}}
+          <label class="{{type}}">
+            <input type="checkbox" name="data.training[]" value="{{type}}" />
+            {{localize name}}
+          </label>
+        {{/each}}
+      </div>
 
       <section class="fighting-style">
         <label class="title">
@@ -30,7 +31,8 @@
           <h2 class="block">{{ localize "legends.actor-sheet.stats" }}</h2>
           {{#each data.data.stats as |val type| }}
           <div>
-            <input name="data.stats.{{type}}" value="{{val}}" class="hand" />
+            <input name="data.stats.{{type}}" value="{{val}}" type="number" max="3" min="-1" class="hand" />
+            &nbsp;
             <span class="large title">{{localize (tr_path "legends.stats" type) }}</span>
           </div>
           {{/each}}

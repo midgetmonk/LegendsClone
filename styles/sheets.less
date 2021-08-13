@@ -47,15 +47,32 @@
     .training{
       flex: 1;
 
+      .trainings{
+        text-align: center;
+        margin: 2rem 0;
+        label{
+          margin: 0 1rem;
+          &.water { color: @waterbender; }
+          &.fire { color: @firebender; }
+          &.earth { color: @earthbender; }
+          &.air { color: @airbender; }
+          &.weapons { color: @weaponsmith; }
+          &.technology { color: @technologist; }
+        }
+      }
+
       .fighting-style {
         text-align: center;
+        padding:0.5rem;
 
         label{
-          padding: 0.5rem 0.5rem 0;
+          padding: 0.5rem;
           background: white;
           input{
             display: inline-block;
             width: 40%;
+            text-align:left;
+            border: none;
           }
           border: 2px solid @accent-color;
           border-bottom: none;

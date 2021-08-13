@@ -62,11 +62,37 @@
 .legends.sheet.player-sheet .training {
   flex: 1;
 }
+.legends.sheet.player-sheet .training .trainings {
+  text-align: center;
+  margin: 2rem 0;
+}
+.legends.sheet.player-sheet .training .trainings label {
+  margin: 0 1rem;
+}
+.legends.sheet.player-sheet .training .trainings label.water {
+  color: blue;
+}
+.legends.sheet.player-sheet .training .trainings label.fire {
+  color: darkred;
+}
+.legends.sheet.player-sheet .training .trainings label.earth {
+  color: green;
+}
+.legends.sheet.player-sheet .training .trainings label.air {
+  color: orange;
+}
+.legends.sheet.player-sheet .training .trainings label.weapons {
+  color: #555;
+}
+.legends.sheet.player-sheet .training .trainings label.technology {
+  color: purple;
+}
 .legends.sheet.player-sheet .training .fighting-style {
   text-align: center;
+  padding: 0.5rem;
 }
 .legends.sheet.player-sheet .training .fighting-style label {
-  padding: 0.5rem 0.5rem 0;
+  padding: 0.5rem;
   background: white;
   border: 2px solid #baaf6b;
   border-bottom: none;
@@ -75,6 +101,8 @@
 .legends.sheet.player-sheet .training .fighting-style label input {
   display: inline-block;
   width: 40%;
+  text-align: left;
+  border: none;
 }
 .legends.sheet.player-sheet .main {
   flex: 1;
