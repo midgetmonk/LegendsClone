@@ -23,6 +23,11 @@
 }
 
 @font-face {
+  font-family: "Komikazoom";
+  src: url(fonts/komikazoom/KAMIKZOM.ttf);
+}
+
+@font-face {
   font-family: "Covered By Your Grace";
   src: url(fonts/Covered_By_Your_Grace/CoveredByYourGrace-Regular.ttf);
 }
@@ -48,16 +53,16 @@
 }
 
 .block-font() {
-  font-family: "Squada One";
+  font-family: "Komikazoom";
   text-transform: uppercase;
 }
 
-.hand-font(){
+.hand-font() {
   font-family: "Covered By Your Grace";
   font-size: 1.5rem;
 }
 
-.kanji-font(){
+.kanji-font() {
   font-family: 'New Tegomin';
 }
 
@@ -80,4 +85,10 @@
 .bg-fade() {
   background-color: @bg-color;
   background-image: linear-gradient(@bg-fade-color 0%, @bg-color 15%, @bg-color 100%);
+}
+
+img {
+  &.fire {
+    filter: invert(11%) sepia(42%) saturate(7014%) hue-rotate(355deg) brightness(96%) contrast(117%);
+  }
 }

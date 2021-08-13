@@ -2,78 +2,102 @@
 
 @import "./config.less";
 
-.withSigils() { 
-  &::before{
+.withSigils() {
+  &::before {
     content: url(./images/move-header-detail-l.png);
     padding: 0 0.5rem;
   }
-  &::after{
+
+  &::after {
     content: url(./images/move-header-detail-r.png);
     padding: 0 0.5rem;
   }
 }
 
-.legends.sheet{
+.legends.sheet {
   margin: -8px;
   padding: 0.5rem;
   .bg-fade();
 
-  header.sheet-header{
-    flex:none;
+  header.sheet-header {
+    flex: none;
   }
 
-  .editor{
-    height:200px;
+  .editor {
+    height: 200px;
   }
 
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     background: none;
     border: 1px solid @accent-color;
     margin: 0;
   }
 
-  .sigils{
+  .sigils {
     border-bottom: 2px solid @accent-color;
     text-align: center;
-    margin-bottom:0;
+    margin-bottom: 0;
     .withSigils();
   }
 
-  .description h3{
+  .description h3 {
     .title-font();
   }
 
   &.player-sheet {
-    .training{
+    .training {
       flex: 1;
 
-      .trainings{
+      .trainings {
         text-align: center;
         margin: 2rem 0;
-        label{
+
+        label {
           margin: 0 1rem;
-          &.water { color: @waterbender; }
-          &.fire { color: @firebender; }
-          &.earth { color: @earthbender; }
-          &.air { color: @airbender; }
-          &.weapons { color: @weaponsmith; }
-          &.technology { color: @technologist; }
+
+          &.water {
+            color: @waterbender;
+          }
+
+          &.fire {
+            color: @firebender;
+          }
+
+          &.earth {
+            color: @earthbender;
+          }
+
+          &.air {
+            color: @airbender;
+          }
+
+          &.weapons {
+            color: @weaponsmith;
+          }
+
+          &.technology {
+            color: @technologist;
+          }
         }
       }
 
       .fighting-style {
         text-align: center;
-        padding:0.5rem;
+        padding: 0.5rem;
 
-        label{
+        label {
           padding: 0.5rem;
           background: white;
-          input{
+
+          input {
             display: inline-block;
             width: 40%;
-            text-align:left;
+            text-align: left;
             border: none;
           }
+
           border: 2px solid @accent-color;
           border-bottom: none;
           border-radius: 0.5rem 0.5rem 0 0;
@@ -81,7 +105,7 @@
       }
     }
 
-    .main{
+    .main {
       flex: 1;
       flex-direction: row;
       display: flex;
@@ -91,11 +115,12 @@
       border-bottom: 2px solid @firebender;
       box-shadow: inset 0 0 100px @accent-color;
 
-      .stats-and-fatigue, .conditions{
+      .stats-and-fatigue,
+      .conditions {
         flex: 3;
         margin: 1rem 0.5rem;
 
-        .stats input{
+        .stats input {
           text-align: center;
           width: 2rem;
           height: 2rem;
@@ -104,95 +129,116 @@
           background: white;
         }
 
-        .fatigue{
+        .fatigue {
           margin-top: 2rem;
         }
       }
 
-      .balance{
+      .balance {
         flex: 5;
         margin: 1rem 0.5rem;
       }
 
-      h1, h2, h3, h4{
+      h1,
+      h2,
+      h3,
+      h4 {
         border: none;
         text-align: center;
       }
     }
 
-    .conditions{
+    .conditions {
       flex: 1;
-      .condition{
+
+      .condition {
         margin-bottom: 0.5rem;
-        p{
+
+        p {
           margin-top: 0;
           font-size: 1rem;
-          &.title{
+
+          &.title {
             margin: 0;
           }
         }
       }
     }
 
-    .moves{
+    .moves {
       flex: 1;
-      h1{
-        border: none;  
+
+      h1 {
+        border: none;
       }
-      .columns{
+
+      .columns {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
         margin: 0 -0.5rem;
       }
-      .move{
+
+      .move {
         padding: 0 0.5rem 1rem;
         margin: 0;
         flex: 50%;
-        h3{
+
+        h3 {
           margin: 0;
         }
-        p{
+
+        p {
           margin: 0;
         }
       }
     }
 
-    .techniques{
+    .techniques {
       flex: 1;
-      h1{
+
+      h1 {
         border: none;
 
-        &::before, &::after{
+        &::before,
+        &::after {
           .kanji-font();
           color: @firebender;
           padding: 0;
           font-size: 70%;
           vertical-align: top;
         }
-        &::before{
+
+        &::before {
           content: '武';
           padding-right: 1rem;
         }
-        &::after{
+
+        &::after {
           content: '術';
           padding-left: 1rem;
         }
       }
-      .technique{
+
+      .technique {
         margin-bottom: 0.5rem;
-        h3, h4, p{
+
+        h3,
+        h4,
+        p {
           margin: 0;
         }
-        h4{
+
+        h4 {
           color: @firebender;
           font-size: 0.9rem;
-          .right{
+
+          .right {
             float: right;
             color: @text-color;
 
-            .fa-times-circle{
+            .fa-times-circle {
               color: @firebender;
             }
           }

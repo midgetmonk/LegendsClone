@@ -10,6 +10,7 @@
       <div class="trainings">
         {{#each config.training as |name type|}}
           <label class="{{type}}">
+            <img class="{{type}}" src="../../../images/{{type}}.png" />
             <input type="checkbox" name="data.training[]" value="{{type}}" />
             {{localize name}}
           </label>
@@ -87,4 +88,3 @@
     </section>
   </section>
 </form>
-
