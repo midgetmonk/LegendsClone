@@ -163,6 +163,22 @@
       flex: 1;
       h1{
         border: none;
+
+        &::before, &::after{
+          .kanji-font();
+          color: @firebender;
+          padding: 0;
+          font-size: 70%;
+          vertical-align: top;
+        }
+        &::before{
+          content: '武';
+          padding-right: 1rem;
+        }
+        &::after{
+          content: '術';
+          padding-left: 1rem;
+        }
       }
       .technique{
         margin-bottom: 0.5rem;
