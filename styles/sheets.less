@@ -33,9 +33,7 @@
     }
   }
 
-  input,
-  select,
-  textarea {
+  input, select, textarea {
     background: none;
     border: 1px solid @accent-color;
     margin: 0;
@@ -53,6 +51,16 @@
   }
 
   &.player-sheet {
+    h1, h2, h3, h4{
+      .actions{
+        float: right;
+        font-size: 80%;
+        a{
+          padding: 0 0 0 0.5rem;
+        }
+      }
+    }
+
     .background-demeanor {
       margin: 0.5rem 0;
       display: flex;
@@ -208,6 +216,12 @@
         flex: 1;
         margin: 0 0.5rem;
 
+        h1{
+          a{
+            color: black;
+          }
+        }
+
         .body{
           h1, h2, h3, h4 {
             .main-font();
@@ -297,12 +311,10 @@
   
           &::before {
             content: '武';
-            padding-right: 1rem;
           }
   
           &::after {
             content: '術';
-            padding-left: 1rem;
           }
         }
   
@@ -317,12 +329,11 @@
             color: @firebender;
             font-size: 0.9rem;
   
-            .right {
-              float: right;
+            a.set-proficiency{
               color: @text-color;
   
               .fa-times-circle {
-                color: @firebender;
+                color: @firebender !important;
               }
             }
           }

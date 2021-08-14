@@ -72,15 +72,24 @@
     </section>
 
     <section class="feature-and-moves">
-      <section class="feature">
-        <h1 class="title sigils">{{feature.name}}</h1>
+      <section class="item feature" data-item-id="{{feature._id}}">
+        <h1 class="title sigils">
+          <a class="item-edit">{{feature.name}}</a>
+        </h1>
         <section class="body">
           {{{ feature.data.description }}}
         </section>
       </section>
 
       <section class="moves">
-        <h1 class="brush no-margin">{{localize "legends.actor-sheet.moves"}}</h1>
+        <h1 class="brush no-margin">
+          {{localize "legends.actor-sheet.moves"}}
+        </h1>
+        <p class="title small">
+          <a class="item-create" data-type="move" title="{{localize "legends.moves.add"}}">
+            <i class="fas fa-plus"></i> {{localize "legends.moves.add"}}
+          </a>
+        </p>
         {{#each moves as |move id|}}
           {{> "systems/legends/templates/partials/move-card.hbs" move}}
         {{/each}}
@@ -99,7 +108,14 @@
       </section>
 
       <section class="techniques">
-        <h1 class="brush">{{localize "legends.actor-sheet.techniques"}}</h1>
+        <h1 class="brush no-margin">
+          {{localize "legends.actor-sheet.techniques"}}
+        </h1>
+        <p class="title small center">
+          <a class="item-create" data-type="technique" title="{{localize "legends.techniques.add"}}">
+            <i class="fas fa-plus"></i> {{localize "legends.techniques.add"}}
+          </a>
+        </p>
         {{#each techniques as |technique id|}}
           {{> "systems/legends/templates/partials/technique-card.hbs" technique}}
         {{/each}}

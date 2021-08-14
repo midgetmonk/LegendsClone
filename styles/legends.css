@@ -90,6 +90,19 @@ img {
   font-family: 'Village';
   font-variant: small-caps;
 }
+.legends.sheet.player-sheet h1 .actions,
+.legends.sheet.player-sheet h2 .actions,
+.legends.sheet.player-sheet h3 .actions,
+.legends.sheet.player-sheet h4 .actions {
+  float: right;
+  font-size: 80%;
+}
+.legends.sheet.player-sheet h1 .actions a,
+.legends.sheet.player-sheet h2 .actions a,
+.legends.sheet.player-sheet h3 .actions a,
+.legends.sheet.player-sheet h4 .actions a {
+  padding: 0 0 0 0.5rem;
+}
 .legends.sheet.player-sheet .background-demeanor {
   margin: 0.5rem 0;
   display: flex;
@@ -227,6 +240,9 @@ img {
   flex: 1;
   margin: 0 0.5rem;
 }
+.legends.sheet.player-sheet .feature-and-moves .feature h1 a {
+  color: black;
+}
 .legends.sheet.player-sheet .feature-and-moves .feature .body h1,
 .legends.sheet.player-sheet .feature-and-moves .feature .body h2,
 .legends.sheet.player-sheet .feature-and-moves .feature .body h3,
@@ -303,11 +319,9 @@ img {
 }
 .legends.sheet.player-sheet .character-and-techniques .techniques h1::before {
   content: '武';
-  padding-right: 1rem;
 }
 .legends.sheet.player-sheet .character-and-techniques .techniques h1::after {
   content: '術';
-  padding-left: 1rem;
 }
 .legends.sheet.player-sheet .character-and-techniques .techniques .technique {
   margin-bottom: 0.5rem;
@@ -321,17 +335,20 @@ img {
   color: #b62127;
   font-size: 0.9rem;
 }
-.legends.sheet.player-sheet .character-and-techniques .techniques .technique h4 .right {
-  float: right;
+.legends.sheet.player-sheet .character-and-techniques .techniques .technique h4 a.set-proficiency {
   color: black;
 }
-.legends.sheet.player-sheet .character-and-techniques .techniques .technique h4 .right .fa-times-circle {
-  color: #b62127;
+.legends.sheet.player-sheet .character-and-techniques .techniques .technique h4 a.set-proficiency .fa-times-circle {
+  color: #b62127 !important;
 }
 .legends p,
 .legends li {
   font-family: 'BenchNine';
   font-size: 1.1rem;
+}
+.legends p {
+  margin: 0;
+  margin-bottom: 0.7rem;
 }
 .legends h1,
 .legends h2,
@@ -361,6 +378,16 @@ img {
 .legends h4 {
   font-size: 1.1rem;
 }
+.legends a {
+  color: #baaf6b;
+}
+.legends a:hover {
+  color: black;
+  text-shadow: 0 0 6px #baaf6b;
+}
+.legends p a {
+  color: #b62127;
+}
 .legends .block {
   font-family: "Komikazoom";
   text-transform: uppercase;
@@ -381,9 +408,18 @@ img {
 .legends .large {
   font-size: 1.5em;
 }
+.legends .small {
+  font-size: 0.8rem;
+}
 .legends .center {
   text-align: center;
 }
+.legends .right {
+  text-align: right;
+}
 .legends .no-margin {
   margin: 0 !important;
+}
+.legends .float-right {
+  float: right;
 }

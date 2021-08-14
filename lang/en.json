@@ -28,11 +28,17 @@
       "harmony": "Harmony",
       "passion": "Passion"
     },
+    "items": {
+      "new": {
+        "name": "New Item",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.</p>"
+      }
+    },
     "moves": {
-      "creativity": "Creativity",
-      "focus": "Focus",
-      "harmony": "Harmony",
-      "passion": "Passion"
+      "add": "Add Move",
+      "edit": "Edit Move",
+      "delete": "Delete Move",
+      "new": "New Move"
     },
     "techniques": {
       "approach": "Approach",
@@ -43,10 +49,14 @@
         "evade-observe": "Evade & Observe"
       },
       "proficiency": {
+        "learn": "Toggle Learned",
         "learned": "L",
+        "practice": "Toggle Practiced",
         "practiced": "P",
+        "master": "Toggle Mastered",
         "mastered": "M"
-      }
+      },
+      "add": "Add Technique"
     },
     "training": {
       "water": "Waterbending",

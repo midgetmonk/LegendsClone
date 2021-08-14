@@ -1,13 +1,19 @@
-<section class="technique">
-  <h3 class="title">{{name}}</h3>
+<section class="item technique" data-item-id="{{_id}}">
+  <h3 class="title">
+    {{name}}
+    <span class="actions">
+      <a class="item-edit" title="{{localize "legends.moves.edit"}}"><i class="fas fa-pen"></i></a>
+      <a class="item-delete" title="{{localize "legends.moves.delete"}}"><i class="fas fa-trash"></i></a>
+    </span>
+  </h3>
   <h4 class="accent title">
     {{ localize (tr_path "legends.techniques.approaches" data.approach) }}
-    <div class="right">
-      {{ localize "legends.techniques.proficiency.learned" }} <i class="far fa-{{#if data.learned}}times-{{/if}}circle"></i>
+    <div class="float-right">
+      <a class="set-proficiency" data-level="learned" title="{{localize 'legends.techniques.proficiency.learn'}}">{{ localize "legends.techniques.proficiency.learned" }} <i class="far fa-{{#if data.learned}}times-{{/if}}circle"></i></a>
       &nbsp;
-      {{ localize "legends.techniques.proficiency.practiced" }} <i class="far fa-{{#if data.practiced}}times-{{/if}}circle"></i>
+      <a class="set-proficiency" data-level="practiced" title="{{localize 'legends.techniques.proficiency.practice'}}">{{ localize "legends.techniques.proficiency.practiced" }} <i class="far fa-{{#if data.practiced}}times-{{/if}}circle"></i></a>
       &nbsp;
-      {{ localize "legends.techniques.proficiency.mastered" }} <i class="far fa-{{#if data.mastered}}times-{{/if}}circle"></i>
+      <a class="set-proficiency" data-level="mastered" title="{{localize 'legends.techniques.proficiency.master'}}">{{ localize "legends.techniques.proficiency.mastered" }} <i class="far fa-{{#if data.mastered}}times-{{/if}}circle"></i></a>
     </div>
   </h4>
   {{{ data.description }}}

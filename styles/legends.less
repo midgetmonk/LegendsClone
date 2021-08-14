@@ -7,6 +7,11 @@
     .main-font();
   }
 
+  p{
+    margin: 0;
+    margin-bottom: 0.7rem;
+  }
+
   h1, h2, h3, h4 {
     border: none;
     font-family: inherit;
@@ -25,11 +30,29 @@
   h3 { font-size: 1.2rem; }
   h4 { font-size: 1.1rem; }
 
+  a{
+    color: @accent-color;
+    &:hover{
+      color: black;
+      text-shadow: 0 0 6px @accent-color;
+    }
+  }
+
+  p a{
+    color: @firebender;
+  }
+
   .block { .block-font(); }
   .brush { .brush-font(); }
   .title { .title-font(); }
   .hand { .hand-font(); }
+
   .large { font-size: 1.5em; }
+  .small { font-size: 0.8rem; }
+
   .center { text-align: center; }
+  .right{ text-align: right; }
+  
   .no-margin { margin: 0 !important; }
+  .float-right { float: right; }
 }

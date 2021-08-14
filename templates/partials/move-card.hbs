@@ -1,4 +1,10 @@
-<section class="move">
-  <h3 class="title">{{name}}</h3>
+<section class="item move" data-item-id="{{_id}}">
+  <h3 class="title">
+    {{name}}
+    <span class="actions float-right">
+      <a class="item-edit" title="{{localize "legends.moves.edit"}}"><i class="fas fa-pen"></i></a>
+      <a class="item-delete" title="{{localize "legends.moves.delete"}}"><i class="fas fa-trash"></i></a>
+    </span>
+  </h3>
   {{{data.description}}}
 </section>
