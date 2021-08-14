@@ -1,7 +1,7 @@
 import { legends } from "./module/config.js";
 import LegendsActorSheet from "./module/sheets/LegendsActorSheet.js";
 import LegendsItemSheet from "./module/sheets/LegendsItemSheet.js";
-import preloadHandlebarsTemplates from "./module/preload.js"
+import preloadHandlebarsTemplates from "./module/preload.js";
 
 Hooks.once("init", function(){
   console.log("legends | Initialising Avatar Legends RPG system...");

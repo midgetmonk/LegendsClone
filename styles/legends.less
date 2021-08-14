@@ -3,17 +3,13 @@
 @import "./sheets.less";
 
 .legends {
-
-  p,
-  li {
+  p, li {
     .main-font();
   }
 
-
-  h1,
-  h2,
-  h3,
-  h4 {
+  h1, h2, h3, h4 {
+    border: none;
+    font-family: inherit;
     input {
       font-family: inherit;
       font-size: inherit;
@@ -25,44 +21,15 @@
   h1 {
     font-size: 1.8rem;
   }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  h4 { font-size: 1.1rem; }
 
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-  }
-
-  h4 {
-    font-size: 1.1rem;
-  }
-
-  .block {
-    .block-font();
-  }
-
-  .brush {
-    .brush-font();
-  }
-
-  .title {
-    .title-font();
-  }
-
-  .hand {
-    .hand-font();
-  }
-
-  .large {
-    font-size: 1.5em;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  .no-margin {
-    margin: 0 !important;
-  }
+  .block { .block-font(); }
+  .brush { .brush-font(); }
+  .title { .title-font(); }
+  .hand { .hand-font(); }
+  .large { font-size: 1.5em; }
+  .center { text-align: center; }
+  .no-margin { margin: 0 !important; }
 }

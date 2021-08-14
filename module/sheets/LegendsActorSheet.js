@@ -1,3 +1,4 @@
+import { filter_and_sort } from "../helpers.js";
 export default class LegendsActorSheet extends ActorSheet {
   get template(){
     return `systems/legends/templates/sheets/actors/${this.actor.data.type}-sheet.hbs`;
@@ -7,20 +8,10 @@ export default class LegendsActorSheet extends ActorSheet {
     const context = super.getData();
     context.config = CONFIG.legends;
 
-    context.conditions = context.items.filter(function(item){
-      return item.type == 'condition';
-    });
-    context.moves = context.items.filter(function(item) {
-      return item.type == 'move';
-    }).sort(function(a,b){
-      if (a.name < b.name){
-        return -1;
-      }
-      return 1;
-    });
-    context.techniques = context.items.filter(function(item){
-      return item.type == 'technique'
-    });
+    context.feature = filter_and_sort(context.items, 'feature')[0];
+    context.conditions = filter_and_sort(context.items, 'condition');
+    context.moves = filter_and_sort(context.items, 'move');
+    context.techniques = filter_and_sort(context.items, 'technique');
 
     console.log(context);
     return context;

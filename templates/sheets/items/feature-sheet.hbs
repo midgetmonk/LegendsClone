@@ -1,0 +1,10 @@
+<form class="legends sheet move-sheet {{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <h1 class="title">
+      <input name="name" type="text" value="{{item.name}}" placeholder="Name" class="editable" />
+    </h1>
+  </header>
+  <section class="sheet-body">
+    {{> "systems/legends/templates/partials/description-editor.hbs" }}
+  </section>
+</form>

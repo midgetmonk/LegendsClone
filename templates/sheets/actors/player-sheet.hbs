@@ -4,15 +4,23 @@
     <h1 class="block charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Name' }}"/></h1>
   </header>
 
+  <section class="background-demeanor">
+    <section class="background">
+      <label>{{localize "legends.actor-sheet.player.background"}} <input name="data.background" type="text" value="{{data.data.background}}" /></label>
+    </section>
+    <section class="demeanor">
+      <label>{{localize "legends.actor-sheet.player.demeanor"}} <input name="data.demeanor" type="text" value="{{data.data.demeanor}}" /></label>
+    </section>
+  </section>
+
   <section class="sheet-body">
     <section class="training">
       <h2 class="title sigils">{{ localize "legends.actor-sheet.player.training" }}</h2>
       <div class="trainings">
         {{#each config.training as |name type|}}
-          <label class="{{type}}">
-            <img class="{{type}}" src="../../../images/{{type}}.png" />
-            <input type="checkbox" name="data.training[]" value="{{type}}" />
-            {{localize name}}
+          <label class="training-type">
+            <img class="{{type}}" src="systems/legends/images/{{type}}3.png" />
+            <br />{{localize name}}
           </label>
         {{/each}}
       </div>
@@ -63,28 +71,39 @@
       </section>
     </section>
 
-    <section class="moves">
-      <h1 class="brush no-margin">{{localize "legends.actor-sheet.moves"}}</h1>
-      <div class="columns">
+    <section class="feature-and-moves">
+      <section class="feature">
+        <h1 class="title sigils">{{feature.name}}</h1>
+        <section class="body">
+          {{{ feature.data.description }}}
+        </section>
+      </section>
+
+      <section class="moves">
+        <h1 class="brush no-margin">{{localize "legends.actor-sheet.moves"}}</h1>
         {{#each moves as |move id|}}
           {{> "systems/legends/templates/partials/move-card.hbs" move}}
         {{/each}}
-      </div>
+      </section>
     </section>
 
-    <section class="techniques">
-      <h1 class="brush">{{localize "legends.actor-sheet.techniques"}}</h1>
-      {{#each techniques as |technique id|}}
-        {{> "systems/legends/templates/partials/technique-card.hbs" technique}}
-      {{/each}}
-    </section>
 
-    <section class="description-editor">
-      <h2 class="title sigils">{{localize "legends.actor-sheet.player.about"}}</h2>
-      
-      <div class="description">
-        {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
-      </div>
+    <section class="character-and-techniques">
+      <section class="character">
+        <h2 class="block">{{localize "legends.actor-sheet.player.about"}}</h2>
+        
+        <label class="look">
+          <span class="title">{{localize "legends.actor-sheet.player.description"}}:</span>
+          <textarea name="data.description" >{{data.data.description}}</textarea>
+        </label>
+      </section>
+
+      <section class="techniques">
+        <h1 class="brush">{{localize "legends.actor-sheet.techniques"}}</h1>
+        {{#each techniques as |technique id|}}
+          {{> "systems/legends/templates/partials/technique-card.hbs" technique}}
+        {{/each}}
+      </section>
     </section>
   </section>
 </form>

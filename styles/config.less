@@ -39,6 +39,7 @@
 
 .title-font() {
   font-family: 'Village';
+  font-variant: small-caps;
 }
 
 .main-font() {
@@ -70,25 +71,36 @@
  * Colours
  **/
 
-@bg-color: #e7dfc7;
+@bg-color: #f3efdc;
 @bg-fade-color: #d0c39f;
 @accent-color: #baaf6b;
 @text-color: black;
 
-@firebender: darkred;
-@waterbender: blue;
-@earthbender: green;
-@airbender: orange;
-@weaponsmith: #555;
-@technologist: purple;
+@firebender: #b62127;
+@waterbender: #4d63a9;
+@earthbender: #3c6733;
+@airbender: #d4b450;
+@weaponsmith: #4d4d4f;
+@technologist: #6a2e7e;
 
 .bg-fade() {
   background-color: @bg-color;
-  background-image: linear-gradient(@bg-fade-color 0%, @bg-color 15%, @bg-color 100%);
+  background-image: linear-gradient(@bg-fade-color 0%, @bg-color 5%, @bg-color 100%);
 }
 
+/*
 img {
   &.fire {
-    filter: invert(11%) sepia(42%) saturate(7014%) hue-rotate(355deg) brightness(96%) contrast(117%);
+    filter: invert(15%) sepia(100%) saturate(3164%) hue-rotate(347deg) brightness(88%) contrast(89%);
+  }
+  &.water {
+    filter: invert(36%) sepia(71%) saturate(418%) hue-rotate(188deg) brightness(93%) contrast(93%);
+  }
+  &.earth {
+    filter: invert(29%) sepia(8%) saturate(4109%) hue-rotate(64deg) brightness(94%) contrast(67%);
+  }
+  &.air {
+    filter: invert(70%) sepia(54%) saturate(408%) hue-rotate(8deg) brightness(92%) contrast(93%);
   }
 }
+*/

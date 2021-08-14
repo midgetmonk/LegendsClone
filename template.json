@@ -29,7 +29,14 @@
       "background": "",
       "demeanor": "",
       "look": "",
-      "training": [],
+      "training": {
+        "water": false,
+        "fire": false,
+        "earth": false,
+        "air": false,
+        "weapons": false,
+        "technology": false
+      },
       "fighting_style": "",
       "stats": {
         "creativity": 0,
@@ -48,22 +55,11 @@
         "max": 4
       }
     },
-    "npc-minor": {
+    "npc": {
       "templates": ["hasDescription", "hasFatigue", "npcBalance"],
       "drive": "",
       "balance": { "max": 1 },
       "fatigue": { "max": 3 }
-    },
-    "npc-moderate": {
-      "templates": ["hasDescription", "hasFatigue", "npcBalance"],
-      "drive": "",
-      "balance": { "max": 2 }
-    },
-    "npc-major": {
-      "templates": ["hasDescription", "hasFatigue", "npcBalance"],
-      "drive": "",
-      "balance": { "max": 3 },
-      "fatigue": { "max": 10 }
     },
     "legend": {
       "templates": ["hasDescription"]
@@ -74,7 +70,8 @@
       "move",
       "technique",
       "condition",
-      "balanceTrack"
+      "balanceTrack",
+      "feature"
     ],
     "templates": {
       "hasDescription": {
@@ -82,6 +79,9 @@
       }
     },
     "move": {
+      "templates": ["hasDescription"]
+    },
+    "feature": {
       "templates": ["hasDescription"]
     },
     "technique": {
