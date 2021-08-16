@@ -32,6 +32,24 @@
 /**
  * Colours
  **/
+.water {
+  color: #4d63a9;
+}
+.fire {
+  color: #b62127;
+}
+.earth {
+  color: #3c6733;
+}
+.air {
+  color: #d4b450;
+}
+.weapons {
+  color: #4d4d4f;
+}
+.technology {
+  color: #6a2e7e;
+}
 /*
 img {
   &.fire {
@@ -48,6 +66,109 @@ img {
   }
 }
 */
+.legends .row {
+  display: flex;
+  flex: 0;
+  flex-direction: row;
+}
+.legends .column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.legends .cell {
+  flex: 1;
+}
+.legends p,
+.legends li {
+  font-family: 'BenchNine';
+  font-size: 1.1rem;
+}
+.legends p {
+  margin: 0;
+  margin-bottom: 0.7rem;
+}
+.legends input,
+.legends textarea,
+.legends select {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.legends h1,
+.legends h2,
+.legends h3,
+.legends h4 {
+  border: none;
+  font-family: inherit;
+}
+.legends h1 input,
+.legends h2 input,
+.legends h3 input,
+.legends h4 input {
+  font-family: inherit;
+  font-size: inherit;
+  font-variant: inherit;
+  text-transform: inherit;
+}
+.legends h1 {
+  font-size: 2rem;
+}
+.legends h2 {
+  font-size: 1.8rem;
+}
+.legends h3 {
+  font-size: 1.5rem;
+}
+.legends h4 {
+  font-size: 1.2rem;
+}
+.legends a {
+  color: #baaf6b;
+}
+.legends a:hover {
+  color: black;
+  text-shadow: 0 0 6px #baaf6b;
+}
+.legends .block {
+  font-family: "Komikazoom";
+  text-transform: uppercase;
+}
+.legends .brush {
+  font-family: "Hey August";
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.legends .title {
+  font-family: 'Village';
+  font-variant: small-caps;
+}
+.legends .hand {
+  font-family: "Covered By Your Grace";
+  font-size: 1.5rem;
+}
+.legends .large {
+  font-size: 1.5em;
+}
+.legends .small {
+  font-size: 0.8rem;
+}
+.legends .left {
+  text-align: left !important;
+}
+.legends .center {
+  text-align: center !important;
+}
+.legends .right {
+  text-align: right !important;
+}
+.legends .float-right {
+  float: right;
+}
+.legends .float-left {
+  float: left;
+}
+.legends .no-margin {
+  margin: 0 !important;
+}
 .legends.sheet {
   margin: -8px;
   padding: 0.5rem;
@@ -73,10 +194,22 @@ img {
   border: 1px solid #baaf6b;
   margin: 0;
 }
+.legends.sheet .labelled-input {
+  display: flex;
+  flex-direction: row;
+}
+.legends.sheet .labelled-input label {
+  flex: 0;
+  min-width: 80px;
+}
+.legends.sheet .labelled-input input {
+  flex: 1;
+  border: none;
+  border-bottom: 2px solid #baaf6b;
+}
 .legends.sheet .sigils {
   border-bottom: 2px solid #baaf6b;
   text-align: center;
-  margin-bottom: 0;
 }
 .legends.sheet .sigils::before {
   content: url(images/move-header-detail-l.png);
@@ -89,6 +222,53 @@ img {
 .legends.sheet .description h3 {
   font-family: 'Village';
   font-variant: small-caps;
+}
+.legends.sheet .balance-box,
+.legends.sheet .fatigue-box,
+.legends.sheet .check-box {
+  display: inline-block;
+  border: 2px solid black;
+  background: white;
+}
+.legends.sheet .balance-box.filled,
+.legends.sheet .fatigue-box.filled,
+.legends.sheet .check-box.filled {
+  background: #b62127;
+  box-shadow: inset 2px 2px 0 white, inset -2px -2px 0 white;
+}
+.legends.sheet .balance-box.mini,
+.legends.sheet .fatigue-box.mini,
+.legends.sheet .check-box.mini {
+  width: 1rem;
+  height: 1rem;
+}
+.legends.sheet .check-box {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 2px;
+  margin: 0 0 -2px;
+}
+.legends.sheet .balance-box,
+.legends.sheet .fatigue-box {
+  transform: rotate(45deg);
+}
+.legends.sheet .fatigue-box {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 0.2rem;
+}
+.legends.sheet .far.fa-square {
+  color: black;
+}
+.legends.sheet .fas.fa-square {
+  color: #baaf6b;
+}
+.legends.sheet.player-sheet h1,
+.legends.sheet.player-sheet h2,
+.legends.sheet.player-sheet h3,
+.legends.sheet.player-sheet h4 {
+  border: none;
+  text-align: center;
 }
 .legends.sheet.player-sheet h1 .actions,
 .legends.sheet.player-sheet h2 .actions,
@@ -103,28 +283,12 @@ img {
 .legends.sheet.player-sheet h4 .actions a {
   padding: 0 0 0 0.5rem;
 }
-.legends.sheet.player-sheet .background-demeanor {
-  margin: 0.5rem 0;
-  display: flex;
-  flex-direction: row;
-}
-.legends.sheet.player-sheet .background-demeanor .background,
-.legends.sheet.player-sheet .background-demeanor .demeanor {
-  flex: 1;
-}
-.legends.sheet.player-sheet .background-demeanor .background label,
-.legends.sheet.player-sheet .background-demeanor .demeanor label {
-  font-family: 'Village';
-  font-variant: small-caps;
-}
-.legends.sheet.player-sheet .background-demeanor .background label input,
-.legends.sheet.player-sheet .background-demeanor .demeanor label input {
-  font-family: "Covered By Your Grace";
-  font-size: 1.5rem;
-  background: white;
+.legends.sheet.player-sheet a.item-create {
+  color: #b62127;
 }
 .legends.sheet.player-sheet .training {
-  flex: 1;
+  display: block;
+  flex: none;
 }
 .legends.sheet.player-sheet .training .trainings {
   text-align: center;
@@ -133,37 +297,25 @@ img {
   flex-direction: row;
   flex-wrap: wrap;
 }
-.legends.sheet.player-sheet .training .trainings label.training-type {
+.legends.sheet.player-sheet .training .trainings .training-type {
+  display: inline-block;
   margin: 0 1rem;
   flex: 1;
   font-family: 'Village';
   font-variant: small-caps;
+  opacity: 0.5;
 }
-.legends.sheet.player-sheet .training .trainings label.training-type img {
+.legends.sheet.player-sheet .training .trainings .training-type.selected,
+.legends.sheet.player-sheet .training .trainings .training-type:hover {
+  opacity: 1;
+}
+.legends.sheet.player-sheet .training .trainings .training-type img {
   width: 3rem;
   border: none;
 }
-.legends.sheet.player-sheet .training .trainings label.training-type.water {
-  color: #4d63a9;
-}
-.legends.sheet.player-sheet .training .trainings label.training-type.fire {
-  color: #b62127;
-}
-.legends.sheet.player-sheet .training .trainings label.training-type.earth {
-  color: #3c6733;
-}
-.legends.sheet.player-sheet .training .trainings label.training-type.air {
-  color: #d4b450;
-}
-.legends.sheet.player-sheet .training .trainings label.training-type.weapons {
-  color: #4d4d4f;
-}
-.legends.sheet.player-sheet .training .trainings label.training-type.technology {
-  color: #6a2e7e;
-}
 .legends.sheet.player-sheet .training .fighting-style {
   text-align: center;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.2rem;
 }
 .legends.sheet.player-sheet .training .fighting-style label {
   padding: 0.5rem;
@@ -179,21 +331,20 @@ img {
   border: none;
 }
 .legends.sheet.player-sheet .main {
-  flex: 1;
-  flex-direction: row;
-  display: flex;
+  display: block;
+  flex: none;
   margin: 0 -8px 1rem;
   padding: 0 8px;
   border-top: 2px solid #b62127;
   border-bottom: 2px solid #b62127;
   box-shadow: inset 0 0 100px #baaf6b;
 }
-.legends.sheet.player-sheet .main .stats-and-fatigue,
+.legends.sheet.player-sheet .main .stats-fatigue,
 .legends.sheet.player-sheet .main .conditions {
-  flex: 3;
+  flex: 2;
   margin: 1rem 0.5rem;
 }
-.legends.sheet.player-sheet .main .stats-and-fatigue .stats input,
+.legends.sheet.player-sheet .main .stats-fatigue .stats input,
 .legends.sheet.player-sheet .main .conditions .stats input {
   text-align: center;
   width: 2rem;
@@ -202,20 +353,32 @@ img {
   border-radius: 50%;
   background: white;
 }
-.legends.sheet.player-sheet .main .stats-and-fatigue .fatigue,
+.legends.sheet.player-sheet .main .stats-fatigue .fatigue,
 .legends.sheet.player-sheet .main .conditions .fatigue {
   margin-top: 2rem;
 }
-.legends.sheet.player-sheet .main .balance {
-  flex: 5;
-  margin: 1rem 0.5rem;
+.legends.sheet.player-sheet .main .stats-fatigue .fatigue a.set-fatigue,
+.legends.sheet.player-sheet .main .conditions .fatigue a.set-fatigue {
+  color: #b62127;
 }
-.legends.sheet.player-sheet .main h1,
-.legends.sheet.player-sheet .main h2,
-.legends.sheet.player-sheet .main h3,
-.legends.sheet.player-sheet .main h4 {
-  border: none;
-  text-align: center;
+.legends.sheet.player-sheet .main .stats-fatigue .fatigue .boxes,
+.legends.sheet.player-sheet .main .conditions .fatigue .boxes {
+  font-size: 2rem;
+}
+.legends.sheet.player-sheet .main .stats-fatigue .fatigue .boxes .fa-circle,
+.legends.sheet.player-sheet .main .conditions .fatigue .boxes .fa-circle,
+.legends.sheet.player-sheet .main .stats-fatigue .fatigue .boxes .fa-times-circle,
+.legends.sheet.player-sheet .main .conditions .fatigue .boxes .fa-times-circle {
+  background: white;
+  border-radius: 50%;
+}
+.legends.sheet.player-sheet .main .stats-fatigue .fatigue .boxes .fa-times-circle,
+.legends.sheet.player-sheet .main .conditions .fatigue .boxes .fa-times-circle {
+  color: #b62127;
+}
+.legends.sheet.player-sheet .main .balance {
+  flex: 3;
+  margin: 1rem 0.5rem;
 }
 .legends.sheet.player-sheet .conditions {
   flex: 1;
@@ -230,196 +393,93 @@ img {
 .legends.sheet.player-sheet .conditions .condition p.title {
   margin: 0;
 }
-.legends.sheet.player-sheet .feature-and-moves {
+.legends.sheet.player-sheet .feature-moves {
   flex: 1;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.legends.sheet.player-sheet .feature-and-moves .feature {
+.legends.sheet.player-sheet .feature-moves .feature {
   flex: 1;
   margin: 0 0.5rem;
 }
-.legends.sheet.player-sheet .feature-and-moves .feature h1 a {
+.legends.sheet.player-sheet .feature-moves .feature h2 a {
   color: black;
 }
-.legends.sheet.player-sheet .feature-and-moves .feature .body h1,
-.legends.sheet.player-sheet .feature-and-moves .feature .body h2,
-.legends.sheet.player-sheet .feature-and-moves .feature .body h3,
-.legends.sheet.player-sheet .feature-and-moves .feature .body h4 {
+.legends.sheet.player-sheet .feature-moves .feature .body h1,
+.legends.sheet.player-sheet .feature-moves .feature .body h2,
+.legends.sheet.player-sheet .feature-moves .feature .body h3,
+.legends.sheet.player-sheet .feature-moves .feature .body h4 {
   font-family: 'BenchNine';
   font-size: 1.1rem;
   font-weight: bold;
 }
-.legends.sheet.player-sheet .feature-and-moves .moves {
+.legends.sheet.player-sheet .feature-moves .moves-techniques {
   flex: 1;
   flex-direction: column;
   margin: 0 0.5rem;
 }
-.legends.sheet.player-sheet .feature-and-moves .moves h1 {
-  border: none;
-}
-.legends.sheet.player-sheet .feature-and-moves .moves .move {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .moves .move {
   margin: 0 0 1rem;
   flex: 1;
 }
-.legends.sheet.player-sheet .feature-and-moves .moves .move h3 {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .moves .move h3 {
   margin: 0;
 }
-.legends.sheet.player-sheet .feature-and-moves .moves .move p {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .moves .move p {
   margin: 0;
 }
-.legends.sheet.player-sheet .character-and-techniques {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.legends.sheet.player-sheet .character-and-techniques .character {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques {
   flex: 1;
   margin: 0 0.5rem;
 }
-.legends.sheet.player-sheet .character-and-techniques .character label {
-  display: flex;
-  flex-direction: row;
-}
-.legends.sheet.player-sheet .character-and-techniques .character .look {
-  display: block;
-  background: white;
-  border: 2px solid #baaf6b;
-  border-radius: 0.2rem;
-  flex-direction: column;
-}
-.legends.sheet.player-sheet .character-and-techniques .character .look .title {
-  padding: 0.25rem;
-}
-.legends.sheet.player-sheet .character-and-techniques .character .look textarea {
-  font-family: "Covered By Your Grace";
-  font-size: 1.5rem;
-  font-size: 1.2rem;
-  resize: vertical;
-  width: 100%;
-  min-height: 100px;
-  border: none;
-}
-.legends.sheet.player-sheet .character-and-techniques .techniques {
-  flex: 1;
-  margin: 0 0.5rem;
-}
-.legends.sheet.player-sheet .character-and-techniques .techniques h1 {
-  border: none;
-  text-align: center;
-}
-.legends.sheet.player-sheet .character-and-techniques .techniques h1::before,
-.legends.sheet.player-sheet .character-and-techniques .techniques h1::after {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .kanji::before,
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .kanji::after {
   font-family: 'New Tegomin';
   color: #b62127;
   padding: 0;
   font-size: 70%;
   vertical-align: top;
 }
-.legends.sheet.player-sheet .character-and-techniques .techniques h1::before {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .kanji::before {
   content: '武';
 }
-.legends.sheet.player-sheet .character-and-techniques .techniques h1::after {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .kanji::after {
   content: '術';
 }
-.legends.sheet.player-sheet .character-and-techniques .techniques .technique {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique {
   margin-bottom: 0.5rem;
 }
-.legends.sheet.player-sheet .character-and-techniques .techniques .technique h3,
-.legends.sheet.player-sheet .character-and-techniques .techniques .technique h4,
-.legends.sheet.player-sheet .character-and-techniques .techniques .technique p {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h3,
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h4,
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique p {
   margin: 0;
 }
-.legends.sheet.player-sheet .character-and-techniques .techniques .technique h4 {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h4 {
   color: #b62127;
   font-size: 0.9rem;
 }
-.legends.sheet.player-sheet .character-and-techniques .techniques .technique h4 a.set-proficiency {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h4 a.set-proficiency {
   color: black;
 }
-.legends.sheet.player-sheet .character-and-techniques .techniques .technique h4 a.set-proficiency .fa-times-circle {
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h4 a.set-proficiency .fa-times-circle {
   color: #b62127 !important;
 }
-.legends p,
-.legends li {
-  font-family: 'BenchNine';
-  font-size: 1.1rem;
+.legends.sheet.player-sheet .character {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-.legends p {
-  margin: 0;
-  margin-bottom: 0.7rem;
+.legends.sheet.player-sheet .character .about {
+  flex: 1;
+  margin: 0 0.5rem;
 }
-.legends h1,
-.legends h2,
-.legends h3,
-.legends h4 {
+.legends.sheet.player-sheet .character .about textarea.look {
+  background: white;
+  border: 2px solid #baaf6b;
+  border-radius: 0.2rem;
+  resize: vertical;
+  width: 100%;
+  min-height: 100px;
   border: none;
-  font-family: inherit;
-}
-.legends h1 input,
-.legends h2 input,
-.legends h3 input,
-.legends h4 input {
-  font-family: inherit;
-  font-size: inherit;
-  font-variant: inherit;
-  text-transform: inherit;
-}
-.legends h1 {
-  font-size: 1.8rem;
-}
-.legends h2 {
-  font-size: 1.5rem;
-}
-.legends h3 {
-  font-size: 1.2rem;
-}
-.legends h4 {
-  font-size: 1.1rem;
-}
-.legends a {
-  color: #baaf6b;
-}
-.legends a:hover {
-  color: black;
-  text-shadow: 0 0 6px #baaf6b;
-}
-.legends p a {
-  color: #b62127;
-}
-.legends .block {
-  font-family: "Komikazoom";
-  text-transform: uppercase;
-}
-.legends .brush {
-  font-family: "Hey August";
-  text-transform: uppercase;
-  font-weight: normal;
-}
-.legends .title {
-  font-family: 'Village';
-  font-variant: small-caps;
-}
-.legends .hand {
-  font-family: "Covered By Your Grace";
-  font-size: 1.5rem;
-}
-.legends .large {
-  font-size: 1.5em;
-}
-.legends .small {
-  font-size: 0.8rem;
-}
-.legends .center {
-  text-align: center;
-}
-.legends .right {
-  text-align: right;
-}
-.legends .no-margin {
-  margin: 0 !important;
-}
-.legends .float-right {
-  float: right;
 }

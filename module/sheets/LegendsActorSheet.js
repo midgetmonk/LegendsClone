@@ -18,6 +18,9 @@ export default class LegendsActorSheet extends ActorSheet {
   }
 
   activateListeners(html) {
+    //Fatigue
+    html.find('.set-fatigue').click(this._onSetFatigue.bind(this));
+
     //Remove and Toggle Conditions
     html.find('.condition-toggle').click(this._onConditionToggle.bind(this));
 
@@ -30,6 +33,21 @@ export default class LegendsActorSheet extends ActorSheet {
     html.find('.set-proficiency').click(this._onSetTechniqueProficiency.bind(this));
 
     super.activateListeners(html);
+  }
+
+  _onSetFatigue(event){
+    event.preventDefault();
+
+    let element = event.currentTarget;
+    let newFatigue = element.dataset.newFatigue;
+
+    return this.actor.update({
+      data: {
+          fatigue: {
+            value: newFatigue
+          }
+      }
+    });
   }
 
   _onConditionToggle(event){

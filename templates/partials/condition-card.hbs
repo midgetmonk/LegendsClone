@@ -1,7 +1,7 @@
 <section class="item condition" data-item-id="{{_id}}">
   <div>
-    <input class="condition-toggle" type="checkbox" {{#if data.checked}}checked{{/if}} />
-    <span  class="large title">{{name}}</span>
+    <a class="condition-toggle check-box{{#if data.checked}} filled{{/if}}"></a>
+    <span class="large title">{{name}}</span>
   </div>
   {{{data.description}}}
 </section>

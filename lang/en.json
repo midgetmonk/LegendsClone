@@ -7,19 +7,24 @@
     "actor-sheet": {
       "stats": "Stats",
       "fatigue": "Fatigue",
+      "clear-fatigue": "Clear Fatigue",
       "balance": "Balance",
       "conditions": "Conditions",
       "moves": "Moves",
       "techniques": "Fighting Techniques",
-      "momentOfBalance": "Moment of Balance",
-      "growth": "Growth",
       "player": {
         "about": "Your Character",
         "training": "Training",
         "fighting-style": "Fighting Style",
         "background": "Background",
         "demeanor": "Demeanor",
-        "description": "Look, Home Town, History and Connections"
+        "description": "Look, Home Town, History and Connections",
+        "momentOfBalance": "Moment of Balance",
+        "growth": "Growth",
+        "advancements": {
+          "title": "Growth Advancements",
+          "new-move": "Take a new move from your playbook"
+        }
       }
     },
     "stats": {

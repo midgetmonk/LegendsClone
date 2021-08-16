@@ -39,10 +39,25 @@
     margin: 0;
   }
 
+  .labelled-input{
+    display: flex;
+    flex-direction: row;
+    
+    label{
+      flex: 0;
+      min-width: 80px;
+    }
+    input{
+      flex: 1;
+      border: none;
+      border-bottom: 2px solid @accent-color;
+    }
+  }
+
   .sigils {
     border-bottom: 2px solid @accent-color;
     text-align: center;
-    margin-bottom: 0;
+    //margin-bottom: 0;
     .withSigils();
   }
 
@@ -50,296 +65,43 @@
     .title-font();
   }
 
-  &.player-sheet {
-    h1, h2, h3, h4{
-      .actions{
-        float: right;
-        font-size: 80%;
-        a{
-          padding: 0 0 0 0.5rem;
-        }
-      }
+  .balance-box, .fatigue-box, .check-box{
+    display: inline-block;
+    border: 2px solid black;
+    background: white;
+
+    &.filled{
+      background: @firebender;
+      box-shadow: inset 2px 2px 0 white, inset -2px -2px 0 white;
     }
 
-    .background-demeanor {
-      margin: 0.5rem 0;
-      display: flex;
-      flex-direction: row;
-
-      .background, .demeanor{
-        flex: 1;
-        label{
-          .title-font();
-          input{
-            .hand-font();
-            background: white;
-          }
-        }
-      }
+    &.mini{
+      width: 1rem;
+      height: 1rem;
     }
+  }
 
-    .training {
-      flex: 1;
+  .check-box{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 2px;
+    margin: 0 0 -2px;
+  }
 
-      .trainings {
-        text-align: center;
-        margin: 2rem 0 1rem;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+  .balance-box, .fatigue-box{
+    transform: rotate(45deg);
+  }
 
-        label.training-type {
-          margin: 0 1rem;
-          flex: 1;
-          .title-font();
+  .fatigue-box{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 0.2rem;
+  }
 
-          img{
-            width: 3rem;
-            border: none;
-          }
-
-          &.water {
-            color: @waterbender;
-          }
-
-          &.fire {
-            color: @firebender;
-          }
-
-          &.earth {
-            color: @earthbender;
-          }
-
-          &.air {
-            color: @airbender;
-          }
-
-          &.weapons {
-            color: @weaponsmith;
-          }
-
-          &.technology {
-            color: @technologist;
-          }
-        }
-      }
-
-      .fighting-style {
-        text-align: center;
-        padding: 0.5rem;
-
-        label {
-          padding: 0.5rem;
-          background: white;
-
-          input {
-            display: inline-block;
-            width: 40%;
-            text-align: left;
-            border: none;
-          }
-
-          border: 2px solid @accent-color;
-          border-bottom: none;
-          border-radius: 0.5rem 0.5rem 0 0;
-        }
-      }
-    }
-
-    .main {
-      flex: 1;
-      flex-direction: row;
-      display: flex;
-      margin: 0 -8px 1rem;
-      padding: 0 8px;
-      border-top: 2px solid @firebender;
-      border-bottom: 2px solid @firebender;
-      box-shadow: inset 0 0 100px @accent-color;
-
-      .stats-and-fatigue,
-      .conditions {
-        flex: 3;
-        margin: 1rem 0.5rem;
-
-        .stats input {
-          text-align: center;
-          width: 2rem;
-          height: 2rem;
-          border: 3px solid black;
-          border-radius: 50%;
-          background: white;
-        }
-
-        .fatigue {
-          margin-top: 2rem;
-        }
-      }
-
-      .balance {
-        flex: 5;
-        margin: 1rem 0.5rem;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4 {
-        border: none;
-        text-align: center;
-      }
-    }
-
-    .conditions {
-      flex: 1;
-
-      .condition {
-        margin-bottom: 0.5rem;
-
-        p {
-          margin-top: 0;
-          font-size: 1rem;
-
-          &.title {
-            margin: 0;
-          }
-        }
-      }
-    }
-
-    .feature-and-moves{
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-
-      .feature{
-        flex: 1;
-        margin: 0 0.5rem;
-
-        h1{
-          a{
-            color: black;
-          }
-        }
-
-        .body{
-          h1, h2, h3, h4 {
-            .main-font();
-            font-weight: bold;
-          }
-        }
-      }
-
-      .moves {
-        flex: 1;
-        flex-direction: column;
-        margin: 0 0.5rem;
-
-        h1 {
-          border: none;
-        }
-
-        .move {
-          margin: 0 0 1rem;
-          flex: 1;
-
-          h3 {
-            margin: 0;
-          }
-
-          p {
-            margin: 0;
-          }
-        }
-      }
-    }
-
-    .character-and-techniques{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-
-      .character{
-        flex: 1;
-        margin: 0 0.5rem;
-
-        label{
-          display: flex;
-          flex-direction: row;
-        }
-
-        .look{
-          display: block;
-          background: white;
-          border: 2px solid @accent-color;
-          border-radius: 0.2rem;
-          flex-direction: column;
-
-          .title{
-            padding: 0.25rem;
-          }
-
-          textarea{
-            .hand-font();
-            font-size: 1.2rem;
-            resize: vertical;
-            width: 100%;
-            min-height: 100px;
-            border: none;
-            
-          }
-        }
-
-      }
-
-      .techniques {
-        flex: 1;
-        margin: 0 0.5rem;
-  
-        h1 {
-          border: none;
-          text-align:center;
-  
-          &::before,
-          &::after {
-            .kanji-font();
-            color: @firebender;
-            padding: 0;
-            font-size: 70%;
-            vertical-align: top;
-          }
-  
-          &::before {
-            content: '武';
-          }
-  
-          &::after {
-            content: '術';
-          }
-        }
-  
-        .technique {
-          margin-bottom: 0.5rem;
-  
-          h3, h4, p {
-            margin: 0;
-          }
-  
-          h4 {
-            color: @firebender;
-            font-size: 0.9rem;
-  
-            a.set-proficiency{
-              color: @text-color;
-  
-              .fa-times-circle {
-                color: @firebender !important;
-              }
-            }
-          }
-        }
-      }
-    }
-    
+  .far.fa-square{
+    color: black;
+  }
+  .fas.fa-square{
+    color: @accent-color;
   }
 }

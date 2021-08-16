@@ -1,17 +1,36 @@
 @import "./config.less";
 
-@import "./sheets.less";
-
 .legends {
-  p, li {
-    .main-font();
+  // Flex layout classes
+  .row{
+    display: flex;
+    flex: 0;
+    flex-direction: row;
   }
+
+  .column{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .cell {
+    flex: 1;
+  }
+
+  // Basic text
+  p, li { .main-font(); }
 
   p{
     margin: 0;
     margin-bottom: 0.7rem;
   }
 
+  input, textarea, select {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  // Headings
   h1, h2, h3, h4 {
     border: none;
     font-family: inherit;
@@ -22,14 +41,12 @@
       text-transform: inherit;
     }
   }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.2rem; }
 
-  h1 {
-    font-size: 1.8rem;
-  }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.2rem; }
-  h4 { font-size: 1.1rem; }
-
+  // Links
   a{
     color: @accent-color;
     &:hover{
@@ -38,21 +55,26 @@
     }
   }
 
-  p a{
-    color: @firebender;
-  }
-
+  // Font classes
   .block { .block-font(); }
   .brush { .brush-font(); }
   .title { .title-font(); }
   .hand { .hand-font(); }
 
+  // Sizes
   .large { font-size: 1.5em; }
   .small { font-size: 0.8rem; }
 
-  .center { text-align: center; }
-  .right{ text-align: right; }
+  // Alignment && position
+  .left { text-align: left !important; }
+  .center { text-align: center !important; }
+  .right{ text-align: right !important; }
+  .float-right { float: right; }
+  .float-left { float: left; }
   
   .no-margin { margin: 0 !important; }
-  .float-right { float: right; }
 }
+
+
+@import "./sheets.less";
+@import "./player-sheet.less";
