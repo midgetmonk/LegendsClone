@@ -18,8 +18,8 @@ export default class LegendsActorSheet extends ActorSheet {
   }
 
   activateListeners(html) {
-    //Fatigue
-    html.find('.set-fatigue').click(this._onSetFatigue.bind(this));
+    //Value tracks
+    html.find('.set-value').click(this._onSetValue.bind(this));
 
     //Remove and Toggle Conditions
     html.find('.condition-toggle').click(this._onConditionToggle.bind(this));
@@ -35,19 +35,18 @@ export default class LegendsActorSheet extends ActorSheet {
     super.activateListeners(html);
   }
 
-  _onSetFatigue(event){
-    event.preventDefault();
-
+  _onSetValue(event){
     let element = event.currentTarget;
-    let newFatigue = element.dataset.newFatigue;
+    let param = element.dataset.param;
+    let newValue = element.dataset.newValue;
 
     return this.actor.update({
       data: {
-          fatigue: {
-            value: newFatigue
-          }
+        [param]: {
+          value: newValue
+        }
       }
-    });
+    })
   }
 
   _onConditionToggle(event){
@@ -85,13 +84,11 @@ export default class LegendsActorSheet extends ActorSheet {
       data: { description: game.i18n.localize('legends.items.new.description'), ...defaultData }
     }
 
-    item = this.actor.createOwnedItem(itemData);
-    item.sheet.render(true);
+    return this.actor.createOwnedItem(itemData);
   }
 
   _onItemEdit(event){
     event.preventDefault();
-    
     let element = event.currentTarget;
     let itemId = element.closest('.item').dataset.itemId;
     let item = this.actor.getOwnedItem(itemId);
@@ -101,7 +98,6 @@ export default class LegendsActorSheet extends ActorSheet {
 
   _onItemDelete(event){
     event.preventDefault();
-    
     let element = event.currentTarget;
     let itemId = element.closest('.item').dataset.itemId;
     return this.actor.deleteOwnedItem(itemId);
@@ -109,38 +105,29 @@ export default class LegendsActorSheet extends ActorSheet {
 
   _onSetTechniqueProficiency(event){
     event.preventDefault();
-
     let element = event.currentTarget;
     let itemId = element.closest('.item').dataset.itemId;
     let item = this.actor.items.get(itemId);
     let level = element.dataset.level;
 
+    let mastered = false;
+    let practiced = false;
+
     switch(level) {
       case 'mastered':
-        return item.update({
-          data: {
-            learned: true,
-            practiced: true,
-            mastered: true
-          }
-        });
+        mastered = true;
+        practiced = true;
+        break;
       case 'practiced':
-        return item.update({
-          data: {
-            learned: true,
-            practiced: true,
-            mastered: false
-          }
-        });
-      default:
-        return item.update({
-          data: {
-            learned: true,
-            practiced: false,
-            mastered: false
-          }
-        });
+        practiced = true;
+        break;
     }
-
+    return item.update({
+      data: {
+        learned: true,
+        practiced: practiced,
+        mastered: mastered
+      }
+    });
   }
 };

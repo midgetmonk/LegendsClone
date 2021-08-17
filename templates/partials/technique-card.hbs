@@ -1,12 +1,12 @@
 <section class="item technique" data-item-id="{{_id}}">
-  <h3 class="title left">
+  <h3 class="title">
     {{name}}
     <span class="actions">
       <a class="item-edit" title="{{localize "legends.moves.edit"}}"><i class="fas fa-pen"></i></a>
       <a class="item-delete" title="{{localize "legends.moves.delete"}}"><i class="fas fa-trash"></i></a>
     </span>
   </h3>
-  <h4 class="accent title left">
+  <h4 class="fire title">
     {{ localize (tr_path "legends.techniques.approaches" data.approach) }}
     <div class="float-right">
       <a class="set-proficiency" data-level="learned" title="{{localize 'legends.techniques.proficiency.learn'}}">{{ localize "legends.techniques.proficiency.learned" }} <i class="far fa-{{#if data.learned}}times-{{/if}}circle"></i></a>

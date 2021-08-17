@@ -68,8 +68,8 @@
 }
 
 /**
- * Colours
- **/
+* Colours
+**/
 
 @bg-color: #f3efdc;
 @bg-fade-color: #d0c39f;
@@ -83,31 +83,24 @@
 @weaponsmith: #4d4d4f;
 @technologist: #6a2e7e;
 
-.water { color: @waterbender; }
-.fire { color: @firebender; }
-.earth { color: @earthbender; }
-.air { color: @airbender; }
-.weapons { color: @weaponsmith; }
-.technology { color: @technologist; }
+  .bg-fade() {
+    background-color: @bg-color;
+    background-image: linear-gradient(@bg-fade-color 0%, @bg-color 5%, @bg-color 100%);
+  }
 
-.bg-fade() {
-  background-color: @bg-color;
-  background-image: linear-gradient(@bg-fade-color 0%, @bg-color 5%, @bg-color 100%);
-}
-
-/*
-img {
-  &.fire {
-    filter: invert(15%) sepia(100%) saturate(3164%) hue-rotate(347deg) brightness(88%) contrast(89%);
+  /*
+  img {
+    &.fire {
+      filter: invert(15%) sepia(100%) saturate(3164%) hue-rotate(347deg) brightness(88%) contrast(89%);
+    }
+    &.water {
+      filter: invert(36%) sepia(71%) saturate(418%) hue-rotate(188deg) brightness(93%) contrast(93%);
+    }
+    &.earth {
+      filter: invert(29%) sepia(8%) saturate(4109%) hue-rotate(64deg) brightness(94%) contrast(67%);
+    }
+    &.air {
+      filter: invert(70%) sepia(54%) saturate(408%) hue-rotate(8deg) brightness(92%) contrast(93%);
+    }
   }
-  &.water {
-    filter: invert(36%) sepia(71%) saturate(418%) hue-rotate(188deg) brightness(93%) contrast(93%);
-  }
-  &.earth {
-    filter: invert(29%) sepia(8%) saturate(4109%) hue-rotate(64deg) brightness(94%) contrast(67%);
-  }
-  &.air {
-    filter: invert(70%) sepia(54%) saturate(408%) hue-rotate(8deg) brightness(92%) contrast(93%);
-  }
-}
-*/
+  */

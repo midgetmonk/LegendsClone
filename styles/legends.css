@@ -30,42 +30,42 @@
   src: url(fonts/New_Tegomin/NewTegomin-Regular.ttf);
 }
 /**
- * Colours
- **/
-.water {
+* Colours
+**/
+/*
+  img {
+    &.fire {
+      filter: invert(15%) sepia(100%) saturate(3164%) hue-rotate(347deg) brightness(88%) contrast(89%);
+    }
+    &.water {
+      filter: invert(36%) sepia(71%) saturate(418%) hue-rotate(188deg) brightness(93%) contrast(93%);
+    }
+    &.earth {
+      filter: invert(29%) sepia(8%) saturate(4109%) hue-rotate(64deg) brightness(94%) contrast(67%);
+    }
+    &.air {
+      filter: invert(70%) sepia(54%) saturate(408%) hue-rotate(8deg) brightness(92%) contrast(93%);
+    }
+  }
+  */
+.legends .water {
   color: #4d63a9;
 }
-.fire {
+.legends .fire {
   color: #b62127;
 }
-.earth {
+.legends .earth {
   color: #3c6733;
 }
-.air {
+.legends .air {
   color: #d4b450;
 }
-.weapons {
+.legends .weapons {
   color: #4d4d4f;
 }
-.technology {
+.legends .technology {
   color: #6a2e7e;
 }
-/*
-img {
-  &.fire {
-    filter: invert(15%) sepia(100%) saturate(3164%) hue-rotate(347deg) brightness(88%) contrast(89%);
-  }
-  &.water {
-    filter: invert(36%) sepia(71%) saturate(418%) hue-rotate(188deg) brightness(93%) contrast(93%);
-  }
-  &.earth {
-    filter: invert(29%) sepia(8%) saturate(4109%) hue-rotate(64deg) brightness(94%) contrast(67%);
-  }
-  &.air {
-    filter: invert(70%) sepia(54%) saturate(408%) hue-rotate(8deg) brightness(92%) contrast(93%);
-  }
-}
-*/
 .legends .row {
   display: flex;
   flex: 0;
@@ -268,7 +268,6 @@ img {
 .legends.sheet.player-sheet h3,
 .legends.sheet.player-sheet h4 {
   border: none;
-  text-align: center;
 }
 .legends.sheet.player-sheet h1 .actions,
 .legends.sheet.player-sheet h2 .actions,

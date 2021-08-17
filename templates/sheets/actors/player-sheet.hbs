@@ -1,7 +1,7 @@
 <form class="legends sheet player-sheet {{cssClass}}" autocomplete="off">
   <header class="sheet-header">
     <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
-    <h1 class="block charname left"><input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Name' }}"/></h1>
+    <h1 class="block charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Name' }}"/></h1>
   </header>
 
   <section class="training">
@@ -41,11 +41,11 @@
           <h2 class="brush">{{ localize "legends.actor-sheet.fatigue" }}</h2>
           <section class="boxes center">
             {{#times data.data.fatigue.max}}
-              <a class="set-fatigue fatigue-box{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-new-fatigue="{{@index}}"></a>
+              <a class="set-value fatigue-box{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
             {{/times}}
             <p>
-              <a class="set-fatigue" data-new-fatigue="0">
-                <i class="fa fa-times" data-new-fatigue="0"></i>
+              <a class="set-value fire" data-param="fatigue" data-new-value="0">
+                <i class="fa fa-times"></i>
                 {{localize "legends.actor-sheet.clear-fatigue"}}
               </a>
             </p>
@@ -57,7 +57,7 @@
       <section class="balance">
         <h2 class="block">{{ localize "legends.actor-sheet.balance" }}</h2>
         
-        <h3 class="brush left">Principle</h3>
+        <h3 class="brush">Principle</h3>
         <p class="title center">CENTER</p>
         <h3 class="brush right">Principle</h3>
       </section>
@@ -84,11 +84,11 @@
 
     <section class="moves-techniques">
       <section class="moves">
-        <h2 class="brush no-margin left">
+        <h2 class="brush no-margin">
           {{localize "legends.actor-sheet.moves"}}
         </h2>
         <p class="title small">
-          <a class="item-create" data-type="move" title="{{localize "legends.moves.add"}}">
+          <a class="item-create fire" data-type="move" title="{{localize "legends.moves.add"}}">
             <i class="fas fa-plus"></i> {{localize "legends.moves.add"}}
           </a>
         </p>
@@ -98,7 +98,7 @@
       </section>
 
       <section class="techniques">
-        <h2 class="kanji brush no-margin">
+        <h2 class="kanji brush no-margin center">
           {{localize "legends.actor-sheet.techniques"}}
         </h2>
         <p class="title small center">
@@ -115,26 +115,27 @@
 
   <section class="character">
     <section class="cell growth">
-      <h2 class="title left">
+      <h2 class="title">
         {{localize "legends.actor-sheet.player.growth"}}
         {{#times 4}}
-        <a class="condition-toggle check-box"></a>
+        <a class="check-box set-value{{#if (gte ../data.data.growth.value @index)}} filled{{/if}}" data-param="growth" data-new-value="{{@index}}"></a>
         {{/times}}
+        <a class="set-value" data-param="growth" data-new-value="0"><i class="fa fa-times"></i></a>
       </h2>
 
-      <h3 class="title left">{{localize "legends.actor-sheet.player.advancements.title"}}</h3>
+      <h3 class="title">{{localize "legends.actor-sheet.player.advancements.title"}}</h3>
       <ul>
         <li>
           {{localize "legends.actor-sheet.player.advancements.new-move"}}
           {{#times 2}}
-          <a class="condition-toggle check-box mini"></a>
+          <a class="check-box mini"></a>
           {{/times}}
         </li>
       </ul>
     </section>
 
     <section class="cell about">
-      <h3 class="block left">{{localize "legends.actor-sheet.player.about"}}</h3>
+      <h3 class="block">{{localize "legends.actor-sheet.player.about"}}</h3>
       <textarea name="data.description" class="look">{{data.data.description}}</textarea>
 
       <section class="labelled-input">
