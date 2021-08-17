@@ -7,18 +7,18 @@
   <section class="training">
     <h2 class="title sigils">{{ localize "legends.actor-sheet.player.training" }}</h2>
     <div class="trainings">
-      {{#each config.training as |name type|}}
-        <div class="training-type">
+      {{#each data.data.training as |selected type|}}
+        <div class="training-type{{#if selected}} selected{{/if}}" data-type="{{type}}">
           <img class="{{type}}" src="systems/legends/images/{{type}}3.png" />
-          <br />{{localize name}}
+          <br />{{localize (tr_path "legends.training" type)}}
         </div>
       {{/each}}
     </div>
 
     <section class="fighting-style">
       <label class="title">
-        {{ localize "legends.actor-sheet.player.fighting-style" }}:
-        <input name="data.fighting_style" type="text" value="{{data.data.fighting_style}}" class="" />
+        {{localize "legends.actor-sheet.player.fighting-style"}}:
+        <input name="data.fighting_style" type="text" value="{{data.data.fighting_style}}" class="" placeholder="{{localize "legends.actor-sheet.player.fighting-style"}}" />
       </label>
     </section>
   </section>
@@ -30,25 +30,22 @@
         <section class="stats">
           <h2 class="block">{{ localize "legends.actor-sheet.stats" }}</h2>
           {{#each data.data.stats as |val type| }}
-          <div>
+          <h3>
             <input name="data.stats.{{type}}" value="{{val}}" type="number" max="3" min="-1" class="hand" />
-            &nbsp;
-            <span class="large title">{{localize (tr_path "legends.stats" type) }}</span>
-          </div>
+            <span class="title">
+              <a class="stat-roll black" data-stat="{{type}}" data-stat-value="{{val}}">
+                {{localize (tr_path "legends.stats" type) }}
+              </a>
+            </span>
+          </h3>
           {{/each}}
         </section>
-        <section class="fatigue">
+        <section class="fatigue center">
           <h2 class="brush">{{ localize "legends.actor-sheet.fatigue" }}</h2>
           <section class="boxes center">
             {{#times data.data.fatigue.max}}
               <a class="set-value fatigue-box{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
             {{/times}}
-            <p>
-              <a class="set-value fire" data-param="fatigue" data-new-value="0">
-                <i class="fa fa-times"></i>
-                {{localize "legends.actor-sheet.clear-fatigue"}}
-              </a>
-            </p>
           </section>
         </section>
       </section>
@@ -68,18 +65,37 @@
         {{#each conditions as |condition id|}}
           {{> "systems/legends/templates/partials/condition-card.hbs" condition}}
         {{/each}}
+        {{#if (lt conditions.length 5)}}
+        <p class="title small">
+          <a class="item-create fire" data-type="condition" title="{{localize "legends.conditions.add"}}">
+            <i class="fas fa-plus"></i> {{localize "legends.conditions.add"}}
+          </a>
+        </p>
+        {{/if}}
       </section>
     </section>
   </section>
 
   <section class="feature-moves">
-    <section class="item feature">
-      <h2 class="title sigils">
-        <a class="item-edit">{{feature.name}}</a>
+    <section class="item feature" data-item-id="{{feature._id}}">
+      {{#if feature}}
+      <h2 class="title sigils menu">
+        <a class="black item-roll">{{feature.name}}</a>
       </h2>
       <section class="body">
-        {{{ feature.data.description }}}
+        {{{feature.data.description}}}
       </section>
+      {{else}}
+      <h2 class="title sigils">
+        {{localize "legends.actor-sheet.player.feature.title"}}
+      </h2>
+      <p class="center title small">
+        <a class="item-create fire" data-type="feature">
+          <i class="fas fa-plus"></i>
+          {{localize "legends.actor-sheet.player.feature.add"}}
+        </a>
+      </p>
+      {{/if}}
     </section>
 
     <section class="moves-techniques">
@@ -93,7 +109,7 @@
           </a>
         </p>
         {{#each moves as |move id|}}
-          {{> "systems/legends/templates/partials/move-card.hbs" move}}
+          {{> "systems/legends/templates/partials/move-card.hbs" move inSheet=true}}
         {{/each}}
       </section>
 
@@ -102,16 +118,18 @@
           {{localize "legends.actor-sheet.techniques"}}
         </h2>
         <p class="title small center">
-          <a class="item-create" data-type="technique" title="{{localize "legends.techniques.add"}}">
+          <a class="item-create fire" data-type="technique" title="{{localize "legends.techniques.add"}}">
             <i class="fas fa-plus"></i> {{localize "legends.techniques.add"}}
           </a>
         </p>
         {{#each techniques as |technique id|}}
-          {{> "systems/legends/templates/partials/technique-card.hbs" technique}}
+          {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true}}
         {{/each}}
       </section>
     </section>
   </section>
+
+  <hr />
 
   <section class="character">
     <section class="cell growth">
@@ -120,7 +138,6 @@
         {{#times 4}}
         <a class="check-box set-value{{#if (gte ../data.data.growth.value @index)}} filled{{/if}}" data-param="growth" data-new-value="{{@index}}"></a>
         {{/times}}
-        <a class="set-value" data-param="growth" data-new-value="0"><i class="fa fa-times"></i></a>
       </h2>
 
       <h3 class="title">{{localize "legends.actor-sheet.player.advancements.title"}}</h3>
@@ -136,11 +153,25 @@
 
     <section class="cell about">
       <h3 class="block">{{localize "legends.actor-sheet.player.about"}}</h3>
-      <textarea name="data.description" class="look">{{data.data.description}}</textarea>
+      
+      <section class="labelled-input">
+        <label class="title" for="data.background">{{localize "legends.actor-sheet.player.background"}}:</label>
+        <input type="text" name="data.background" value="{{data.data.background}}" />
+      </section>
 
       <section class="labelled-input">
-        <label class="title" for="data.hometown">Home town:</label>
-        <input type="text" name="data.hometown" />
+        <label class="title" for="data.demeanor">{{localize "legends.actor-sheet.player.demeanor"}}:</label>
+        <input type="text" name="data.demeanor" value="{{data.data.demeanor}}" />
+      </section>
+
+      <label class="look">
+        <span class="title"><strong>{{localize "legends.actor-sheet.player.look"}}:</strong></span>
+        <textarea name="data.description" class="look">{{data.data.description}}</textarea>
+      </label>
+
+      <section class="labelled-input">
+        <label class="title" for="data.hometown">{{{localize "legends.actor-sheet.player.hometown"}}}:</label>
+        <input type="text" name="data.hometown" value="{{data.data.hometown}}" />
       </section>
     </section>
   </section>

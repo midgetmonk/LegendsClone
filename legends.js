@@ -1,4 +1,5 @@
 import { legends } from "./module/config.js";
+import LegendsItem from "./module/LegendsItem.js";
 import LegendsActorSheet from "./module/sheets/LegendsActorSheet.js";
 import LegendsItemSheet from "./module/sheets/LegendsItemSheet.js";
 import preloadHandlebarsTemplates from "./module/preload.js";
@@ -7,6 +8,7 @@ Hooks.once("init", function(){
   console.log("legends | Initialising Avatar Legends RPG system...");
 
   CONFIG.legends = legends;
+  CONFIG.Item.entityClass = LegendsItem;
 
   //DataTransferItemList.unregisterSheet("core", ItemSheet);
   Items.registerSheet("legends", LegendsItemSheet, { makeDefault: true });

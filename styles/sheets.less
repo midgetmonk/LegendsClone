@@ -19,6 +19,17 @@
   padding: 0.5rem;
   .bg-fade();
 
+  * > .on-hover{
+    display: none;
+  }
+  *:hover > .on-hover{
+    display: inline;
+
+    &.block{
+      display: block;
+    }
+  }
+
   header.sheet-header {
     flex: none;
   }
@@ -42,20 +53,20 @@
   .labelled-input{
     display: flex;
     flex-direction: row;
+    margin: 0.5rem 0;
     
     label{
-      flex: 0;
-      min-width: 80px;
+      font-weight: bold;
     }
     input{
-      flex: 1;
+      margin: 0 0 0 0.5rem;
       border: none;
       border-bottom: 2px solid @accent-color;
     }
   }
 
   .sigils {
-    border-bottom: 2px solid @accent-color;
+    border-bottom: 2px solid @accent-color !important;
     text-align: center;
     //margin-bottom: 0;
     .withSigils();

@@ -66,6 +66,9 @@
 .legends .technology {
   color: #6a2e7e;
 }
+.legends .black {
+  color: #111;
+}
 .legends .row {
   display: flex;
   flex: 0;
@@ -175,6 +178,15 @@
   background-color: #f3efdc;
   background-image: linear-gradient(#d0c39f 0%, #f3efdc 5%, #f3efdc 100%);
 }
+.legends.sheet * > .on-hover {
+  display: none;
+}
+.legends.sheet *:hover > .on-hover {
+  display: inline;
+}
+.legends.sheet *:hover > .on-hover.block {
+  display: block;
+}
 .legends.sheet header.sheet-header {
   flex: none;
 }
@@ -197,18 +209,18 @@
 .legends.sheet .labelled-input {
   display: flex;
   flex-direction: row;
+  margin: 0.5rem 0;
 }
 .legends.sheet .labelled-input label {
-  flex: 0;
-  min-width: 80px;
+  font-weight: bold;
 }
 .legends.sheet .labelled-input input {
-  flex: 1;
+  margin: 0 0 0 0.5rem;
   border: none;
   border-bottom: 2px solid #baaf6b;
 }
 .legends.sheet .sigils {
-  border-bottom: 2px solid #baaf6b;
+  border-bottom: 2px solid #baaf6b !important;
   text-align: center;
 }
 .legends.sheet .sigils::before {
@@ -273,7 +285,6 @@
 .legends.sheet.player-sheet h2 .actions,
 .legends.sheet.player-sheet h3 .actions,
 .legends.sheet.player-sheet h4 .actions {
-  float: right;
   font-size: 80%;
 }
 .legends.sheet.player-sheet h1 .actions a,
@@ -281,9 +292,6 @@
 .legends.sheet.player-sheet h3 .actions a,
 .legends.sheet.player-sheet h4 .actions a {
   padding: 0 0 0 0.5rem;
-}
-.legends.sheet.player-sheet a.item-create {
-  color: #b62127;
 }
 .legends.sheet.player-sheet .training {
   display: block;
@@ -303,10 +311,12 @@
   font-family: 'Village';
   font-variant: small-caps;
   opacity: 0.5;
+  filter: grayscale(50%);
 }
 .legends.sheet.player-sheet .training .trainings .training-type.selected,
 .legends.sheet.player-sheet .training .trainings .training-type:hover {
   opacity: 1;
+  filter: grayscale(0%);
 }
 .legends.sheet.player-sheet .training .trainings .training-type img {
   width: 3rem;
@@ -351,6 +361,7 @@
   border: 3px solid black;
   border-radius: 50%;
   background: white;
+  margin: 0 0.5rem;
 }
 .legends.sheet.player-sheet .main .stats-fatigue .fatigue,
 .legends.sheet.player-sheet .main .conditions .fatigue {
@@ -430,7 +441,9 @@
 }
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques {
   flex: 1;
-  margin: 0 0.5rem;
+  margin: 1rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid #baaf6b;
 }
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .kanji::before,
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .kanji::after {
@@ -459,7 +472,7 @@
   font-size: 0.9rem;
 }
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h4 a.set-proficiency {
-  color: black;
+  color: #111;
 }
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h4 a.set-proficiency .fa-times-circle {
   color: #b62127 !important;
@@ -473,12 +486,17 @@
   flex: 1;
   margin: 0 0.5rem;
 }
-.legends.sheet.player-sheet .character .about textarea.look {
+.legends.sheet.player-sheet .character .about .look {
   background: white;
   border: 2px solid #baaf6b;
   border-radius: 0.2rem;
+  display: block;
+  padding: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+.legends.sheet.player-sheet .character .about .look textarea {
   resize: vertical;
   width: 100%;
-  min-height: 100px;
+  min-height: 150px;
   border: none;
 }

@@ -1,0 +1,10 @@
+{{#if (gte total 10)}}
+<h2>{{localize "legends.roll.full"}}</h2>
+{{else}}
+{{#if (gte total 7)}}
+<h2>{{localize "legends.roll.hit"}}</h2>
+{{else}}
+<h2>{{localize "legends.roll.miss"}}</h2>
+{{/if}}
+{{/if}}
+{{> "templates/dice/roll.html" }}

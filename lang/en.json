@@ -4,6 +4,10 @@
       "description": "Description",
       "none": "None"
     },
+    "context-menu": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
     "actor-sheet": {
       "stats": "Stats",
       "fatigue": "Fatigue",
@@ -14,16 +18,21 @@
       "techniques": "Fighting Techniques",
       "player": {
         "about": "Your Character",
+        "look": "Look",
         "training": "Training",
         "fighting-style": "Fighting Style",
         "background": "Background",
         "demeanor": "Demeanor",
-        "description": "Look, Home Town, History and Connections",
+        "hometown": "Home&nbsp;town",
         "momentOfBalance": "Moment of Balance",
         "growth": "Growth",
         "advancements": {
           "title": "Growth Advancements",
           "new-move": "Take a new move from your playbook"
+        },
+        "feature": {
+          "title": "Feature",
+          "add": "Add Feature"
         }
       }
     },
@@ -36,7 +45,7 @@
     "items": {
       "new": {
         "name": "New Item",
-        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.</p>"
+        "description": "<p>Lorem ipsum dolor sit amet.</p>"
       }
     },
     "moves": {
@@ -44,6 +53,9 @@
       "edit": "Edit Move",
       "delete": "Delete Move",
       "new": "New Move"
+    },
+    "conditions": {
+      "add": "Add Condition"
     },
     "techniques": {
       "approach": "Approach",
@@ -70,6 +82,11 @@
       "air": "Airbending",
       "weapons": "Weapons",
       "technology": "Technology"
+    },
+    "roll":{
+      "miss": "Miss",
+      "hit": "Hit",
+      "full": "Full Hit!"
     }
   }
 }

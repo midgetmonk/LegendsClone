@@ -8,7 +8,6 @@
     border: none;
 
     .actions{
-      float: right;
       font-size: 80%;
       a{
         padding: 0 0 0 0.5rem;
@@ -33,9 +32,11 @@
         .title-font();
         
         opacity: 0.5;
+        filter: grayscale(50%);
 
         &.selected, &:hover{
           opacity: 1;
+          filter: grayscale(0%);
         }
 
         img{
@@ -80,13 +81,16 @@
       flex: 2;
       margin: 1rem 0.5rem;
 
-      .stats input {
-        text-align: center;
-        width: 2rem;
-        height: 2rem;
-        border: 3px solid black;
-        border-radius: 50%;
-        background: white;
+      .stats{
+        input {
+          text-align: center;
+          width: 2rem;
+          height: 2rem;
+          border: 3px solid black;
+          border-radius: 50%;
+          background: white;
+          margin: 0 0.5rem;
+        }
       }
 
       .fatigue {
@@ -179,7 +183,9 @@
 
       .techniques {
         flex: 1;
-        margin: 0 0.5rem;
+        margin: 1rem 0;
+        padding-top: 1rem;
+        border-top: 1px solid @accent-color;
   
         .kanji {
           &::before,
@@ -233,14 +239,20 @@
       flex: 1;
       margin: 0 0.5rem;
 
-      textarea.look{
+      .look{
         background: white;
         border: 2px solid @accent-color;
         border-radius: 0.2rem;
-        resize: vertical;
-        width: 100%;
-        min-height: 100px;
-        border: none;
+        display:block;
+        padding: 0.25rem;
+        margin-bottom: 0.5rem;
+
+        textarea{
+          resize: vertical;
+          width: 100%;
+          min-height: 150px;
+          border: none;
+        }
       }
 
     }
