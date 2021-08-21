@@ -119,17 +119,18 @@
       margin: 1rem 0.5rem;
 
       .balance-black, .balance-white{
+        padding: 0.5rem;
         input{
           border: none;
           padding: 0.25rem 0.5rem;
         }
-        a{ color: @firebender; }
       }
 
       .balance-black{
         background: url('./images/brush_black.png');
-        background-size: cover;
-        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top left;
         color: white;
         border-radius: 0.25rem 0.25rem 0 0;
         input{
@@ -138,8 +139,9 @@
       }
       .balance-white{
         background: url('./images/brush_white.png');
-        background-size: cover;
-        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top right;
         color: @text-color;
         input{
           color: @text-color;

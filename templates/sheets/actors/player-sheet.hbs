@@ -56,7 +56,7 @@
         
         <h3 class="brush balance-black">
           <input name="data.balance.topTrack" value="{{data.data.balance.topTrack}}" placeholder="Principle" />
-          <a class="rollPrinciple" data-principle-name="{{data.data.balance.topTrack}}" data-principle-value="{{data.data.balance.value}}" data-principle-negative="false"><i class="fas fa-dice float-right pad-25"></i></a>
+          <a class="principle-roll" data-name="{{data.data.balance.topTrack}}" data-value="{{data.data.balance.value}}" data-negative="false"><i class="fas fa-dice"></i></a>
         </h3>
 
         <ul class="balance-track black">
@@ -70,13 +70,13 @@
         </ul>
 
         <ul class="balance-center-track">
-          <li class="set-center" data-current-center="3"><a class="check-box{{#if (eq data.data.balance.center 3)}} filled{{/if}}"></a></li>
-          <li class="set-center" data-current-center="2"><a class="check-box{{#if (eq data.data.balance.center 2)}} filled{{/if}}"></a></li>
-          <li class="set-center" data-current-center="1"><a class="check-box{{#if (eq data.data.balance.center 1)}} filled{{/if}}"></a></li>
-          <li class="set-center" data-current-center="0"><a class="check-box{{#if (eq data.data.balance.center 0)}} filled{{/if}}"></a></li>
-          <li class="set-center" data-current-center="-1"><a class="check-box{{#if (eq data.data.balance.center -1)}} filled{{/if}}"></a></li>
-          <li class="set-center" data-current-center="-2"><a class="check-box{{#if (eq data.data.balance.center -2)}} filled{{/if}}"></a></li>
-          <li class="set-center" data-current-center="-3"><a class="check-box{{#if (eq data.data.balance.center -3)}} filled{{/if}}"></a></li>
+          <li class="set-balance-center" data-current-center="3"><a class="check-box{{#if (eq data.data.balance.center 3)}} filled{{/if}}"></a></li>
+          <li class="set-balance-center" data-current-center="2"><a class="check-box{{#if (eq data.data.balance.center 2)}} filled{{/if}}"></a></li>
+          <li class="set-balance-center" data-current-center="1"><a class="check-box{{#if (eq data.data.balance.center 1)}} filled{{/if}}"></a></li>
+          <li class="set-balance-center" data-current-center="0"><a class="check-box{{#if (eq data.data.balance.center 0)}} filled{{/if}}"></a></li>
+          <li class="set-balance-center" data-current-center="-1"><a class="check-box{{#if (eq data.data.balance.center -1)}} filled{{/if}}"></a></li>
+          <li class="set-balance-center" data-current-center="-2"><a class="check-box{{#if (eq data.data.balance.center -2)}} filled{{/if}}"></a></li>
+          <li class="set-balance-center" data-current-center="-3"><a class="check-box{{#if (eq data.data.balance.center -3)}} filled{{/if}}"></a></li>
         </ul>
 
         <ul class="balance-track white">
@@ -89,7 +89,7 @@
           <li class="set-balance{{#if (eq data.data.balance.value -3)}} selected{{/if}}" data-current-balance="-3"><span class="num">+3</span></li>
         </ul>
         <h3 class="brush right balance-white">
-          <a class="rollPrinciple" data-principle-name="{{data.data.balance.bottomTrack}}" data-principle-value="{{data.data.balance.value}}" data-principle-negative="true"><i class="fas fa-dice float-left pad-25"></i></a>
+          <a class="principle-roll" data-name="{{data.data.balance.bottomTrack}}" data-value="{{data.data.balance.value}}" data-negative="true"><i class="fas fa-dice"></i></a>
           <input name="data.balance.bottomTrack" value="{{data.data.balance.bottomTrack}}" placeholder="Principle" />
         </h3>
       </section>

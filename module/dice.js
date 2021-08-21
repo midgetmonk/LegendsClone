@@ -12,7 +12,7 @@ export async function RollStat({
   let renderedRoll = await rollResult.render();
 
   let templateContext = {
-    name: game.i18n.localize(`legends.stats.${statName}`),
+    name: statName,
     roll: renderedRoll,
     total: rollResult._total
   }

@@ -393,19 +393,20 @@
   flex: 3;
   margin: 1rem 0.5rem;
 }
+.legends.sheet.player-sheet .main .balance .balance-black,
+.legends.sheet.player-sheet .main .balance .balance-white {
+  padding: 0.5rem;
+}
 .legends.sheet.player-sheet .main .balance .balance-black input,
 .legends.sheet.player-sheet .main .balance .balance-white input {
   border: none;
   padding: 0.25rem 0.5rem;
 }
-.legends.sheet.player-sheet .main .balance .balance-black a,
-.legends.sheet.player-sheet .main .balance .balance-white a {
-  color: #b62127;
-}
 .legends.sheet.player-sheet .main .balance .balance-black {
   background: url('images/brush_black.png');
-  background-size: cover;
-  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top left;
   color: white;
   border-radius: 0.25rem 0.25rem 0 0;
 }
@@ -414,8 +415,9 @@
 }
 .legends.sheet.player-sheet .main .balance .balance-white {
   background: url('images/brush_white.png');
-  background-size: cover;
-  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top right;
   color: #111;
 }
 .legends.sheet.player-sheet .main .balance .balance-white input {

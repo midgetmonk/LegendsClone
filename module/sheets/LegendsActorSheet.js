@@ -47,6 +47,10 @@ export default class LegendsActorSheet extends ActorSheet {
       //trainings
       html.find('.training-type').click(this._onToggleTrainingType.bind(this));
 
+      // Set balance and center
+      html.find('.set-balance').click(this._onSetBalanceValue.bind(this));
+      html.find('.set-balance-center').click(this._onSetBalanceCenter.bind(this));
+
       //Remove and Toggle Conditions
       html.find('.condition-toggle').click(this._onConditionToggle.bind(this));
 
@@ -64,9 +68,35 @@ export default class LegendsActorSheet extends ActorSheet {
     if(this.actor.owner){
       html.find('.stat-roll').click(this._onStatRoll.bind(this));
       html.find('.item-roll').click(this._onItemRoll.bind(this));
+
+      html.find('.principle-roll').click(this._onPrincipleRoll.bind(this));
     }
 
     super.activateListeners(html);
+  }
+
+  _onSetBalanceValue(event){
+    event.preventDefault();
+    let element = event.currentTarget;
+    return this.actor.update({
+      data: {
+        balance: {
+          value: parseInt(element.dataset.currentBalance)
+        }
+      }
+    });
+  }
+
+  _onSetBalanceCenter(event){
+    event.preventDefault();
+    let element = event.currentTarget;
+    return this.actor.update({
+      data: {
+        balance: {
+          center: parseInt(element.dataset.currentCenter)
+        }
+      }
+    });
   }
 
   _onItemRoll(event){
@@ -79,9 +109,21 @@ export default class LegendsActorSheet extends ActorSheet {
   }
 
   _onStatRoll(event){
-    const statValue = event.currentTarget.dataset.statValue;
-    const statName = event.currentTarget.dataset.statName;
-    Dice.RollStat({ statValue: statValue, statName: statName });
+    const value = event.currentTarget.dataset.statValue;
+    const name = game.i18n.localize(`legends.stats.${event.currentTarget.dataset.statName}`);
+    Dice.RollStat({ statValue: value, statName: name });
+  }
+
+  _onPrincipleRoll(event){
+    const name = event.currentTarget.dataset.name;
+    const negative = event.currentTarget.dataset.negative;
+    let value = event.currentTarget.dataset.value;
+
+    if(negative === 'true'){
+      value = -value;
+    }
+
+    Dice.RollStat({ statValue: value, statName: name });
   }
 
   _onToggleTrainingType(event){
