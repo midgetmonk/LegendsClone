@@ -1,10 +1,15 @@
-{{#if (gte total 10)}}
-<h2>{{localize "legends.roll.full"}}</h2>
-{{else}}
-{{#if (gte total 7)}}
-<h2>{{localize "legends.roll.hit"}}</h2>
-{{else}}
-<h2>{{localize "legends.roll.miss"}}</h2>
-{{/if}}
-{{/if}}
-{{> "templates/dice/roll.html" }}
+<div class="legends">
+  <h3 class="title">{{localize "legends.roll.stat" stat=name}}</h3>
+
+  
+  {{#if (gte total 10)}}
+  <h2 class="earth brush">{{localize "legends.roll.full"}}</h2>
+  {{else}}
+  {{#if (gte total 7)}}
+  <h2 class="water brush">{{localize "legends.roll.hit"}}</h2>
+  {{else}}
+  <h2 class="fire brush">{{localize "legends.roll.miss"}}</h2>
+  {{/if}}
+  {{/if}}
+  {{{roll}}}
+</div>

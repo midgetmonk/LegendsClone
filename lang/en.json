@@ -84,6 +84,7 @@
       "technology": "Technology"
     },
     "roll":{
+      "stat": "Rolling {stat}",
       "miss": "Miss",
       "hit": "Hit",
       "full": "Full Hit!"

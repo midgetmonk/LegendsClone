@@ -169,6 +169,9 @@
 .legends .float-left {
   float: left;
 }
+.legends .pad-25 {
+  margin: 0.25rem;
+}
 .legends .no-margin {
   margin: 0 !important;
 }
@@ -390,6 +393,80 @@
   flex: 3;
   margin: 1rem 0.5rem;
 }
+.legends.sheet.player-sheet .main .balance .balance-black input,
+.legends.sheet.player-sheet .main .balance .balance-white input {
+  border: none;
+  padding: 0.25rem 0.5rem;
+}
+.legends.sheet.player-sheet .main .balance .balance-black a,
+.legends.sheet.player-sheet .main .balance .balance-white a {
+  color: #b62127;
+}
+.legends.sheet.player-sheet .main .balance .balance-black {
+  background: url('images/brush_black.png');
+  background-size: cover;
+  background-position: center center;
+  color: white;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+.legends.sheet.player-sheet .main .balance .balance-black input {
+  color: white;
+}
+.legends.sheet.player-sheet .main .balance .balance-white {
+  background: url('images/brush_white.png');
+  background-size: cover;
+  background-position: center center;
+  color: #111;
+}
+.legends.sheet.player-sheet .main .balance .balance-white input {
+  color: #111;
+  text-align: right;
+}
+.legends.sheet.player-sheet .main .balance ul.balance-track,
+.legends.sheet.player-sheet .main .balance ul.balance-center-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: none;
+  margin: 0;
+  padding: 0;
+}
+.legends.sheet.player-sheet .main .balance ul.balance-track li,
+.legends.sheet.player-sheet .main .balance ul.balance-center-track li {
+  list-style: none;
+  flex: 1;
+  text-align: center;
+}
+.legends.sheet.player-sheet .main .balance ul.balance-track.black li .num,
+.legends.sheet.player-sheet .main .balance ul.balance-track.white li .num {
+  display: inline-block;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.5rem;
+  padding: 4px 0;
+  border: 2px solid;
+}
+.legends.sheet.player-sheet .main .balance ul.balance-track.black li.selected .num,
+.legends.sheet.player-sheet .main .balance ul.balance-track.white li.selected .num {
+  background: #b62127;
+  color: white;
+}
+.legends.sheet.player-sheet .main .balance ul.balance-track.black li .num {
+  background: #111;
+  color: white;
+  border-color: #111;
+}
+.legends.sheet.player-sheet .main .balance ul.balance-track.black li:hover .num {
+  border-color: #b62127;
+}
+.legends.sheet.player-sheet .main .balance ul.balance-track.white li .num {
+  background: white;
+  color: #111;
+  border-color: white;
+}
+.legends.sheet.player-sheet .main .balance ul.balance-track.white li:hover .num {
+  border-color: #b62127;
+}
 .legends.sheet.player-sheet .conditions {
   flex: 1;
 }
@@ -499,4 +576,17 @@
   width: 100%;
   min-height: 150px;
   border: none;
+}
+.message-content .legends {
+  padding: 0.5rem;
+  margin: 0 -5px -5px;
+  background: #f3efdc;
+  border-top: 1px solid #baaf6b;
+}
+.message-content .legends h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+.message-content .legends h4 {
+  font-size: 0.9rem;
 }

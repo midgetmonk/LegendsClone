@@ -80,7 +80,8 @@ export default class LegendsActorSheet extends ActorSheet {
 
   _onStatRoll(event){
     const statValue = event.currentTarget.dataset.statValue;
-    Dice.RollStat({ statValue: statValue });
+    const statName = event.currentTarget.dataset.statName;
+    Dice.RollStat({ statValue: statValue, statName: statName });
   }
 
   _onToggleTrainingType(event){
