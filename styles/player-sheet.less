@@ -4,6 +4,17 @@
 @import "./sheets.less";
 
 .legends.sheet.player-sheet {
+  .kanji{
+    &::before,
+    &::after {
+      .kanji-font();
+      color: @firebender;
+      padding: 0;
+      font-size: 70%;
+      vertical-align: text-top;
+    }
+  }
+
   h1, h2, h3, h4{
     border: none;
 
@@ -30,13 +41,12 @@
         margin: 0 1rem;
         flex: 1;
         .title-font();
-        
-        opacity: 0.5;
-        filter: grayscale(50%);
-
-        &.selected, &:hover{
-          opacity: 1;
-          filter: grayscale(0%);
+        opacity: 0.25;
+        &:hover{
+          opacity: 0.75;
+        }
+        &.selected{
+          opacity: 1 !important;
         }
 
         img{
@@ -74,6 +84,7 @@
     padding: 0 8px;
     border-top: 2px solid @firebender;
     border-bottom: 2px solid @firebender;
+    background: @bg-fade-color;
     box-shadow: inset 0 0 100px @accent-color;
 
     .stats-fatigue,
@@ -102,14 +113,6 @@
 
         .boxes{
           font-size: 2rem;
-          .fa-circle, .fa-times-circle{
-            background: white;
-            border-radius: 50%
-          }
-          
-          .fa-times-circle{
-            color: @firebender;
-          }
         }
       }
     }
@@ -161,6 +164,10 @@
           flex: 1;
           text-align: center;
         }
+      }
+
+      ul.balance-center-track {
+        height: 1.2rem;
       }
 
       ul.balance-track{
@@ -272,19 +279,10 @@
       .techniques {
         flex: 1;
         margin: 1rem 0;
-        padding-top: 1rem;
         border-top: 1px solid @accent-color;
+        padding-top: 1rem;
   
         .kanji {
-          &::before,
-          &::after {
-            .kanji-font();
-            color: @firebender;
-            padding: 0;
-            font-size: 70%;
-            vertical-align: top;
-          }
-  
           &::before {
             content: '武';
           }
@@ -322,6 +320,36 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    border-top: 1px solid @accent-color;
+    padding-top: 0.5rem;
+
+    .moment-of-balance{
+      margin-bottom: 0.5rem;
+
+      .kanji{
+        text-align: center;
+        &::before, &::after{
+          position: relative;
+          top: 4px;
+        }
+        &::before{
+          content: '平';
+        }
+        &::after{
+          content: '衡';
+        }
+      }
+
+      .moment {
+        border: 2px solid @accent-color;
+        border-radius: 4px;
+        padding: 8px;
+
+        p:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
 
     .about{
       flex: 1;
@@ -334,6 +362,10 @@
         display:block;
         padding: 0.25rem;
         margin-bottom: 0.5rem;
+
+        .title{
+          padding: 4px;
+        }
 
         textarea{
           resize: vertical;

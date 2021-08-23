@@ -11,7 +11,7 @@ export default class LegendsActorSheet extends ActorSheet {
       icon: '<i class="fas fa-edit"></i>',
       callback: element => {
         let itemId = element.closest('.item').data('item-id');
-        const item = this.actor.getOwnedItem(itemId);
+        const item = this.actor.items.get(itemId);
         item.sheet.render(true);
       }
     },
@@ -33,6 +33,7 @@ export default class LegendsActorSheet extends ActorSheet {
     context.conditions = filter_and_sort(context.items, 'condition');
     context.moves = filter_and_sort(context.items, 'move');
     context.techniques = filter_and_sort(context.items, 'technique');
+    context.momentOfBalance = filter_and_sort(context.items, 'moment-of-balance')[0];
 
     console.log(context);
     return context;
@@ -43,6 +44,10 @@ export default class LegendsActorSheet extends ActorSheet {
       //Generic value tracks
       html.find('.set-value').click(this._onSetValue.bind(this));
       html.find('.set-value').contextmenu(this._onClearValue.bind(this));
+
+      // Advancements
+      html.find('.set-adv-value').click(this._onSetAdvancementValue.bind(this));
+      html.find('.set-adv-value').contextmenu(this._onClearAdvancement.bind(this));
 
       //trainings
       html.find('.training-type').click(this._onToggleTrainingType.bind(this));
@@ -103,7 +108,7 @@ export default class LegendsActorSheet extends ActorSheet {
     event.preventDefault();
     let element = event.currentTarget;
     let itemId = element.closest('.item').dataset.itemId;
-    let item = this.actor.getOwnedItem(itemId);
+    let item = this.actor.items.get(itemId);
 
     return item.roll();
   }
@@ -152,6 +157,41 @@ export default class LegendsActorSheet extends ActorSheet {
         }
       }
     })
+  }
+
+  _onSetAdvancementValue(event){
+    let element = event.currentTarget;
+    let name = element.dataset.param;
+    let newValue = element.dataset.newValue;
+
+    return this.actor.update({
+      data: {
+        growth: {
+          advancements: {
+            [name]: {
+              value: newValue
+            }
+          }
+        }
+      }
+    });
+  }
+
+  _onClearAdvancement(event){
+    let element = event.currentTarget;
+    let name = element.dataset.param;
+
+    return this.actor.update({
+      data: {
+        growth: {
+          advancements: {
+            [name]: {
+              value: 0
+            }
+          }
+        }
+      }
+    });
   }
 
   _onClearValue(event){
@@ -209,7 +249,7 @@ export default class LegendsActorSheet extends ActorSheet {
     event.preventDefault();
     let element = event.currentTarget;
     let itemId = element.closest('.item').dataset.itemId;
-    let item = this.actor.getOwnedItem(itemId);
+    let item = this.actor.items.get(itemId);
 
     item.sheet.render(true);
   }

@@ -69,6 +69,9 @@
 .legends .black {
   color: #111;
 }
+.legends .white {
+  color: white;
+}
 .legends .row {
   display: flex;
   flex: 0;
@@ -179,7 +182,7 @@
   margin: -8px;
   padding: 0.5rem;
   background-color: #f3efdc;
-  background-image: linear-gradient(#d0c39f 0%, #f3efdc 5%, #f3efdc 100%);
+  background-image: linear-gradient(#dfd3b4 0%, #f3efdc 5%, #f3efdc 100%);
 }
 .legends.sheet * > .on-hover {
   display: none;
@@ -207,6 +210,7 @@
 .legends.sheet textarea {
   background: none;
   border: 1px solid #baaf6b;
+  border-radius: 0;
   margin: 0;
 }
 .legends.sheet .labelled-input {
@@ -278,6 +282,14 @@
 .legends.sheet .fas.fa-square {
   color: #baaf6b;
 }
+.legends.sheet.player-sheet .kanji::before,
+.legends.sheet.player-sheet .kanji::after {
+  font-family: 'New Tegomin';
+  color: #b62127;
+  padding: 0;
+  font-size: 70%;
+  vertical-align: text-top;
+}
 .legends.sheet.player-sheet h1,
 .legends.sheet.player-sheet h2,
 .legends.sheet.player-sheet h3,
@@ -313,13 +325,13 @@
   flex: 1;
   font-family: 'Village';
   font-variant: small-caps;
-  opacity: 0.5;
-  filter: grayscale(50%);
+  opacity: 0.25;
 }
-.legends.sheet.player-sheet .training .trainings .training-type.selected,
 .legends.sheet.player-sheet .training .trainings .training-type:hover {
-  opacity: 1;
-  filter: grayscale(0%);
+  opacity: 0.75;
+}
+.legends.sheet.player-sheet .training .trainings .training-type.selected {
+  opacity: 1 !important;
 }
 .legends.sheet.player-sheet .training .trainings .training-type img {
   width: 3rem;
@@ -349,6 +361,7 @@
   padding: 0 8px;
   border-top: 2px solid #b62127;
   border-bottom: 2px solid #b62127;
+  background: #dfd3b4;
   box-shadow: inset 0 0 100px #baaf6b;
 }
 .legends.sheet.player-sheet .main .stats-fatigue,
@@ -377,17 +390,6 @@
 .legends.sheet.player-sheet .main .stats-fatigue .fatigue .boxes,
 .legends.sheet.player-sheet .main .conditions .fatigue .boxes {
   font-size: 2rem;
-}
-.legends.sheet.player-sheet .main .stats-fatigue .fatigue .boxes .fa-circle,
-.legends.sheet.player-sheet .main .conditions .fatigue .boxes .fa-circle,
-.legends.sheet.player-sheet .main .stats-fatigue .fatigue .boxes .fa-times-circle,
-.legends.sheet.player-sheet .main .conditions .fatigue .boxes .fa-times-circle {
-  background: white;
-  border-radius: 50%;
-}
-.legends.sheet.player-sheet .main .stats-fatigue .fatigue .boxes .fa-times-circle,
-.legends.sheet.player-sheet .main .conditions .fatigue .boxes .fa-times-circle {
-  color: #b62127;
 }
 .legends.sheet.player-sheet .main .balance {
   flex: 3;
@@ -437,6 +439,9 @@
   list-style: none;
   flex: 1;
   text-align: center;
+}
+.legends.sheet.player-sheet .main .balance ul.balance-center-track {
+  height: 1.2rem;
 }
 .legends.sheet.player-sheet .main .balance ul.balance-track.black li .num,
 .legends.sheet.player-sheet .main .balance ul.balance-track.white li .num {
@@ -521,16 +526,8 @@
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques {
   flex: 1;
   margin: 1rem 0;
-  padding-top: 1rem;
   border-top: 1px solid #baaf6b;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .kanji::before,
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .kanji::after {
-  font-family: 'New Tegomin';
-  color: #b62127;
-  padding: 0;
-  font-size: 70%;
-  vertical-align: top;
+  padding-top: 1rem;
 }
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .kanji::before {
   content: '武';
@@ -560,6 +557,33 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  border-top: 1px solid #baaf6b;
+  padding-top: 0.5rem;
+}
+.legends.sheet.player-sheet .character .moment-of-balance {
+  margin-bottom: 0.5rem;
+}
+.legends.sheet.player-sheet .character .moment-of-balance .kanji {
+  text-align: center;
+}
+.legends.sheet.player-sheet .character .moment-of-balance .kanji::before,
+.legends.sheet.player-sheet .character .moment-of-balance .kanji::after {
+  position: relative;
+  top: 4px;
+}
+.legends.sheet.player-sheet .character .moment-of-balance .kanji::before {
+  content: '平';
+}
+.legends.sheet.player-sheet .character .moment-of-balance .kanji::after {
+  content: '衡';
+}
+.legends.sheet.player-sheet .character .moment-of-balance .moment {
+  border: 2px solid #baaf6b;
+  border-radius: 4px;
+  padding: 8px;
+}
+.legends.sheet.player-sheet .character .moment-of-balance .moment p:last-child {
+  margin-bottom: 0;
 }
 .legends.sheet.player-sheet .character .about {
   flex: 1;
@@ -573,6 +597,9 @@
   padding: 0.25rem;
   margin-bottom: 0.5rem;
 }
+.legends.sheet.player-sheet .character .about .look .title {
+  padding: 4px;
+}
 .legends.sheet.player-sheet .character .about .look textarea {
   resize: vertical;
   width: 100%;
@@ -585,9 +612,33 @@
   background: #f3efdc;
   border-top: 1px solid #baaf6b;
 }
+.message-content .legends .kanji::before,
+.message-content .legends .kanji::after {
+  font-family: 'New Tegomin';
+  color: #b62127;
+  padding: 0;
+  font-size: 70%;
+  vertical-align: text-top;
+}
+.message-content .legends .moment-of-balance .kanji {
+  text-align: center;
+}
+.message-content .legends .moment-of-balance .kanji::before,
+.message-content .legends .moment-of-balance .kanji::after {
+  position: relative;
+  top: 4px;
+}
+.message-content .legends .moment-of-balance .kanji::before {
+  content: '平';
+}
+.message-content .legends .moment-of-balance .kanji::after {
+  content: '衡';
+}
 .message-content .legends h3 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-family: 'Village';
+  font-variant: small-caps;
 }
 .message-content .legends h4 {
   font-size: 0.9rem;

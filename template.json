@@ -46,14 +46,21 @@
         "passion": 0
       },
       "balance": {
-        "topTrack": "Principle",
-        "bottomTrack": "Principle",
+        "topTrack": "",
+        "bottomTrack": "",
         "center": 0,
         "value": 0
       },
       "growth": {
         "value": 0,
-        "max": 4
+        "max": 4,
+        "advancements": {
+          "playbook-move": { "max": 2, "value": 0 },
+          "other-move": { "max": 2, "value": 0 },
+          "raise-stat": { "max": 0 },
+          "shift-center": { "max": 2, "value": 0 },
+          "moment": { "max": 2, "value": 0 }
+        }
       }
     },
     "npc": {
@@ -71,8 +78,8 @@
       "move",
       "technique",
       "condition",
-      "balanceTrack",
-      "feature"
+      "feature",
+      "moment-of-balance"
     ],
     "templates": {
       "hasDescription": {
@@ -97,6 +104,8 @@
       "templates": ["hasDescription"],
       "checked": false
     },
-    "balanceTrack": {}
+    "moment-of-balance": {
+      "templates": ["hasDescription"]
+    }
   }
 }

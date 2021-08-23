@@ -18,17 +18,22 @@
       "techniques": "Fighting Techniques",
       "player": {
         "about": "Your Character",
-        "look": "Look",
+        "look": "Look, History & Connections",
         "training": "Training",
         "fighting-style": "Fighting Style",
         "background": "Background",
         "demeanor": "Demeanor",
         "hometown": "Home&nbsp;town",
         "momentOfBalance": "Moment of Balance",
+        "add-moment": "Add Moment of Balance",
         "growth": "Growth",
         "advancements": {
           "title": "Growth Advancements",
-          "new-move": "Take a new move from your playbook"
+          "playbook-move": "Take a new move from your playbook",
+          "other-move": "Take a new move from another playbook",
+          "raise-stat": "Raise a stat by +1 (maximum of +2 to any stat)",
+          "shift-center": "Shift your Center by one step",
+          "moment": "Unlock your Moment of Balance"
         },
         "feature": {
           "title": "Feature",
