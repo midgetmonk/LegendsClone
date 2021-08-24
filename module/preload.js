@@ -4,6 +4,7 @@ export default async function preloadHandlebarsTemplates(){
     "systems/legends/templates/partials/move-card.hbs",
     "systems/legends/templates/partials/condition-card.hbs",
     "systems/legends/templates/partials/technique-card.hbs",
+    "systems/legends/templates/partials/labelled-input.hbs",
     "templates/dice/roll.html"
   ];
 

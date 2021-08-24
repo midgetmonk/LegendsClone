@@ -1,5 +1,5 @@
 {{#unless inSheet}}<div class="legends">{{/unless}}
-<section class="item technique" data-item-id="{{_id}}">
+<section class="item technique" data-item-id="{{_id}}" data-npc="{{npc}}">
   <h3 class="title">
     {{#if inSheet}}
     <a class="item-roll black menu">{{name}}</a>
@@ -7,27 +7,29 @@
     {{name}}
     {{/if}}
   </h3>
-  <h4 class="fire title">
+  <h4 class="title{{#if (and npc inSheet)}} weapons{{else}} fire{{/if}}">
     {{localize (tr_path "legends.techniques.approaches" data.approach)}}
-    <div class="float-right">
-      {{#if inSheet}}
-      <a class="set-proficiency" data-level="learned" title="{{localize 'legends.techniques.proficiency.learn'}}">{{localize "legends.techniques.proficiency.learned"}} <i class="far fa-{{#if data.learned}}times-{{/if}}circle"></i></a>
-      &nbsp;
-      <a class="set-proficiency" data-level="practiced" title="{{localize 'legends.techniques.proficiency.practice'}}">{{localize "legends.techniques.proficiency.practiced"}} <i class="far fa-{{#if data.practiced}}times-{{/if}}circle"></i></a>
-      &nbsp;
-      <a class="set-proficiency" data-level="mastered" title="{{localize 'legends.techniques.proficiency.master'}}">{{localize "legends.techniques.proficiency.mastered"}} <i class="far fa-{{#if data.mastered}}times-{{/if}}circle"></i></a>
-      {{else}}
-        {{#if data.mastered}}
-        {{localize "legends.techniques.proficiency.mastered"}}
+    {{#unless (or npc data.basic)}}
+      <div class="float-right">
+        {{#if inSheet}}
+        <a class="set-proficiency" data-level="learned" title="{{localize 'legends.techniques.proficiency.learn'}}">{{localize "legends.techniques.proficiency.learned"}} <i class="far fa-{{#if data.learned}}times-{{/if}}circle"></i></a>
+        &nbsp;
+        <a class="set-proficiency" data-level="practiced" title="{{localize 'legends.techniques.proficiency.practice'}}">{{localize "legends.techniques.proficiency.practiced"}} <i class="far fa-{{#if data.practiced}}times-{{/if}}circle"></i></a>
+        &nbsp;
+        <a class="set-proficiency" data-level="mastered" title="{{localize 'legends.techniques.proficiency.master'}}">{{localize "legends.techniques.proficiency.mastered"}} <i class="far fa-{{#if data.mastered}}times-{{/if}}circle"></i></a>
         {{else}}
-          {{#if data.practiced}}
-          {{localize "legends.techniques.proficiency.practiced"}}
+          {{#if data.mastered}}
+          {{localize "legends.techniques.proficiency.mastered"}}
           {{else}}
-          {{localize "legends.techniques.proficiency.learned"}}
+            {{#if data.practiced}}
+            {{localize "legends.techniques.proficiency.practiced"}}
+            {{else}}
+            {{localize "legends.techniques.proficiency.learned"}}
+            {{/if}}
           {{/if}}
         {{/if}}
-      {{/if}}
-    </div>
+      </div>
+    {{/unless}}
   </h4>
   {{{ data.description }}}
 </section>

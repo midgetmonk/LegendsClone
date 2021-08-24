@@ -1,0 +1,84 @@
+<form class="legends sheet npc-sheet {{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
+    <h1 class="block charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Name' }}"/></h1>
+    <select>
+      {{#select data.data.level}}
+        {{#each config.npcLevels as |name type|}}
+          <option value="{{type}}">{{localize name}} {{localize "legends.actor-sheet.npc.levels.npc" }}</option>
+        {{/each}}
+      {{/select}}
+    </select>
+  </header>
+
+  <section class="body">
+    <section class="description-drive">
+      {{> "systems/legends/templates/partials/description-editor.hbs" }}
+
+      {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.drive" label="legends.actor-sheet.npc.drive" value=data.data.drive}}
+    </section>
+
+    <section class="principle">
+      <h1 class="title row">
+        {{localize "legends.actor-sheet.principle"}}:
+        <section class="cell cell-3">
+          <input type="text" name="data.balance.label" value="{{data.data.balance.label}}" placeholder="{{localize "legends.actor-sheet.principle"}}" />
+        </section>
+
+        <section class="track cell cell-2">
+          {{#if (gt data.data.balance.max 0)}}
+            <a class="check-box set-value{{#if (gte data.data.balance.value 0)}} filled{{/if}}" data-param="balance" data-new-value="0"><span class="num">+0</span></a>
+          {{/if}}
+          {{#times data.data.balance.max}}
+            <a class="check-box set-value{{#if (gte ../data.data.balance.value @index)}} filled{{/if}}" data-param="balance" data-new-value="{{@index}}"><span class="num">+{{@index}}</span></a>
+          {{/times}}
+        </section>
+      </h1>
+    </section>
+
+    <section class="technique-conditions row">
+      <section class="technique-container cell cell-3">
+        <h1 class="title">{{localize "legends.actor-sheet.npc.technique"}}</h1>
+        {{#unless techniques}}
+          <p class="title small">
+            <a class="item-create fire" data-type="technique" title="{{localize "legends.moves.add"}}">
+              <i class="fas fa-plus"></i> {{localize "legends.techniques.add"}}
+            </a>
+          </p>
+        {{/unless}}
+        {{#each techniques as |technique id|}}
+          {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true npc=true}}
+        {{/each}}
+      </section>
+
+      <section class="conditions cell cell">
+        <h1 class="title">{{ localize "legends.actor-sheet.conditions" }}</h1>
+        <p class="title small">
+          <a class="item-create fire" data-type="condition" title="{{localize "legends.conditions.add"}}">
+            <i class="fas fa-plus"></i> {{localize "legends.conditions.add"}}
+          </a>
+        </p>
+        {{#each conditions as |condition id|}}
+          {{> "systems/legends/templates/partials/condition-card.hbs" condition npc=true}}
+        {{/each}}
+      </section>
+    </section>
+
+    <section class="fatigue">
+      <h1 class="title">{{localize "legends.actor-sheet.fatigue"}}
+        <a class="decrease-fatigue"><i class="fas fa-minus"></i></a>
+        <a class="increase-fatigue"><i class="fas fa-plus"></i></a>
+      </h1>
+      <section class="fatigue-boxes">
+      {{#times data.data.fatigue.max}}
+        <a class="check-box set-value{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
+        {{#if (modulus 5 @index)}}
+          {{#unless (eq @index ../data.data.fatigue.max)}}
+            |
+          {{/unless}}
+        {{/if}}
+      {{/times}}
+      </section>
+    </section>
+  </section>
+</form>

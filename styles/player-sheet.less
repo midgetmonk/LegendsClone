@@ -123,6 +123,7 @@
 
       .balance-black, .balance-white{
         padding: 0.5rem;
+        border-radius: 0.5rem;
         input{
           border: none;
           padding: 0.25rem 0.5rem;
@@ -130,21 +131,24 @@
       }
 
       .balance-black{
-        background: url('./images/brush_black.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: top left;
+        // background: url('./images/brush_black.png');
+        // background-size: contain;
+        // background-repeat: no-repeat;
+        // background-position: top left;
         color: white;
-        border-radius: 0.25rem 0.25rem 0 0;
+        background-image: linear-gradient(to right, @text-color 0%, @text-color 50%, rgba(0,0,0,0) 90%);
+        margin-bottom: 0;
+        
         input{
           color: white;
         }
       }
       .balance-white{
-        background: url('./images/brush_white.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: top right;
+        // background: url('./images/brush_white.png');
+        // background-size: contain;
+        // background-repeat: no-repeat;
+        // background-position: top right;
+        background-image: linear-gradient(to left, white 0%, white 50%, rgba(0,0,0,0) 90%);
         color: @text-color;
         input{
           color: @text-color;

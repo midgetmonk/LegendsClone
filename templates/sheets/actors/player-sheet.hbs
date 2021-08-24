@@ -216,26 +216,17 @@
 
     <section class="cell about">
       <h3 class="block">{{localize "legends.actor-sheet.player.about"}}</h3>
-      
-      <section class="labelled-input">
-        <label class="title" for="data.background">{{localize "legends.actor-sheet.player.background"}}:</label>
-        <input type="text" name="data.background" value="{{data.data.background}}" />
-      </section>
 
-      <section class="labelled-input">
-        <label class="title" for="data.demeanor">{{localize "legends.actor-sheet.player.demeanor"}}:</label>
-        <input type="text" name="data.demeanor" value="{{data.data.demeanor}}" />
-      </section>
+      {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.playbook" label="legends.actor-sheet.player.playbook" value=data.data.playbook}}
+      {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.background" label="legends.actor-sheet.player.background" value=data.data.background}}
+      {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.demeanor" label="legends.actor-sheet.player.demeanor" value=data.data.demeanor}}
 
       <label class="look">
         <span class="title"><strong>{{localize "legends.actor-sheet.player.look"}}:</strong></span>
         <textarea name="data.description" class="look">{{data.data.description}}</textarea>
       </label>
 
-      <section class="labelled-input">
-        <label class="title" for="data.hometown">{{{localize "legends.actor-sheet.player.hometown"}}}:</label>
-        <input type="text" name="data.hometown" value="{{data.data.hometown}}" />
-      </section>
+      {{> "systems/legends/templates/partials/labelled-input.hbs" '' name="data.hometown" label="legends.actor-sheet.player.hometown" value=data.data.hometown}}
     </section>
   </section>
 </form>

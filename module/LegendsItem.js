@@ -6,7 +6,7 @@ export default class LegendsItem extends Item {
     "moment-of-balance": "systems/legends/templates/partials/moment-card.hbs"
   };
 
-  async roll(){
+  async roll(npc = false){
     let chatData = {
       user: game.user._id,
       speaker: ChatMessage.getSpeaker()
@@ -14,7 +14,8 @@ export default class LegendsItem extends Item {
 
     let cardData = {
       ...this.data,
-      owner: this.actor.id
+      owner: this.actor.id,
+      npc: npc
     }
 
     chatData.content = await renderTemplate(this.chatTemplate[this.type], cardData);

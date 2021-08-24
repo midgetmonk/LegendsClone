@@ -66,8 +66,8 @@
     "npc": {
       "templates": ["hasDescription", "hasFatigue", "npcBalance"],
       "drive": "",
-      "balance": { "max": 1 },
-      "fatigue": { "max": 3 }
+      "level": "",
+      "group": false
     },
     "legend": {
       "templates": ["hasDescription"]

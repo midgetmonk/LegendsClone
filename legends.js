@@ -29,4 +29,10 @@ Hooks.once("init", function(){
     let full_path = path+"."+key;
     return full_path;
   });
+
+  Handlebars.registerHelper("modulus", function(mod, index, content){
+    if(index % mod == 0){
+      return content;
+    }
+  });
 });

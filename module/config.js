@@ -21,3 +21,9 @@ legends.training = {
   "weapons": "legends.training.weapons",
   "technology": "legends.training.technology"
 }
+
+legends.npcLevels = {
+  "minor": "legends.actor-sheet.npc.levels.minor",
+  "moderate": "legends.actor-sheet.npc.levels.moderate",
+  "major": "legends.actor-sheet.npc.levels.major"
+}

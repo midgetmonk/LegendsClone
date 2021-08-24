@@ -9,6 +9,7 @@
       "delete": "Delete"
     },
     "actor-sheet": {
+      "principle": "Principle",
       "stats": "Stats",
       "fatigue": "Fatigue",
       "clear-fatigue": "Clear Fatigue",
@@ -23,7 +24,8 @@
         "fighting-style": "Fighting Style",
         "background": "Background",
         "demeanor": "Demeanor",
-        "hometown": "Home&nbsp;town",
+        "hometown": "Home&nbsp;Town",
+        "playbook": "Playbook",
         "momentOfBalance": "Moment of Balance",
         "add-moment": "Add Moment of Balance",
         "growth": "Growth",
@@ -38,6 +40,17 @@
         "feature": {
           "title": "Feature",
           "add": "Add Feature"
+        }
+      },
+      "npc": {
+        "drive": "Drive",
+        "technique": "Technique",
+        "levels": {
+          "minor": "Minor",
+          "moderate": "Moderate",
+          "major": "Major",
+          "group": "Group",
+          "npc": "NPC"
         }
       }
     },

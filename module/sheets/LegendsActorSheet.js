@@ -81,9 +81,38 @@ export default class LegendsActorSheet extends ActorSheet {
       html.find('.item-roll').click(this._onItemRoll.bind(this));
 
       html.find('.principle-roll').click(this._onPrincipleRoll.bind(this));
+
+      if(this.actor.type == "npc"){
+        html.find('.decrease-fatigue').click(this._onDecreaseNPCFatigue.bind(this));
+        html.find('.increase-fatigue').click(this._onIncreaseNPCFatigue.bind(this));
+      }
     }
 
     super.activateListeners(html);
+  }
+
+  _onIncreaseNPCFatigue(event){
+    event.preventDefault();
+    let newFatigueMax = this.actor.data.data.fatigue.max + 1;
+    return this.actor.update({
+      data: {
+        fatigue: {
+          max: newFatigueMax
+        }
+      }
+    });
+  }
+
+  _onDecreaseNPCFatigue(event){
+    event.preventDefault();
+    let newFatigueMax = Math.max((this.actor.data.data.fatigue.max - 1), 0);
+    return this.actor.update({
+      data: {
+        fatigue: {
+          max: newFatigueMax
+        }
+      }
+    });
   }
 
   _onSetBalanceValue(event){
@@ -113,10 +142,12 @@ export default class LegendsActorSheet extends ActorSheet {
   _onItemRoll(event){
     event.preventDefault();
     let element = event.currentTarget;
-    let itemId = element.closest('.item').dataset.itemId;
+    let dataset = element.closest('.item').dataset;
+    let itemId = dataset.itemId;
     let item = this.actor.items.get(itemId);
+    let npc = dataset.npc;
 
-    return item.roll();
+    return item.roll(npc);
   }
 
   _onStatRoll(event){

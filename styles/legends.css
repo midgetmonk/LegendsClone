@@ -32,22 +32,6 @@
 /**
 * Colours
 **/
-/*
-  img {
-    &.fire {
-      filter: invert(15%) sepia(100%) saturate(3164%) hue-rotate(347deg) brightness(88%) contrast(89%);
-    }
-    &.water {
-      filter: invert(36%) sepia(71%) saturate(418%) hue-rotate(188deg) brightness(93%) contrast(93%);
-    }
-    &.earth {
-      filter: invert(29%) sepia(8%) saturate(4109%) hue-rotate(64deg) brightness(94%) contrast(67%);
-    }
-    &.air {
-      filter: invert(70%) sepia(54%) saturate(408%) hue-rotate(8deg) brightness(92%) contrast(93%);
-    }
-  }
-  */
 .legends .water {
   color: #4d63a9;
 }
@@ -85,6 +69,12 @@
 .legends .cell {
   flex: 1;
 }
+.legends .cell.cell-2 {
+  flex: 2 !important;
+}
+.legends .cell.cell-3 {
+  flex: 3 !important;
+}
 .legends p,
 .legends li {
   font-family: 'BenchNine';
@@ -98,6 +88,9 @@
 .legends textarea,
 .legends select {
   font-family: Arial, Helvetica, sans-serif;
+}
+.legends img {
+  border: none;
 }
 .legends h1,
 .legends h2,
@@ -175,6 +168,9 @@
 .legends .pad-25 {
   margin: 0.25rem;
 }
+.legends .pad-50 {
+  margin: 0.5rem;
+}
 .legends .no-margin {
   margin: 0 !important;
 }
@@ -220,6 +216,7 @@
 }
 .legends.sheet .labelled-input label {
   font-weight: bold;
+  line-height: 1.5rem;
 }
 .legends.sheet .labelled-input input {
   margin: 0 0 0 0.5rem;
@@ -398,6 +395,7 @@
 .legends.sheet.player-sheet .main .balance .balance-black,
 .legends.sheet.player-sheet .main .balance .balance-white {
   padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 .legends.sheet.player-sheet .main .balance .balance-black input,
 .legends.sheet.player-sheet .main .balance .balance-white input {
@@ -405,21 +403,15 @@
   padding: 0.25rem 0.5rem;
 }
 .legends.sheet.player-sheet .main .balance .balance-black {
-  background: url('images/brush_black.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top left;
   color: white;
-  border-radius: 0.25rem 0.25rem 0 0;
+  background-image: linear-gradient(to right, #111 0%, #111 50%, rgba(0, 0, 0, 0) 90%);
+  margin-bottom: 0;
 }
 .legends.sheet.player-sheet .main .balance .balance-black input {
   color: white;
 }
 .legends.sheet.player-sheet .main .balance .balance-white {
-  background: url('images/brush_white.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top right;
+  background-image: linear-gradient(to left, white 0%, white 50%, rgba(0, 0, 0, 0) 90%);
   color: #111;
 }
 .legends.sheet.player-sheet .main .balance .balance-white input {
@@ -605,6 +597,80 @@
   width: 100%;
   min-height: 150px;
   border: none;
+}
+.legends.sheet.npc-sheet .body h1 {
+  border-bottom: 2px solid #baaf6b;
+  font-size: 1.5rem;
+}
+.legends.sheet.npc-sheet .body h2 {
+  font-size: 1.2rem;
+}
+.legends.sheet.npc-sheet .body .description-drive {
+  margin: 1rem;
+}
+.legends.sheet.npc-sheet .body .description-drive .description {
+  flex: 1;
+  display: flex;
+  height: 100%;
+}
+.legends.sheet.npc-sheet .body .description-drive .description .editor {
+  height: 150px;
+  width: 100%;
+}
+.legends.sheet.npc-sheet .body .principle {
+  margin: 1rem;
+}
+.legends.sheet.npc-sheet .body .principle input {
+  border: none;
+  padding: 0 0.25rem;
+}
+.legends.sheet.npc-sheet .body .principle .track {
+  text-align: right;
+  margin-bottom: -1.5rem;
+}
+.legends.sheet.npc-sheet .body .principle .check-box {
+  width: 2rem;
+  height: 2rem;
+  transform: rotate(45deg);
+  color: #111;
+  position: relative;
+  margin: 0.25rem;
+}
+.legends.sheet.npc-sheet .body .principle .check-box .num {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  transform: rotate(-45deg);
+  width: 2.8rem;
+  height: 2.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+.legends.sheet.npc-sheet .body .principle .check-box.filled .num {
+  color: white;
+}
+.legends.sheet.npc-sheet .body .technique-conditions .technique-container,
+.legends.sheet.npc-sheet .body .technique-conditions .conditions {
+  margin: 1rem;
+}
+.legends.sheet.npc-sheet .body .technique-conditions .technique-container .technique h3,
+.legends.sheet.npc-sheet .body .technique-conditions .conditions .technique h3,
+.legends.sheet.npc-sheet .body .technique-conditions .technique-container .technique h4,
+.legends.sheet.npc-sheet .body .technique-conditions .conditions .technique h4 {
+  margin: 0;
+}
+.legends.sheet.npc-sheet .body .technique-conditions .technique-container .technique h3,
+.legends.sheet.npc-sheet .body .technique-conditions .conditions .technique h3 {
+  font-size: 1.1rem;
+}
+.legends.sheet.npc-sheet .body .technique-conditions .technique-container .technique h4,
+.legends.sheet.npc-sheet .body .technique-conditions .conditions .technique h4 {
+  font-size: 1rem;
+}
+.legends.sheet.npc-sheet .body .fatigue {
+  margin: 1rem;
 }
 .message-content .legends {
   padding: 0.5rem;
