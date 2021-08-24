@@ -3,10 +3,16 @@ export async function RollStat({
   statName = null
 } = {}){
   const messageTemplate = "systems/legends/templates/partials/stat-roll.hbs";
+
+  let neg = statValue < 0;
+  let abs_stat = Math.abs(statValue);
+
   let rollData = {
-    stat: statValue
+    operator: (neg ? '-' : '+'),
+    stat: abs_stat
   }
-  let rollFormula = "2d6 + @stat";
+
+  let rollFormula = "2d6 @operator @stat";
   let rollResult = new Roll(rollFormula, rollData).roll();
   
   let renderedRoll = await rollResult.render();
