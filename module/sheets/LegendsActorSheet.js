@@ -1,6 +1,12 @@
 import { filter_and_sort } from "../helpers.js";
 import * as Dice from "../dice.js";
 export default class LegendsActorSheet extends ActorSheet {
+  static get defaultOptions(){
+    return mergeObject(super.defaultOptions, {
+      width: 850
+    });
+  }
+
   get template(){
     return `systems/legends/templates/sheets/actors/${this.actor.data.type}-sheet.hbs`;
   };

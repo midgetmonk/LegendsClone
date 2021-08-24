@@ -169,7 +169,9 @@
       <section class="item moment-of-balance" data-item-id="{{momentOfBalance._id}}">
       {{#if momentOfBalance}}
         <h2 class="title kanji balance menu">
-          <a class="item-roll black">{{localize "legends.actor-sheet.player.momentOfBalance"}}</a>
+          <a class="item-roll black">
+            {{localize "legends.actor-sheet.player.momentOfBalance"}}
+          </a>
         </h2>
         <div class="moment">
           {{{momentOfBalance.data.description}}}
@@ -178,11 +180,14 @@
         <h2 class="title kanji balance">
           {{localize "legends.actor-sheet.player.momentOfBalance"}}
         </h2>
-        <p class="title small center">
-          <a class="item-create fire" data-type="moment-of-balance" title="{{localize "legends.moves.add"}}">
-            <i class="fas fa-plus"></i> {{localize "legends.actor-sheet.player.add-moment"}}
-          </a>
-        </p>
+        <div class="moment">
+          <p class="title small center">
+            <a class="item-create fire" data-type="moment-of-balance" title="{{localize "legends.moves.add"}}">
+              <i class="fas fa-plus"></i>
+              {{localize "legends.actor-sheet.player.add-moment"}}
+            </a>
+          </p>
+        </div>
       {{/if}}
       </section>
 
