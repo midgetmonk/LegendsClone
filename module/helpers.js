@@ -8,3 +8,9 @@ export function filter_and_sort(collection, type) {
     return 1;
   })
 };
+
+export function filter_techniques(collection, approach) {
+  return collection.filter((element) => {
+    return element.data.approach == approach
+  });
+}

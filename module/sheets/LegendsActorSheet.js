@@ -1,4 +1,4 @@
-import { filter_and_sort } from "../helpers.js";
+import { filter_and_sort, filter_techniques } from "../helpers.js";
 import * as Dice from "../dice.js";
 export default class LegendsActorSheet extends ActorSheet {
   static get defaultOptions(){
@@ -38,7 +38,13 @@ export default class LegendsActorSheet extends ActorSheet {
     context.feature = filter_and_sort(context.items, 'feature')[0];
     context.conditions = filter_and_sort(context.items, 'condition');
     context.moves = filter_and_sort(context.items, 'move');
-    context.techniques = filter_and_sort(context.items, 'technique');
+    context.techniques = {}; //filter_and_sort(context.items, 'technique');
+
+    for (const [k, _v] of Object.entries(context.config.approaches)) { 
+      let sorted = filter_and_sort(context.items, 'technique');
+      let filtered = filter_techniques(sorted, k);
+      context.techniques[k] = filtered;
+    }
     context.momentOfBalance = filter_and_sort(context.items, 'moment-of-balance')[0];
 
     console.log(context);

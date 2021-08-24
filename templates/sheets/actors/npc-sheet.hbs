@@ -46,8 +46,10 @@
             </a>
           </p>
         {{/unless}}
-        {{#each techniques as |technique id|}}
-          {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true npc=true}}
+        {{#each techniques as |techniques approach|}}
+          {{#each techniques as |technique id|}}
+            {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true npc=true}}
+          {{/each}}
         {{/each}}
       </section>
 
