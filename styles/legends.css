@@ -487,7 +487,7 @@
 }
 .legends.sheet.player-sheet .feature-moves .feature {
   flex: 1;
-  margin: 0 0.5rem;
+  margin: 0 1rem;
 }
 .legends.sheet.player-sheet .feature-moves .feature h2 a {
   color: black;
@@ -503,7 +503,7 @@
 .legends.sheet.player-sheet .feature-moves .moves-techniques {
   flex: 1;
   flex-direction: column;
-  margin: 0 0.5rem;
+  margin: 0 1rem;
 }
 .legends.sheet.player-sheet .feature-moves .moves-techniques .moves .move {
   margin: 0 0 1rem;
@@ -552,34 +552,38 @@
   border-top: 1px solid #baaf6b;
   padding-top: 0.5rem;
 }
-.legends.sheet.player-sheet .character .moment-of-balance {
+.legends.sheet.player-sheet .character .growth {
+  flex: 1;
+  margin: 0 1rem;
+}
+.legends.sheet.player-sheet .character .growth .moment-of-balance {
   margin-bottom: 0.5rem;
 }
-.legends.sheet.player-sheet .character .moment-of-balance .kanji {
+.legends.sheet.player-sheet .character .growth .moment-of-balance .kanji {
   text-align: center;
 }
-.legends.sheet.player-sheet .character .moment-of-balance .kanji::before,
-.legends.sheet.player-sheet .character .moment-of-balance .kanji::after {
+.legends.sheet.player-sheet .character .growth .moment-of-balance .kanji::before,
+.legends.sheet.player-sheet .character .growth .moment-of-balance .kanji::after {
   position: relative;
   top: 4px;
 }
-.legends.sheet.player-sheet .character .moment-of-balance .kanji::before {
+.legends.sheet.player-sheet .character .growth .moment-of-balance .kanji::before {
   content: '平';
 }
-.legends.sheet.player-sheet .character .moment-of-balance .kanji::after {
+.legends.sheet.player-sheet .character .growth .moment-of-balance .kanji::after {
   content: '衡';
 }
-.legends.sheet.player-sheet .character .moment-of-balance .moment {
+.legends.sheet.player-sheet .character .growth .moment-of-balance .moment {
   border: 2px solid #baaf6b;
   border-radius: 4px;
   padding: 8px;
 }
-.legends.sheet.player-sheet .character .moment-of-balance .moment p:last-child {
+.legends.sheet.player-sheet .character .growth .moment-of-balance .moment p:last-child {
   margin-bottom: 0;
 }
 .legends.sheet.player-sheet .character .about {
   flex: 1;
-  margin: 0 0.5rem;
+  margin: 0 1rem;
 }
 .legends.sheet.player-sheet .character .about .look {
   background: white;

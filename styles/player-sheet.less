@@ -244,7 +244,7 @@
 
     .feature{
       flex: 1;
-      margin: 0 0.5rem;
+      margin: 0 1rem;
 
       h2{
         a{
@@ -263,7 +263,7 @@
     .moves-techniques {
       flex: 1;
       flex-direction: column;
-      margin: 0 0.5rem;
+      margin: 0 1rem;
 
       .moves{
         .move {
@@ -327,37 +327,42 @@
     border-top: 1px solid @accent-color;
     padding-top: 0.5rem;
 
-    .moment-of-balance{
-      margin-bottom: 0.5rem;
+    .growth{
+      flex: 1;
+      margin: 0 1rem;
 
-      .kanji{
-        text-align: center;
-        &::before, &::after{
-          position: relative;
-          top: 4px;
-        }
-        &::before{
-          content: '平';
-        }
-        &::after{
-          content: '衡';
-        }
-      }
+      .moment-of-balance{
+        margin-bottom: 0.5rem;
 
-      .moment {
-        border: 2px solid @accent-color;
-        border-radius: 4px;
-        padding: 8px;
+        .kanji{
+          text-align: center;
+          &::before, &::after{
+            position: relative;
+            top: 4px;
+          }
+          &::before{
+            content: '平';
+          }
+          &::after{
+            content: '衡';
+          }
+        }
 
-        p:last-child{
-          margin-bottom: 0;
+        .moment {
+          border: 2px solid @accent-color;
+          border-radius: 4px;
+          padding: 8px;
+
+          p:last-child{
+            margin-bottom: 0;
+          }
         }
       }
     }
 
     .about{
       flex: 1;
-      margin: 0 0.5rem;
+      margin: 0 1rem;
 
       .look{
         background: white;
