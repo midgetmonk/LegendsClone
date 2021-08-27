@@ -1,7 +1,15 @@
 <form class="legends sheet player-sheet {{cssClass}}" autocomplete="off">
   <header class="sheet-header">
-    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
-    <h1 class="block charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Name' }}"/></h1>
+    <section class="row">
+      <section class="playbook cell">
+        <h1 class="block playbook"><input name="data.playbook" type="text" value="{{data.data.playbook}}" placeholder="{{localize "legends.actor-sheet.player.playbook"}}"/></h1>
+      </section>
+      <section class="name cell cell-3 row">
+        <label class="title name-label">{{localize "legends.actor-sheet.name"}}:</label>
+        <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "legends.actor-sheet.name"}}"/>
+      </section>
+    </section>
+    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64" />
   </header>
 
   <section class="training">
@@ -18,7 +26,7 @@
     <section class="fighting-style">
       <label class="title">
         {{localize "legends.actor-sheet.player.fighting-style"}}:
-        <input name="data.fighting_style" type="text" value="{{data.data.fighting_style}}" class="" placeholder="{{localize "legends.actor-sheet.player.fighting-style"}}" />
+        <input name="data.fighting_style" type="text" value="{{data.data.fighting_style}}" placeholder="{{localize "legends.actor-sheet.player.fighting-style"}}" />
       </label>
     </section>
   </section>
@@ -219,7 +227,6 @@
     <section class="cell about">
       <h3 class="block">{{localize "legends.actor-sheet.player.about"}}</h3>
 
-      {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.playbook" label="legends.actor-sheet.player.playbook" value=data.data.playbook}}
       {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.background" label="legends.actor-sheet.player.background" value=data.data.background}}
       {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.demeanor" label="legends.actor-sheet.player.demeanor" value=data.data.demeanor}}
 

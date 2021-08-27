@@ -9,6 +9,7 @@
       "delete": "Delete"
     },
     "actor-sheet": {
+      "name": "Name",
       "principle": "Principle",
       "stats": "Stats",
       "fatigue": "Fatigue",

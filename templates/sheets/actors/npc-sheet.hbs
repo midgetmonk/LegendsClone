@@ -1,14 +1,20 @@
 <form class="legends sheet npc-sheet {{cssClass}}" autocomplete="off">
   <header class="sheet-header">
     <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
-    <h1 class="block charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Name' }}"/></h1>
-    <select>
-      {{#select data.data.level}}
-        {{#each config.npcLevels as |name type|}}
-          <option value="{{type}}">{{localize name}} {{localize "legends.actor-sheet.npc.levels.npc" }}</option>
-        {{/each}}
-      {{/select}}
-    </select>
+    <section class="row">
+      <section class="cell cell-3">
+        <h1 class="block charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "legends.actor-sheet.name"}}"/></h1>
+      </section>
+      <section class="cell cell-2 npc-level">
+        <select class="block">
+          {{#select data.data.level}}
+            {{#each config.npcLevels as |name type|}}
+              <option value="{{type}}">{{localize name}} {{localize "legends.actor-sheet.npc.levels.npc" }}</option>
+            {{/each}}
+          {{/select}}
+        </select>
+      </section>
+    </section>
   </header>
 
   <section class="body">
