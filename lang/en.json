@@ -106,7 +106,23 @@
       "stat": "Rolling {stat}",
       "miss": "Miss",
       "hit": "Hit",
-      "full": "Full Hit!"
+      "full": "Full Hit!",
+      "dialog": {
+        "title": "Roll Options - {name}",
+        "penalty": "Penalty",
+        "forward": "Forward",
+        "ongoing": "Ongoing",
+        "submit": "Roll"
+      }
+    },
+    "dialog": {
+      "cancel": "Cancel"
+    }
+  },
+  "SETTINGS": {
+    "showRollOptions": {
+      "name": "Always show roll options dialog",
+      "label": "Hold shift to show it otherwise."
     }
   }
 }

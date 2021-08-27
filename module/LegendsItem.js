@@ -14,7 +14,7 @@ export default class LegendsItem extends Item {
 
     let cardData = {
       ...this.data,
-      owner: this.actor.id,
+      //owner: this.actor.id,
       npc: npc
     }
 

@@ -159,7 +159,10 @@ export default class LegendsActorSheet extends ActorSheet {
   _onStatRoll(event){
     const value = event.currentTarget.dataset.statValue;
     const name = game.i18n.localize(`legends.stats.${event.currentTarget.dataset.statName}`);
-    Dice.RollStat({ statValue: value, statName: name });
+    Dice.RollStat({
+      statValue: value,
+      statName: name
+    });
   }
 
   _onPrincipleRoll(event){
@@ -171,7 +174,11 @@ export default class LegendsActorSheet extends ActorSheet {
       value = -value;
     }
 
-    Dice.RollStat({ statValue: value, statName: name });
+    Dice.RollStat({
+      statValue: value,
+      statName: name,
+      askForOptions: false
+    });
   }
 
   _onToggleTrainingType(event){

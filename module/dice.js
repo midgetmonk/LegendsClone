@@ -1,18 +1,49 @@
 export async function RollStat({
   statValue = null,
-  statName = null
+  statName = null,
+  askForOptions = game.settings.get("legends", "showRollOptions")
 } = {}){
   const messageTemplate = "systems/legends/templates/partials/stat-roll.hbs";
+
+  //let optionsSettings = game.settings.get("legends", "showRollOptions")
 
   let neg = statValue < 0;
   let abs_stat = Math.abs(statValue);
 
   let rollData = {
-    operator: (neg ? '-' : '+'),
-    stat: abs_stat
+    oStat: (neg ? '-' : '+'),
+    vStat: abs_stat
   }
 
-  let rollFormula = "2d6 @operator @stat";
+  let rollFormula = "2d6 @oStat @vStat";
+
+  if(askForOptions){
+    let checkOptions = await GetRollOptions(statName);
+
+    if(checkOptions.cancelled){
+      return;
+    }
+
+    let penalty = checkOptions.penalty;
+    if(penalty != 0){
+      rollData.vPenalty = Math.abs(penalty)
+      rollFormula += " - @vPenalty"
+    }
+
+    let forward = checkOptions.forward;
+    if(forward != 0){
+      rollData.vForward= Math.abs(forward)
+      rollFormula += " + @vForward"
+    }
+
+    let ongoing = checkOptions.ongoing;
+    if(ongoing != 0){
+      rollData.vOngoing = Math.abs(ongoing)
+      rollFormula += " + @vOngoing"
+    }
+  }
+
+
   let rollResult = new Roll(rollFormula, rollData).roll();
   
   let renderedRoll = await rollResult.render();
@@ -33,4 +64,39 @@ export async function RollStat({
   };
 
   ChatMessage.create(chatData);
+}
+
+async function GetRollOptions(statName){
+  const template = "systems/legends/templates/partials/dialog/roll-dialog.hbs";
+  const html = await renderTemplate(template, {});
+
+  return new Promise(resolve => {
+    const data = {
+      title: game.i18n.format("legends.roll.dialog.title", { name: statName }),
+      content: html,
+      buttons: {
+        normal: {
+          label: game.i18n.localize("legends.roll.dialog.submit"),
+          callback: html => resolve(_processRollOptions(html))
+        },
+        cancel: {
+          label: game.i18n.localize("legends.dialog.cancel"),
+          callback: html => resolve({ cancelled: true })
+        }
+      },
+      default: "normal",
+      close: () => resolve({ cancelled: true })
+    };
+    new Dialog(data, null).render(true);
+  });
+}
+
+function _processRollOptions(html){
+  const form = html[0].querySelector('form');
+
+  return {
+    penalty: parseInt(form.penalty.value),
+    forward: parseInt(form.forward.value),
+    ongoing: parseInt(form.ongoing.value)
+  }
 }
