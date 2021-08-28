@@ -1,11 +1,8 @@
 export async function RollStat({
   statValue = null,
-  statName = null,
-  askForOptions = game.settings.get("legends", "showRollOptions")
+  statName = null
 } = {}){
   const messageTemplate = "systems/legends/templates/partials/stat-roll.hbs";
-
-  //let optionsSettings = game.settings.get("legends", "showRollOptions")
 
   let neg = statValue < 0;
   let abs_stat = Math.abs(statValue);
@@ -17,32 +14,23 @@ export async function RollStat({
 
   let rollFormula = "2d6 @oStat @vStat";
 
-  if(askForOptions){
-    let checkOptions = await GetRollOptions(statName);
+  let rollOptions = await GetRollOptions(statName);
 
-    if(checkOptions.cancelled){
-      return;
-    }
-
-    let penalty = checkOptions.penalty;
-    if(penalty != 0){
-      rollData.vPenalty = Math.abs(penalty)
-      rollFormula += " - @vPenalty"
-    }
-
-    let forward = checkOptions.forward;
-    if(forward != 0){
-      rollData.vForward= Math.abs(forward)
-      rollFormula += " + @vForward"
-    }
-
-    let ongoing = checkOptions.ongoing;
-    if(ongoing != 0){
-      rollData.vOngoing = Math.abs(ongoing)
-      rollFormula += " + @vOngoing"
-    }
+  if(rollOptions.cancelled){
+    return;
   }
 
+  let penalty = rollOptions.penalty;
+  if(penalty != 0){
+    rollData.vPenalty = Math.abs(penalty)
+    rollFormula += " - @vPenalty"
+  }
+
+  let bonus = rollOptions.bonus;
+  if(bonus != 0){
+    rollData.vBonus = Math.abs(bonus)
+    rollFormula += " + @vBonus"
+  }
 
   let rollResult = new Roll(rollFormula, rollData).roll();
   
@@ -87,7 +75,7 @@ async function GetRollOptions(statName){
       default: "normal",
       close: () => resolve({ cancelled: true })
     };
-    new Dialog(data, null).render(true);
+    new Dialog(data, { classes: ["dialog", "legends-dialog"] }).render(true);
   });
 }
 
@@ -96,7 +84,6 @@ function _processRollOptions(html){
 
   return {
     penalty: parseInt(form.penalty.value),
-    forward: parseInt(form.forward.value),
-    ongoing: parseInt(form.ongoing.value)
+    bonus: parseInt(form.bonus.value)
   }
 }

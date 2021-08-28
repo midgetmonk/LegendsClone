@@ -176,8 +176,7 @@ export default class LegendsActorSheet extends ActorSheet {
 
     Dice.RollStat({
       statValue: value,
-      statName: name,
-      askForOptions: false
+      statName: name
     });
   }
 

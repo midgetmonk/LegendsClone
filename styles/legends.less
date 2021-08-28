@@ -1,5 +1,9 @@
 @import "./config.less";
 
+.window-header{
+  .title-font();
+}
+
 .legends {
   // colours
   .water { color: @waterbender; }
@@ -77,6 +81,7 @@
   .brush { .brush-font(); }
   .title { .title-font(); }
   .hand { .hand-font(); }
+  .text { .main-font(); }
 
   // Sizes
   .large { font-size: 1.5em; }
@@ -99,3 +104,4 @@
 @import "./player-sheet.less";
 @import "./npc-sheet.less";
 @import "./messages.less";
+@import "./dialog.less";

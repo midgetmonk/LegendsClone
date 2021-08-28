@@ -83,7 +83,7 @@
 @weaponsmith: #4d4d4f;
 @technologist: #6a2e7e;
 
-.bg-fade() {
+.bg-fade(@distance: 5%) {
   background-color: @bg-color;
-  background-image: linear-gradient(@bg-fade-color 0%, @bg-color 5%, @bg-color 100%);
+  background-image: linear-gradient(@bg-fade-color 0%, @bg-color @distance, @bg-color 100%);
 }

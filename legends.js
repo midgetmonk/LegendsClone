@@ -4,21 +4,6 @@ import LegendsActorSheet from "./module/sheets/LegendsActorSheet.js";
 import LegendsItemSheet from "./module/sheets/LegendsItemSheet.js";
 import preloadHandlebarsTemplates from "./module/preload.js";
 
-function registerSystemSettings() {
-  game.settings.register(
-    "legends",
-    "showRollOptions",
-    {
-      config: true,
-      scope: "client",
-      name: "SETTINGS.showRollOptions.name",
-      hint: "SETTINGS.showRollOptions.label",
-      type: Boolean,
-      default: true
-    }
-  );
-}
-
 Hooks.once("init", function(){
   console.log("legends | Initialising Avatar Legends RPG system...");
 
@@ -30,7 +15,6 @@ Hooks.once("init", function(){
   Actors.registerSheet("legends", LegendsActorSheet, { makeDefault: true });
 
   preloadHandlebarsTemplates();
-  registerSystemSettings();
 
   Handlebars.registerHelper("times", function(n, content) {
     let result = "";

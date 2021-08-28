@@ -9,6 +9,7 @@
       "delete": "Delete"
     },
     "actor-sheet": {
+      "clear-track": "Right-click to clear",
       "name": "Name",
       "principle": "Principle",
       "stats": "Stats",
@@ -85,11 +86,11 @@
         "evade-observe": "Evade & Observe"
       },
       "proficiency": {
-        "learn": "Toggle Learned",
+        "learn": "Set Learned",
         "learned": "L",
-        "practice": "Toggle Practiced",
+        "practice": "Set Practiced",
         "practiced": "P",
-        "master": "Toggle Mastered",
+        "master": "Set Mastered",
         "mastered": "M"
       },
       "add": "Add Technique"
@@ -108,10 +109,11 @@
       "hit": "Hit",
       "full": "Full Hit!",
       "dialog": {
-        "title": "Roll Options - {name}",
-        "penalty": "Penalty",
-        "forward": "Forward",
-        "ongoing": "Ongoing",
+        "title": "Rolling {name}",
+        "penalty": "Penalties",
+        "penalty-description": "From Conditions and Statuses",
+        "bonus": "Bonuses",
+        "bonus-description": "Total of Forwards, Ongoing and Helping",
         "submit": "Roll"
       }
     },
@@ -123,6 +125,7 @@
     "showRollOptions": {
       "name": "Always show roll options dialog",
       "label": "Hold shift to show it otherwise."
-    }
+    },
+    "none": "There are no settings for Avatar Legends RPG (Unofficial)"
   }
 }

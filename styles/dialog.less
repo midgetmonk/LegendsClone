@@ -1,0 +1,72 @@
+// out: false
+
+@import "./config.less";
+
+.dialog.legends-dialog{
+  .block { .block-font(); }
+  .brush { .brush-font(); }
+  .title { .title-font(); }
+  .hand { .hand-font(); }
+  .text { .main-font(); }
+
+  .window-header{
+    .title-font();
+  }
+  .window-content{
+    padding: 0.5rem;
+    .bg-fade(@distance: 20%);
+
+    .dialog-content{
+      margin: 0 0 1rem;
+
+      .form-group{
+        label{
+          font-size: 1.2rem;
+        }
+        input{
+          text-align: center;
+          background: white;
+          border: 2px solid @accent-color;
+          border-radius: 2px;
+          font-size: 1.5rem;
+          height: 2rem;
+        }
+        .form-text{
+          flex: none;
+          width: 100%;
+          font-size: 1.1rem;
+          color: @weaponsmith;
+        }
+      }
+    }
+
+    .dialog-buttons{
+      button{
+        border: 1px solid;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(0,0,0,0.6);
+
+        &:focus{
+          box-shadow: inset 0 -1px 0 rgba(255,255,255,0.6), inset 0 1px 0 rgba(0,0,0,0.6);
+        }
+
+        &.normal{
+          background: @accent-color;
+          border-color: @accent-color;
+          color: @text-color;
+          &:hover{
+            background: @accent-color+#111;
+          }
+        }
+
+        &.cancel{
+          background: @weaponsmith;
+          border-color: @weaponsmith;
+          color: white;
+          &:hover{
+            background: @weaponsmith+#111;
+          }
+        }
+      }
+    }
+  }
+}

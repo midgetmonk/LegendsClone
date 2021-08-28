@@ -4,7 +4,7 @@
       <section class="playbook cell">
         <h1 class="block playbook"><input name="data.playbook" type="text" value="{{data.data.playbook}}" placeholder="{{localize "legends.actor-sheet.player.playbook"}}"/></h1>
       </section>
-      <section class="name cell cell-3 row">
+      <section class="name cell cell-2 row">
         <label class="title name-label">{{localize "legends.actor-sheet.name"}}:</label>
         <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "legends.actor-sheet.name"}}"/>
       </section>
@@ -50,7 +50,7 @@
         </section>
         <section class="fatigue center">
           <h2 class="brush">{{ localize "legends.actor-sheet.fatigue" }}</h2>
-          <section class="boxes center">
+          <section class="boxes center" title="{{localize "legends.actor-sheet.clear"}}">
             {{#times data.data.fatigue.max}}
               <a class="set-value fatigue-box{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
             {{/times}}
