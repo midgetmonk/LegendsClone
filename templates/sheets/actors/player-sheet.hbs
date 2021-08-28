@@ -106,7 +106,7 @@
       <section class="conditions">
         <h2 class="block">{{ localize "legends.actor-sheet.conditions" }}</h2>
         {{#each conditions as |condition id|}}
-          {{> "systems/legends/templates/partials/condition-card.hbs" condition}}
+          {{> "systems/legends/templates/partials/condition-card.hbs" condition inSheet=true}}
         {{/each}}
         {{#if (lt conditions.length 5)}}
         <p class="title small">

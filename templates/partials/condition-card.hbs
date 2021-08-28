@@ -1,11 +1,17 @@
-<section class="item condition" data-item-id="{{_id}}">
-  <div>
-    <span class="large title">
-      <a class="condition-toggle check-box{{#if data.checked}} filled{{/if}}"></a>
-      <span class="menu">{{name}}</span>
-    </span>
-  </div>
-  {{#unless npc}}
-  {{{data.description}}}
-  {{/unless}}
-</section>
+{{#unless inSheet}}<div class="legends">{{/unless}}
+  <section class="item condition" data-item-id="{{_id}}">
+    <div>
+      <span class="large title">
+        {{#if inSheet}}
+        <a class="condition-toggle check-box{{#if data.checked}} filled{{/if}}"></a>
+        <a class="item-roll black menu">{{name}}</a>
+        {{else}}
+        {{name}}
+        {{/if}}
+      </span>
+    </div>
+    {{#unless npc}}
+    {{{data.description}}}
+    {{/unless}}
+  </section>
+{{#unless inSheet}}</div>{{/unless}}
