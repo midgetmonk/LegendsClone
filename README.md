@@ -14,7 +14,8 @@ To install the system, either:
   * `https://gitlab.com/pacosgrove1/legends/-/raw/main/legends.js`
 
 ## Usage
-* Fatigue, Growth and NPC Principle tracks can be cleared by right-clicking
+* Fatigue, Growth and NPC Principle tracks can be cleared by right-clicking.
+* Context menus can be used to edit or delete Conditions, Features, Moves and Techniques added to a character sheet.
 
 ## Credits
 This system exists thanks to the excellent YouTube tutorial series by [Cédric Hauteville](https://www.youtube.com/user/LieutenantRazak).
