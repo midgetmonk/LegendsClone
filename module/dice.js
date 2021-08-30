@@ -64,11 +64,11 @@ async function GetRollOptions(statName){
       content: html,
       buttons: {
         normal: {
-          label: game.i18n.localize("legends.roll.dialog.submit"),
+          label: `<i class="fas fa-dice"></i> ${game.i18n.localize("legends.roll.dialog.submit")}`,
           callback: html => resolve(_processRollOptions(html))
         },
         cancel: {
-          label: game.i18n.localize("legends.dialog.cancel"),
+          label: `<i class="fas fa-times"></i> ${game.i18n.localize("legends.dialog.cancel")}`,
           callback: html => resolve({ cancelled: true })
         }
       },
