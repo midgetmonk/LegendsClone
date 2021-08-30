@@ -1,6 +1,7 @@
 import { legends } from "./module/config.js";
 import LegendsItem from "./module/LegendsItem.js";
 import LegendsActorSheet from "./module/sheets/LegendsActorSheet.js";
+import LegendsNpcActorSheet from "./module/sheets/LegendsNpcActorSheet.js";
 import LegendsItemSheet from "./module/sheets/LegendsItemSheet.js";
 import preloadHandlebarsTemplates from "./module/preload.js";
 
@@ -10,9 +11,17 @@ Hooks.once("init", function(){
   CONFIG.legends = legends;
   CONFIG.Item.entityClass = LegendsItem;
 
-  //DataTransferItemList.unregisterSheet("core", ItemSheet);
   Items.registerSheet("legends", LegendsItemSheet, { makeDefault: true });
-  Actors.registerSheet("legends", LegendsActorSheet, { makeDefault: true });
+
+  Actors.unregisterSheet("core", ActorSheet);
+  Actors.registerSheet("legends", LegendsActorSheet, {
+    types: ["player"],
+    makeDefault: true
+  });
+  Actors.registerSheet("legeds", LegendsNpcActorSheet, {
+    types: ["npc"],
+    makeDefault: true
+  });
 
   preloadHandlebarsTemplates();
 

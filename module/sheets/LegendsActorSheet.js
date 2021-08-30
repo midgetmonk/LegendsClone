@@ -3,7 +3,8 @@ import * as Dice from "../dice.js";
 export default class LegendsActorSheet extends ActorSheet {
   static get defaultOptions(){
     return mergeObject(super.defaultOptions, {
-      width: 850
+      width: 850,
+      height: 850
     });
   }
 
