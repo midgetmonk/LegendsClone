@@ -24,22 +24,21 @@
       {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.drive" label="legends.actor-sheet.npc.drive" value=data.data.drive}}
     </section>
 
-    <section class="principle">
-      <h1 class="title row">
-        {{localize "legends.actor-sheet.principle"}}:
-        <section class="cell cell-3">
-          <input type="text" name="data.balance.label" value="{{data.data.balance.label}}" placeholder="{{localize "legends.actor-sheet.principle"}}" />
-        </section>
-
-        <section class="track cell cell-2">
-          {{#if (gt data.data.balance.max 0)}}
-            <a class="check-box set-value{{#if (gte data.data.balance.value 0)}} filled{{/if}}" data-param="balance" data-new-value="0"><span class="num">+0</span></a>
-          {{/if}}
-          {{#times data.data.balance.max}}
-            <a class="check-box set-value{{#if (gte ../data.data.balance.value @index)}} filled{{/if}}" data-param="balance" data-new-value="{{@index}}"><span class="num">+{{@index}}</span></a>
-          {{/times}}
-        </section>
+<section class="item npc-principle principle">
+    {{#if principle}}
+      {{> "systems/legends/templates/partials/npc-principle-card.hbs" principle}}
+    {{else}}
+      
+      <h1 class="title">
+        Principle:
+        None
+        <p class="float-right small pad-75">
+          <a class="fire title item-create" data-type="npc-principle">
+            <i class="fas fa-plus"></i> {{localize "legends.actor-sheet.npc.add-principle"}}
+          </a>
+        </p>
       </h1>
+    {{/if}}
     </section>
 
     <section class="technique-conditions row">
@@ -74,8 +73,8 @@
 
     <section class="fatigue">
       <h1 class="title">{{localize "legends.actor-sheet.fatigue"}}
-        <a class="decrease-fatigue"><i class="fas fa-minus"></i></a>
-        <a class="increase-fatigue"><i class="fas fa-plus"></i></a>
+        <a class="decrease-fatigue black small" title="{{localize "legends.actor-sheet.npc.fatigue.remove"}}"><i class="fas fa-minus"></i></a>
+        <a class="increase-fatigue black small" title="{{localize "legends.actor-sheet.npc.fatigue.add"}}"><i class="fas fa-plus"></i></a>
       </h1>
       <section class="fatigue-boxes">
       {{#times data.data.fatigue.max}}

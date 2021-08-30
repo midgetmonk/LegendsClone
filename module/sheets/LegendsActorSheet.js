@@ -39,16 +39,17 @@ export default class LegendsActorSheet extends ActorSheet {
     context.feature = filter_and_sort(context.items, 'feature')[0];
     context.conditions = filter_and_sort(context.items, 'condition');
     context.moves = filter_and_sort(context.items, 'move');
-    context.techniques = {}; //filter_and_sort(context.items, 'technique');
+    context.momentOfBalance = filter_and_sort(context.items, 'moment-of-balance')[0];
 
+    // For techniques, we want to sort them by approach first, then name
+    // so that they appear in the order they would be resolved.
+    context.techniques = {}; 
     for (const [k, _v] of Object.entries(context.config.approaches)) { 
       let sorted = filter_and_sort(context.items, 'technique');
       let filtered = filter_techniques(sorted, k);
       context.techniques[k] = filtered;
     }
-    context.momentOfBalance = filter_and_sort(context.items, 'moment-of-balance')[0];
 
-    console.log(context);
     return context;
   }
 
@@ -88,38 +89,9 @@ export default class LegendsActorSheet extends ActorSheet {
       html.find('.item-roll').click(this._onItemRoll.bind(this));
 
       html.find('.principle-roll').click(this._onPrincipleRoll.bind(this));
-
-      if(this.actor.type == "npc"){
-        html.find('.decrease-fatigue').click(this._onDecreaseNPCFatigue.bind(this));
-        html.find('.increase-fatigue').click(this._onIncreaseNPCFatigue.bind(this));
-      }
     }
 
     super.activateListeners(html);
-  }
-
-  _onIncreaseNPCFatigue(event){
-    event.preventDefault();
-    let newFatigueMax = this.actor.data.data.fatigue.max + 1;
-    return this.actor.update({
-      data: {
-        fatigue: {
-          max: newFatigueMax
-        }
-      }
-    });
-  }
-
-  _onDecreaseNPCFatigue(event){
-    event.preventDefault();
-    let newFatigueMax = Math.max((this.actor.data.data.fatigue.max - 1), 0);
-    return this.actor.update({
-      data: {
-        fatigue: {
-          max: newFatigueMax
-        }
-      }
-    });
   }
 
   _onSetBalanceValue(event){
@@ -200,13 +172,56 @@ export default class LegendsActorSheet extends ActorSheet {
     let param = element.dataset.param;
     let newValue = element.dataset.newValue;
 
-    return this.actor.update({
-      data: {
-        [param]: {
-          value: newValue
+    if(element.dataset.type == 'item'){
+      let dataset = element.closest('.item').dataset;
+      let itemId = dataset.itemId;
+      let item = this.actor.items.get(itemId);
+
+      return item.update({
+        data: {
+          [param]: {
+            value: newValue
+          }
         }
-      }
-    })
+      });
+    }
+    else{
+      return this.actor.update({
+        data: {
+          [param]: {
+            value: newValue
+          }
+        }
+      });
+    }
+  }
+
+  _onClearValue(event){
+    let element = event.currentTarget;
+    let param = element.dataset.param;
+
+    if(element.dataset.type == 'item'){
+      let dataset = element.closest('.item').dataset;
+      let itemId = dataset.itemId;
+      let item = this.actor.items.get(itemId);
+
+      return item.update({
+        data: {
+          [param]: {
+            value: 0
+          }
+        }
+      });
+    }
+    else{
+      return this.actor.update({
+        data: {
+          [param]: {
+            value: 0
+          }
+        }
+      });
+    }
   }
 
   _onSetAdvancementValue(event){
@@ -242,19 +257,6 @@ export default class LegendsActorSheet extends ActorSheet {
         }
       }
     });
-  }
-
-  _onClearValue(event){
-    let element = event.currentTarget;
-    let param = element.dataset.param;
-
-    return this.actor.update({
-      data: {
-        [param]: {
-          value: 0
-        }
-      }
-    })
   }
 
   _onConditionToggle(event){

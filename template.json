@@ -2,8 +2,7 @@
   "Actor": {
     "types": [
       "player",
-      "npc",
-      "legend"
+      "npc"
     ],
     "templates": {
       "hasFatigue": {
@@ -68,9 +67,6 @@
       "drive": "",
       "level": "",
       "group": false
-    },
-    "legend": {
-      "templates": ["hasDescription"]
     }
   },
   "Item": {
@@ -79,7 +75,8 @@
       "technique",
       "condition",
       "feature",
-      "moment-of-balance"
+      "moment-of-balance",
+      "npc-principle"
     ],
     "templates": {
       "hasDescription": {
@@ -106,6 +103,12 @@
     },
     "moment-of-balance": {
       "templates": ["hasDescription"]
+    },
+    "npc-principle": {
+      "track": {
+        "value": 0,
+        "max": 3
+      }
     }
   }
 }

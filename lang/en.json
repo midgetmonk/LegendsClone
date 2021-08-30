@@ -19,6 +19,7 @@
       "conditions": "Conditions",
       "moves": "Moves",
       "techniques": "Fighting Techniques",
+      "set-value": "Set to {value}",
       "player": {
         "about": "Your Character",
         "look": "Look, History & Connections",
@@ -53,6 +54,11 @@
           "major": "Major",
           "group": "Group",
           "npc": "NPC"
+        },
+        "add-principle": "Add Principle",
+        "fatigue": {
+          "add": "Increase Fatigue",
+          "remove": "Decrease Fatigue"
         }
       }
     },
