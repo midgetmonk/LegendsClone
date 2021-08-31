@@ -17,7 +17,7 @@
     <div class="trainings">
       {{#each data.data.training as |selected type|}}
         <div class="training-type{{#if selected}} selected{{/if}}" data-type="{{type}}">
-          <img class="{{type}}" src="systems/legends/images/{{type}}3.png" />
+          <img class="{{type}}" src="systems/legends/images/{{type}}.png" />
           <br />{{localize (tr_path "legends.training" type)}}
         </div>
       {{/each}}
