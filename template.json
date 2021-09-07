@@ -84,7 +84,8 @@
       }
     },
     "move": {
-      "templates": ["hasDescription"]
+      "templates": ["hasDescription"],
+      "rollStat": ""
     },
     "feature": {
       "templates": ["hasDescription"]

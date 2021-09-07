@@ -5,6 +5,18 @@
     </h1>
   </header>
   <section class="sheet-body">
+    <section class="rollable row">
+      <label class="cell title">{{localize "legends.moves.roll-with"}}</label>
+      <select class="cell cell-3" name="data.rollStat">
+        <option value="">{{localize "legends.common.none"}}</option>
+        {{#select data.data.rollStat}}
+          {{#each config.stats as |label value|}}
+            <option value="{{value}}">{{localize label}}</option>
+          {{/each}}
+        {{/select}}
+      </select>
+    </section>
+
     {{> "systems/legends/templates/partials/description-editor.hbs" }}
   </section>
   <section class="item move" data-item-id="{{data._id}}">

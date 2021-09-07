@@ -28,7 +28,6 @@
     {{#if principle}}
       {{> "systems/legends/templates/partials/npc-principle-card.hbs" principle}}
     {{else}}
-      
       <h1 class="title">
         Principle:
         None
@@ -44,30 +43,28 @@
     <section class="technique-conditions row">
       <section class="technique-container cell cell-3">
         <h1 class="title">{{localize "legends.actor-sheet.npc.technique"}}</h1>
-        {{#unless techniques}}
-          <p class="title small">
-            <a class="item-create fire" data-type="technique" title="{{localize "legends.moves.add"}}">
+        {{#if technique}}
+          {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true npc=true}}
+        {{else}}
+          <h4 class="title">
+            None
+            <a class="item-create fire title small" data-type="technique" title="{{localize "legends.moves.add"}}">
               <i class="fas fa-plus"></i> {{localize "legends.techniques.add"}}
             </a>
-          </p>
-        {{/unless}}
-        {{#each techniques as |techniques approach|}}
-          {{#each techniques as |technique id|}}
-            {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true npc=true}}
-          {{/each}}
-        {{/each}}
+          </h4>
+        {{/if}}
       </section>
 
       <section class="conditions cell cell">
         <h1 class="title">{{ localize "legends.actor-sheet.conditions" }}</h1>
+        {{#each conditions as |condition id|}}
+          {{> "systems/legends/templates/partials/condition-card.hbs" condition inSheet=true npc=true}}
+        {{/each}}
         <p class="title small">
           <a class="item-create fire" data-type="condition" title="{{localize "legends.conditions.add"}}">
             <i class="fas fa-plus"></i> {{localize "legends.conditions.add"}}
           </a>
         </p>
-        {{#each conditions as |condition id|}}
-          {{> "systems/legends/templates/partials/condition-card.hbs" condition inSheet=true npc=true}}
-        {{/each}}
       </section>
     </section>
 

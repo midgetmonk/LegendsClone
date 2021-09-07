@@ -1,5 +1,8 @@
 <div class="legends">
   <h3 class="title">{{localize "legends.roll.stat" stat=name}}</h3>
+  {{#if move}}
+  <h4 class="title weapons">{{move}}</h4>
+  {{/if}}
 
   {{#if (gte total 10)}}
   <h2 class="earth brush">{{localize "legends.roll.full"}}</h2>

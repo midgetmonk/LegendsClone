@@ -1,5 +1,4 @@
-import { filter_and_sort, filter_techniques } from "../helpers.js";
-import * as Dice from "../dice.js";
+import { filter_and_sort } from "../helpers.js";
 import LegendsActorSheet from "./LegendsActorSheet.js";
 
 export default class LegendsNpcActorSheet extends LegendsActorSheet {
@@ -12,26 +11,29 @@ export default class LegendsNpcActorSheet extends LegendsActorSheet {
 
   getData(){
     const context = super.getData();
-
     context.principle = filter_and_sort(context.items, 'npc-principle')[0];
-
-    console.log(context);
+    context.technique = filter_and_sort(context.items, 'technique')[0];
 
     return context;
   }
 
   activateListeners(html) {
-    if(this.actor.owner){
+    if(this.actor.isOwner){
       html.find('.decrease-fatigue').click(this._onDecreaseNPCFatigue.bind(this));
       html.find('.increase-fatigue').click(this._onIncreaseNPCFatigue.bind(this));
     }
     super.activateListeners(html);
   }
 
+  /**
+   * Increase the number of Fatigue boxes by one
+   * @param {Event} event
+   */
   _onIncreaseNPCFatigue(event){
     event.preventDefault();
+
     let newFatigueMax = this.actor.data.data.fatigue.max + 1;
-    return this.actor.update({
+    this.actor.update({
       data: {
         fatigue: {
           max: newFatigueMax
@@ -40,10 +42,15 @@ export default class LegendsNpcActorSheet extends LegendsActorSheet {
     });
   }
 
+  /**
+   * Reduce the number of Fatigue boxes by one, to a minimum of 0.
+   * @param {Event} event 
+   */
   _onDecreaseNPCFatigue(event){
     event.preventDefault();
+
     let newFatigueMax = Math.max((this.actor.data.data.fatigue.max - 1), 0);
-    return this.actor.update({
+    this.actor.update({
       data: {
         fatigue: {
           max: newFatigueMax

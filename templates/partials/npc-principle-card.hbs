@@ -5,8 +5,13 @@
   </section>
 
   <section class="track cell cell-2">
+    <a class="check-box set-value{{#if (eq data.track.value 0)}} filled{{/if}}" data-type="item" data-param="track" data-new-value="0">
+      <span class="num">
+        0
+      </span>
+    </a>
     {{#times data.track.max}}
-      <a class="check-box set-value{{#if (gte ../data.track.value @index)}} filled{{/if}}" data-type="item" data-param="track" data-new-value="{{@index}}">
+      <a class="check-box set-value{{#if (eq ../data.track.value @index)}} filled{{/if}}" data-type="item" data-param="track" data-new-value="{{@index}}">
         <span class="num">
           +{{@index}}
         </span>

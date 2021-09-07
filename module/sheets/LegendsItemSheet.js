@@ -6,20 +6,20 @@ export default class LegendsItemSheet extends ItemSheet {
   getData(){
     const context = super.getData();
     context.config = CONFIG.legends;
-
-    
-    
     return context;
   }
 
   activateListeners(html){
     html.find('.item-roll').click(this._onItemRoll.bind(this));
-
     super.activateListeners(html);
   }
 
+  /**
+   * Show this item in the chat.
+   * @param {Event} event
+   */
   _onItemRoll(event){
     event.preventDefault();
-    return this.item.roll();
+    this.item.roll();
   }
 };

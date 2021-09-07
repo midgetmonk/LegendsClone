@@ -1,9 +1,22 @@
+/**
+ * Roll a stat with the given statValue, and render it
+ * in the Chat with the statName (and moveName, if
+ * provided.)
+ * @param {Object} param0 
+ * @returns 
+ */
 export async function RollStat({
   statValue = null,
-  statName = null
+  statName = null,
+  moveName = null
 } = {}){
-  const messageTemplate = "systems/legends/templates/partials/stat-roll.hbs";
+  // Fetch the bonus/penalty values from the dialog
+  let rollOptions = await GetRollOptions(statName);
 
+  // Don't bother continuing if the roll was cancelled.
+  if(rollOptions.cancelled){ return; }
+
+  // Set up the default roll values
   let neg = statValue < 0;
   let abs_stat = Math.abs(statValue);
 
@@ -12,36 +25,37 @@ export async function RollStat({
     vStat: abs_stat
   }
 
+  // Basic roll formula
   let rollFormula = "2d6 @oStat @vStat";
 
-  let rollOptions = await GetRollOptions(statName);
-
-  if(rollOptions.cancelled){
-    return;
-  }
-
-  let penalty = rollOptions.penalty;
-  if(penalty != 0){
-    rollData.vPenalty = Math.abs(penalty)
-    rollFormula += " - @vPenalty"
-  }
-
+  // If a non-zero bonus was set
   let bonus = rollOptions.bonus;
   if(bonus != 0){
-    rollData.vBonus = Math.abs(bonus)
-    rollFormula += " + @vBonus"
+    rollData.vBonus = Math.abs(bonus); // Ignore negatives
+    rollFormula += " + @vBonus"; // Always add
   }
 
+  // If a non-zero penalty was set
+  let penalty = rollOptions.penalty;
+  if(penalty != 0){
+    rollData.vPenalty = Math.abs(penalty); // Ignore negatives
+    rollFormula += " - @vPenalty"; // Always subtract
+  }
+
+  // Roll the dice and render the result
   let rollResult = new Roll(rollFormula, rollData).roll();
-  
   let renderedRoll = await rollResult.render();
 
+  // Setup the roll template
+  const messageTemplate = "systems/legends/templates/partials/chat/stat-roll.hbs";
   let templateContext = {
     name: statName,
+    move: moveName,
     roll: renderedRoll,
     total: rollResult._total
   }
 
+  // Setup the chat message
   let chatData = {
     user: game.user._id,
     speaker: ChatMessage.getSpeaker(),
@@ -51,9 +65,14 @@ export async function RollStat({
     type: CONST.CHAT_MESSAGE_TYPES.ROLL
   };
 
-  ChatMessage.create(chatData);
+  return ChatMessage.create(chatData);
 }
 
+/**
+ * Display a Dialog to collect roll options (bonuses, penalties, etc.)
+ * @param {String} statName The name of the Stat being rolled
+ * @returns A Promise representing the Dialog to be displayed
+ */
 async function GetRollOptions(statName){
   const template = "systems/legends/templates/partials/dialog/roll-dialog.hbs";
   const html = await renderTemplate(template, {});
@@ -79,6 +98,11 @@ async function GetRollOptions(statName){
   });
 }
 
+/**
+ * A callback to parse and format the values returned from the dialog
+ * @param {String} html The HTML returned from the form
+ * @returns A hash of the relevant values from the form.
+ */
 function _processRollOptions(html){
   const form = html[0].querySelector('form');
 
