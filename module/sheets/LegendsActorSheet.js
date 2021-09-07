@@ -1,5 +1,6 @@
 import { filter_and_sort, filter_techniques } from "../helpers.js";
 import * as Dice from "../dice.js";
+
 export default class LegendsActorSheet extends ActorSheet {
   static get defaultOptions(){
     return mergeObject(super.defaultOptions, {
@@ -12,6 +13,9 @@ export default class LegendsActorSheet extends ActorSheet {
     return `systems/legends/templates/sheets/actors/${this.actor.data.type}-sheet.hbs`;
   };
 
+  /**
+   * Define the options in the Item context menu
+   */
   itemContextMenu = [
     {
       name: game.i18n.localize("legends.context-menu.edit"),
@@ -49,7 +53,6 @@ export default class LegendsActorSheet extends ActorSheet {
       let filtered = filter_techniques(sorted, k);
       context.techniques[k] = filtered;
     }
-
     return context;
   }
 
@@ -66,9 +69,14 @@ export default class LegendsActorSheet extends ActorSheet {
       //trainings
       html.find('.training-type').click(this._onToggleTrainingType.bind(this));
 
-      // Set balance and center
-      html.find('.set-balance').click(this._onSetBalanceValue.bind(this));
-      html.find('.set-balance-center').click(this._onSetBalanceCenter.bind(this));
+      if(this.actor.type == 'player'){
+        // Set balance and center
+        html.find('.set-balance').click(this._onSetBalanceValue.bind(this));
+        html.find('.set-balance-center').click(this._onSetBalanceCenter.bind(this));
+
+        // Techniques
+        html.find('.set-proficiency').click(this._onSetTechniqueProficiency.bind(this));
+      }
 
       //Remove and Toggle Conditions
       html.find('.condition-toggle').click(this._onConditionToggle.bind(this));
@@ -79,25 +87,31 @@ export default class LegendsActorSheet extends ActorSheet {
       html.find('.item-delete').click(this._onItemDelete.bind(this));
       // Context Menus
       new ContextMenu(html, ".item .menu", this.itemContextMenu);
-
-      // Techniques
-      html.find('.set-proficiency').click(this._onSetTechniqueProficiency.bind(this));
     }
 
-    if(this.actor.owner){
-      html.find('.stat-roll').click(this._onStatRoll.bind(this));
+    if(this.actor.isOwner){
+      if(this.actor.type == 'player'){
+        // Only players need to roll
+        html.find('.stat-roll').click(this._onStatRoll.bind(this));
+        html.find('.principle-roll').click(this._onPrincipleRoll.bind(this));
+        html.find('.move-roll').click(this._onMoveRoll.bind(this));
+      }
+      // TODO: Maybe rename this as it's not actually rolling anything.
       html.find('.item-roll').click(this._onItemRoll.bind(this));
-
-      html.find('.principle-roll').click(this._onPrincipleRoll.bind(this));
     }
 
     super.activateListeners(html);
   }
 
+  /**
+   * Update the Actor's Balance value (used for both tracks)
+   * @param {Event} event
+   */
   _onSetBalanceValue(event){
     event.preventDefault();
+
     let element = event.currentTarget;
-    return this.actor.update({
+    this.actor.update({
       data: {
         balance: {
           value: parseInt(element.dataset.currentBalance)
@@ -106,10 +120,15 @@ export default class LegendsActorSheet extends ActorSheet {
     });
   }
 
+  /**
+   * Update the Actor's Center on the Balance track
+   * @param {Event} event
+   */
   _onSetBalanceCenter(event){
     event.preventDefault();
+
     let element = event.currentTarget;
-    return this.actor.update({
+    this.actor.update({
       data: {
         balance: {
           center: parseInt(element.dataset.currentCenter)
@@ -118,6 +137,10 @@ export default class LegendsActorSheet extends ActorSheet {
     });
   }
 
+  /**
+   * Send an Item's description to the chat
+   * @param {Event} event
+   */
   _onItemRoll(event){
     event.preventDefault();
     let element = event.currentTarget;
@@ -126,19 +149,49 @@ export default class LegendsActorSheet extends ActorSheet {
     let item = this.actor.items.get(itemId);
     let npc = dataset.npc;
 
-    return item.roll(npc);
+    item.roll(npc);
   }
 
+  /**
+   * Roll the stat for a Move. Calls the Dice#RollStat method with the name of the Move for display.
+   * @param {Event} event
+   */
+  _onMoveRoll(event){
+    event.preventDefault();
+
+    const moveName = event.currentTarget.dataset.moveName;
+    const statName = event.currentTarget.dataset.moveStat;
+    const statValue = this.actor.data.data.stats[statName];
+
+    Dice.RollStat({
+      statValue: statValue,
+      statName: game.i18n.localize(`legends.stats.${statName}`),
+      moveName: moveName
+    });
+  }
+
+  /**
+   * Send an Actor's stat roll to the Chat.
+   * @param {Event} event
+   */
   _onStatRoll(event){
+    event.preventDefault();
+    
     const value = event.currentTarget.dataset.statValue;
     const name = game.i18n.localize(`legends.stats.${event.currentTarget.dataset.statName}`);
+
     Dice.RollStat({
       statValue: value,
       statName: name
     });
   }
 
+  /**
+   * Roll with a Principle and send it to the Chat.
+   * @param {Event} event
+   */
   _onPrincipleRoll(event){
+    event.preventDefault();
     const name = event.currentTarget.dataset.name;
     const negative = event.currentTarget.dataset.negative;
     let value = event.currentTarget.dataset.value;
@@ -153,12 +206,17 @@ export default class LegendsActorSheet extends ActorSheet {
     });
   }
 
+  /**
+   * Toggle a plsyer Actor's training
+   * @param {Event} event
+   */
   _onToggleTrainingType(event){
+    event.preventDefault();
     let element = event.currentTarget;
     let type = element.dataset.type;
     let newValue = !this.actor.data.data.training[type];
 
-    return this.actor.update({
+    this.actor.update({
       data: {
         training: {
           [type]: newValue
@@ -167,45 +225,58 @@ export default class LegendsActorSheet extends ActorSheet {
     });
   }
 
+  /**
+   * Set the value of an arbitrary Actor or Item parameter, depending on
+   * the triggering event's target's data attributes.
+   * @param {Event} event The triggering Event
+   */
   _onSetValue(event){
+    event.preventDefault();
     let element = event.currentTarget;
     let param = element.dataset.param;
     let newValue = element.dataset.newValue;
-
+    
     if(element.dataset.type == 'item'){
+      // Currently only used for NPC Principle tracks
       let dataset = element.closest('.item').dataset;
       let itemId = dataset.itemId;
       let item = this.actor.items.get(itemId);
 
-      return item.update({
+      item.update({
         data: {
           [param]: {
-            value: newValue
+            value: parseInt(newValue)
           }
         }
       });
     }
     else{
-      return this.actor.update({
+      this.actor.update({
         data: {
           [param]: {
-            value: newValue
+            value: parseInt(newValue)
           }
         }
       });
     }
   }
 
+  /**
+   * Set an arbitrary parameter's value to zero.
+   * @param {Event} event The triggering Event
+   */
   _onClearValue(event){
+    event.preventDefault();
     let element = event.currentTarget;
     let param = element.dataset.param;
 
     if(element.dataset.type == 'item'){
+      // Currently only used for NPC Principle tracks
       let dataset = element.closest('.item').dataset;
       let itemId = dataset.itemId;
       let item = this.actor.items.get(itemId);
 
-      return item.update({
+      item.update({
         data: {
           [param]: {
             value: 0
@@ -214,7 +285,7 @@ export default class LegendsActorSheet extends ActorSheet {
       });
     }
     else{
-      return this.actor.update({
+      this.actor.update({
         data: {
           [param]: {
             value: 0
@@ -224,12 +295,20 @@ export default class LegendsActorSheet extends ActorSheet {
     }
   }
 
+  /**
+   * Update the progress on a Growth Advancement track.
+   * 
+   * This needed its own custom method due to nesting in the
+   * object template.
+   * @param {Event} event
+   */
   _onSetAdvancementValue(event){
+    event.preventDefault();
     let element = event.currentTarget;
     let name = element.dataset.param;
     let newValue = element.dataset.newValue;
 
-    return this.actor.update({
+    this.actor.update({
       data: {
         growth: {
           advancements: {
@@ -242,11 +321,19 @@ export default class LegendsActorSheet extends ActorSheet {
     });
   }
 
+  /**
+   * Clear the progress on a Growth Advancement track.
+   * 
+   * This needed its own custom method due to nesting in the
+   * object template.
+   * @param {Event} event
+   */
   _onClearAdvancement(event){
+    event.preventDefault();
     let element = event.currentTarget;
     let name = element.dataset.param;
 
-    return this.actor.update({
+    this.actor.update({
       data: {
         growth: {
           advancements: {
@@ -259,6 +346,10 @@ export default class LegendsActorSheet extends ActorSheet {
     });
   }
 
+  /**
+   * Toggle a Condition
+   * @param {Event} event
+   */
   _onConditionToggle(event){
     event.preventDefault();
 
@@ -268,11 +359,15 @@ export default class LegendsActorSheet extends ActorSheet {
 
     let state = !item.data.data.checked;
 
-    return item.update({
+    item.update({
       data: { "checked": state }
     });
   }
 
+  /**
+   * Create a new Item and assign it to the calling Actor
+   * @param {Event} event 
+   */
   _onItemCreate(event) {
     event.preventDefault();
 
@@ -294,9 +389,13 @@ export default class LegendsActorSheet extends ActorSheet {
       data: { description: game.i18n.localize('legends.items.new.description'), ...defaultData }
     }
 
-    return this.actor.createOwnedItem(itemData);
+    this.actor.createOwnedItem(itemData);
   }
 
+  /**
+   * Show the sheet for an Item
+   * @param {Event} event
+   */
   _onItemEdit(event){
     event.preventDefault();
     let element = event.currentTarget;
@@ -306,13 +405,21 @@ export default class LegendsActorSheet extends ActorSheet {
     item.sheet.render(true);
   }
 
+  /**
+   * Delete an owned item
+   * @param {Event} event 
+   */
   _onItemDelete(event){
     event.preventDefault();
     let element = event.currentTarget;
     let itemId = element.closest('.item').dataset.itemId;
-    return this.actor.deleteOwnedItem(itemId);
+    this.actor.deleteOwnedItem(itemId);
   }
 
+  /**
+   * Update the Proficiency level on an Actor's owned Technique
+   * @param {Event} event
+   */
   _onSetTechniqueProficiency(event){
     event.preventDefault();
     let element = event.currentTarget;
@@ -332,7 +439,7 @@ export default class LegendsActorSheet extends ActorSheet {
         practiced = true;
         break;
     }
-    return item.update({
+    item.update({
       data: {
         learned: true,
         practiced: practiced,

@@ -4,12 +4,13 @@ import LegendsActorSheet from "./module/sheets/LegendsActorSheet.js";
 import LegendsNpcActorSheet from "./module/sheets/LegendsNpcActorSheet.js";
 import LegendsItemSheet from "./module/sheets/LegendsItemSheet.js";
 import preloadHandlebarsTemplates from "./module/preload.js";
+import * as Chat from "./module/chat.js";
 
 Hooks.once("init", function(){
   console.log("legends | Initialising Avatar Legends RPG system...");
 
   CONFIG.legends = legends;
-  CONFIG.Item.entityClass = LegendsItem;
+  CONFIG.Item.documentClass = LegendsItem;
 
   Items.registerSheet("legends", LegendsItemSheet, { makeDefault: true });
 
@@ -18,7 +19,7 @@ Hooks.once("init", function(){
     types: ["player"],
     makeDefault: true
   });
-  Actors.registerSheet("legeds", LegendsNpcActorSheet, {
+  Actors.registerSheet("legends", LegendsNpcActorSheet, {
     types: ["npc"],
     makeDefault: true
   });
@@ -45,3 +46,5 @@ Hooks.once("init", function(){
     }
   });
 });
+
+Hooks.on("renderChatLog", (app, html, data) => Chat.addChatListeners(html));

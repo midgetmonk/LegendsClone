@@ -215,6 +215,8 @@
   border: 1px solid #baaf6b;
   border-radius: 0;
   margin: 0;
+  width: 96%;
+  margin: 0 2%;
 }
 .legends.sheet .labelled-input {
   display: flex;
@@ -429,6 +431,8 @@
 .legends.sheet.player-sheet .main .balance .balance-white input {
   border: none;
   padding: 0.25rem 0.5rem;
+  margin: 0;
+  width: auto;
 }
 .legends.sheet.player-sheet .main .balance .balance-black {
   color: white;
@@ -710,6 +714,14 @@
 .legends.sheet.npc-sheet .body .fatigue {
   margin: 1rem;
 }
+.legends.sheet.move-sheet .rollable,
+.legends.sheet.technique-sheet .rollable,
+.legends.sheet.move-sheet .description-editor,
+.legends.sheet.technique-sheet .description-editor,
+.legends.sheet.move-sheet .approach-basic,
+.legends.sheet.technique-sheet .approach-basic {
+  margin: 0.5rem;
+}
 .message-content .legends {
   padding: 0.5rem;
   margin: 0 -5px -5px;
@@ -746,6 +758,21 @@
 }
 .message-content .legends h4 {
   font-size: 0.9rem;
+}
+.message-content .legends a.move-roll {
+  display: block;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 0.25rem;
+  border: 1px solid;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: #dfd3b4;
+  border-color: #dfd3b4;
+  color: #111;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.message-content .legends a.move-roll:hover {
+  background: #f0e4c5;
 }
 .dialog .block {
   font-family: "Komikazoom";
@@ -812,7 +839,6 @@
 .dialog .window-content .dialog-buttons button.default {
   background: #baaf6b;
   border-color: #baaf6b;
-  color: #111;
 }
 .dialog .window-content .dialog-buttons button.normal:hover,
 .dialog .window-content .dialog-buttons button.default:hover {

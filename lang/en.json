@@ -78,7 +78,8 @@
       "add": "Add Move",
       "edit": "Edit Move",
       "delete": "Delete Move",
-      "new": "New Move"
+      "new": "New Move",
+      "roll-with": "Roll with"
     },
     "conditions": {
       "add": "Add Condition"

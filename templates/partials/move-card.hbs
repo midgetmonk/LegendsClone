@@ -1,12 +1,20 @@
-{{#unless inSheet}}<div class="legends">{{/unless}}
 <section class="item move" data-item-id="{{_id}}">
   <h3 class="title">
     {{#if inSheet}}
-    <a class="item-roll black menu">{{name}}</a>
+    <a class="item-roll black menu">
+      {{name}}
+    </a>
+      {{#if data.rollStat}}
+        <a class="move-roll" data-move-stat="{{data.rollStat}}" data-move-name="{{name}}">
+          <span class="small fire">
+            <i class="fas fa-dice"></i>
+            {{localize (tr_path 'legends.stats' data.rollStat)}}
+          </span>
+        </a>
+      {{/if}}
     {{else}}
     {{name}}
     {{/if}}
   </h3>
   {{{data.description}}}
 </section>
-{{#unless inSheet}}</div>{{/unless}}

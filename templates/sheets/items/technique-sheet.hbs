@@ -5,24 +5,26 @@
     </h1>
   </header>
   <div>
-    <table>
-      <tr>
-        <th>{{localize "legends.techniques.approach"}}</th>
-        <th>{{localize "legends.techniques.basic"}}</th>
-      </tr>
-      <tr>
-        <td>
-          <select name="data.approach" data-type="String">
-            {{#select data.data.approach}}
-              {{#each config.approaches as |name type|}}
-                <option value="{{type}}">{{localize name}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-        </td>
-        <td><input type="checkbox" name="data.basic" {{checked data.data.basic}}></td>
-      </tr>
-    </table>
+    <section class="approach-basic">
+      <table>
+        <tr>
+          <th class="title">{{localize "legends.techniques.approach"}}</th>
+          <th class="title">{{localize "legends.techniques.basic"}}</th>
+        </tr>
+        <tr>
+          <td>
+            <select name="data.approach">
+              {{#select data.data.approach}}
+                {{#each config.approaches as |name type|}}
+                  <option value="{{type}}">{{localize name}}</option>
+                {{/each}}
+              {{/select}}
+            </select>
+          </td>
+          <td class="center"><input type="checkbox" name="data.basic" {{checked data.data.basic}}></td>
+        </tr>
+      </table>
+    </section>
 
     {{> "systems/legends/templates/partials/description-editor.hbs" }}
   </div>
