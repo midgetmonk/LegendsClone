@@ -234,31 +234,31 @@ export default class LegendsActorSheet extends ActorSheet {
     event.preventDefault();
     let element = event.currentTarget;
     let param = element.dataset.param;
-    let newValue = element.dataset.newValue;
+    let obj = null;
+    let newValue = null;
     
     if(element.dataset.type == 'item'){
-      // Currently only used for NPC Principle tracks
       let dataset = element.closest('.item').dataset;
       let itemId = dataset.itemId;
-      let item = this.actor.items.get(itemId);
 
-      item.update({
-        data: {
-          [param]: {
-            value: parseInt(newValue)
-          }
-        }
-      });
+      obj = this.actor.items.get(itemId);
+      newValue = element.dataset.newValue;
     }
     else{
-      this.actor.update({
-        data: {
-          [param]: {
-            value: parseInt(newValue)
-          }
-        }
-      });
+      let checked = element.classList.contains('filled');
+      let currentValue = this.actor.data.data[param].value;
+
+      newValue = checked ? currentValue - 1 : currentValue + 1;
+      obj = this.actor
     }
+
+    obj.update({
+      data: {
+        [param]: {
+          value: parseInt(newValue)
+        }
+      }
+    });
   }
 
   /**
@@ -375,7 +375,7 @@ export default class LegendsActorSheet extends ActorSheet {
     let type = element.dataset.type;
 
     let defaultData = {};
-    switch(type){
+    switch(type) {
       case 'technique':
         defaultData = { "learned": true }
         break;

@@ -27,3 +27,14 @@ legends.npcLevels = {
   "moderate": "legends.actor-sheet.npc.levels.moderate",
   "major": "legends.actor-sheet.npc.levels.major"
 }
+
+legends.defaultTokens = {
+  'condition': 'systems/legends/images/tokens/condition.png',
+  'moment-of-balance': 'systems/legends/images/tokens/moment-of-balance.png',
+  'move': 'systems/legends/images/tokens/move.png',
+  'npc': 'systems/legends/images/tokens/npc.png',
+  'player': 'systems/legends/images/tokens/player.png',
+  'technique': 'systems/legends/images/tokens/technique.png',
+  'feature': 'systems/legends/images/tokens/feature.png',
+  'npc-principle': 'systems/legends/images/tokens/npc-principle.png'
+}

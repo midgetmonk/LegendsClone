@@ -9,11 +9,14 @@ import * as Chat from "./module/chat.js";
 Hooks.once("init", function(){
   console.log("legends | Initialising Avatar Legends RPG system...");
 
+  // Config
   CONFIG.legends = legends;
   CONFIG.Item.documentClass = LegendsItem;
 
+  // Item sheets
   Items.registerSheet("legends", LegendsItemSheet, { makeDefault: true });
 
+  // Actor sheets
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("legends", LegendsActorSheet, {
     types: ["player"],
@@ -36,8 +39,7 @@ Hooks.once("init", function(){
   });
 
   Handlebars.registerHelper("tr_path", function(path, key){
-    let full_path = path+"."+key;
-    return full_path;
+    return path+"."+key;
   });
 
   Handlebars.registerHelper("modulus", function(mod, index, content){
@@ -47,4 +49,22 @@ Hooks.once("init", function(){
   });
 });
 
-Hooks.on("renderChatLog", (app, html, data) => Chat.addChatListeners(html));
+// Allow buttons in chat messages
+Hooks.on("renderChatLog", (_app, html, _data) => Chat.addChatListeners(html));
+
+/**
+ * Default images for actors & items
+ */
+Hooks.on('createActor', (data, _options, _id) => {
+  let actor = data;
+  let type = actor.data.type;
+  let img = CONFIG.legends.defaultTokens[type];
+  actor.data.img = img;
+});
+
+Hooks.on('createItem', (data, _options, _id) => {
+  let item = data;
+  let type = item.data.type;
+  let img = CONFIG.legends.defaultTokens[type];
+  item.data.img = img;
+});
