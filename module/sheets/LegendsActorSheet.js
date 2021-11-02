@@ -44,6 +44,7 @@ export default class LegendsActorSheet extends ActorSheet {
     context.conditions = filter_and_sort(context.items, 'condition');
     context.moves = filter_and_sort(context.items, 'move');
     context.momentOfBalance = filter_and_sort(context.items, 'moment-of-balance')[0];
+    context.statuses = filter_and_sort(context.items, 'status');
 
     // For techniques, we want to sort them by approach first, then name
     // so that they appear in the order they would be resolved.
@@ -62,10 +63,6 @@ export default class LegendsActorSheet extends ActorSheet {
       html.find('.set-value').click(this._onSetValue.bind(this));
       html.find('.set-value').contextmenu(this._onClearValue.bind(this));
 
-      // Advancements
-      html.find('.set-adv-value').click(this._onSetAdvancementValue.bind(this));
-      html.find('.set-adv-value').contextmenu(this._onClearAdvancement.bind(this));
-
       //trainings
       html.find('.training-type').click(this._onToggleTrainingType.bind(this));
 
@@ -74,8 +71,12 @@ export default class LegendsActorSheet extends ActorSheet {
         html.find('.set-balance').click(this._onSetBalanceValue.bind(this));
         html.find('.set-balance-center').click(this._onSetBalanceCenter.bind(this));
 
-        // Techniques
+        // Techniques proficiency
         html.find('.set-proficiency').click(this._onSetTechniqueProficiency.bind(this));
+
+        // Advancements
+        html.find('.set-adv-value').click(this._onSetAdvancementValue.bind(this));
+        html.find('.set-adv-value').contextmenu(this._onClearAdvancement.bind(this));
       }
 
       //Remove and Toggle Conditions
@@ -306,7 +307,9 @@ export default class LegendsActorSheet extends ActorSheet {
     event.preventDefault();
     let element = event.currentTarget;
     let name = element.dataset.param;
-    let newValue = element.dataset.newValue;
+    let checked = element.classList.contains('filled');
+    let currentValue = this.actor.data.data.growth.advancements[name].value;
+    let newValue = checked ? currentValue - 1 : currentValue + 1;
 
     this.actor.update({
       data: {

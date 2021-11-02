@@ -76,7 +76,8 @@
       "condition",
       "feature",
       "moment-of-balance",
-      "npc-principle"
+      "npc-principle",
+      "status"
     ],
     "templates": {
       "hasDescription": {
@@ -110,6 +111,10 @@
         "value": 0,
         "max": 3
       }
+    },
+    "status": {
+      "templates": ["hasDescription"],
+      "checked": false
     }
   }
 }
