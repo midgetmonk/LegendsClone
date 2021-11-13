@@ -24,24 +24,24 @@
       {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.drive" label="legends.actor-sheet.npc.drive" value=data.data.drive class="text"}}
     </section>
 
-<section class="item npc-principle principle">
-    {{#if principle}}
-      {{> "systems/legends/templates/partials/npc-principle-card.hbs" principle}}
-    {{else}}
-      <h1 class="title">
-        Principle:
-        None
-        <p class="float-right small pad-75">
-          <a class="fire title item-create" data-type="npc-principle">
-            <i class="fas fa-plus"></i> {{localize "legends.actor-sheet.npc.add-principle"}}
-          </a>
-        </p>
-      </h1>
-    {{/if}}
+    <section class="item npc-principle principle">
+      {{#if principle}}
+        {{> "systems/legends/templates/partials/npc-principle-card.hbs" principle}}
+      {{else}}
+        <h1 class="title">
+          Principle:
+          None
+          <p class="float-right small pad-75">
+            <a class="fire title item-create" data-type="npc-principle">
+              <i class="fas fa-plus"></i> {{localize "legends.actor-sheet.npc.add-principle"}}
+            </a>
+          </p>
+        </h1>
+      {{/if}}
     </section>
 
     <section class="technique-conditions row">
-      <section class="technique-container cell cell-3">
+      <section class="technique-container cell">
         <h1 class="title">{{localize "legends.actor-sheet.npc.technique"}}</h1>
         {{#if technique}}
           {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true npc=true}}
@@ -53,35 +53,44 @@
             </a>
           </h4>
         {{/if}}
+
+        <section class="fatigue">
+          <h1 class="title">{{localize "legends.actor-sheet.fatigue"}}
+            <a class="decrease-fatigue black small" title="{{localize "legends.actor-sheet.npc.fatigue.remove"}}"><i class="fas fa-minus"></i></a>
+            <a class="increase-fatigue black small" title="{{localize "legends.actor-sheet.npc.fatigue.add"}}"><i class="fas fa-plus"></i></a>
+          </h1>
+          <section class="fatigue-boxes">
+          {{#times data.data.fatigue.max}}
+            <a class="check-box set-value{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
+            {{#if (modulus 5 @index)}}
+              {{#unless (eq @index ../data.data.fatigue.max)}}
+                |
+              {{/unless}}
+            {{/if}}
+          {{/times}}
+          </section>
+        </section>
       </section>
 
-      <section class="conditions cell cell">
-        <h1 class="title">{{ localize "legends.actor-sheet.conditions" }}</h1>
-        {{#each conditions as |condition id|}}
-          {{> "systems/legends/templates/partials/condition-card.hbs" condition inSheet=true npc=true}}
-        {{/each}}
-        <p class="title small">
-          <a class="item-create fire" data-type="condition" title="{{localize "legends.conditions.add"}}">
-            <i class="fas fa-plus"></i> {{localize "legends.conditions.add"}}
-          </a>
-        </p>
-      </section>
-    </section>
+      <section class="conditions cell">
+        <section class="">
+          <h1 class="title">{{ localize "legends.actor-sheet.conditions" }}</h1>
+          {{#each conditions as |condition id|}}
+            {{> "systems/legends/templates/partials/condition-card.hbs" condition inSheet=true npc=true}}
+          {{/each}}
+          <p class="title small">
+            <a class="item-create fire" data-type="condition" title="{{localize "legends.conditions.add"}}">
+              <i class="fas fa-plus"></i> {{localize "legends.conditions.add"}}
+            </a>
+          </p>
+        </section>
 
-    <section class="fatigue">
-      <h1 class="title">{{localize "legends.actor-sheet.fatigue"}}
-        <a class="decrease-fatigue black small" title="{{localize "legends.actor-sheet.npc.fatigue.remove"}}"><i class="fas fa-minus"></i></a>
-        <a class="increase-fatigue black small" title="{{localize "legends.actor-sheet.npc.fatigue.add"}}"><i class="fas fa-plus"></i></a>
-      </h1>
-      <section class="fatigue-boxes">
-      {{#times data.data.fatigue.max}}
-        <a class="check-box set-value{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
-        {{#if (modulus 5 @index)}}
-          {{#unless (eq @index ../data.data.fatigue.max)}}
-            |
-          {{/unless}}
-        {{/if}}
-      {{/times}}
+        <section class="statuses">
+          <h1 class="title">{{ localize "legends.actor-sheet.statuses" }}</h1>
+          {{#each statuses as |status id|}}
+            {{> "systems/legends/templates/partials/condition-card.hbs" status inSheet=true}}
+          {{/each}}
+        </section>
       </section>
     </section>
   </section>

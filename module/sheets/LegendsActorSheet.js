@@ -1,4 +1,4 @@
-import { filter_and_sort, filter_techniques } from "../helpers.js";
+import { filter_items, filter_techniques } from "../helpers.js";
 import * as Dice from "../dice.js";
 
 export default class LegendsActorSheet extends ActorSheet {
@@ -40,20 +40,13 @@ export default class LegendsActorSheet extends ActorSheet {
     const context = super.getData();
     context.config = CONFIG.legends;
 
-    context.feature = filter_and_sort(context.items, 'feature')[0];
-    context.conditions = filter_and_sort(context.items, 'condition');
-    context.moves = filter_and_sort(context.items, 'move');
-    context.momentOfBalance = filter_and_sort(context.items, 'moment-of-balance')[0];
-    context.statuses = filter_and_sort(context.items, 'status');
-
-    // For techniques, we want to sort them by approach first, then name
-    // so that they appear in the order they would be resolved.
-    context.techniques = {}; 
-    for (const [k, _v] of Object.entries(context.config.approaches)) { 
-      let sorted = filter_and_sort(context.items, 'technique');
-      let filtered = filter_techniques(sorted, k);
-      context.techniques[k] = filtered;
-    }
+    context.feature = filter_items(context.items, 'feature')[0];
+    context.conditions = filter_items(context.items, 'condition');
+    context.moves = filter_items(context.items, 'move');
+    context.momentOfBalance = filter_items(context.items, 'moment-of-balance')[0];
+    context.statuses = filter_items(context.items, 'status');
+    context.techniques = filter_items(context.items, 'technique')
+    
     return context;
   }
 

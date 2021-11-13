@@ -19,6 +19,7 @@
       "conditions": "Conditions",
       "moves": "Moves",
       "techniques": "Fighting Techniques",
+      "statuses": "Statuses",
       "set-value": "Set to {value}",
       "player": {
         "about": "Your Character",
@@ -57,8 +58,8 @@
         },
         "add-principle": "Add Principle",
         "fatigue": {
-          "add": "Increase Fatigue",
-          "remove": "Decrease Fatigue"
+          "add": "Increase max Fatigue",
+          "remove": "Decrease max Fatigue"
         }
       }
     },

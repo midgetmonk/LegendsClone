@@ -53,18 +53,18 @@ Hooks.once("init", function(){
 Hooks.on("renderChatLog", (_app, html, _data) => Chat.addChatListeners(html));
 
 /**
- * Default images for actors & items
+ * TODO: Default images for actors & items
  */
-Hooks.on('createActor', (data, _options, _id) => {
-  let actor = data;
-  let type = actor.data.type;
-  let img = CONFIG.legends.defaultTokens[type];
-  actor.data.img = img;
-});
+// Hooks.on('createActor', (data, _options, _id) => {
+//   let actor = data;
+//   let type = actor.data.type;
+//   let img = CONFIG.legends.defaultTokens[type];
+//   actor.data.img = img;
+// });
 
-Hooks.on('createItem', (data, _options, _id) => {
-  let item = data;
-  let type = item.data.type;
-  let img = CONFIG.legends.defaultTokens[type];
-  item.data.img = img;
-});
+// Hooks.on('createItem', (data, _options, _id) => {
+//   let item = data;
+//   let type = item.data.type;
+//   let img = CONFIG.legends.defaultTokens[type];
+//   item.data.img = img;
+// });

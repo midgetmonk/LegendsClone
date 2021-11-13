@@ -5,7 +5,8 @@ export default class LegendsItem extends Item {
     "technique": "systems/legends/templates/partials/technique-card.hbs",
     "feature": "systems/legends/templates/partials/feature-card.hbs",
     "moment-of-balance": "systems/legends/templates/partials/moment-card.hbs",
-    "condition": "systems/legends/templates/partials/condition-card.hbs"
+    "condition": "systems/legends/templates/partials/condition-card.hbs",
+    "status": "systems/legends/templates/partials/condition-card.hbs"
   };
 
   /**

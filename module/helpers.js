@@ -4,14 +4,9 @@
  * @param {String} type The Type of item we're looking for
  * @returns The filtered, sorted list
  */
-export function filter_and_sort(collection, type) {
+export function filter_items(collection, type) {
   return collection.filter((element) => {
     return element.type == type;
-  }).sort((a,b) => {
-    if (a.name < b.name){
-      return -1;
-    }
-    return 1;
   })
 };
 

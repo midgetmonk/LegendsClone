@@ -712,7 +712,7 @@
   font-size: 1rem;
 }
 .legends.sheet.npc-sheet .body .fatigue {
-  margin: 1rem;
+  margin: 1rem 0;
 }
 .legends.sheet.move-sheet .rollable,
 .legends.sheet.technique-sheet .rollable,

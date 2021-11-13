@@ -1,4 +1,4 @@
-import { filter_and_sort } from "../helpers.js";
+import { filter_items } from "../helpers.js";
 import LegendsActorSheet from "./LegendsActorSheet.js";
 
 export default class LegendsNpcActorSheet extends LegendsActorSheet {
@@ -11,8 +11,8 @@ export default class LegendsNpcActorSheet extends LegendsActorSheet {
 
   getData(){
     const context = super.getData();
-    context.principle = filter_and_sort(context.items, 'npc-principle')[0];
-    context.technique = filter_and_sort(context.items, 'technique')[0];
+    context.principle = filter_items(context.items, 'npc-principle')[0];
+    context.technique = filter_items(context.items, 'technique')[0];
 
     return context;
   }
