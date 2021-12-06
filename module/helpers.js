@@ -4,10 +4,21 @@
  * @param {String} type The Type of item we're looking for
  * @returns The filtered, sorted list
  */
-export function filter_items(collection, type) {
-  return collection.filter((element) => {
+export function filter_items(collection, type, sort = false) {
+  var items = collection.filter((element) => {
     return element.type == type;
-  })
+  });
+
+  if(sort){
+    return items.sort((a,b) => {
+      if(a.name < b.name){
+        return -1;
+      }
+      return 1;
+    });
+  }
+
+  return items;
 };
 
 /**

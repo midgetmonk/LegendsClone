@@ -41,10 +41,10 @@ export default class LegendsActorSheet extends ActorSheet {
     context.config = CONFIG.legends;
 
     context.feature = filter_items(context.items, 'feature')[0];
-    context.conditions = filter_items(context.items, 'condition');
+    context.conditions = filter_items(context.items, 'condition', true);
     context.moves = filter_items(context.items, 'move');
     context.momentOfBalance = filter_items(context.items, 'moment-of-balance')[0];
-    context.statuses = filter_items(context.items, 'status');
+    context.statuses = filter_items(context.items, 'status', true);
     context.techniques = filter_items(context.items, 'technique')
     
     return context;
@@ -55,6 +55,10 @@ export default class LegendsActorSheet extends ActorSheet {
       //Generic value tracks
       html.find('.set-value').click(this._onSetValue.bind(this));
       html.find('.set-value').contextmenu(this._onClearValue.bind(this));
+
+      // Fatigue tracks
+      html.find('.set-fatigue').click(this._onSetFatigue.bind(this));
+      html.find('.set-fatigue').contextmenu(this._onClearFatigue.bind(this));
 
       //trainings
       html.find('.training-type').click(this._onToggleTrainingType.bind(this));
@@ -214,6 +218,56 @@ export default class LegendsActorSheet extends ActorSheet {
       data: {
         training: {
           [type]: newValue
+        }
+      }
+    });
+  }
+
+  /**
+   * Set the fatigue and fatigueRemaining values when Fatigue is
+   * adjusted on this Actor.
+   * @param {Event} event The triggering event
+   */
+   _onSetFatigue(event){
+    event.preventDefault();
+    let element = event.currentTarget;
+    let checked = element.classList.contains('filled');
+    let currentValue = parseInt(this.actor.data.data.fatigue.value);
+
+    let max = this.actor.data.data.fatigue.max;
+
+    let newValue = checked ? currentValue - 1 : currentValue + 1;
+    let newRemaining = max - newValue;
+
+    this.actor.update({
+      data: {
+        fatigue: {
+          value: newValue
+        },
+        fatigueRemaining: {
+          value: newRemaining,
+          max: max
+        }
+      }
+    });
+  }
+
+  /**
+   * Set an Actor's Fatigue to 0 and fatigueRemaining to max.
+   * @param {Event} event The triggering Event
+   */
+  _onClearFatigue(event){
+    event.preventDefault();
+    let max = this.actor.data.data.fatigue.max;
+
+    this.actor.update({
+      data: {
+        fatigue: {
+          value: 0
+        },
+        fatigueRemaining: {
+          value: max,
+          max: max
         }
       }
     });

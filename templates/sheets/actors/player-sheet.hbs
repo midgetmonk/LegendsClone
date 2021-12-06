@@ -53,7 +53,7 @@
           <h2 class="brush no-margin">{{ localize "legends.actor-sheet.fatigue" }}</h2>
           <section class="boxes center" title="{{localize "legends.actor-sheet.clear"}}">
             {{#times data.data.fatigue.max}}
-              <a class="set-value fatigue-box{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
+              <a class="set-fatigue fatigue-box{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
             {{/times}}
           </section>
         </section>

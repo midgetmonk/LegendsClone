@@ -9,6 +9,10 @@
         "fatigue": {
           "value": 0,
           "max": 5
+        },
+        "fatigueRemaining": {
+          "value": 5,
+          "max": 5
         }
       },
       "hasDescription": {

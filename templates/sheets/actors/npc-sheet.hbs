@@ -61,7 +61,7 @@
           </h1>
           <section class="fatigue-boxes">
           {{#times data.data.fatigue.max}}
-            <a class="check-box set-value{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
+            <a class="check-box set-fatigue{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
             {{#if (modulus 5 @index)}}
               {{#unless (eq @index ../data.data.fatigue.max)}}
                 |
