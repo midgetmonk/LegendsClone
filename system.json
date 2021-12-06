@@ -23,6 +23,6 @@
       "path": "lang/en.json"
     }
   ],
-  "primaryTokenAttribute": "fatigue",
+  "primaryTokenAttribute": "fatigueRemaining",
   "initiative": "2d6"
 }
