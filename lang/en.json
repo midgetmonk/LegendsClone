@@ -71,8 +71,8 @@
     },
     "items": {
       "new": {
-        "name": "New Item",
-        "description": "<p>Lorem ipsum dolor sit amet.</p>"
+        "name": "New {type}",
+        "description": "<p>Description goes here.</p>"
       }
     },
     "moves": {

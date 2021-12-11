@@ -434,7 +434,7 @@ export default class LegendsActorSheet extends ActorSheet {
     }
 
     let itemData = {
-      name: game.i18n.localize("legends.items.new.name"),
+      name: game.i18n.format('legends.items.new.name', {type: type}),
       type: type,
       data: { description: game.i18n.localize('legends.items.new.description'), ...defaultData }
     }
