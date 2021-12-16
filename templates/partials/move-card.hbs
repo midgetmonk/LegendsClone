@@ -1,9 +1,7 @@
 <section class="item move" data-item-id="{{_id}}">
   <h3 class="title">
     {{#if inSheet}}
-    <a class="item-roll black menu">
-      {{name}}
-    </a>
+      <a class="item-roll black menu">{{name}}</a>
       {{#if data.rollStat}}
         <a class="move-roll" data-move-stat="{{data.rollStat}}" data-move-name="{{name}}">
           <span class="small fire">
@@ -13,7 +11,7 @@
         </a>
       {{/if}}
     {{else}}
-    {{name}}
+      {{name}}
     {{/if}}
   </h3>
   {{{data.description}}}

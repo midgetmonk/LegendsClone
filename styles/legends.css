@@ -464,6 +464,17 @@
   flex: 1;
   text-align: center;
 }
+.legends.sheet.player-sheet .main .balance ul.balance-track li.text,
+.legends.sheet.player-sheet .main .balance ul.balance-center-track li.text {
+  flex: 0;
+  font-size: 0.6rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #6e4e27;
+  margin: 0 -4px;
+  font-family: 'Village';
+  font-variant: small-caps;
+}
 .legends.sheet.player-sheet .main .balance ul.balance-center-track {
   height: 1.2rem;
 }
@@ -482,6 +493,13 @@
   background: #b62127;
   color: white;
 }
+.legends.sheet.player-sheet .main .balance ul.balance-track.black,
+.legends.sheet.player-sheet .main .balance ul.balance-track.white {
+  box-shadow: inset 1rem 1.4rem 0 #dfd3b4, inset -1rem -1.4rem 0 #dfd3b4;
+}
+.legends.sheet.player-sheet .main .balance ul.balance-track.black {
+  background: black;
+}
 .legends.sheet.player-sheet .main .balance ul.balance-track.black li .num {
   background: #111;
   color: white;
@@ -489,6 +507,9 @@
 }
 .legends.sheet.player-sheet .main .balance ul.balance-track.black li:hover .num {
   border-color: #b62127;
+}
+.legends.sheet.player-sheet .main .balance ul.balance-track.white {
+  background: white;
 }
 .legends.sheet.player-sheet .main .balance ul.balance-track.white li .num {
   background: white;
@@ -705,11 +726,11 @@
 }
 .legends.sheet.npc-sheet .body .technique-conditions .technique-container .technique h3,
 .legends.sheet.npc-sheet .body .technique-conditions .conditions .technique h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 .legends.sheet.npc-sheet .body .technique-conditions .technique-container .technique h4,
 .legends.sheet.npc-sheet .body .technique-conditions .conditions .technique h4 {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .legends.sheet.npc-sheet .body .fatigue {
   margin: 1rem 0;

@@ -1,4 +1,3 @@
-import * as Dice from './dice.js'
 export default class LegendsItem extends Item {
   chatTemplate = {
     "move": "systems/legends/templates/partials/chat/move.hbs",

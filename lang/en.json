@@ -130,10 +130,6 @@
     }
   },
   "SETTINGS": {
-    "showRollOptions": {
-      "name": "Always show roll options dialog",
-      "label": "Hold shift to show it otherwise."
-    },
-    "none": "There are no settings for Avatar Legends RPG (Unofficial)"
+    "None": "There are no settings for Avatar Legends RPG (Unofficial)"
   }
 }

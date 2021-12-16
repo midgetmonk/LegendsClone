@@ -195,6 +195,16 @@
           list-style: none;
           flex: 1;
           text-align: center;
+
+          &.text {
+            flex: 0;
+            font-size: 0.6rem;
+            line-height:1.5rem;
+            text-align:center;
+            color: @accent-dark;
+            margin: 0 -4px;
+            .title-font();
+          }
         }
       }
 
@@ -222,25 +232,34 @@
           }
         }
 
-        &.black li{
-          .num{
-            background: @text-color;
-            color: white;
-            border-color: @text-color;
-          }
-          &:hover .num{
-            border-color: @firebender;
+        &.black, &.white{
+          box-shadow: inset 1rem 1.4rem 0 @bg-fade-color, inset -1rem -1.4rem 0 @bg-fade-color;
+        }
+        &.black{
+          background: black;
+          li{
+            .num{
+              background: @text-color;
+              color: white;
+              border-color: @text-color;
+            }
+            &:hover .num{
+              border-color: @firebender;
+            }
           }
         }
 
-        &.white li{
-          .num{
-            background: white;
-            color: @text-color;
-            border-color: white;
-          }
-          &:hover .num{
-            border-color: @firebender;
+        &.white{
+          background: white;
+          li{
+            .num{
+              background: white;
+              color: @text-color;
+              border-color: white;
+            }
+            &:hover .num{
+              border-color: @firebender;
+            }
           }
         }
       }
