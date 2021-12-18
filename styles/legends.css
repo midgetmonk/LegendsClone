@@ -654,6 +654,7 @@
   width: 100%;
   min-height: 150px;
   border: none;
+  margin: 0;
 }
 .legends.sheet.npc-sheet .sheet-header .npc-level select {
   width: 96%;
