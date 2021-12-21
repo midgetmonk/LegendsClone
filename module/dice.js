@@ -43,7 +43,8 @@ export async function RollStat({
   }
 
   // Roll the dice and render the result
-  let rollResult = new Roll(rollFormula, rollData).roll();
+  let roll = new Roll(rollFormula, rollData);
+  let rollResult = await roll.roll();
   let renderedRoll = await rollResult.render();
 
   // Setup the roll template

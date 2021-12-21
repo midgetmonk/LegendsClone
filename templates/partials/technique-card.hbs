@@ -2,7 +2,11 @@
 <section class="item technique" data-item-id="{{_id}}" data-npc="{{npc}}">
   <h3 class="title">
     {{#if inSheet}}
-      <a class="item-roll black menu">{{name}}</a>
+      <a class="toggle-drawer black menu">{{name}}</a>
+      <a class="item-roll small weapons">
+        <i class="fas fa-comment"></i>
+        {{localize "legends.common.to-chat"}}
+      </a>
     {{else}}
       {{name}}
     {{/if}}
@@ -31,6 +35,8 @@
       </div>
     {{/unless}}
   </h4>
-  {{{ data.description }}}
+  {{#if inSheet}}<div class="drawer">{{/if}}
+    {{{ data.description }}}
+  {{#if inSheet}}</div>{{/if}}
 </section>
 {{#unless inSheet}}</div>{{/unless}}

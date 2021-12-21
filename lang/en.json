@@ -2,7 +2,8 @@
   "legends": {
     "common": {
       "description": "Description",
-      "none": "None"
+      "none": "None",
+      "to-chat": "To Chat"
     },
     "context-menu": {
       "edit": "Edit",
