@@ -159,10 +159,6 @@
       }
 
       .balance-black{
-        // background: url('./images/brush_black.png');
-        // background-size: contain;
-        // background-repeat: no-repeat;
-        // background-position: top left;
         color: white;
         background-image: linear-gradient(to right, @text-color 0%, @text-color 50%, rgba(0,0,0,0) 90%);
         margin-bottom: 0;
@@ -172,10 +168,6 @@
         }
       }
       .balance-white{
-        // background: url('./images/brush_white.png');
-        // background-size: contain;
-        // background-repeat: no-repeat;
-        // background-position: top right;
         background-image: linear-gradient(to left, white 0%, white 50%, rgba(0,0,0,0) 90%);
         color: @text-color;
         input{
@@ -321,6 +313,10 @@
             margin: 0;
           }
 
+          .drawer{
+            display: none;
+          }
+
           p {
             margin: 0;
           }
@@ -345,6 +341,10 @@
   
         .technique {
           margin-bottom: 0.5rem;
+
+          .drawer{
+            display: none;
+          }
   
           h3, h4, p {
             margin: 0;

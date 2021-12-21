@@ -1,4 +1,4 @@
-import { filter_items, filter_techniques } from "../helpers.js";
+import { filter_items } from "../helpers.js";
 import * as Dice from "../dice.js";
 
 export default class LegendsActorSheet extends ActorSheet {
@@ -31,7 +31,7 @@ export default class LegendsActorSheet extends ActorSheet {
       icon: '<i class="fas fa-trash"></i>',
       callback: element => {
         let itemId = element.closest('.item').data('item-id');
-        this.actor.deleteOwnedItem(itemId)
+        this.actor.deleteEmbeddedDocuments("Item", [itemId])
       }
     }
   ];
@@ -60,10 +60,10 @@ export default class LegendsActorSheet extends ActorSheet {
       html.find('.set-fatigue').click(this._onSetFatigue.bind(this));
       html.find('.set-fatigue').contextmenu(this._onClearFatigue.bind(this));
 
-      //trainings
-      html.find('.training-type').click(this._onToggleTrainingType.bind(this));
-
       if(this.actor.type == 'player'){
+        //trainings
+        html.find('.training-type').click(this._onToggleTrainingType.bind(this));
+
         // Set balance and center
         html.find('.set-balance').click(this._onSetBalanceValue.bind(this));
         html.find('.set-balance-center').click(this._onSetBalanceCenter.bind(this));
@@ -76,6 +76,9 @@ export default class LegendsActorSheet extends ActorSheet {
         html.find('.set-adv-value').contextmenu(this._onClearAdvancement.bind(this));
       }
 
+      // toggle collapsible moves
+      html.find('.toggle-drawer').click(this._onToggleCollapsible.bind(this));
+
       //Remove and Toggle Conditions
       html.find('.condition-toggle').click(this._onConditionToggle.bind(this));
 
@@ -83,6 +86,7 @@ export default class LegendsActorSheet extends ActorSheet {
       html.find('.item-create').click(this._onItemCreate.bind(this));
       html.find('.item-edit').click(this._onItemEdit.bind(this));
       html.find('.item-delete').click(this._onItemDelete.bind(this));
+
       // Context Menus
       new ContextMenu(html, ".item .menu", this.itemContextMenu);
     }
@@ -439,7 +443,7 @@ export default class LegendsActorSheet extends ActorSheet {
       data: { description: game.i18n.localize('legends.items.new.description'), ...defaultData }
     }
 
-    this.actor.createOwnedItem(itemData);
+    this.actor.createEmbeddedDocuments("Item", [itemData]);
   }
 
   /**
@@ -463,7 +467,7 @@ export default class LegendsActorSheet extends ActorSheet {
     event.preventDefault();
     let element = event.currentTarget;
     let itemId = element.closest('.item').dataset.itemId;
-    this.actor.deleteOwnedItem(itemId);
+    this.actor.deleteEmbeddedDocuments("Item", [itemId]);
   }
 
   /**
@@ -496,5 +500,17 @@ export default class LegendsActorSheet extends ActorSheet {
         mastered: mastered
       }
     });
+  }
+
+  /**
+   * Toggle the content drawer for a move or technique
+   * @param {Event} event 
+   */
+  _onToggleCollapsible(event){
+    event.preventDefault();
+
+    let element = event.currentTarget;
+    let drawer = $(element.closest('.item')).find('.drawer');
+    drawer.slideToggle();
   }
 };

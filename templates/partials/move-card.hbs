@@ -1,18 +1,22 @@
 <section class="item move" data-item-id="{{_id}}">
   <h3 class="title">
     {{#if inSheet}}
-      <a class="item-roll black menu">{{name}}</a>
+      <a class="toggle-drawer black menu">{{name}}</a>
+      <a class="item-roll small weapons">
+        <i class="fas fa-comment"></i>
+        {{localize 'legends.common.to-chat'}}
+      </a>
       {{#if data.rollStat}}
-        <a class="move-roll" data-move-stat="{{data.rollStat}}" data-move-name="{{name}}">
-          <span class="small fire">
-            <i class="fas fa-dice"></i>
-            {{localize (tr_path 'legends.stats' data.rollStat)}}
-          </span>
+        <a class="move-roll small fire" data-move-stat="{{data.rollStat}}" data-move-name="{{name}}">
+          <i class="fas fa-dice"></i>
+          {{localize (tr_path 'legends.stats' data.rollStat)}}
         </a>
       {{/if}}
     {{else}}
       {{name}}
     {{/if}}
   </h3>
-  {{{data.description}}}
+  {{#if inSheet}}<div class="drawer">{{/if}}
+    {{{data.description}}}
+  {{#if inSheet}}</div>{{/if}}
 </section>

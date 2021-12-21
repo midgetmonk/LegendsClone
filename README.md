@@ -1,18 +1,17 @@
 # Avatar Legends RPG (Unofficial)
 
-Basic system for tracking Avatar Legends RPG characters
+A FoundryVTT system for Avatar Legends RPG characters.
 
 * https://magpiegames.com/avatarrpg
 
-Screenshots available here: https://imgur.com/a/cA5Bfdg
+Screenshots: https://imgur.com/a/cA5Bfdg
 
 ## Installation
 To install the system, paste the manifest URL below into the Install System dialog on the Setup menu:
   * `https://gitlab.com/pacosgrove1/legends/-/raw/main/system.json`
 
 ## Usage
-* Fatigue, Growth and NPC Principle tracks can be cleared by right-clicking.
-* Context menus can be used to edit or delete Conditions, Features, Moves and Techniques added to a character sheet.
+See [the Wiki](https://gitlab.com/pacosgrove1/legends/-/wikis/home) for specific usage examples.
 
 ## Credits
 This system exists thanks to the excellent YouTube tutorial series by [Cédric Hauteville](https://www.youtube.com/user/LieutenantRazak).
@@ -30,3 +29,6 @@ _Licence details are included in the font folders._
 ### Images
 * Icons from [Font Awesome](https://fontawesome.com/)
 * Training images from [Game-icons.net](https://game-icons.net/)
+
+### Disclaimer
+Avatar: The Last Airbender, Nickelodeon, and all related marks, logos, and characters are owned by Viacom International Inc. This VTT system is not endorsed by, sponsored by, nor affiliated with Viacom International Inc., Magpie Games, or any other Avatar franchise, and is intended for private use only.

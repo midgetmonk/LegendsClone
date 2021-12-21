@@ -565,6 +565,9 @@
 .legends.sheet.player-sheet .feature-moves .moves-techniques .moves .move h3 {
   margin: 0;
 }
+.legends.sheet.player-sheet .feature-moves .moves-techniques .moves .move .drawer {
+  display: none;
+}
 .legends.sheet.player-sheet .feature-moves .moves-techniques .moves .move p {
   margin: 0;
 }
@@ -582,6 +585,9 @@
 }
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique {
   margin-bottom: 0.5rem;
+}
+.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique .drawer {
+  display: none;
 }
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h3,
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h4,
