@@ -241,7 +241,9 @@
 
       <label class="look">
         <span class="title"><strong>{{localize "legends.actor-sheet.player.look"}}:</strong></span>
-        <textarea name="data.description">{{data.data.description}}</textarea>
+        <div class="description">
+          {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
       </label>
 
       {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.hometown" label="legends.actor-sheet.player.hometown" value=data.data.hometown}}

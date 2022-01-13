@@ -1,0 +1,46 @@
+/**
+ * Fonts
+ **/
+@font-face {
+  font-family: "Village";
+  src: url(fonts/prisoner/village.ttf);
+}
+@font-face {
+  font-family: "BenchNine";
+  src: url(fonts/bench_nine/BenchNine-Regular.ttf);
+}
+@font-face {
+  font-family: "Hey August";
+  src: url(fonts/hey_august/HeyAugust.ttf);
+}
+@font-face {
+  font-family: "Komikazoom";
+  src: url(fonts/komikazoom/KAMIKZOM.ttf);
+}
+@font-face {
+  font-family: "Covered By Your Grace";
+  src: url(fonts/Covered_By_Your_Grace/CoveredByYourGrace-Regular.ttf);
+}
+@font-face {
+  font-family: "New Tegomin";
+  src: url(fonts/New_Tegomin/NewTegomin-Regular.ttf);
+}
+/**
+* Colours
+**/
+body {
+  font-family: 'BenchNine';
+  font-size: 1.1rem;
+}
+body h1,
+body h2,
+body h3,
+body h4 {
+  font-family: 'Village';
+  font-variant: small-caps;
+  font-weight: normal;
+  margin: 0 0 0.5rem;
+}
+body p {
+  margin: 0 0 0.5rem;
+}

@@ -33,14 +33,28 @@
   header.sheet-header {
     flex: none;
   }
+
+  @editor-height: 250px;
   .description{
     flex: 1;
     display: flex;
-    height: 100%;
+    min-height: @editor-height;
+    background: rgba(255,255,255,0.5);
+    padding: 0.5rem;
+
+    h1,h2,h3,h4{
+      .title-font();
+    }
     
     .editor{
-      height: 250px;
+      min-height: @editor-height;
       width: 100%;
+      .editor-content{
+        min-height: @editor-height;
+      }
+      .tox.tox-tinymce{
+        min-height: @editor-height;
+      }
     }
   }
 

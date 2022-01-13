@@ -202,11 +202,26 @@
 .legends.sheet .description {
   flex: 1;
   display: flex;
-  height: 100%;
+  min-height: 250px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.5rem;
+}
+.legends.sheet .description h1,
+.legends.sheet .description h2,
+.legends.sheet .description h3,
+.legends.sheet .description h4 {
+  font-family: 'Village';
+  font-variant: small-caps;
 }
 .legends.sheet .description .editor {
-  height: 250px;
+  min-height: 250px;
   width: 100%;
+}
+.legends.sheet .description .editor .editor-content {
+  min-height: 250px;
+}
+.legends.sheet .description .editor .tox.tox-tinymce {
+  min-height: 250px;
 }
 .legends.sheet input,
 .legends.sheet select,

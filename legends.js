@@ -47,6 +47,9 @@ Hooks.once("init", function(){
       return content;
     }
   });
+
+  CONFIG.TinyMCE.toolbar = "styleselect bullist numlist hr link removeformat code save";
+  CONFIG.TinyMCE.content_css = "systems/legends/styles/tinymce.css";
 });
 
 // Allow buttons in chat messages
