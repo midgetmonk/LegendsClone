@@ -202,7 +202,7 @@
 .legends.sheet .description {
   flex: 1;
   display: flex;
-  min-height: 250px;
+  min-height: 100px;
   background: rgba(255, 255, 255, 0.5);
   padding: 0.5rem;
 }
@@ -214,14 +214,14 @@
   font-variant: small-caps;
 }
 .legends.sheet .description .editor {
-  min-height: 250px;
+  min-height: 100px;
   width: 100%;
 }
 .legends.sheet .description .editor .editor-content {
-  min-height: 250px;
+  min-height: 100px;
 }
 .legends.sheet .description .editor .tox.tox-tinymce {
-  min-height: 250px;
+  min-height: 200px;
 }
 .legends.sheet input,
 .legends.sheet select,
@@ -699,7 +699,7 @@
   height: 100%;
 }
 .legends.sheet.npc-sheet .body .description-drive .description .editor {
-  height: 150px;
+  height: 100%;
   width: 100%;
 }
 .legends.sheet.npc-sheet .body .principle {
