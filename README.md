@@ -1,8 +1,8 @@
 # Avatar Legends RPG (Unofficial)
 
-A FoundryVTT system for Avatar Legends RPG characters.
+A FoundryVTT system for [Avatar Legends RPG](https://magpiegames.com/avatarrpg) characters.
 
-* https://magpiegames.com/avatarrpg
+<img src="https://i.imgur.com/w2mxjJW.png" alt="Player character sheet" width="60%" />
 
 Screenshots: https://imgur.com/a/cA5Bfdg
 
