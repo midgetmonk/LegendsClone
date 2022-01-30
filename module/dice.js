@@ -77,10 +77,11 @@ export async function RollStat({
 async function GetRollOptions(statName){
   const template = "systems/legends/templates/partials/dialog/roll-dialog.hbs";
   const html = await renderTemplate(template, {});
+  const title = (statName !== null) ? game.i18n.format("legends.roll.stat", { name: statName }) : game.i18n.format('legends.roll.no-stat');
 
   return new Promise(resolve => {
     const data = {
-      title: game.i18n.format("legends.roll.dialog.title", { name: statName }),
+      title: title,
       content: html,
       buttons: {
         normal: {

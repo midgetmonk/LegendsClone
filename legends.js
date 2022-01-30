@@ -5,9 +5,19 @@ import LegendsNpcActorSheet from "./module/sheets/LegendsNpcActorSheet.js";
 import LegendsItemSheet from "./module/sheets/LegendsItemSheet.js";
 import preloadHandlebarsTemplates from "./module/preload.js";
 import * as Chat from "./module/chat.js";
+import * as Migrations from "./module/migrations.js";
+
+function registerSystemSettings(){
+  game.settings.register("legends", "systemMigrationVersion", {
+    config: false,
+    scope: "world",
+    type: String,
+    default: ""
+  });
+}
 
 Hooks.once("init", function(){
-  console.log("legends | Initialising Avatar Legends RPG system...");
+  console.log("legends | Initialising Avatar Legends RPG (Unofficial) system...");
 
   // Config
   CONFIG.legends = legends;
@@ -28,6 +38,7 @@ Hooks.once("init", function(){
   });
 
   preloadHandlebarsTemplates();
+  registerSystemSettings();
 
   Handlebars.registerHelper("times", function(n, content) {
     let result = "";
@@ -55,19 +66,16 @@ Hooks.once("init", function(){
 // Allow buttons in chat messages
 Hooks.on("renderChatLog", (_app, html, _data) => Chat.addChatListeners(html));
 
-/**
- * TODO: Default images for actors & items
- */
-// Hooks.on('createActor', (data, _options, _id) => {
-//   let actor = data;
-//   let type = actor.data.type;
-//   let img = CONFIG.legends.defaultTokens[type];
-//   actor.data.img = img;
-// });
+Hooks.once("ready", () => {
+  if(!game.user.isGM) return;
 
-// Hooks.on('createItem', (data, _options, _id) => {
-//   let item = data;
-//   let type = item.data.type;
-//   let img = CONFIG.legends.defaultTokens[type];
-//   item.data.img = img;
-// });
+  const currentVersion = game.settings.get("legends", "systemMigrationVersion");
+  const NEEDS_MIGRATION_VERSION = "0.2.2";
+
+  const needsMigration = !currentVersion || isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+
+  if(needsMigration){
+    Migrations.migrateWorld();
+    game.settings.set('legends', 'systemMigrationVersion', NEEDS_MIGRATION_VERSION);
+  }
+});

@@ -114,11 +114,11 @@
     },
     "roll":{
       "stat": "Rolling {stat}",
+      "no-stat": "Rolling",
       "miss": "Miss",
       "hit": "Hit",
       "full": "Full Hit!",
       "dialog": {
-        "title": "Rolling {name}",
         "penalty": "Penalties",
         "penalty-description": "From Conditions and Statuses",
         "bonus": "Bonuses",

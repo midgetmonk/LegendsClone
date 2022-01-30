@@ -165,9 +165,11 @@ export default class LegendsActorSheet extends ActorSheet {
     const statName = event.currentTarget.dataset.moveStat;
     const statValue = this.actor.data.data.stats[statName];
 
+    const name = statName ? game.i18n.localize(`legends.stats.${statName}`) : null;
+
     Dice.RollStat({
       statValue: statValue,
-      statName: game.i18n.localize(`legends.stats.${statName}`),
+      statName: name,
       moveName: moveName
     });
   }
