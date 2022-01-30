@@ -90,6 +90,7 @@
     },
     "move": {
       "templates": ["hasDescription"],
+      "rollable": false,
       "rollStat": ""
     },
     "feature": {

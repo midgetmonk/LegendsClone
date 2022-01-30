@@ -7,6 +7,9 @@
   </header>
   <section class="sheet-body">
     <section class="rollable row">
+      <label class="cell title">
+        <input type="checkbox" name="data.rollable" {{checked data.data.rollable}}>
+      </label>
       <label class="cell title">{{localize "legends.moves.roll-with"}}</label>
       <select class="cell cell-3" name="data.rollStat">
         <option value="">{{localize "legends.common.none"}}</option>

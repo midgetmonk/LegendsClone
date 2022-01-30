@@ -1,5 +1,11 @@
 <div class="legends">
-  <h3 class="title">{{localize "legends.roll.stat" stat=name}}</h3>
+  <h3 class="title">
+    {{#if name}}
+    {{localize "legends.roll.stat" stat=name}}
+    {{else}}
+    {{localize "legends.roll.no-stat"}}
+    {{/if}}
+  </h3>
   {{#if move}}
   <h4 class="title weapons">{{move}}</h4>
   {{/if}}
