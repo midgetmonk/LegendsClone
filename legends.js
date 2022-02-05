@@ -2,6 +2,7 @@ import { legends } from "./module/config.js";
 import LegendsItem from "./module/LegendsItem.js";
 import LegendsActorSheet from "./module/sheets/LegendsActorSheet.js";
 import LegendsNpcActorSheet from "./module/sheets/LegendsNpcActorSheet.js";
+import LegendsCampaignActorSheet from "./module/sheets/LegendsCampaignActorSheet.js";
 import LegendsItemSheet from "./module/sheets/LegendsItemSheet.js";
 import preloadHandlebarsTemplates from "./module/preload.js";
 import * as Chat from "./module/chat.js";
@@ -34,6 +35,10 @@ Hooks.once("init", function(){
   });
   Actors.registerSheet("legends", LegendsNpcActorSheet, {
     types: ["npc"],
+    makeDefault: true
+  });
+  Actors.registerSheet("legends", LegendsCampaignActorSheet, {
+    types: ["campaign"],
     makeDefault: true
   });
 
