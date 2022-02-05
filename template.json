@@ -2,7 +2,8 @@
   "Actor": {
     "types": [
       "player",
-      "npc"
+      "npc",
+      "campaign"
     ],
     "templates": {
       "hasFatigue": {
@@ -71,6 +72,29 @@
       "drive": "",
       "level": "",
       "group": false
+    },
+    "campaign": {
+      "era": "custom",
+      "scope": "",
+      "focus": "defeat",
+      "focusDesc": "",
+      "allies": "",
+      "enemies": "",
+      "incitingIncident": "",
+      "acts": {
+        "1": {
+          "name": "Act 1",
+          "description": ""
+        },
+        "2": {
+          "name": "Act 2",
+          "description": ""
+        },
+        "3": {
+          "name": "Act 3",
+          "description": ""
+        }
+      }
     }
   },
   "Item": {

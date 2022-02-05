@@ -1,0 +1,70 @@
+// out: false
+
+@import "./config.less";
+@import "./sheets.less";
+
+.legends.sheet.campaign-sheet{
+
+  .campaign-era{
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .navigation{
+    flex-grow: 0;
+  }
+
+  .body{
+    h1{
+      border-bottom: 2px solid @accent-color;
+      font-size: 1.5rem;
+    }
+    h2{ font-size: 1.2rem;}
+
+    .description-drive{
+      margin: 1rem;
+
+      .description{
+        flex: 1;
+        display: flex;
+        height: 100%;
+        
+        .editor{
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+    .description{
+      margin: 0.5rem;
+    }
+
+    .tab.acts{
+      .cell.act{
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .add-act, .no-acts{
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .add-act{
+      cursor: pointer;
+    }
+
+    .act-name{
+      max-width: 150px;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
+
+  .inciting-incident {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}

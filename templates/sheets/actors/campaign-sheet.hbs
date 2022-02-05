@@ -1,0 +1,117 @@
+<form class="legends sheet campaign-sheet {{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
+    <section class="row">
+      <section class="cell cell-3">
+        <h1 class="block charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "legends.actor-sheet.name"}}"/></h1>
+      </section>
+      <section class="cell cell-2">
+        <select name="data.era" class="block">
+          {{#select data.data.era}}
+            {{#each config.campaignEras as |name era|}}
+              <option value="{{era}}">{{localize name}} {{localize "legends.actor-sheet.campaign.eras.era" }}</option>
+            {{/each}}
+          {{/select}}
+        </select>
+      </section>
+    </section>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <section class="navigation">
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <a class="item" data-tab="main">{{ localize "legends.actor-sheet.campaign.main" }}</a>
+      <a class="item" data-tab="relationships">{{ localize "legends.actor-sheet.campaign.relationships.title" }}</a>
+      <a class="item" data-tab="acts">{{ localize "legends.actor-sheet.campaign.acts" }}</a>
+    </nav>
+  </section>
+
+  <section class="body">
+    <!-- Campaign Main Page -->
+    <div class="tab main" data-group="primary" data-tab="main">
+      <!-- Campaign Scope -->
+      <section>
+        <h2 class="title sigils">{{localize "legends.actor-sheet.campaign.scope"}}</h2>
+        
+        <div class="description">
+          {{editor content=data.data.scope target="data.scope" button=true owner=owner editable=editable}}
+        </div>
+      </section>
+
+      <!-- Group Focus -->
+      <section class="cell cell-2 row">
+        <section class="cell">
+          <h2 class="title sigils">{{localize "legends.actor-sheet.campaign.groupFocus"}}</h2>
+
+          <div class="cell row">
+            <div class="cell">
+              <select name="data.focus" class="block">
+                {{#select data.data.focus}}
+                  {{#each config.campaignFocus as |name focus|}}
+                    <option value="{{focus}}">{{localize name}}</option>
+                  {{/each}}
+                {{/select}}
+              </select>
+            </div>
+            <div class="cell">
+              {{#if data.data.customFocusEnabled }}
+                {{!-- <section class="cell"> --}}
+                  <input type="text" name="data.customFocus" value="{{data.data.customFocus}}" placeholder="{{localize "legends.actor-sheet.campaign.customFocusPlaceholder" }}" class="block" />
+                {{!-- </section> --}}
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="description focus">
+            {{editor content=data.data.focusDesc target="data.focusDesc" button=true owner=owner editable=editable}}
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <!-- Acts Tab -->
+    <div class="tab acts" data-group="primary" data-tab="acts">
+      <!-- Inciting Incident -->
+      <section class="inciting-incident">
+        <section class="cell">
+          <h2 class="title sigils">{{localize "legends.actor-sheet.campaign.incitingIncident"}}</h2>
+          <input type="text" name="data.incitingIncident" value="{{data.data.incitingIncident}}" class="text" />
+        </section>
+      </section>
+
+      <!-- Acts -->
+      <section>
+        <!-- Iterate to display each act -->
+        {{#each data.data.acts as |act id|}}
+          <section class="cell act">
+            <h2 class="title sigils single-line" contenteditable="true" data-edit="data.acts.{{id}}.name">{{{act.name}}}</h2>
+            <div class="description">
+              {{editor content=act.description target=(concat 'data.acts.' id '.description') button=true owner=../owner editable=../editable}}
+            </div>
+          </section>
+        {{/each}}
+      </section>
+    </div>
+
+    <!-- Relationships Tab -->
+    <div class="tab relationships" data-group="primary" data-tab="relationships">
+      <!-- Allies -->
+      <section>
+        <h2 class="title sigils">{{localize "legends.actor-sheet.campaign.relationships.allies"}}</h2>
+        
+        <div class="description">
+          {{editor content=data.data.allies target="data.allies" button=true owner=owner editable=editable}}
+        </div>
+      </section>
+
+      <!-- Enemies -->
+      <section>
+        <h2 class="title sigils">{{localize "legends.actor-sheet.campaign.relationships.enemies"}}</h2>
+        
+        <div class="description">
+          {{editor content=data.data.enemies target="data.enemies" button=true owner=owner editable=editable}}
+        </div>
+      </section>
+    </div>
+  </section>
+</form>

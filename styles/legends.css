@@ -199,6 +199,20 @@
 .legends.sheet header.sheet-header {
   flex: none;
 }
+.legends.sheet header.sheet-header select {
+  width: 96%;
+  height: 48px;
+  margin: 8px 2%;
+  font-size: 1.2rem;
+}
+.legends.sheet .navigation .sheet-tabs.tabs .item {
+  color: #6e4e27;
+}
+.legends.sheet .navigation .sheet-tabs.tabs .item:hover,
+.legends.sheet .navigation .sheet-tabs.tabs .item.active {
+  color: #111;
+  text-shadow: 0 0 10px #baaf6b;
+}
 .legends.sheet .description {
   flex: 1;
   display: flex;
@@ -229,7 +243,6 @@
   background: none;
   border: 1px solid #baaf6b;
   border-radius: 0;
-  margin: 0;
   width: 96%;
   margin: 0 2%;
 }
@@ -677,12 +690,6 @@
   border: none;
   margin: 0;
 }
-.legends.sheet.npc-sheet .sheet-header .npc-level select {
-  width: 96%;
-  height: 48px;
-  margin: 8px 2%;
-  font-size: 1.2rem;
-}
 .legends.sheet.npc-sheet .body h1 {
   border-bottom: 2px solid #baaf6b;
   font-size: 1.5rem;
@@ -756,6 +763,56 @@
 }
 .legends.sheet.npc-sheet .body .fatigue {
   margin: 1rem 0;
+}
+.legends.sheet.campaign-sheet .campaign-era {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.legends.sheet.campaign-sheet .navigation {
+  flex-grow: 0;
+}
+.legends.sheet.campaign-sheet .body h1 {
+  border-bottom: 2px solid #baaf6b;
+  font-size: 1.5rem;
+}
+.legends.sheet.campaign-sheet .body h2 {
+  font-size: 1.2rem;
+}
+.legends.sheet.campaign-sheet .body .description-drive {
+  margin: 1rem;
+}
+.legends.sheet.campaign-sheet .body .description-drive .description {
+  flex: 1;
+  display: flex;
+  height: 100%;
+}
+.legends.sheet.campaign-sheet .body .description-drive .description .editor {
+  height: 100%;
+  width: 100%;
+}
+.legends.sheet.campaign-sheet .body .description {
+  margin: 0.5rem;
+}
+.legends.sheet.campaign-sheet .body .tab.acts .cell.act {
+  margin-bottom: 0.5rem;
+}
+.legends.sheet.campaign-sheet .body .add-act,
+.legends.sheet.campaign-sheet .body .no-acts {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.legends.sheet.campaign-sheet .body .add-act {
+  cursor: pointer;
+}
+.legends.sheet.campaign-sheet .body .act-name {
+  max-width: 150px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.legends.sheet.campaign-sheet .inciting-incident {
+  text-align: center;
+  margin-bottom: 10px;
 }
 .legends.sheet.move-sheet .rollable,
 .legends.sheet.technique-sheet .rollable,

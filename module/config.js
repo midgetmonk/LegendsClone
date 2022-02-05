@@ -28,6 +28,25 @@ legends.npcLevels = {
   "major": "legends.actor-sheet.npc.levels.major"
 }
 
+legends.campaignEras = {
+  "custom": "legends.actor-sheet.campaign.eras.custom",
+  "kyoshi": "legends.actor-sheet.campaign.eras.kyoshi",
+  "roku": "legends.actor-sheet.campaign.eras.roku",
+  "100years": "legends.actor-sheet.campaign.eras.100years",
+  "aang": "legends.actor-sheet.campaign.eras.aang",
+  "korra": "legends.actor-sheet.campaign.eras.korra"
+}
+
+legends.campaignFocus = {
+  "defeat": "legends.actor-sheet.campaign.focus.defeat",
+  "protect": "legends.actor-sheet.campaign.focus.protect",
+  "change": "legends.actor-sheet.campaign.focus.change",
+  "deliver": "legends.actor-sheet.campaign.focus.deliver",
+  "rescue": "legends.actor-sheet.campaign.focus.rescue",
+  "learn": "legends.actor-sheet.campaign.focus.learn",
+  "custom": "legends.actor-sheet.campaign.focus.custom"
+}
+
 legends.defaultTokens = {
   'condition': 'systems/legends/images/tokens/condition.png',
   'moment-of-balance': 'systems/legends/images/tokens/moment-of-balance.png',

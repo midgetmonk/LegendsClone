@@ -62,6 +62,40 @@
           "add": "Increase max Fatigue",
           "remove": "Decrease max Fatigue"
         }
+      },
+      "campaign": {
+        "title": "Campaign Worksheet",
+        "main": "Main",
+        "acts": "Acts",
+        "incitingIncident": "Inciting Incident",
+        "noActs": "No acts to display. Click below to add some!",
+        "relationships": {
+          "title": "Allies & Enemies",
+          "allies": "Allies",
+          "enemies": "Enemies"
+        },
+        "focus": {
+          "defeat": "To defeat [villain]",
+          "protect": "To protect [place, idea, culture, person, thing]",
+          "change": "To change [culture, society, place, person]",
+          "deliver": "To deliver [person, thing] to [place, culture, person]",
+          "rescue": "To rescue [person, thing]",
+          "learn": "To learn [idea, culture, training, history]",
+          "custom": "Custom group focus"
+        },
+        "groupFocus": "Group Focus",
+        "focusDesc": "Group Focus Details",
+        "customFocusPlaceholder": "To...",
+        "scope": "Scope",
+        "eras": {
+          "custom": "Custom",
+          "kyoshi": "Kyoshi's",
+          "roku": "Roku's",
+          "100years": "Hundred Year War",
+          "aang": "Aang's",
+          "korra": "Korra's",
+          "era": "Era"
+        }
       }
     },
     "stats": {
