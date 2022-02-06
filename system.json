@@ -7,8 +7,8 @@
   "minimumCoreVersion": "0.8.9",
   "compatibleCoreVersion": "9",
   "url": "https://gitlab.com/pacosgrove1/legends/",
-  "manifest": "https://gitlab.com/pacosgrove1/legends/-/raw/main/system.json",
-  "download": "https://gitlab.com/pacosgrove1/legends/-/archive/main/legends-main.zip",
+  "manifest": "https://gitlab.com/api/v4/projects/pacosgrove1%2Flegends/packages/generic/legends/latest/system.json",
+  "download": "https://gitlab.com/pacosgrove1/legends/-/releases/v0.2.4/downloads/legends-v0.2.4.zip",
   "esmodules":[
     "legends.js"
   ],
