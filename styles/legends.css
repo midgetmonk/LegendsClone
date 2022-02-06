@@ -822,6 +822,9 @@
 .legends.sheet.technique-sheet .approach-basic {
   margin: 0.5rem;
 }
+.chat-message.message {
+  background: #dfd3b4;
+}
 .message-content .legends {
   padding: 0.5rem;
   margin: 0 -5px -5px;
@@ -852,12 +855,8 @@
 }
 .message-content .legends h3 {
   margin: 0;
-  font-size: 1.1rem;
   font-family: 'Village';
   font-variant: small-caps;
-}
-.message-content .legends h4 {
-  font-size: 0.9rem;
 }
 .message-content .legends a.move-roll {
   display: block;
@@ -867,12 +866,26 @@
   border: 1px solid;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
   background: #dfd3b4;
-  border-color: #dfd3b4;
+  border-color: #baaf6b;
   color: #111;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .message-content .legends a.move-roll:hover {
   background: #f0e4c5;
+}
+.message-content .legends .dice-roll .dice-result {
+  font-family: 'BenchNine';
+  font-size: 1.1rem;
+}
+.message-content .legends .dice-roll .dice-result .dice-formula,
+.message-content .legends .dice-roll .dice-result .dice-total,
+.message-content .legends .dice-roll .dice-result .dice-tooltip .part-total {
+  background: #dfd3b4;
+  border-color: #baaf6b;
+  color: #111;
+}
+.message-content .legends .dice-roll .dice-result .dice-tooltip .part-header {
+  border-bottom: 1px solid #baaf6b;
 }
 .dialog .block {
   font-family: "Komikazoom";
