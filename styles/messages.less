@@ -2,9 +2,12 @@
 
 @import "./config.less";
 
+.chat-message.message{
+  background: @bg-fade-color;
+}
+
 .message-content{
   .legends{
-
     .kanji{
       &::before,
       &::after {
@@ -39,12 +42,7 @@
 
     h3{
       margin: 0;
-      font-size: 1.1rem;
       .title-font();
-    }
-
-    h4{
-      font-size: 0.9rem;
     }
 
     a.move-roll{
@@ -55,11 +53,29 @@
       border: 1px solid;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
       background: @bg-fade-color;
-      border-color: @bg-fade-color;
+      border-color: @accent-color;
       color: @text-color;
       text-shadow: 0 1px 0 rgba(255,255,255,0.2);
       &:hover{
         background: @bg-fade-color + #111;
+      }
+    }
+
+    .dice-roll{
+      .dice-result{
+        .main-font();
+
+        .dice-formula,
+        .dice-total,
+        .dice-tooltip .part-total{
+          background: @bg-fade-color;
+          border-color: @accent-color;
+          color: @text-color;
+        }
+
+        .dice-tooltip .part-header{
+          border-bottom: 1px solid @accent-color;
+        }
       }
     }
   }
