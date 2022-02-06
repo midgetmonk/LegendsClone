@@ -8,7 +8,7 @@ Screenshots: https://imgur.com/a/cA5Bfdg
 
 ## Installation
 To install the system, paste the manifest URL below into the Install System dialog on the Setup menu:
-  * `https://gitlab.com/pacosgrove1/legends/-/raw/main/system.json`
+  * `https://gitlab.com/api/v4/projects/pacosgrove1%2Flegends/packages/generic/legends/latest/system.json`
 
 ## Usage
 See [the Wiki](https://gitlab.com/pacosgrove1/legends/-/wikis/home) for specific usage examples.
