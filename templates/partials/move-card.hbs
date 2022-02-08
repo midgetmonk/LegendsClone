@@ -7,7 +7,7 @@
       </a>
       {{#if data.rollable}}
         <a class="move-roll small fire" data-move-stat="{{data.rollStat}}" data-move-name="{{name}}">
-          <i class="fas fa-dice" title="{{ localize (tr_path "legends.stats" data.rollStat) }}"></i>
+          <i class="fas fa-dice" title="{{#if data.rollStat}}{{localize (tr_path "legends.stats" data.rollStat)}}{{else}}{{localize "legends.roll.dialog.submit"}}{{/if}}"></i>
         </a>
       {{/if}}
     {{else}}
