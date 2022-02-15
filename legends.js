@@ -1,5 +1,6 @@
 import { legends } from "./module/config.js";
 import LegendsItem from "./module/LegendsItem.js";
+import LegendsActor from "./module/LegendsActor.js";
 import LegendsActorSheet from "./module/sheets/LegendsActorSheet.js";
 import LegendsNpcActorSheet from "./module/sheets/LegendsNpcActorSheet.js";
 import LegendsCampaignActorSheet from "./module/sheets/LegendsCampaignActorSheet.js";
@@ -22,6 +23,7 @@ Hooks.once("init", function(){
 
   // Config
   CONFIG.legends = legends;
+  CONFIG.Actor.documentClass = LegendsActor;
   CONFIG.Item.documentClass = LegendsItem;
 
   // Item sheets

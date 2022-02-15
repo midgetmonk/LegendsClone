@@ -31,4 +31,12 @@ export default class LegendsItem extends Item {
     chatData.roll = true;
     return ChatMessage.create(chatData);
   }
+
+  _onCreate(data, options, userId){
+    const img = CONFIG.legends.defaultTokens[data.type];
+    data.img = img;
+    this.data.img = img;
+
+    super._onCreate(data, options, userId);
+  }
 }
