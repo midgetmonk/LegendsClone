@@ -745,7 +745,11 @@
 }
 .legends.sheet.npc-sheet .body .technique-conditions .technique-container,
 .legends.sheet.npc-sheet .body .technique-conditions .conditions {
-  margin: 1rem;
+  margin: 1rem 1rem 0;
+}
+.legends.sheet.npc-sheet .body .technique-conditions .technique-container .technique,
+.legends.sheet.npc-sheet .body .technique-conditions .conditions .technique {
+  margin-bottom: 1rem;
 }
 .legends.sheet.npc-sheet .body .technique-conditions .technique-container .technique h3,
 .legends.sheet.npc-sheet .body .technique-conditions .conditions .technique h3,
@@ -762,7 +766,7 @@
   font-size: 0.9rem;
 }
 .legends.sheet.npc-sheet .body .fatigue {
-  margin: 1rem 0;
+  margin: 1rem 1rem 0;
 }
 .legends.sheet.campaign-sheet .campaign-era {
   margin-top: auto;
