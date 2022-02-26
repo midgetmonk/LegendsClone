@@ -15,6 +15,11 @@ export function addChatListeners(html){
 function onMoveRoll(event){
   const card = event.currentTarget;
   let character = game.user.character;
+  if(character === undefined){
+    let message = game.i18n.localize('legends.roll.no-actor')
+    ui.notifications.error(message);
+    return;
+  }
   let moveName = card.dataset.moveName;
   let statName = card.dataset.statName;
   let statValue = character.data.data.stats[statName]

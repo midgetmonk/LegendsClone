@@ -24,8 +24,10 @@ legends.training = {
 
 legends.npcLevels = {
   "minor": "legends.actor-sheet.npc.levels.minor",
-  "moderate": "legends.actor-sheet.npc.levels.moderate",
-  "major": "legends.actor-sheet.npc.levels.major"
+  "moderate": "legends.actor-sheet.npc.levels.major",
+  "major": "legends.actor-sheet.npc.levels.master",
+  "legendary": "legends.actor-sheet.npc.levels.legendary",
+  "group": "legends.actor-sheet.npc.levels.group"
 }
 
 legends.campaignEras = {

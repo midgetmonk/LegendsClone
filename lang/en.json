@@ -51,10 +51,11 @@
         "drive": "Drive",
         "technique": "Technique",
         "levels": {
-          "minor": "Minor",
-          "moderate": "Moderate",
-          "major": "Major",
-          "group": "Group",
+          "minor": "Minor NPC",
+          "major": "Major NPC",
+          "master": "Master NPC",
+          "legendary": "Legendary NPC",
+          "group": "NPC Group",
           "npc": "NPC"
         },
         "add-principle": "Add Principle",
@@ -158,7 +159,8 @@
         "bonus": "Bonuses",
         "bonus-description": "Total of Forwards, Ongoing and Helping",
         "submit": "Roll"
-      }
+      },
+      "no-actor": "You cannot roll Moves without an assigned Actor."
     },
     "dialog": {
       "cancel": "Cancel"
