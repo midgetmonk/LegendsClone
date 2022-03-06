@@ -178,6 +178,9 @@
 .legends .pad-75 {
   margin: 0.75rem;
 }
+.legends .pad-top {
+  margin: 1rem 0 0;
+}
 .legends .no-margin {
   margin: 0 !important;
 }
@@ -612,7 +615,7 @@
   content: '術';
 }
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique .drawer {
   display: none;

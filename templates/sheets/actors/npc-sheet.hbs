@@ -61,6 +61,11 @@
       <section class="technique-container cell cell-3">
         <h1 class="title">
           {{localize "legends.actor-sheet.npc.technique"}}
+          <small>
+            <a class="item-create fire title small" data-type="technique" title="{{localize "legends.moves.add"}}">
+              <i class="fas fa-plus"></i> {{localize "legends.techniques.add"}}
+            </a>
+          </small>
         </h1>
         {{#if techniques}}
           {{#each techniques as |technique|}}
@@ -72,19 +77,24 @@
       </section>
 
       <section class="conditions cell cell-2">
-        <section class="">
-          <h1 class="title">{{ localize "legends.actor-sheet.conditions" }}</h1>
-          {{#each conditions as |condition id|}}
-            {{> "systems/legends/templates/partials/condition-card.hbs" condition inSheet=true npc=true}}
-          {{/each}}
-        </section>
+        <h1 class="title">{{ localize "legends.actor-sheet.conditions" }}
+          <a class="item-create fire small" data-type="condition" title="{{localize "legends.conditions.add"}}">
+            <i class="fas fa-plus"></i> {{localize "legends.condition.add"}}
+          </a>
+        </h1>
+        {{#each conditions as |condition id|}}
+          {{> "systems/legends/templates/partials/condition-card.hbs" condition inSheet=true npc=true}}
+        {{/each}}
 
-        <section class="statuses">
-          <h1 class="title">{{ localize "legends.actor-sheet.statuses" }}</h1>
-          {{#each statuses as |status id|}}
-            {{> "systems/legends/templates/partials/condition-card.hbs" status inSheet=true}}
-          {{/each}}
-        </section>
+        <h1 class="title pad-top">
+          {{ localize "legends.actor-sheet.statuses" }}
+          <a class="item-create fire small" data-type="status" title="{{localize "legends.status.add"}}">
+            <i class="fas fa-plus"></i> {{localize "legends.status.add"}}
+          </a>
+        </h1>
+        {{#each statuses as |status id|}}
+          {{> "systems/legends/templates/partials/condition-card.hbs" status inSheet=true}}
+        {{/each}}
       </section>
     </section>
   </section>

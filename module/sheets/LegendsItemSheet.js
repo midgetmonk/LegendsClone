@@ -3,6 +3,13 @@ export default class LegendsItemSheet extends ItemSheet {
     return `systems/legends/templates/sheets/items/${this.item.data.type}-sheet.hbs`;
   };
 
+  static get defaultOptions(){
+    return mergeObject(super.defaultOptions, {
+      width: 500,
+      height: 475
+    });
+  }
+
   getData(){
     const context = super.getData();
     context.config = CONFIG.legends;

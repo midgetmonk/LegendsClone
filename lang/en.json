@@ -112,14 +112,17 @@
       }
     },
     "moves": {
-      "add": "Add Move",
+      "add": "New Move",
       "edit": "Edit Move",
       "delete": "Delete Move",
       "new": "New Move",
       "roll-with": "Roll with"
     },
-    "conditions": {
-      "add": "Add Condition"
+    "condition": {
+      "add": "New Condition"
+    },
+    "status": {
+      "add": "New Status"
     },
     "techniques": {
       "approach": "Approach",
@@ -137,7 +140,7 @@
         "master": "Set Mastered",
         "mastered": "M"
       },
-      "add": "Add Technique"
+      "add": "New Technique"
     },
     "training": {
       "water": "Waterbending",
