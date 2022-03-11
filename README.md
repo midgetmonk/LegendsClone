@@ -28,7 +28,11 @@ _Licence details are included in the font folders._
 
 ### Images
 * Icons from [Font Awesome](https://fontawesome.com/)
-* Training images from [Game-icons.net](https://game-icons.net/)
+* Icons from [Game-icons.net](https://game-icons.net/) under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/)
+  * [Acrobatic](https://game-icons.net/1x1/darkzaitzev/acrobatic.html) and [Big gear](https://game-icons.net/1x1/darkzaitzev/big-gear.html) by [DarkZaitzey](http://darkzaitzev.deviantart.com/)
+  * [Boomerang](https://game-icons.net/1x1/delapouite/boomerang.html), [Love mystery](https://game-icons.net/1x1/delapouite/love-mystery.html), [Person](https://game-icons.net/1x1/delapouite/person.html), [Summits](https://game-icons.net/1x1/delapouite/summits.html) and [Yin yang](https://game-icons.net/1x1/delapouite/yin-yang.html) by [Delapouite](https://delapouite.com/)
+  * [Backup](https://game-icons.net/1x1/lorc/backup.html), [Compass](https://game-icons.net/1x1/lorc/compass.html), [Waves](https://game-icons.net/1x1/lorc/waves.html), [Wind hole](https://game-icons.net/1x1/lorc/wind-hole.html) and [World](https://game-icons.net/1x1/lorc/world.html) by [Lorc](https://lorcblog.blogspot.com/)
+  * [Expander](https://game-icons.net/1x1/sbed/expander.html), [Flamer](https://game-icons.net/1x1/sbed/flamer.html) and [Poison cloud](https://game-icons.net/1x1/sbed/poison-cloud.html) by [sbed](http://opengameart.org/content/95-game-icons)
 
 ### Disclaimer
 Avatar: The Last Airbender, Nickelodeon, and all related marks, logos, and characters are owned by Viacom International Inc. This VTT system is not endorsed by, sponsored by, nor affiliated with Viacom International Inc., Magpie Games, or any other Avatar franchise, and is intended for private use only.
