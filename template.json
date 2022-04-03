@@ -126,7 +126,9 @@
       "basic": false,
       "learned": false,
       "practiced": false,
-      "mastered": false
+      "mastered": false,
+      "training": "",
+      "specialty":""
     },
     "condition": {
       "templates": ["hasDescription"],
@@ -143,7 +145,8 @@
     },
     "status": {
       "templates": ["hasDescription"],
-      "checked": false
+      "checked": false,
+      "type": "positive"
     }
   }
 }

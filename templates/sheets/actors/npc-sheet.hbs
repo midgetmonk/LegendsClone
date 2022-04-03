@@ -92,9 +92,18 @@
             <i class="fas fa-plus"></i> {{localize "legends.status.add"}}
           </a>
         </h1>
-        {{#each statuses as |status id|}}
-          {{> "systems/legends/templates/partials/condition-card.hbs" status inSheet=true}}
-        {{/each}}
+        <section class="statuses">
+          <section class="positive">
+            {{#each statuses.positive as |status id|}}
+              {{> "systems/legends/templates/partials/condition-card.hbs" status inSheet=true npc=true}}
+            {{/each}}
+          </section>
+          <section class="negative">
+            {{#each statuses.negative as |status id|}}
+              {{> "systems/legends/templates/partials/condition-card.hbs" status inSheet=true npc=true}}
+            {{/each}}
+          </section>
+        </section>
       </section>
     </section>
   </section>

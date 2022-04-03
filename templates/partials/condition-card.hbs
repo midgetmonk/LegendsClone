@@ -1,21 +1,23 @@
 {{#unless inSheet}}<div class="legends">{{/unless}}
-  <section class="item condition" data-item-id="{{_id}}" data-npc="{{npc}}">
-    <div>
-      <span class="large title">
-        {{#if inSheet}}
-          <a class="condition-toggle check-box{{#if data.checked}} filled{{/if}}"></a>
-          {{#if npc}}
-            <a class="black menu">{{name}}</a>
-          {{else}}
-            <a class="item-roll black menu">{{name}}</a>
-          {{/if}}
+  <section class="item condition cell" data-item-id="{{_id}}" data-npc="{{npc}}">
+    <h4 class="title no-margin">
+      {{#if inSheet}}
+        <a class="condition-toggle check-box{{#if data.checked}} filled{{/if}}"></a>
+        {{#if npc}}
+          <a class="black menu">{{name}}</a>
         {{else}}
-          {{name}}
+          <a class="black menu">{{name}}</a>
+          <a class="item-roll small weapons">
+            <i class="fas fa-comment"></i>
+          </a>
         {{/if}}
-      </span>
-    </div>
+      {{else}}
+        {{name}}
+      {{/if}}
+    </h4>
+    
     {{#unless npc}}
-      {{{data.description}}}
+      {{{ data.description }}}
     {{/unless}}
   </section>
 {{#unless inSheet}}</div>{{/unless}}

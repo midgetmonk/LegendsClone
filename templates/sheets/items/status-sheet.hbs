@@ -5,6 +5,24 @@
     </h1>
     <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
   </header>
-  
-  {{> "systems/legends/templates/partials/description-editor.hbs" }}
+
+  <div class="body">
+    <table>
+      <tr>
+        <th class="title">{{localize "legends.status.type"}}</th>
+      </tr>
+      <tr>
+        <td>
+          <select name="data.type">
+            {{#select data.data.type}}
+              <option value="positive">{{localize "legends.status.positive"}}</option>
+              <option value="negative">{{localize "legends.status.negative"}}</option>
+            {{/select}}
+          </select>
+        </td>
+      </tr>
+    </table>
+
+    {{> "systems/legends/templates/partials/description-editor.hbs" }}
+  </div>
 </form>

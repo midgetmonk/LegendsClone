@@ -12,241 +12,203 @@
     <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64" />
   </header>
 
-  <section class="training">
-    <h2 class="title sigils">{{ localize "legends.actor-sheet.player.training" }}</h2>
-    <div class="trainings">
-      {{#each data.data.training as |selected type|}}
-        <div class="training-type{{#if selected}} selected{{/if}}" data-type="{{type}}">
-          <img class="{{type}}" src="systems/legends/images/{{type}}.png" />
-          <br />{{localize (tr_path "legends.training" type)}}
-        </div>
-      {{/each}}
-    </div>
-
-    <section class="fighting-style">
-      <label class="title">
-        {{localize "legends.actor-sheet.player.fighting-style"}}:
-        <input name="data.fighting_style" type="text" value="{{data.data.fighting_style}}" placeholder="{{localize "legends.actor-sheet.player.fighting-style"}}" />
-      </label>
-    </section>
+  {{#if displayTabbed}}
+  <section class="navigation">
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <a class="item" data-tab="main">{{localize "legends.nav.main"}}</a>
+      <a class="item" data-tab="moves">{{localize "legends.nav.moves"}}</a>
+      <a class="item" data-tab="techniques">{{localize "legends.nav.techniques"}}</a>
+      <a class="item" data-tab="detail">{{localize "legends.nav.detail"}}</a>
+    </nav>
   </section>
+  {{else}}
+  <section class="cell pad-sides">
+  {{> "systems/legends/templates/sheets/actors/_trainings.hbs" data}}
+  </section>
+  {{/if}}
 
-  <section class="main">
-    <section class="row">
-      <!-- stats and fatigue -->
-      <section class="stats-fatigue">
-        <section class="stats">
-          <h2 class="block">{{ localize "legends.actor-sheet.stats" }}</h2>
-          {{#each data.data.stats as |val type| }}
-          <h3>
-            <input name="data.stats.{{type}}" value="{{val}}" type="number" max="3" min="-1" class="hand" />
-            <span class="title">
-              <a class="stat-roll black" data-stat-name="{{type}}" data-stat-value="{{val}}">
-                <i class="fas fa-dice"></i>
-              </a>
-              {{localize (tr_path "legends.stats" type) }}
-            </span>
-          </h3>
-          {{/each}}
-        </section>
-        <section class="fatigue center">
-          <h2 class="brush no-margin">{{ localize "legends.actor-sheet.fatigue" }}</h2>
-          <section class="boxes center" title="{{localize "legends.actor-sheet.clear-track"}}">
-            {{#times data.data.fatigue.max}}
-              <a class="set-fatigue fatigue-box{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
-            {{/times}}
+  <section class="body">
+    <div class="row{{#if displayTabbed}} tab-main tab" data-group="primary" data-tab="main{{/if}}">
+      <section class="cell cell-3 column">
+        <section class="row">
+          <section class="cell stats-fatigue pad-sides">
+            {{> "systems/legends/templates/sheets/actors/_stats.hbs" data}}
+
+            {{> "systems/legends/templates/sheets/actors/_fatigue.hbs" data}}
           </section>
+          
+          {{> "systems/legends/templates/sheets/actors/_balance.hbs" data}}
+
+        </section>
+        <section class="column statuses pad-sides">
+          <h2 class="title center underline">{{localize "legends.actor-sheet.statuses"}}</h2>
+          <section class="cell row positive">
+            {{#each statuses.positive as |status id|}}
+              {{> "systems/legends/templates/partials/condition-card.hbs" status inSheet=true}}
+            {{/each}}
+          </section>
+          <section class="cell row negative">
+            {{#each statuses.negative as |status id|}}
+              {{> "systems/legends/templates/partials/condition-card.hbs" status inSheet=true}}
+            {{/each}}
+          </section>
+
+          {{#if (and (lt statuses.positive.length 4) (lt statuses.negative.length 4))}}
+          <p class="title small">
+            <a class="item-create fire" data-type="status" title="{{localize "legends.status.add"}}">
+              <i class="fas fa-plus"></i> {{localize "legends.status.add"}}
+            </a>
+          </p>
+          {{/if}}
         </section>
       </section>
-
-      <!-- balance -->
-      <section class="balance">
-        <h2 class="block">{{ localize "legends.actor-sheet.balance" }}</h2>
-        
-        <h3 class="brush balance-black">
-          <a class="principle-roll white" data-name="{{data.data.balance.topTrack}}" data-value="{{data.data.balance.value}}" data-negative="false"><i class="fas fa-dice"></i></a>
-          <input name="data.balance.topTrack" value="{{data.data.balance.topTrack}}" placeholder="Principle" />
-        </h3>
-
-        <ul class="balance-track black">
-          <li class="set-balance{{#if (eq data.data.balance.value 3)}} selected{{/if}}" data-current-balance="3"><a class="num">+3</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value 2)}} selected{{/if}}" data-current-balance="2"><a class="num">+2</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value 1)}} selected{{/if}}" data-current-balance="1"><a class="num">+1</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value 0)}} selected{{/if}}" data-current-balance="0"><a class="num">0</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value -1)}} selected{{/if}}" data-current-balance="-1"><a class="num">-1</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value -2)}} selected{{/if}}" data-current-balance="-2"><a class="num">-2</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value -3)}} selected{{/if}}" data-current-balance="-3"><a class="num">-3</a></li>
-        </ul>
-
-        <ul class="balance-center-track">
-          <li class="set-balance-center" data-current-center="3"><a class="check-box balance-box{{#if (eq data.data.balance.center 3)}} filled{{/if}}"></a></li>
-          <li class="text">C</li>
-          <li class="set-balance-center" data-current-center="2"><a class="check-box balance-box{{#if (eq data.data.balance.center 2)}} filled{{/if}}"></a></li>
-          <li class="text">E</li>
-          <li class="set-balance-center" data-current-center="1"><a class="check-box balance-box{{#if (eq data.data.balance.center 1)}} filled{{/if}}"></a></li>
-          <li class="text">N</li>
-          <li class="set-balance-center" data-current-center="0"><a class="check-box balance-box{{#if (eq data.data.balance.center 0)}} filled{{/if}}"></a></li>
-          <li class="text">T</li>
-          <li class="set-balance-center" data-current-center="-1"><a class="check-box balance-box{{#if (eq data.data.balance.center -1)}} filled{{/if}}"></a></li>
-          <li class="text">E</li>
-          <li class="set-balance-center" data-current-center="-2"><a class="check-box balance-box{{#if (eq data.data.balance.center -2)}} filled{{/if}}"></a></li>
-          <li class="text">R</li>
-          <li class="set-balance-center" data-current-center="-3"><a class="check-box balance-box{{#if (eq data.data.balance.center -3)}} filled{{/if}}"></a></li>
-        </ul>
-
-        <ul class="balance-track white">
-          <li class="set-balance{{#if (eq data.data.balance.value 3)}} selected{{/if}}" data-current-balance="3"><a class="num">-3</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value 2)}} selected{{/if}}" data-current-balance="2"><a class="num">-2</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value 1)}} selected{{/if}}" data-current-balance="1"><a class="num">-1</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value 0)}} selected{{/if}}" data-current-balance="0"><a class="num">0</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value -1)}} selected{{/if}}" data-current-balance="-1"><a class="num">+1</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value -2)}} selected{{/if}}" data-current-balance="-2"><a class="num">+2</a></li>
-          <li class="set-balance{{#if (eq data.data.balance.value -3)}} selected{{/if}}" data-current-balance="-3"><a class="num">+3</a></li>
-        </ul>
-        <h3 class="brush right balance-white">
-          <input name="data.balance.bottomTrack" value="{{data.data.balance.bottomTrack}}" placeholder="Principle" />
-          <a class="principle-roll black" data-name="{{data.data.balance.bottomTrack}}" data-value="{{data.data.balance.value}}" data-negative="true"><i class="fas fa-dice"></i></a>
-        </h3>
-      </section>
-
-      <!-- conditions -->
-      <section class="conditions">
-        <h2 class="block">{{ localize "legends.actor-sheet.conditions" }}</h2>
+      <section class="cell conditions pad-sides">
+        <h2 class="title center underline">{{ localize "legends.actor-sheet.conditions" }}</h2>
         {{#each conditions as |condition id|}}
           {{> "systems/legends/templates/partials/condition-card.hbs" condition inSheet=true}}
         {{/each}}
         {{#if (lt conditions.length 5)}}
         <p class="title small">
-          <a class="item-create fire" data-type="condition" title="{{localize "legends.conditions.add"}}">
-            <i class="fas fa-plus"></i> {{localize "legends.conditions.add"}}
+          <a class="item-create fire" data-type="condition" title="{{localize "legends.condition.add"}}">
+            <i class="fas fa-plus"></i> {{localize "legends.condition.add"}}
           </a>
         </p>
         {{/if}}
       </section>
-    </section>
-  </section>
+    </div>
 
-  <section class="feature-moves">
-    <section class="item feature" data-item-id="{{feature._id}}">
-      {{#if feature}}
-      <h2 class="title sigils menu">
-        <a class="black item-roll">{{feature.name}}</a>
-      </h2>
-      <section class="body">
-        {{{feature.data.description}}}
-      </section>
-      {{else}}
-      <h2 class="title sigils">
-        {{localize "legends.actor-sheet.player.feature.title"}}
-      </h2>
-      <p class="center title small">
-        <a class="item-create fire" data-type="feature">
-          <i class="fas fa-plus"></i>
-          {{localize "legends.actor-sheet.player.feature.add"}}
-        </a>
-      </p>
-      {{/if}}
-    </section>
-
-    <section class="moves-techniques">
-      <section class="moves">
-        <h2 class="brush no-margin">
+    <div class="{{#if displayTabbed}}tab-moves tab" data-group="primary" data-tab="moves{{/if}}">
+      <section class="moves cell pad-sides">
+        <h2 class="title center underline">
           {{localize "legends.actor-sheet.moves"}}
         </h2>
-        <p class="title small">
+
+        <p class="title small center">
           <a class="item-create fire" data-type="move" title="{{localize "legends.moves.add"}}">
             <i class="fas fa-plus"></i> {{localize "legends.moves.add"}}
           </a>
         </p>
-        <div class="item-list">
+
+        <div class="item-list col col-3">
           {{#each moves as |move id|}}
             {{> "systems/legends/templates/partials/move-card.hbs" move inSheet=true}}
           {{/each}}
         </div>
       </section>
+    </div>
 
-      <section class="techniques">
-        <h2 class="kanji brush no-margin center">
-          {{localize "legends.actor-sheet.techniques"}}
-        </h2>
-        <p class="title small center">
-          <a class="item-create fire" data-type="technique" title="{{localize "legends.techniques.add"}}">
-            <i class="fas fa-plus"></i> {{localize "legends.techniques.add"}}
-          </a>
-        </p>
-        <div class="item-list">
-          {{#each techniques as |technique id|}}
-              {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true}}
-          {{/each}}
-        </div>
-      </section>
-    </section>
-  </section>
+    <div class="{{#if displayTabbed}}tab-techniques tab" data-group="primary" data-tab="techniques{{/if}}">
+      <section class="cell column">
+        {{#if displayTabbed}}
+        <section class="cell pad-sides">
+        {{> "systems/legends/templates/sheets/actors/_trainings.hbs" data}}
+        </section>
+        {{/if}}
 
-  <section class="character">
-    <section class="cell growth">
-      <section class="item moment-of-balance" data-item-id="{{momentOfBalance._id}}">
-      {{#if momentOfBalance}}
-        <h2 class="title kanji balance menu">
-          <a class="item-roll black">
-            {{localize "legends.actor-sheet.player.momentOfBalance"}}
-          </a>
-        </h2>
-        <div class="moment">
-          {{{momentOfBalance.data.description}}}
-        </div>
-      {{else}}
-        <h2 class="title kanji balance">
-          {{localize "legends.actor-sheet.player.momentOfBalance"}}
-        </h2>
-        <div class="moment">
+        <section class="techniques cell pad-sides">
+          <h2 class="title underline center">
+            {{localize "legends.actor-sheet.techniques"}}
+          </h2>
           <p class="title small center">
-            <a class="item-create fire" data-type="moment-of-balance" title="{{localize "legends.moves.add"}}">
-              <i class="fas fa-plus"></i>
-              {{localize "legends.actor-sheet.player.add-moment"}}
+            <a class="item-create fire" data-type="technique" title="{{localize "legends.techniques.add"}}">
+              <i class="fas fa-plus"></i> {{localize "legends.techniques.add"}}
             </a>
           </p>
-        </div>
-      {{/if}}
+
+          <div class="item-list col col-2">
+            {{#each techniques as |technique id|}}
+              {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true}}
+            {{/each}}
+          </div>
+        </section>
       </section>
+    </div>
 
-      <h2 class="title">
-        {{localize "legends.actor-sheet.player.growth"}}
-        {{#times 4}}
-        <a class="check-box set-value{{#if (gte ../data.data.growth.value @index)}} filled{{/if}}" data-param="growth" data-new-value="{{@index}}"></a>
-        {{/times}}
-      </h2>
+    <div class="{{#if displayTabbed}}tab-detail tab" data-group="primary" data-tab="detail{{/if}}">
+      <section class="cell row">
+        <section class="cell item feature pad-sides" data-item-id="{{feature._id}}">
+          {{#if feature}}
+          <h2 class="title center underline menu">
+            <a class="black item-roll">{{feature.name}}</a>
+          </h2>
+          <section class="body">
+            {{{feature.data.description}}}
+          </section>
+          {{else}}
+          <h2 class="title center underline">
+            {{localize "legends.actor-sheet.player.feature.title"}}
+          </h2>
+          <p class="center title small">
+            <a class="item-create fire" data-type="feature">
+              <i class="fas fa-plus"></i>
+              {{localize "legends.actor-sheet.player.feature.add"}}
+            </a>
+          </p>
+          {{/if}}
+        </section>
 
-      <h3 class="title">
-        {{localize "legends.actor-sheet.player.advancements.title"}}
-      </h3>
-      <ul>
-        {{#each data.data.growth.advancements as |track name|}}
-        <li>
-          {{localize (tr_path "legends.actor-sheet.player.advancements" name)}}
-          &nbsp;
-          {{#times track.max}}
-          <a class="check-box mini set-adv-value{{#if (gte track.value @index)}} filled{{/if}}" data-param="{{name}}" data-new-value="{{@index}}"></a>
-          {{/times}}
-        </li>
-        {{/each}}
-      </ul>
-    </section>
+        <section class="cell column pad-sides">
+          <section class="item moment-of-balance" data-item-id="{{momentOfBalance._id}}">
+          {{#if momentOfBalance}}
+            <h2 class="title balance menu center underline">
+              <a class="item-roll black">
+                {{localize "legends.actor-sheet.player.momentOfBalance"}}
+              </a>
+            </h2>
+            <div class="moment">
+              {{{momentOfBalance.data.description}}}
+            </div>
+          {{else}}
+            <h2 class="title balance center underline">
+              {{localize "legends.actor-sheet.player.momentOfBalance"}}
+            </h2>
+            <div class="moment">
+              <p class="title small center">
+                <a class="item-create fire" data-type="moment-of-balance" title="{{localize "legends.moves.add"}}">
+                  <i class="fas fa-plus"></i>
+                  {{localize "legends.actor-sheet.player.add-moment"}}
+                </a>
+              </p>
+            </div>
+          {{/if}}
 
-    <section class="cell about">
-      <h3 class="block">{{localize "legends.actor-sheet.player.about"}}</h3>
+          <h2 class="title center underline">{{localize "legends.actor-sheet.player.about"}}</h2>
 
-      {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.background" label="legends.actor-sheet.player.background" value=data.data.background}}
-      {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.demeanor" label="legends.actor-sheet.player.demeanor" value=data.data.demeanor}}
+          {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.background" label="legends.actor-sheet.player.background" value=data.data.background}}
+          {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.demeanor" label="legends.actor-sheet.player.demeanor" value=data.data.demeanor}}
 
-      <label class="look">
-        <span class="title"><strong>{{localize "legends.actor-sheet.player.look"}}:</strong></span>
-        <div class="description">
-          {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
-        </div>
-      </label>
+          <label class="look">
+            <span class="title"><strong>{{localize "legends.actor-sheet.player.look"}}:</strong></span>
+            <div class="description">
+              {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+            </div>
+          </label>
 
-      {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.hometown" label="legends.actor-sheet.player.hometown" value=data.data.hometown}}
-    </section>
+          {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.hometown" label="legends.actor-sheet.player.hometown" value=data.data.hometown}}
+
+          <h3 class="title">
+            {{localize "legends.actor-sheet.player.growth"}}
+            {{#times 4}}
+            <a class="check-box set-value{{#if (gte ../data.data.growth.value @index)}} filled{{/if}}" data-param="growth" data-new-value="{{@index}}"></a>
+            {{/times}}
+          </h3>
+
+          <h4 class="title">
+            {{localize "legends.actor-sheet.player.advancements.title"}}
+          </h4>
+          <ul>
+            {{#each data.data.growth.advancements as |track name|}}
+            <li>
+              {{localize (tr_path "legends.actor-sheet.player.advancements" name)}}
+              &nbsp;
+              {{#times track.max}}
+              <a class="check-box mini set-adv-value{{#if (gte track.value @index)}} filled{{/if}}" data-param="{{name}}" data-new-value="{{@index}}"></a>
+              {{/times}}
+            </li>
+            {{/each}}
+          </ul>
+        </section>
+      </section>
+    </div>
   </section>
 </form>

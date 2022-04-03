@@ -1,0 +1,8 @@
+<section class="fatigue center">
+  <h2 class="title center underline">{{ localize "legends.actor-sheet.fatigue" }}</h2>
+  <section class="boxes center" title="{{localize "legends.actor-sheet.clear-track"}}">
+    {{#times data.fatigue.max}}
+      <a class="set-fatigue fatigue-box{{#if (gte ../data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
+    {{/times}}
+  </section>
+</section>

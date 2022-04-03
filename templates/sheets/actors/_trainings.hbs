@@ -1,0 +1,18 @@
+  <section class="training">
+    <h2 class="title center underline">{{ localize "legends.actor-sheet.player.training" }}</h2>
+    <div class="trainings">
+      {{#each data.training as |selected type|}}
+        <div class="training-type{{#if selected}} selected{{/if}}" data-type="{{type}}">
+          <img class="{{type}}" src="systems/legends/images/{{type}}.png" />
+          <br />{{localize (tr_path "legends.training" type)}}
+        </div>
+      {{/each}}
+    </div>
+
+    <section class="row">
+      <section class="cell"></section>
+      <section class="cell cell-2">
+        {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.fighting_style" label="legends.actor-sheet.player.fighting-style" value=data.fighting_style}}
+      </section>
+      <section class="cell"></section>
+  </section>

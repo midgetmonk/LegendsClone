@@ -10,7 +10,8 @@
       <table>
         <tr>
           <th class="title">{{localize "legends.techniques.approach"}}</th>
-          <th class="title">{{localize "legends.techniques.basic"}}</th>
+          <th class="title">{{localize "legends.actor-sheet.player.training"}}</th>
+          <th class="title">{{localize "legends.training.specialty"}}</th>
         </tr>
         <tr>
           <td>
@@ -22,7 +23,20 @@
               {{/select}}
             </select>
           </td>
-          <td class="center"><input type="checkbox" name="data.basic" {{checked data.data.basic}}></td>
+          <td>
+            <select name="data.training">
+              <option value="">{{localize "legends.training.none"}}</option>
+              {{#select data.data.training}}
+                {{#each config.training as |name type|}}
+                  <option value="{{type}}">{{localize name}}</option>
+                {{/each}}
+              <option value="group">{{localize "legends.training.group"}}</option>
+              {{/select}}
+            </select>
+          </td>
+          <td>
+            <input type="text" name="data.specialty" value="{{data.data.specialty}}" />
+          </td>
         </tr>
       </table>
     </section>

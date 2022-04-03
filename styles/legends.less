@@ -14,6 +14,10 @@
   .technology { color: @technologist; }
   .black { color: @text-color; }
   .white { color: white; }
+  .accent { color: @accent-color; }
+  .accent-dark { color: @accent-dark; }
+
+  .main-font();
 
   // Flex layout classes
   .row{
@@ -32,6 +36,7 @@
 
     &.cell-2{ flex: 2 !important; }
     &.cell-3{ flex: 3 !important; }
+    &.cell-4{ flex: 4 !important; }
   }
 
   // Basic text
@@ -53,7 +58,8 @@
   // Headings
   h1, h2, h3, h4 {
     border: none;
-    font-family: inherit;
+    .title-font();
+
     input {
       font-family: inherit;
       font-size: inherit;
@@ -96,14 +102,85 @@
   .pad-50{ margin: 0.5rem; }
   .pad-75{ margin: 0.75rem; }
   .pad-top{ margin: 1rem 0 0; }
+  .pad-sides{ margin: 0 0.5rem; }
   
   .no-margin { margin: 0 !important; }
+
+  .underline{
+    border-bottom: 2px solid @accent-color;
+  }
+
+  .kanji{
+    &::before,
+    &::after {
+      .kanji-font();
+      color: @firebender;
+      padding: 0;
+      font-size: 70%;
+      vertical-align: text-top;
+    }
+
+    &.kanji-techniques{
+      &::before {
+        content: '武';
+      }
+
+      &::after {
+        content: '術';
+      }
+    }
+
+    &.kanji-balance{
+      &::before{
+        content: '平';
+      }
+      &::after{
+        content: '衡';
+      }
+    }
+  }
+
+  .col{
+    &.col-2{ columns: 2; }
+    &.col-3{ columns: 3; }
+    .item{
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  }
+
+  .technique{
+    h3{
+      .data{
+        float: right;
+
+        .icon{
+          width: 1.2rem;
+        }
+
+        .specialty{
+          border-radius: 0.6rem;
+          color: @bg-color;
+          font-size: 0.7rem;
+          .main-font();
+          font-weight: normal;
+          text-transform: uppercase;
+          padding: 0 0.5rem;
+
+          &.air{ background-color: @airbender; }
+          &.earth{ background-color: @earthbender; }
+          &.fire{ background-color: @firebender; }
+          &.technology{ background-color: @technologist; }
+          &.water{ background-color: @waterbender; }
+          &.weapon{ background-color: @weaponsmith; }
+        }
+      }
+    }
+  }
 }
 
 @import "./sheets.less";
-@import "./player-sheet.less";
 @import "./npc-sheet.less";
 @import "./campaign-sheet.less";
-@import "./item-sheet.less";
 @import "./messages.less";
 @import "./dialog.less";

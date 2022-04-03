@@ -31,7 +31,7 @@
     <div class="tab main" data-group="primary" data-tab="main">
       <!-- Campaign Scope -->
       <section>
-        <h2 class="title sigils">{{localize "legends.actor-sheet.campaign.scope"}}</h2>
+        <h2 class="title center underline">{{localize "legends.actor-sheet.campaign.scope"}}</h2>
         
         <div class="description">
           {{editor content=data.data.scope target="data.scope" button=true owner=owner editable=editable}}
@@ -41,7 +41,7 @@
       <!-- Group Focus -->
       <section class="cell cell-2 row">
         <section class="cell">
-          <h2 class="title sigils">{{localize "legends.actor-sheet.campaign.groupFocus"}}</h2>
+          <h2 class="title center underline">{{localize "legends.actor-sheet.campaign.groupFocus"}}</h2>
 
           <div class="cell row">
             <div class="cell">
@@ -74,7 +74,7 @@
       <!-- Inciting Incident -->
       <section class="inciting-incident">
         <section class="cell">
-          <h2 class="title sigils">{{localize "legends.actor-sheet.campaign.incitingIncident"}}</h2>
+          <h2 class="title center underline">{{localize "legends.actor-sheet.campaign.incitingIncident"}}</h2>
           <input type="text" name="data.incitingIncident" value="{{data.data.incitingIncident}}" class="text" />
         </section>
       </section>
@@ -84,7 +84,7 @@
         <!-- Iterate to display each act -->
         {{#each data.data.acts as |act id|}}
           <section class="cell act">
-            <h2 class="title sigils single-line" contenteditable="true" data-edit="data.acts.{{id}}.name">{{{act.name}}}</h2>
+            <h2 class="title center underline single-line" contenteditable="true" data-edit="data.acts.{{id}}.name">{{{act.name}}}</h2>
             <div class="description">
               {{editor content=act.description target=(concat 'data.acts.' id '.description') button=true owner=../owner editable=../editable}}
             </div>
@@ -97,7 +97,7 @@
     <div class="tab relationships" data-group="primary" data-tab="relationships">
       <!-- Allies -->
       <section>
-        <h2 class="title sigils">{{localize "legends.actor-sheet.campaign.relationships.allies"}}</h2>
+        <h2 class="title center underline">{{localize "legends.actor-sheet.campaign.relationships.allies"}}</h2>
         
         <div class="description">
           {{editor content=data.data.allies target="data.allies" button=true owner=owner editable=editable}}
@@ -106,7 +106,7 @@
 
       <!-- Enemies -->
       <section>
-        <h2 class="title sigils">{{localize "legends.actor-sheet.campaign.relationships.enemies"}}</h2>
+        <h2 class="title center underline">{{localize "legends.actor-sheet.campaign.relationships.enemies"}}</h2>
         
         <div class="description">
           {{editor content=data.data.enemies target="data.enemies" button=true owner=owner editable=editable}}
