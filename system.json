@@ -3,12 +3,12 @@
   "title": "Avatar Legends RPG (Unofficial)",
   "description": "Unofficial system for Avatar Legends RPG character sheets.",
   "author": "aniki21",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "minimumCoreVersion": "0.8.9",
   "compatibleCoreVersion": "9",
   "url": "https://gitlab.com/pacosgrove1/legends/",
   "manifest": "https://gitlab.com/api/v4/projects/pacosgrove1%2Flegends/packages/generic/legends/latest/system.json",
-  "download": "https://gitlab.com/pacosgrove1/legends/-/releases/v0.2.8/downloads/legends-v0.2.8.zip",
+  "download": "https://gitlab.com/pacosgrove1/legends/-/releases/v0.3.0/downloads/legends-v0.3.0.zip",
   "esmodules":[
     "legends.js"
   ],

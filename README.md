@@ -2,9 +2,9 @@
 
 A FoundryVTT system for [Avatar Legends RPG](https://magpiegames.com/avatarrpg) characters.
 
-<img src="https://i.imgur.com/w2mxjJW.png" alt="Player character sheet" width="60%" />
+<img src="https://i.imgur.com/b5SJHhQ.png" alt="Player character sheet" width="60%" />
 
-Screenshots: https://imgur.com/a/cA5Bfdg
+Screenshots: https://imgur.com/a/oDY4Zwk
 
 ## Installation
 To install the system, paste the manifest URL below into the Install System dialog on the Setup menu:
