@@ -6,6 +6,10 @@ export default async function preloadHandlebarsTemplates(){
     "systems/legends/templates/partials/technique-card.hbs",
     "systems/legends/templates/partials/labelled-input.hbs",
     "systems/legends/templates/partials/npc-principle-card.hbs",
+    "systems/legends/templates/sheets/actors/_balance.hbs",
+    "systems/legends/templates/sheets/actors/_fatigue.hbs",
+    "systems/legends/templates/sheets/actors/_stats.hbs",
+    "systems/legends/templates/sheets/actors/_trainings.hbs",
     "templates/dice/roll.html"
   ];
 

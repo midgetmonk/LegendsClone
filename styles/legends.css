@@ -10,6 +10,11 @@
   src: url(fonts/bench_nine/BenchNine-Regular.ttf);
 }
 @font-face {
+  font-family: "BenchNine";
+  src: url(fonts/bench_nine/BenchNine-Bold.ttf);
+  font-weight: bold;
+}
+@font-face {
   font-family: "Hey August";
   src: url(fonts/hey_august/HeyAugust.ttf);
 }
@@ -31,6 +36,10 @@
 .window-header {
   font-family: 'Village';
   font-variant: small-caps;
+}
+.legends {
+  font-family: 'BenchNine';
+  font-size: 1.1rem;
 }
 .legends .water {
   color: #4d63a9;
@@ -56,6 +65,12 @@
 .legends .white {
   color: white;
 }
+.legends .accent {
+  color: #baaf6b;
+}
+.legends .accent-dark {
+  color: #6e4e27;
+}
 .legends .row {
   display: flex;
   flex: 0;
@@ -74,6 +89,9 @@
 }
 .legends .cell.cell-3 {
   flex: 3 !important;
+}
+.legends .cell.cell-4 {
+  flex: 4 !important;
 }
 .legends p,
 .legends li {
@@ -97,7 +115,8 @@
 .legends h3,
 .legends h4 {
   border: none;
-  font-family: inherit;
+  font-family: 'Village';
+  font-variant: small-caps;
 }
 .legends h1 input,
 .legends h2 input,
@@ -181,45 +200,278 @@
 .legends .pad-top {
   margin: 1rem 0 0;
 }
+.legends .pad-sides {
+  margin: 0 0.5rem;
+}
 .legends .no-margin {
   margin: 0 !important;
+}
+.legends .underline {
+  border-bottom: 2px solid #baaf6b;
+}
+.legends .kanji::before,
+.legends .kanji::after {
+  font-family: 'New Tegomin';
+  color: #b62127;
+  padding: 0;
+  font-size: 70%;
+  vertical-align: text-top;
+}
+.legends .kanji.kanji-techniques::before {
+  content: '武';
+}
+.legends .kanji.kanji-techniques::after {
+  content: '術';
+}
+.legends .kanji.kanji-balance::before {
+  content: '平';
+}
+.legends .kanji.kanji-balance::after {
+  content: '衡';
+}
+.legends .col.col-2 {
+  columns: 2;
+}
+.legends .col.col-3 {
+  columns: 3;
+}
+.legends .col .item {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.legends .technique h3 .data {
+  float: right;
+}
+.legends .technique h3 .data .icon {
+  width: 1.2rem;
+}
+.legends .technique h3 .data .specialty {
+  border-radius: 0.6rem;
+  color: #f3efdc;
+  font-size: 0.7rem;
+  font-family: 'BenchNine';
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+}
+.legends .technique h3 .data .specialty.air {
+  background-color: #d4b450;
+}
+.legends .technique h3 .data .specialty.earth {
+  background-color: #3c6733;
+}
+.legends .technique h3 .data .specialty.fire {
+  background-color: #b62127;
+}
+.legends .technique h3 .data .specialty.technology {
+  background-color: #6a2e7e;
+}
+.legends .technique h3 .data .specialty.water {
+  background-color: #4d63a9;
+}
+.legends .technique h3 .data .specialty.weapon {
+  background-color: #4d4d4f;
 }
 .legends.sheet {
   margin: -8px;
   padding: 0.5rem;
   background-color: #f3efdc;
-  background-image: linear-gradient(#dfd3b4 0%, #f3efdc 5%, #f3efdc 100%);
+  background-image: linear-gradient(#dfd3b4 0%, #f3efdc 150px, #f3efdc 100%);
 }
-.legends.sheet * > .on-hover {
-  display: none;
-}
-.legends.sheet *:hover > .on-hover {
-  display: inline;
-}
-.legends.sheet *:hover > .on-hover.block {
-  display: block;
-}
-.legends.sheet header.sheet-header {
+.legends.sheet .sheet-header {
   flex: none;
 }
-.legends.sheet header.sheet-header select {
+.legends.sheet .sheet-header select {
   width: 96%;
   height: 48px;
   margin: 8px 2%;
   font-size: 1.2rem;
 }
+.legends.sheet .sheet-header .playbook input {
+  border: none;
+}
+.legends.sheet .sheet-header .name {
+  background: white;
+  border: 2px solid #baaf6b;
+  border-radius: 0.25rem;
+  width: 98px;
+  margin: 8px 2%;
+}
+.legends.sheet .sheet-header .name .name-label {
+  font-size: 0.9rem;
+  padding: 4px 0 0 4px;
+}
+.legends.sheet .sheet-header .name input {
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+.legends.sheet .navigation {
+  flex-grow: 0;
+}
+.legends.sheet .navigation .sheet-tabs.tabs {
+  border: none;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-top: 1px solid #baaf6b;
+  border-bottom: 1px solid #baaf6b;
+}
 .legends.sheet .navigation .sheet-tabs.tabs .item {
+  display: block;
+  width: 100%;
   color: #6e4e27;
+  border-left: 1px solid #baaf6b;
+}
+.legends.sheet .navigation .sheet-tabs.tabs .item:first-child {
+  border-left: none;
 }
 .legends.sheet .navigation .sheet-tabs.tabs .item:hover,
 .legends.sheet .navigation .sheet-tabs.tabs .item.active {
   color: #111;
   text-shadow: 0 0 10px #baaf6b;
 }
+.legends.sheet .tab[data-tab] {
+  display: none;
+}
+.legends.sheet .tab[data-tab].active {
+  display: block;
+}
+.legends.sheet.player-sheet .tab[data-tab].active {
+  display: flex;
+}
+.legends.sheet .stats input {
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid black;
+  border-radius: 50%;
+  background: white;
+  margin: 0 0.5rem;
+}
+.legends.sheet .balance .balance-black,
+.legends.sheet .balance .balance-white {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.legends.sheet .balance .balance-black input,
+.legends.sheet .balance .balance-white input {
+  border: none;
+  padding: 0.25rem 0.5rem;
+  margin: 0;
+  width: auto;
+}
+.legends.sheet .balance .balance-black {
+  color: white;
+  background-image: linear-gradient(to right, #111 0%, #111 50%, rgba(0, 0, 0, 0) 90%);
+  margin-bottom: 0;
+}
+.legends.sheet .balance .balance-black input {
+  color: white;
+}
+.legends.sheet .balance .balance-white {
+  background-image: linear-gradient(to left, white 0%, white 50%, rgba(0, 0, 0, 0) 90%);
+  color: #111;
+}
+.legends.sheet .balance .balance-white input {
+  color: #111;
+  text-align: right;
+}
+.legends.sheet .balance ul.balance-track,
+.legends.sheet .balance ul.balance-center-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: none;
+  margin: 0;
+  padding: 0;
+}
+.legends.sheet .balance ul.balance-track li,
+.legends.sheet .balance ul.balance-center-track li {
+  list-style: none;
+  flex: 1;
+  text-align: center;
+}
+.legends.sheet .balance ul.balance-track li.text,
+.legends.sheet .balance ul.balance-center-track li.text {
+  flex: 0;
+  font-size: 0.6rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #6e4e27;
+  margin: 0 -4px;
+  font-family: 'Village';
+  font-variant: small-caps;
+}
+.legends.sheet .balance ul.balance-center-track {
+  height: 1.2rem;
+}
+.legends.sheet .balance ul.balance-track.black li .num,
+.legends.sheet .balance ul.balance-track.white li .num {
+  display: inline-block;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.5rem;
+  padding: 4px 0;
+  border: 2px solid;
+}
+.legends.sheet .balance ul.balance-track.black li.selected .num,
+.legends.sheet .balance ul.balance-track.white li.selected .num {
+  background: #b62127;
+  color: white;
+}
+.legends.sheet .balance ul.balance-track.black,
+.legends.sheet .balance ul.balance-track.white {
+  box-shadow: inset 1rem 1.4rem 0 #f3efdc, inset -1rem -1.4rem 0 #f3efdc;
+}
+.legends.sheet .balance ul.balance-track.black {
+  background: black;
+}
+.legends.sheet .balance ul.balance-track.black li .num {
+  background: #111;
+  color: white;
+  border-color: #111;
+}
+.legends.sheet .balance ul.balance-track.black li:hover .num {
+  border-color: #b62127;
+}
+.legends.sheet .balance ul.balance-track.white {
+  background: white;
+}
+.legends.sheet .balance ul.balance-track.white li .num {
+  background: white;
+  color: #111;
+  border-color: white;
+}
+.legends.sheet .balance ul.balance-track.white li:hover .num {
+  border-color: #b62127;
+}
+.legends.sheet .item.technique {
+  margin-bottom: 1rem;
+}
+.legends.sheet .item.technique h3,
+.legends.sheet .item.technique h4,
+.legends.sheet .item.technique p {
+  margin: 0;
+}
+.legends.sheet .item.technique h4 {
+  color: #b62127;
+  font-size: 0.9rem;
+}
+.legends.sheet .item.technique h4 a.set-proficiency {
+  color: #111;
+}
+.legends.sheet .item.technique h4 a.set-proficiency .fa-times-circle {
+  color: #b62127 !important;
+}
 .legends.sheet .description {
   flex: 1;
   display: flex;
   min-height: 100px;
+  border: 1px solid #baaf6b;
+  border-radius: 0.25rem;
   background: rgba(255, 255, 255, 0.5);
   padding: 0.5rem;
 }
@@ -259,25 +511,13 @@
   line-height: 1.5rem;
 }
 .legends.sheet .labelled-input input {
+  font-family: 'BenchNine';
+  font-size: 1.1rem;
   margin: 0 0 0 0.5rem;
-  border: none;
-  border-bottom: 2px solid #baaf6b;
-}
-.legends.sheet .sigils {
-  border-bottom: 2px solid #baaf6b !important;
-  text-align: center;
-}
-.legends.sheet .sigils::before {
-  content: url(images/move-header-detail-l.png);
-  padding: 0 0.5rem;
-}
-.legends.sheet .sigils::after {
-  content: url(images/move-header-detail-r.png);
-  padding: 0 0.5rem;
-}
-.legends.sheet .description h3 {
-  font-family: 'Village';
-  font-variant: small-caps;
+  border-bottom: 1px solid #baaf6b;
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0 0.25rem;
 }
 .legends.sheet .balance-box,
 .legends.sheet .fatigue-box,
@@ -313,71 +553,18 @@
   height: 1.5rem;
   margin: 0 0.2rem;
 }
-.legends.sheet .far.fa-square {
-  color: black;
-}
-.legends.sheet .fas.fa-square {
-  color: #baaf6b;
-}
-.legends.sheet.player-sheet .kanji::before,
-.legends.sheet.player-sheet .kanji::after {
-  font-family: 'New Tegomin';
-  color: #b62127;
-  padding: 0;
-  font-size: 70%;
-  vertical-align: text-top;
-}
-.legends.sheet.player-sheet h1,
-.legends.sheet.player-sheet h2,
-.legends.sheet.player-sheet h3,
-.legends.sheet.player-sheet h4 {
-  border: none;
-}
-.legends.sheet.player-sheet h1 .actions,
-.legends.sheet.player-sheet h2 .actions,
-.legends.sheet.player-sheet h3 .actions,
-.legends.sheet.player-sheet h4 .actions {
-  font-size: 80%;
-}
-.legends.sheet.player-sheet h1 .actions a,
-.legends.sheet.player-sheet h2 .actions a,
-.legends.sheet.player-sheet h3 .actions a,
-.legends.sheet.player-sheet h4 .actions a {
-  padding: 0 0 0 0.5rem;
-}
-.legends.sheet.player-sheet .sheet-header .playbook input {
-  border: none;
-}
-.legends.sheet.player-sheet .sheet-header .name {
-  background: white;
-  border: 2px solid #baaf6b;
-  border-radius: 0.25rem;
-  width: 98px;
-  margin: 8px 2%;
-}
-.legends.sheet.player-sheet .sheet-header .name .name-label {
-  font-size: 0.9rem;
-  padding: 4px 0 0 4px;
-}
-.legends.sheet.player-sheet .sheet-header .name input {
-  border: none;
-  width: 100%;
-  height: 100%;
-  font-size: 1.5rem;
-  padding: 0.5rem;
-}
-.legends.sheet.player-sheet .training {
+.legends.sheet .training {
   display: block;
   flex: none;
 }
-.legends.sheet.player-sheet .training .trainings {
+.legends.sheet .training .trainings {
   text-align: center;
   margin: 2rem 0 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.legends.sheet.player-sheet .training .trainings .training-type {
+.legends.sheet .training .trainings .training-type {
   display: inline-block;
   margin: 0 1rem;
   flex: 1;
@@ -385,313 +572,21 @@
   font-variant: small-caps;
   opacity: 0.25;
 }
-.legends.sheet.player-sheet .training .trainings .training-type:hover {
+.legends.sheet .training .trainings .training-type:hover {
   opacity: 0.75;
 }
-.legends.sheet.player-sheet .training .trainings .training-type.selected {
+.legends.sheet .training .trainings .training-type.selected {
   opacity: 1 !important;
 }
-.legends.sheet.player-sheet .training .trainings .training-type img {
-  width: 3rem;
-  border: none;
-}
-.legends.sheet.player-sheet .training .fighting-style {
-  text-align: center;
-  padding: 0.5rem 0.5rem 0.2rem;
-}
-.legends.sheet.player-sheet .training .fighting-style label {
-  padding: 0.5rem;
-  background: white;
-  border: 2px solid #baaf6b;
-  border-bottom: none;
-  border-radius: 0.5rem 0.5rem 0 0;
-}
-.legends.sheet.player-sheet .training .fighting-style label input {
-  display: inline-block;
-  width: 40%;
-  text-align: left;
-  border: none;
-}
-.legends.sheet.player-sheet .main {
-  display: block;
-  flex: none;
-  margin: 0 -8px 1rem;
-  padding: 0 8px;
-  border-top: 2px solid #b62127;
-  border-bottom: 2px solid #b62127;
-  background: #dfd3b4;
-  box-shadow: inset 0 0 100px #baaf6b;
-}
-.legends.sheet.player-sheet .main .stats-fatigue,
-.legends.sheet.player-sheet .main .conditions {
-  flex: 2;
-  margin: 1rem 0.5rem;
-}
-.legends.sheet.player-sheet .main .stats-fatigue .stats input,
-.legends.sheet.player-sheet .main .conditions .stats input {
-  text-align: center;
+.legends.sheet .training .trainings .training-type img {
   width: 2rem;
-  height: 2rem;
-  border: 3px solid black;
-  border-radius: 50%;
-  background: white;
-  margin: 0 0.5rem;
-}
-.legends.sheet.player-sheet .main .stats-fatigue .fatigue,
-.legends.sheet.player-sheet .main .conditions .fatigue {
-  margin-top: 2rem;
-}
-.legends.sheet.player-sheet .main .stats-fatigue .fatigue a.set-fatigue,
-.legends.sheet.player-sheet .main .conditions .fatigue a.set-fatigue {
-  color: #b62127;
-}
-.legends.sheet.player-sheet .main .stats-fatigue .fatigue .boxes,
-.legends.sheet.player-sheet .main .conditions .fatigue .boxes {
-  font-size: 2rem;
-}
-.legends.sheet.player-sheet .main .balance {
-  flex: 3;
-  margin: 1rem 0.5rem;
-}
-.legends.sheet.player-sheet .main .balance .balance-black,
-.legends.sheet.player-sheet .main .balance .balance-white {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-}
-.legends.sheet.player-sheet .main .balance .balance-black input,
-.legends.sheet.player-sheet .main .balance .balance-white input {
   border: none;
-  padding: 0.25rem 0.5rem;
-  margin: 0;
-  width: auto;
 }
-.legends.sheet.player-sheet .main .balance .balance-black {
-  color: white;
-  background-image: linear-gradient(to right, #111 0%, #111 50%, rgba(0, 0, 0, 0) 90%);
-  margin-bottom: 0;
+.legends.sheet .statuses .positive .title a.menu {
+  color: #4d63a9;
 }
-.legends.sheet.player-sheet .main .balance .balance-black input {
-  color: white;
-}
-.legends.sheet.player-sheet .main .balance .balance-white {
-  background-image: linear-gradient(to left, white 0%, white 50%, rgba(0, 0, 0, 0) 90%);
-  color: #111;
-}
-.legends.sheet.player-sheet .main .balance .balance-white input {
-  color: #111;
-  text-align: right;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track,
-.legends.sheet.player-sheet .main .balance ul.balance-center-track {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: none;
-  margin: 0;
-  padding: 0;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track li,
-.legends.sheet.player-sheet .main .balance ul.balance-center-track li {
-  list-style: none;
-  flex: 1;
-  text-align: center;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track li.text,
-.legends.sheet.player-sheet .main .balance ul.balance-center-track li.text {
-  flex: 0;
-  font-size: 0.6rem;
-  line-height: 1.5rem;
-  text-align: center;
-  color: #6e4e27;
-  margin: 0 -4px;
-  font-family: 'Village';
-  font-variant: small-caps;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-center-track {
-  height: 1.2rem;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track.black li .num,
-.legends.sheet.player-sheet .main .balance ul.balance-track.white li .num {
-  display: inline-block;
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  margin: 0.5rem;
-  padding: 4px 0;
-  border: 2px solid;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track.black li.selected .num,
-.legends.sheet.player-sheet .main .balance ul.balance-track.white li.selected .num {
-  background: #b62127;
-  color: white;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track.black,
-.legends.sheet.player-sheet .main .balance ul.balance-track.white {
-  box-shadow: inset 1rem 1.4rem 0 #dfd3b4, inset -1rem -1.4rem 0 #dfd3b4;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track.black {
-  background: black;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track.black li .num {
-  background: #111;
-  color: white;
-  border-color: #111;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track.black li:hover .num {
-  border-color: #b62127;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track.white {
-  background: white;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track.white li .num {
-  background: white;
-  color: #111;
-  border-color: white;
-}
-.legends.sheet.player-sheet .main .balance ul.balance-track.white li:hover .num {
-  border-color: #b62127;
-}
-.legends.sheet.player-sheet .conditions {
-  flex: 1;
-}
-.legends.sheet.player-sheet .conditions .condition {
-  margin-bottom: 0.5rem;
-}
-.legends.sheet.player-sheet .conditions .condition p {
-  margin-top: 0;
-  font-size: 1rem;
-}
-.legends.sheet.player-sheet .conditions .condition p.title {
-  margin: 0;
-}
-.legends.sheet.player-sheet .feature-moves {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.legends.sheet.player-sheet .feature-moves .feature {
-  flex: 1;
-  margin: 0 1rem;
-}
-.legends.sheet.player-sheet .feature-moves .feature h2 a {
-  color: black;
-}
-.legends.sheet.player-sheet .feature-moves .feature .body h1,
-.legends.sheet.player-sheet .feature-moves .feature .body h2,
-.legends.sheet.player-sheet .feature-moves .feature .body h3,
-.legends.sheet.player-sheet .feature-moves .feature .body h4 {
-  font-family: 'Village';
-  font-variant: small-caps;
-  font-size: 1.1rem;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques {
-  flex: 1;
-  flex-direction: column;
-  margin: 0 1rem;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .moves .move {
-  margin: 0 0 1rem;
-  flex: 1;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .moves .move h3 {
-  margin: 0;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .moves .move .drawer {
-  display: none;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .moves .move p {
-  margin: 0;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques {
-  flex: 1;
-  margin: 1rem 0;
-  border-top: 1px solid #baaf6b;
-  padding-top: 1rem;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .kanji::before {
-  content: '武';
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .kanji::after {
-  content: '術';
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique {
-  margin-bottom: 1rem;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique .drawer {
-  display: none;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h3,
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h4,
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique p {
-  margin: 0;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h4 {
+.legends.sheet .statuses .negative .title a.menu {
   color: #b62127;
-  font-size: 0.9rem;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h4 a.set-proficiency {
-  color: #111;
-}
-.legends.sheet.player-sheet .feature-moves .moves-techniques .techniques .technique h4 a.set-proficiency .fa-times-circle {
-  color: #b62127 !important;
-}
-.legends.sheet.player-sheet .character {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  border-top: 1px solid #baaf6b;
-  padding-top: 0.5rem;
-}
-.legends.sheet.player-sheet .character .growth {
-  flex: 1;
-  margin: 0 1rem;
-}
-.legends.sheet.player-sheet .character .growth .moment-of-balance {
-  margin-bottom: 0.5rem;
-}
-.legends.sheet.player-sheet .character .growth .moment-of-balance .kanji {
-  text-align: center;
-}
-.legends.sheet.player-sheet .character .growth .moment-of-balance .kanji::before,
-.legends.sheet.player-sheet .character .growth .moment-of-balance .kanji::after {
-  position: relative;
-  top: 4px;
-}
-.legends.sheet.player-sheet .character .growth .moment-of-balance .kanji::before {
-  content: '平';
-}
-.legends.sheet.player-sheet .character .growth .moment-of-balance .kanji::after {
-  content: '衡';
-}
-.legends.sheet.player-sheet .character .growth .moment-of-balance .moment {
-  border: 2px solid #baaf6b;
-  border-radius: 4px;
-  padding: 8px;
-}
-.legends.sheet.player-sheet .character .growth .moment-of-balance .moment p:last-child {
-  margin-bottom: 0;
-}
-.legends.sheet.player-sheet .character .about {
-  flex: 1;
-  margin: 0 1rem;
-}
-.legends.sheet.player-sheet .character .about .look {
-  background: white;
-  border: 2px solid #baaf6b;
-  border-radius: 0.2rem;
-  display: block;
-  padding: 0.25rem;
-  margin-bottom: 0.5rem;
-}
-.legends.sheet.player-sheet .character .about .look .title {
-  padding: 4px;
-}
-.legends.sheet.player-sheet .character .about .look textarea {
-  resize: vertical;
-  width: 100%;
-  min-height: 150px;
-  border: none;
-  margin: 0;
 }
 .legends.sheet.npc-sheet .body h1 {
   border-bottom: 2px solid #baaf6b;
@@ -820,14 +715,6 @@
 .legends.sheet.campaign-sheet .inciting-incident {
   text-align: center;
   margin-bottom: 10px;
-}
-.legends.sheet.move-sheet .rollable,
-.legends.sheet.technique-sheet .rollable,
-.legends.sheet.move-sheet .description-editor,
-.legends.sheet.technique-sheet .description-editor,
-.legends.sheet.move-sheet .approach-basic,
-.legends.sheet.technique-sheet .approach-basic {
-  margin: 0.5rem;
 }
 .chat-message.message {
   background: #dfd3b4;

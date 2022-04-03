@@ -29,6 +29,12 @@ export function filter_items(collection, type, sort = false) {
  */
 export function filter_techniques(collection, approach) {
   return collection.filter((element) => {
-    return element.data.approach == approach
+    return element.type === 'technique' && element.data.approach === approach
+  });
+}
+
+export function filter_statuses(collection, type){
+  return collection.filter(e => {
+    return e.type === 'status' && e.data.type === type;
   });
 }

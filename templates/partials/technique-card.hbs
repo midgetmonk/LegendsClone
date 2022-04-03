@@ -10,6 +10,15 @@
     {{else}}
       {{name}}
     {{/if}}
+
+    <span class="data">
+      {{#if data.training}}
+        {{#if data.specialty}}
+          <span class="specialty {{data.training}}">{{data.specialty}}</span>
+        {{/if}}
+        <img src="systems/legends/images/{{data.training}}.png" title="{{localize (tr_path "legends.training" data.training)}}" alt="{{localize (tr_path "legends.training" data.training)}}" class="icon" />
+      {{/if}}
+    </span>
   </h3>
   <h4 class="title{{#if (and npc inSheet)}} weapons{{else}} fire{{/if}}">
     {{localize (tr_path "legends.techniques.approaches" data.approach)}}

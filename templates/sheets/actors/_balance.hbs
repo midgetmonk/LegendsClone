@@ -1,0 +1,48 @@
+<section class="cell cell-2 balance pad-sides">
+  <h2 class="title center underline">{{ localize "legends.actor-sheet.balance" }}</h2>
+
+  <h3 class="brush balance-black">
+    <a class="principle-roll white" data-name="{{data.balance.topTrack}}" data-value="{{data.balance.value}}" data-negative="false"><i class="fas fa-dice"></i></a>
+    <input name="data.balance.topTrack" value="{{data.balance.topTrack}}" placeholder="Principle" />
+  </h3>
+
+  <ul class="balance-track black">
+    <li class="set-balance{{#if (eq data.balance.value 3)}} selected{{/if}}" data-current-balance="3"><a class="num">+3</a></li>
+    <li class="set-balance{{#if (eq data.balance.value 2)}} selected{{/if}}" data-current-balance="2"><a class="num">+2</a></li>
+    <li class="set-balance{{#if (eq data.balance.value 1)}} selected{{/if}}" data-current-balance="1"><a class="num">+1</a></li>
+    <li class="set-balance{{#if (eq data.balance.value 0)}} selected{{/if}}" data-current-balance="0"><a class="num">0</a></li>
+    <li class="set-balance{{#if (eq data.balance.value -1)}} selected{{/if}}" data-current-balance="-1"><a class="num">-1</a></li>
+    <li class="set-balance{{#if (eq data.balance.value -2)}} selected{{/if}}" data-current-balance="-2"><a class="num">-2</a></li>
+    <li class="set-balance{{#if (eq data.balance.value -3)}} selected{{/if}}" data-current-balance="-3"><a class="num">-3</a></li>
+  </ul>
+
+  <ul class="balance-center-track">
+    <li class="set-balance-center" data-current-center="3"><a class="check-box balance-box{{#if (eq data.balance.center 3)}} filled{{/if}}"></a></li>
+    <li class="text">C</li>
+    <li class="set-balance-center" data-current-center="2"><a class="check-box balance-box{{#if (eq data.balance.center 2)}} filled{{/if}}"></a></li>
+    <li class="text">E</li>
+    <li class="set-balance-center" data-current-center="1"><a class="check-box balance-box{{#if (eq data.balance.center 1)}} filled{{/if}}"></a></li>
+    <li class="text">N</li>
+    <li class="set-balance-center" data-current-center="0"><a class="check-box balance-box{{#if (eq data.balance.center 0)}} filled{{/if}}"></a></li>
+    <li class="text">T</li>
+    <li class="set-balance-center" data-current-center="-1"><a class="check-box balance-box{{#if (eq data.balance.center -1)}} filled{{/if}}"></a></li>
+    <li class="text">E</li>
+    <li class="set-balance-center" data-current-center="-2"><a class="check-box balance-box{{#if (eq data.balance.center -2)}} filled{{/if}}"></a></li>
+    <li class="text">R</li>
+    <li class="set-balance-center" data-current-center="-3"><a class="check-box balance-box{{#if (eq data.balance.center -3)}} filled{{/if}}"></a></li>
+  </ul>
+
+  <ul class="balance-track white">
+    <li class="set-balance{{#if (eq data.balance.value 3)}} selected{{/if}}" data-current-balance="3"><a class="num">-3</a></li>
+    <li class="set-balance{{#if (eq data.balance.value 2)}} selected{{/if}}" data-current-balance="2"><a class="num">-2</a></li>
+    <li class="set-balance{{#if (eq data.balance.value 1)}} selected{{/if}}" data-current-balance="1"><a class="num">-1</a></li>
+    <li class="set-balance{{#if (eq data.balance.value 0)}} selected{{/if}}" data-current-balance="0"><a class="num">0</a></li>
+    <li class="set-balance{{#if (eq data.balance.value -1)}} selected{{/if}}" data-current-balance="-1"><a class="num">+1</a></li>
+    <li class="set-balance{{#if (eq data.balance.value -2)}} selected{{/if}}" data-current-balance="-2"><a class="num">+2</a></li>
+    <li class="set-balance{{#if (eq data.balance.value -3)}} selected{{/if}}" data-current-balance="-3"><a class="num">+3</a></li>
+  </ul>
+  <h3 class="brush right balance-white">
+    <input name="data.balance.bottomTrack" value="{{data.balance.bottomTrack}}" placeholder="Principle" />
+    <a class="principle-roll black" data-name="{{data.balance.bottomTrack}}" data-value="{{data.balance.value}}" data-negative="true"><i class="fas fa-dice"></i></a>
+  </h3>
+</section>

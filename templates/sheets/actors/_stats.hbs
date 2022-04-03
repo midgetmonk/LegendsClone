@@ -1,0 +1,14 @@
+<section class="stats">
+  <h2 class="title center underline">{{ localize "legends.actor-sheet.stats" }}</h2>
+  {{#each data.stats as |val type| }}
+  <h3>
+    <input name="data.stats.{{type}}" value="{{val}}" type="number" max="3" min="-1" class="hand" />
+    <span class="title">
+      <a class="stat-roll black" data-stat-name="{{type}}" data-stat-value="{{val}}">
+        <i class="fas fa-dice"></i>
+      </a>
+      {{localize (tr_path "legends.stats" type) }}
+    </span>
+  </h3>
+  {{/each}}
+</section>

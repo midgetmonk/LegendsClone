@@ -14,12 +14,12 @@ legends.approaches = {
 };
 
 legends.training = {
-  "water": "legends.training.water",
-  "fire": "legends.training.fire",
-  "earth": "legends.training.earth",
   "air": "legends.training.air",
-  "weapons": "legends.training.weapons",
-  "technology": "legends.training.technology"
+  "earth": "legends.training.earth",
+  "fire": "legends.training.fire",
+  "technology": "legends.training.technology",
+  "water": "legends.training.water",
+  "weapons": "legends.training.weapons"
 }
 
 legends.npcLevels = {
@@ -56,6 +56,7 @@ legends.defaultTokens = {
   'move': 'systems/legends/images/tokens/move.png',
   'npc': 'systems/legends/images/tokens/npc.png',
   'player': 'systems/legends/images/tokens/player.png',
+  'status': 'systems/legends/images/tokens/condition.png',
   'technique': 'systems/legends/images/tokens/technique.png',
   'feature': 'systems/legends/images/tokens/feature.png',
   'npc-principle': 'systems/legends/images/tokens/npc-principle.png'

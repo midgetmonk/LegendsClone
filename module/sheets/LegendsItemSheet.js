@@ -13,7 +13,6 @@ export default class LegendsItemSheet extends ItemSheet {
   getData(){
     const context = super.getData();
     context.config = CONFIG.legends;
-    console.log(context);
     return context;
   }
 

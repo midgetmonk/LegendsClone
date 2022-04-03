@@ -16,6 +16,19 @@ function registerSystemSettings(){
     type: String,
     default: ""
   });
+
+  game.settings.register(
+    "legends",
+    "tabbedPlayerSheet",
+    {
+      config: true,
+      scope: "client",
+      name: "SETTINGS.tabbedPlayerSheet.label",
+      hint: "SETTINGS.tabbedPlayerSheet.hint",
+      type: Boolean,
+      default: true
+    }
+  );
 }
 
 Hooks.once("init", function(){
@@ -66,7 +79,6 @@ Hooks.once("init", function(){
     }
   });
 
-  CONFIG.TinyMCE.toolbar = "styleselect bullist numlist hr link removeformat code save";
   CONFIG.TinyMCE.content_css = "systems/legends/styles/tinymce.css";
 });
 

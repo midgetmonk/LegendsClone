@@ -1,11 +1,16 @@
-import { filter_items } from "../helpers.js";
+import { filter_items, filter_statuses, filter_techniques } from "../helpers.js";
 import * as Dice from "../dice.js";
 
 export default class LegendsActorSheet extends ActorSheet {
   static get defaultOptions(){
     return mergeObject(super.defaultOptions, {
-      width: 850,
-      height: 850
+      width: 900,
+      height: 850,
+      tabs: [{
+        navSelector: ".tabs",
+        contentSelector: ".body",
+        initial: "main"
+      }]
     });
   }
 
@@ -44,8 +49,15 @@ export default class LegendsActorSheet extends ActorSheet {
     context.conditions = filter_items(context.items, 'condition', true);
     context.moves = filter_items(context.items, 'move');
     context.momentOfBalance = filter_items(context.items, 'moment-of-balance')[0];
-    context.statuses = filter_items(context.items, 'status', true);
-    context.techniques = filter_items(context.items, 'technique')
+    context.statuses = {
+      positive: filter_statuses(context.items, 'positive'),
+      negative: filter_statuses(context.items, 'negative')
+    }
+    context.techniques = filter_items(context.items, 'technique');
+
+    if(this.actor.type == 'player'){
+      context.displayTabbed = game.settings.get('legends','tabbedPlayerSheet');
+    }
     
     return context;
   }
@@ -180,13 +192,12 @@ export default class LegendsActorSheet extends ActorSheet {
    */
   _onStatRoll(event){
     event.preventDefault();
-    
-    const value = event.currentTarget.dataset.statValue;
-    const name = game.i18n.localize(`legends.stats.${event.currentTarget.dataset.statName}`);
+
+    const name = event.currentTarget.dataset.statName;
 
     Dice.RollStat({
-      statValue: value,
-      statName: name
+      statValue: this.actor.data.data.stats[name],
+      statName: game.i18n.localize(`legends.stats.${name}`)
     });
   }
 
@@ -512,7 +523,6 @@ export default class LegendsActorSheet extends ActorSheet {
     event.preventDefault();
 
     let element = event.currentTarget;
-    let drawer = $(element.closest('.item')).find('.drawer');
-    drawer.slideToggle();
+    $(element.closest('.item')).find('.drawer').slideToggle();
   }
 };

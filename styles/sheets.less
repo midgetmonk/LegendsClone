@@ -2,35 +2,12 @@
 
 @import "./config.less";
 
-.withSigils() {
-  &::before {
-    content: url(./images/move-header-detail-l.png);
-    padding: 0 0.5rem;
-  }
-
-  &::after {
-    content: url(./images/move-header-detail-r.png);
-    padding: 0 0.5rem;
-  }
-}
-
 .legends.sheet {
   margin: -8px;
   padding: 0.5rem;
-  .bg-fade();
+  .bg-fade(150px);
 
-  * > .on-hover{
-    display: none;
-  }
-  *:hover > .on-hover{
-    display: inline;
-
-    &.block{
-      display: block;
-    }
-  }
-
-  header.sheet-header {
+  .sheet-header{
     flex: none;
 
     select{
@@ -39,12 +16,52 @@
       margin: 8px 2%;
       font-size: 1.2rem;
     }
+
+    .playbook{
+      input{
+        border: none;
+      }
+    }
+    .name{
+      background: white;
+      border: 2px solid @accent-color;
+      border-radius: 0.25rem;
+      width: 98px;
+      margin: 8px 2%;
+      .name-label{
+        font-size: 0.9rem;
+        padding: 4px 0 0 4px;
+      }
+      input{
+        border: none;
+        width:100%;
+        height:100%;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+      }
+    }
   }
 
   .navigation{
+    flex-grow: 0;
+
     .sheet-tabs.tabs{
+      border: none;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border-top: 1px solid @accent-color;
+      border-bottom: 1px solid @accent-color;
+
       .item{
+        display: block;
+        width: 100%;
         color: @accent-dark;
+        border-left: 1px solid @accent-color;
+
+        &:first-child{
+          border-left: none;
+        }
+
         &:hover, &.active{
           color: @text-color;
           text-shadow: 0 0 10px @accent-color;
@@ -53,11 +70,169 @@
     }
   }
 
+  .tab[data-tab]{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+
+  &.player-sheet .tab[data-tab].active{
+    display: flex;
+  }
+
+  .stats{
+    input {
+      text-align: center;
+      width: 2rem;
+      height: 2rem;
+      border: 3px solid black;
+      border-radius: 50%;
+      background: white;
+      margin: 0 0.5rem;
+    }
+  }
+
+  .balance {
+    .balance-black, .balance-white{
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      input{
+        border: none;
+        padding: 0.25rem 0.5rem;
+        margin: 0;
+        width: auto;
+      }
+    }
+
+    .balance-black{
+      color: white;
+      background-image: linear-gradient(to right, @text-color 0%, @text-color 50%, rgba(0,0,0,0) 90%);
+      margin-bottom: 0;
+      
+      input{
+        color: white;
+      }
+    }
+    .balance-white{
+      background-image: linear-gradient(to left, white 0%, white 50%, rgba(0,0,0,0) 90%);
+      color: @text-color;
+      input{
+        color: @text-color;
+        text-align: right;
+      }
+    }
+
+    ul.balance-track, ul.balance-center-track{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: none;
+      margin: 0;
+      padding: 0;
+
+      li{
+        list-style: none;
+        flex: 1;
+        text-align: center;
+
+        &.text {
+          flex: 0;
+          font-size: 0.6rem;
+          line-height:1.5rem;
+          text-align:center;
+          color: @accent-dark;
+          margin: 0 -4px;
+          .title-font();
+        }
+      }
+    }
+
+    ul.balance-center-track {
+      height: 1.2rem;
+    }
+
+    ul.balance-track{
+      &.black li, &.white li{
+        .num{
+          display: inline-block;
+          border-radius: 50%;
+          width: 2rem;
+          height: 2rem;
+          margin: 0.5rem;
+          padding: 4px 0;
+          border: 2px solid;
+        }
+
+        &.selected{
+          .num{
+            background: @firebender;
+            color: white;
+          }
+        }
+      }
+
+      &.black, &.white{
+        box-shadow: inset 1rem 1.4rem 0 @bg-color, inset -1rem -1.4rem 0 @bg-color;
+      }
+      &.black{
+        background: black;
+        li{
+          .num{
+            background: @text-color;
+            color: white;
+            border-color: @text-color;
+          }
+          &:hover .num{
+            border-color: @firebender;
+          }
+        }
+      }
+
+      &.white{
+        background: white;
+        li{
+          .num{
+            background: white;
+            color: @text-color;
+            border-color: white;
+          }
+          &:hover .num{
+            border-color: @firebender;
+          }
+        }
+      }
+    }
+  }
+
+  .item.technique {
+    margin-bottom: 1rem;
+
+    h3, h4, p {
+      margin: 0;
+    }
+
+    h4 {
+      color: @firebender;
+      font-size: 0.9rem;
+
+      a.set-proficiency{
+        color: @text-color;
+
+        .fa-times-circle {
+          color: @firebender !important;
+        }
+      }
+    }
+  }
+
+
   @editor-height: 100px;
   .description{
     flex: 1;
     display: flex;
     min-height: @editor-height;
+    border: 1px solid @accent-color;
+    border-radius: 0.25rem;
     background: rgba(255,255,255,0.5);
     padding: 0.5rem;
 
@@ -84,7 +259,7 @@
     width: 96%;
     margin: 0 2%;
   }
-
+  
   .labelled-input{
     display: flex;
     flex-direction: row;
@@ -95,21 +270,13 @@
       line-height: 1.5rem;
     }
     input{
+      .main-font();
       margin: 0 0 0 0.5rem;
-      border: none;
-      border-bottom: 2px solid @accent-color;
+      border-bottom: 1px solid @accent-color;
+      border-radius: 0.25rem;
+      background: rgba(255,255,255,0.5);
+      padding: 0 0.25rem;
     }
-  }
-
-  .sigils {
-    border-bottom: 2px solid @accent-color !important;
-    text-align: center;
-    //margin-bottom: 0;
-    .withSigils();
-  }
-
-  .description h3 {
-    .title-font();
   }
 
   .balance-box, .fatigue-box, .check-box{
@@ -145,10 +312,44 @@
     margin: 0 0.2rem;
   }
 
-  .far.fa-square{
-    color: black;
+  .training {
+    display: block;
+    flex: none;
+    .trainings {
+      text-align: center;
+      margin: 2rem 0 1rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .training-type {
+        display: inline-block;
+        margin: 0 1rem;
+        flex: 1;
+        .title-font();
+        opacity: 0.25;
+        &:hover{
+          opacity: 0.75;
+        }
+        &.selected{
+          opacity: 1 !important;
+        }
+
+        img{
+          width: 2rem;
+          border: none;
+        }
+      }
+    }
   }
-  .fas.fa-square{
-    color: @accent-color;
+
+  .statuses{
+    .positive{
+      .title a.menu { color: @waterbender; }
+    }
+
+    .negative{
+      .title a.menu { color: @firebender; }
+    }
   }
 }
