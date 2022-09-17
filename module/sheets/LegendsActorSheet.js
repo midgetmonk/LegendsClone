@@ -15,7 +15,7 @@ export default class LegendsActorSheet extends ActorSheet {
   }
 
   get template(){
-    return `systems/legends/templates/sheets/actors/${this.actor.data.type}-sheet.hbs`;
+    return `systems/legends/templates/sheets/actors/${this.actor.type}-sheet.hbs`;
   };
 
   /**
@@ -58,7 +58,7 @@ export default class LegendsActorSheet extends ActorSheet {
     if(this.actor.type == 'player'){
       context.displayTabbed = game.settings.get('legends','tabbedPlayerSheet');
     }
-    
+    console.log(context);
     return context;
   }
 
@@ -123,7 +123,7 @@ export default class LegendsActorSheet extends ActorSheet {
    */
   _onSetBalanceValue(event){
     event.preventDefault();
-
+    
     let element = event.currentTarget;
     this.actor.update({
       data: {
@@ -175,7 +175,7 @@ export default class LegendsActorSheet extends ActorSheet {
 
     const moveName = event.currentTarget.dataset.moveName;
     const statName = event.currentTarget.dataset.moveStat;
-    const statValue = this.actor.data.data.stats[statName];
+    const statValue = this.actor.system.stats[statName];
 
     const name = statName ? game.i18n.localize(`legends.stats.${statName}`) : null;
 
@@ -196,7 +196,7 @@ export default class LegendsActorSheet extends ActorSheet {
     const name = event.currentTarget.dataset.statName;
 
     Dice.RollStat({
-      statValue: this.actor.data.data.stats[name],
+      statValue: this.actor.system.stats[name],
       statName: game.i18n.localize(`legends.stats.${name}`)
     });
   }
@@ -229,7 +229,7 @@ export default class LegendsActorSheet extends ActorSheet {
     event.preventDefault();
     let element = event.currentTarget;
     let type = element.dataset.type;
-    let newValue = !this.actor.data.data.training[type];
+    let newValue = !this.actor.system.training[type];
 
     this.actor.update({
       data: {
@@ -249,9 +249,9 @@ export default class LegendsActorSheet extends ActorSheet {
     event.preventDefault();
     let element = event.currentTarget;
     let checked = element.classList.contains('filled');
-    let currentValue = parseInt(this.actor.data.data.fatigue.value);
+    let currentValue = parseInt(this.actor.system.fatigue.value);
 
-    let max = this.actor.data.data.fatigue.max;
+    let max = this.actor.system.fatigue.max;
 
     let newValue = checked ? currentValue - 1 : currentValue + 1;
     let newRemaining = max - newValue;
@@ -275,7 +275,7 @@ export default class LegendsActorSheet extends ActorSheet {
    */
   _onClearFatigue(event){
     event.preventDefault();
-    let max = this.actor.data.data.fatigue.max;
+    let max = this.actor.system.fatigue.max;
 
     this.actor.update({
       data: {
@@ -311,7 +311,7 @@ export default class LegendsActorSheet extends ActorSheet {
     }
     else{
       let checked = element.classList.contains('filled');
-      let currentValue = this.actor.data.data[param].value;
+      let currentValue = this.actor.system[param].value;
 
       newValue = checked ? currentValue - 1 : currentValue + 1;
       obj = this.actor
@@ -372,7 +372,7 @@ export default class LegendsActorSheet extends ActorSheet {
     let element = event.currentTarget;
     let name = element.dataset.param;
     let checked = element.classList.contains('filled');
-    let currentValue = this.actor.data.data.growth.advancements[name].value;
+    let currentValue = this.actor.system.growth.advancements[name].value;
     let newValue = checked ? currentValue - 1 : currentValue + 1;
 
     this.actor.update({
@@ -424,7 +424,7 @@ export default class LegendsActorSheet extends ActorSheet {
     let itemId = element.closest('.item').dataset.itemId;
     let item = this.actor.items.get(itemId);
 
-    let state = !item.data.data.checked;
+    let state = !item.system.checked;
 
     item.update({
       data: { "checked": state }

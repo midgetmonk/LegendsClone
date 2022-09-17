@@ -8,12 +8,12 @@
   <section class="sheet-body">
     <section class="rollable row">
       <label class="cell title">
-        <input type="checkbox" name="data.rollable" {{checked data.data.rollable}}>
+        <input type="checkbox" name="system.rollable" {{checked system.rollable}}>
       </label>
       <label class="cell title">{{localize "legends.moves.roll-with"}}</label>
-      <select class="cell cell-3" name="data.rollStat">
+      <select class="cell cell-3" name="system.rollStat">
         <option value="">{{localize "legends.common.none"}}</option>
-        {{#select data.data.rollStat}}
+        {{#select data.system.rollStat}}
           {{#each config.stats as |label value|}}
             <option value="{{value}}">{{localize label}}</option>
           {{/each}}
@@ -23,7 +23,7 @@
 
     {{> "systems/legends/templates/partials/description-editor.hbs" }}
   </section>
-  <section class="item move" data-item-id="{{data._id}}">
+  <section class="item move" data-item-id="{{system._id}}">
     <p class="right pad-top"><a class="title item-roll fire"><i class="fas fa-comment"></i> Show in Chat</a></p>
   </section>
 </form>

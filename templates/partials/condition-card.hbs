@@ -2,7 +2,7 @@
   <section class="item condition cell" data-item-id="{{_id}}" data-npc="{{npc}}">
     <h4 class="title no-margin">
       {{#if inSheet}}
-        <a class="condition-toggle check-box{{#if data.checked}} filled{{/if}}"></a>
+        <a class="condition-toggle check-box{{#if system.checked}} filled{{/if}}"></a>
         {{#if npc}}
           <a class="black menu">{{name}}</a>
         {{else}}
@@ -17,7 +17,7 @@
     </h4>
     
     {{#unless npc}}
-      {{{ data.description }}}
+      {{{ system.description }}}
     {{/unless}}
   </section>
 {{#unless inSheet}}</div>{{/unless}}

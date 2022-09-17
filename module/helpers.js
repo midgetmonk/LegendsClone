@@ -35,6 +35,6 @@ export function filter_techniques(collection, approach) {
 
 export function filter_statuses(collection, type){
   return collection.filter(e => {
-    return e.type === 'status' && e.data.type === type;
+    return e.type === 'status' && e.system.type === type;
   });
 }

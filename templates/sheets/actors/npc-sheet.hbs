@@ -6,8 +6,8 @@
         <h1 class="block charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "legends.actor-sheet.name"}}"/></h1>
       </section>
       <section class="cell cell-2">
-        <select name="data.level" class="block">
-          {{#select data.data.level}}
+        <select name="system.level" class="block">
+          {{#select data.system.level}}
             {{#each config.npcLevels as |name type|}}
               <option value="{{type}}">{{localize name}}</option>
             {{/each}}
@@ -21,7 +21,7 @@
     <section class="description-drive">
       {{> "systems/legends/templates/partials/description-editor.hbs" }}
 
-      {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.drive" label="legends.actor-sheet.npc.drive" value=data.data.drive class="text"}}
+      {{> "systems/legends/templates/partials/labelled-input.hbs" field="system.drive" label="legends.actor-sheet.npc.drive" value=data.system.drive class="text"}}
     </section>
 
     <section class="item npc-principle principle">
@@ -46,10 +46,10 @@
         <a class="increase-fatigue black small" title="{{localize "legends.actor-sheet.npc.fatigue.add"}}"><i class="fas fa-plus"></i></a>
       </h1>
       <section class="fatigue-boxes">
-      {{#times data.data.fatigue.max}}
-        <a class="check-box set-fatigue{{#if (gte ../data.data.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
+      {{#times data.system.fatigue.max}}
+        <a class="check-box set-fatigue{{#if (gte ../data.system.fatigue.value @index)}} filled{{/if}}" data-param="fatigue" data-new-value="{{@index}}"></a>
         {{#if (modulus 5 @index)}}
-          {{#unless (eq @index ../data.data.fatigue.max)}}
+          {{#unless (eq @index ../data.system.fatigue.max)}}
             |
           {{/unless}}
         {{/if}}

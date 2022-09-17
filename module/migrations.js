@@ -41,8 +41,8 @@ async function migrateMoves() {
  */
 async function migrateMove(move){
   console.log("legends | Migrating Move " + move.id);
-  let rollable = move.data.data.rollable;
-  let rollStat = move.data.data.rollStat;
+  let rollable = movesystem.rollable;
+  let rollStat = movesystem.rollStat;
 
   if(rollStat && !rollable){
     move.update({

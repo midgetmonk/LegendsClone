@@ -28,14 +28,14 @@ export default class LegendsItem extends Item {
     }
     
     chatData.content = await renderTemplate(this.chatTemplate[this.type], cardData);
-    chatData.roll = true;
+    //chatData.roll = true;
     return ChatMessage.create(chatData);
   }
 
   _preCreate(data, options, userId){
     const img = CONFIG.legends.defaultTokens[data.type];
     data.img = img;
-    this.data.img = img;
-    this.data.update(data);
+    this.img = img;
+    this.update(data);
   }
 }
