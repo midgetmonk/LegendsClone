@@ -32,10 +32,10 @@ export default class LegendsItem extends Item {
     return ChatMessage.create(chatData);
   }
 
-  _preCreate(data, options, userId){
+  _preCreate(data, _options, _userId){
     const img = CONFIG.legends.defaultTokens[data.type];
     data.img = img;
-    this.img = img;
-    this.update(data);
+    this.data.img = img;
+    this.data.update(data);
   }
 }

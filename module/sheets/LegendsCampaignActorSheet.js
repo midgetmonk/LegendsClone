@@ -18,12 +18,6 @@ export default class LegendsCampaignActorSheet extends ActorSheet {
   getData(){
     const context = super.getData();
     context.config = CONFIG.legends;
-
-    // Checks if custom group focus is enabled
-    if(context.focus == "custom"){
-      context.customFocusEnabled = true;
-    }
-    
     return context;
   }
 

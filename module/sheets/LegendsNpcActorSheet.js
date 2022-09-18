@@ -13,7 +13,6 @@ export default class LegendsNpcActorSheet extends LegendsActorSheet {
     const context = await super.getData();
     context.principle = filter_items(context.items, 'npc-principle')[0];
     context.techniques = filter_items(context.items, 'technique');
-    console.log(context);
     return context;
   }
 
@@ -38,12 +37,14 @@ export default class LegendsNpcActorSheet extends LegendsActorSheet {
     let newFatigueRemaining = newFatigueMax - currentFatigue;
 
     this.actor.update({
-      fatigue: {
-        max: newFatigueMax
-      },
-      fatigueRemaining: {
-        value: newFatigueRemaining,
-        max: newFatigueMax
+      data: {
+        fatigue: {
+          max: newFatigueMax
+        },
+        fatigueRemaining: {
+          value: newFatigueRemaining,
+          max: newFatigueMax
+        }
       }
     });
   }

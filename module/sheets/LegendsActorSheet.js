@@ -58,7 +58,6 @@ export default class LegendsActorSheet extends ActorSheet {
     if(this.actor.type == 'player'){
       context.displayTabbed = game.settings.get('legends','tabbedPlayerSheet');
     }
-    console.log(context);
     return context;
   }
 

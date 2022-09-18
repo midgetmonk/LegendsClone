@@ -54,10 +54,8 @@
               </select>
             </div>
             <div class="cell">
-              {{#if system.customFocusEnabled }}
-                {{!-- <section class="cell"> --}}
-                  <input type="text" name="system.customFocus" value="{{system.customFocus}}" placeholder="{{localize "legends.actor-sheet.campaign.customFocusPlaceholder" }}" class="block" />
-                {{!-- </section> --}}
+              {{#if (eq data.system.focus "custom") }}
+                <input type="text" name="system.customFocus" value="{{data.system.customFocus}}" placeholder="{{localize "legends.actor-sheet.campaign.customFocusPlaceholder" }}" class="block" />
               {{/if}}
             </div>
           </div>
