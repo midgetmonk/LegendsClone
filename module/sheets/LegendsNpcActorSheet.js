@@ -9,8 +9,8 @@ export default class LegendsNpcActorSheet extends LegendsActorSheet {
     });
   }
 
-  async getData(){
-    const context = await super.getData();
+  getData(){
+    const context = super.getData();
     context.principle = filter_items(context.items, 'npc-principle')[0];
     context.techniques = filter_items(context.items, 'technique');
     return context;

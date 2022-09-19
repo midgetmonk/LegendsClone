@@ -5,7 +5,7 @@
  * @returns The filtered, sorted list
  */
 export function filter_items(collection, type, sort = false) {
-  var items = collection.filter((element) => {
+  var items = collection.filter(element => {
     return element.type == type;
   });
 
@@ -28,7 +28,7 @@ export function filter_items(collection, type, sort = false) {
  * @returns The items in the collection matching the specified approach
  */
 export function filter_techniques(collection, approach) {
-  return collection.filter((element) => {
+  return collection.filter(element => {
     return element.type === 'technique' && element.data.approach === approach
   });
 }
