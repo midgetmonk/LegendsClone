@@ -28,7 +28,6 @@ export default class LegendsItem extends Item {
     }
     
     chatData.content = await renderTemplate(this.chatTemplate[this.type], cardData);
-    //chatData.roll = true;
     return ChatMessage.create(chatData);
   }
 
