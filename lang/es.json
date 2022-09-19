@@ -1,0 +1,193 @@
+{
+  "legends": {
+    "common": {
+      "description": "Descripción",
+      "none": "Nada",
+      "to-chat": "Al Chat"
+    },
+    "context-menu": {
+      "edit": "Editar",
+      "delete": "Eliminar"
+    },
+    "actor-sheet": {
+      "clear-track": "Click derecho para limpiar",
+      "name": "Nombre",
+      "principle": "Principio",
+      "stats": "Estadisticas",
+      "fatigue": "Fatiga",
+      "clear-fatigue": "Limpiar Fatiga",
+      "balance": "Balance",
+      "conditions": "Condiciones",
+      "moves": "Movimientos",
+      "techniques": "Técnicas de Combate",
+      "statuses": "Estados",
+      "set-value": "Dejar en {value}",
+      "player": {
+        "about": "Tu Personaje",
+        "look": "Apariencia, Historia y conexiones",
+        "training": "Entrenamiento",
+        "fighting-style": "Estilo de Combate",
+        "background": "Trasfondo",
+        "demeanor": "Actitud",
+        "hometown": "Pueblo de Origen",
+        "playbook": "Libreto",
+        "momentOfBalance": "Momento de Balance",
+        "add-moment": "Agregar Momento de Balance",
+        "growth": "Mejora",
+        "advancements": {
+          "title": "Avances de Mejora",
+          "playbook-move": "Toma un movimiento nuevo de tu libreto",
+          "other-move": "Toma un movimiento nuevo de otro libreto",
+          "raise-stat": "Aumenta una estadística +1 (máximo +2)",
+          "shift-center": "Cambia tu Centro en una dirección",
+          "moment": "Desbloquea tu Momento de Balance"
+        },
+        "feature": {
+          "title": "Ventaja",
+          "add": "Agrega una Ventaja"
+        }
+      },
+      "npc": {
+        "drive": "Impulso",
+        "technique": "Tecnica",
+        "levels": {
+          "minor": "PNJ Menor",
+          "major": "PNJ Mayor",
+          "master": "PNJ Maestro",
+          "legendary": "PNJ Legendario",
+          "group": "Grupo de PNJs",
+          "npc": "PNJ"
+        },
+        "add-principle": "Agregar Principio",
+        "fatigue": {
+          "add": "Aumentar Fatiga Máxima",
+          "remove": "Sustraer Fatiga Máxima"
+        }
+      },
+      "campaign": {
+        "title": "Libreto de Campaña",
+        "main": "Principal",
+        "acts": "Actos",
+        "incitingIncident": "Incidente Inicial",
+        "noActs": "No hay actos disponibles. ¡Haz click para agregar más!",
+        "relationships": {
+          "title": "Aliados y Enemigos",
+          "allies": "Aliados",
+          "enemies": "Enemigos"
+        },
+        "focus": {
+          "defeat": "Derrotar a [villano]",
+          "protect": "Proteger [lugar, idea, cultura, persona, cosa]",
+          "change": "Cambiar [cultura, sociedad, lugar, persona]",
+          "deliver": "Entregar [persona, cosa] a [lugar, cultura, persona]",
+          "rescue": "Rescatar a [persona, cosa]",
+          "learn": "Aprender [idea, cultura, entrenamiento, historia]",
+          "custom": "Enfoque de Grupo personalizado"
+        },
+        "groupFocus": "Enfoque de Grupo",
+        "focusDesc": "Detalles del Enfoque de Grupo",
+        "customFocusPlaceholder": "Para...",
+        "scope": "Alcance",
+        "eras": {
+          "custom": "Personalizado",
+          "kyoshi": "de Kyoshi",
+          "roku": "de Roku",
+          "100years": "de la Guerra de los Cien Años",
+          "aang": "de Aang",
+          "korra": "de Korra",
+          "era": "Era"
+        }
+      }
+    },
+    "stats": {
+      "creativity": "Creatividad",
+      "focus": "Concentración",
+      "harmony": "Harmonia",
+      "passion": "Pasión"
+    },
+    "items": {
+      "new": {
+        "name": "Nuevo {type}",
+        "description": "<p>Descripción acá.</p>"
+      }
+    },
+    "moves": {
+      "add": "Nuevo Movimiento",
+      "edit": "Editar Movimiento",
+      "delete": "Eliminar Movimiento",
+      "new": "Nuevo Movimiento",
+      "roll-with": "Lanzar con"
+    },
+    "condition": {
+      "add": "Nueva Condición"
+    },
+    "status": {
+      "add": "Nuevo Estado",
+      "positive": "Positivo",
+      "negative": "Negativo",
+      "type": "Tipo"
+    },
+    "techniques": {
+      "approach": "Acercamiento",
+      "basic": "Basico",
+      "approaches": {
+        "defend-maneuver": "Defender y Maniobrar",
+        "advance-attack": "Avanzar y Atacar",
+        "evade-observe": "Evadir y Observar"
+      },
+      "proficiency": {
+        "learn": "Aprendida",
+        "learned": "A",
+        "practice": "Practicada",
+        "practiced": "P",
+        "master": "Dominada",
+        "mastered": "D"
+      },
+      "add": "Nueva Técnica"
+    },
+    "training": {
+      "specialty": "Especialidad",
+      "water": "Agua Control",
+      "fire": "Fuego Control",
+      "earth": "Tierra Control",
+      "air": "Aire Control",
+      "weapons": "Armas",
+      "technology": "Tecnología",
+      "none": "Universal",
+      "group": "Grupo"
+    },
+    "roll":{
+      "with": "Lanza con <a class=\"accent-dark move-roll\" data-move-name=\"{approach}\" data-move-stat=\"{stat}\"><i class=\"fas fa-dice small\"></i>{name}</a>",
+      "evade-observe": "Elimina 1 Fatiga y lanza con <a class=\"accent-dark move-roll\" data-move-name=\"Evade & Observe\" data-move-stat=\"creativity\"><i class=\"fas fa-dice small\"></i>Creativity</a> or <a class=\"accent-dark move-roll\" data-move-name=\"Evade & Observe\" data-move-stat=\"harmony\"><i class=\"fas fa-dice small\"></i>Harmony</a>",
+      "stat": "Lanzando {stat}",
+      "no-stat": "Lanzando",
+      "miss": "Fallo",
+      "hit": "Éxito",
+      "full": "¡Éxito Total!",
+      "dialog": {
+        "penalty": "Penalizaciones",
+        "penalty-description": "De condiciones y estados",
+        "bonus": "Bonus",
+        "bonus-description": "Total de Conservados, Ayudas y Apoyo",
+        "submit": "Lanzar"
+      },
+      "no-actor": "No puedes usar Movimientos sin un Actor asignado."
+    },
+    "dialog": {
+      "cancel": "Cancelar"
+    },
+    "nav": {
+      "main": "Principal",
+      "moves": "Movimientos",
+      "techniques": "Entrenamientos y Técnicas",
+      "detail": "Detalles y Avances"
+    }
+  },
+  "SETTINGS": {
+    "None": "No hay configuraciones para Avatar Legends",
+    "tabbedPlayerSheet": {
+      "label": "Hoja de Personaje Minimizada",
+      "hint": "Muestra la hoja de personaje con diseño minimizado"
+    }
+  }
+}

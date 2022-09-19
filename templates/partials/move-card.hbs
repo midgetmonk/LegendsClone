@@ -5,9 +5,9 @@
       <a class="item-roll small weapons">
         <i class="fas fa-comment" title="{{localize "legends.common.to-chat"}}"></i>
       </a>
-      {{#if data.rollable}}
-        <a class="move-roll small fire" data-move-stat="{{data.rollStat}}" data-move-name="{{name}}">
-          <i class="fas fa-dice" title="{{#if data.rollStat}}{{localize (tr_path "legends.stats" data.rollStat)}}{{else}}{{localize "legends.roll.dialog.submit"}}{{/if}}"></i>
+      {{#if system.rollable}}
+        <a class="move-roll small fire" data-move-stat="{{system.rollStat}}" data-move-name="{{name}}">
+          <i class="fas fa-dice" title="{{#if system.rollStat}}{{localize (tr_path "legends.stats" system.rollStat)}}{{else}}{{localize "legends.roll.dialog.submit"}}{{/if}}"></i>
         </a>
       {{/if}}
     {{else}}
@@ -15,6 +15,6 @@
     {{/if}}
   </h3>
   {{#if inSheet}}<div class="drawer">{{/if}}
-    {{{data.description}}}
+    {{{system.description}}}
   {{#if inSheet}}</div>{{/if}}
 </section>

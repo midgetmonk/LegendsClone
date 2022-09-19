@@ -22,7 +22,7 @@ function onMoveRoll(event){
   }
   let moveName = card.dataset.moveName;
   let statName = card.dataset.statName;
-  let statValue = character.data.data.stats[statName]
+  let statValue = character.system.stats[statName]
 
   Dice.RollStat({
     statValue: statValue,

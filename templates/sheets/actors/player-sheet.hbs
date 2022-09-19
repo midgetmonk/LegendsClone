@@ -2,7 +2,7 @@
   <header class="sheet-header">
     <section class="row">
       <section class="playbook cell">
-        <h1 class="block playbook"><input name="data.playbook" type="text" value="{{data.data.playbook}}" placeholder="{{localize "legends.actor-sheet.player.playbook"}}"/></h1>
+        <h1 class="block playbook"><input name="system.playbook" type="text" value="{{data.system.playbook}}" placeholder="{{localize "legends.actor-sheet.player.playbook"}}"/></h1>
       </section>
       <section class="name cell cell-2 row">
         <label class="title name-label">{{localize "legends.actor-sheet.name"}}:</label>
@@ -53,7 +53,7 @@
             {{/each}}
           </section>
 
-          {{#if (and (lt statuses.positive.length 4) (lt statuses.negative.length 4))}}
+          {{#if (or (lt statuses.positive.length 4) (lt statuses.negative.length 4))}}
           <p class="title small">
             <a class="item-create fire" data-type="status" title="{{localize "legends.status.add"}}">
               <i class="fas fa-plus"></i> {{localize "legends.status.add"}}
@@ -132,7 +132,7 @@
             <a class="black item-roll">{{feature.name}}</a>
           </h2>
           <section class="body">
-            {{{feature.data.description}}}
+            {{{feature.system.description}}}
           </section>
           {{else}}
           <h2 class="title center underline">
@@ -156,7 +156,7 @@
               </a>
             </h2>
             <div class="moment">
-              {{{momentOfBalance.data.description}}}
+              {{{momentOfBalance.system.description}}}
             </div>
           {{else}}
             <h2 class="title balance center underline">
@@ -174,22 +174,22 @@
 
           <h2 class="title center underline">{{localize "legends.actor-sheet.player.about"}}</h2>
 
-          {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.background" label="legends.actor-sheet.player.background" value=data.data.background}}
-          {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.demeanor" label="legends.actor-sheet.player.demeanor" value=data.data.demeanor}}
+          {{> "systems/legends/templates/partials/labelled-input.hbs" field="system.background" label="legends.actor-sheet.player.background" value=data.system.background}}
+          {{> "systems/legends/templates/partials/labelled-input.hbs" field="system.demeanor" label="legends.actor-sheet.player.demeanor" value=data.system.demeanor}}
 
           <label class="look">
             <span class="title"><strong>{{localize "legends.actor-sheet.player.look"}}:</strong></span>
             <div class="description">
-              {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+              {{editor data.system.description target="system.description" button=true owner=owner editable=editable}}
             </div>
           </label>
 
-          {{> "systems/legends/templates/partials/labelled-input.hbs" '' field="data.hometown" label="legends.actor-sheet.player.hometown" value=data.data.hometown}}
+          {{> "systems/legends/templates/partials/labelled-input.hbs" field="system.hometown" label="legends.actor-sheet.player.hometown" value=data.system.hometown}}
 
           <h3 class="title">
             {{localize "legends.actor-sheet.player.growth"}}
             {{#times 4}}
-            <a class="check-box set-value{{#if (gte ../data.data.growth.value @index)}} filled{{/if}}" data-param="growth" data-new-value="{{@index}}"></a>
+            <a class="check-box set-value{{#if (gte ../data.system.growth.value @index)}} filled{{/if}}" data-param="growth" data-new-value="{{@index}}"></a>
             {{/times}}
           </h3>
 
@@ -197,7 +197,7 @@
             {{localize "legends.actor-sheet.player.advancements.title"}}
           </h4>
           <ul>
-            {{#each data.data.growth.advancements as |track name|}}
+            {{#each data.system.growth.advancements as |track name|}}
             <li>
               {{localize (tr_path "legends.actor-sheet.player.advancements" name)}}
               &nbsp;

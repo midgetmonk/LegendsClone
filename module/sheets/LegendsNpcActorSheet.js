@@ -13,7 +13,6 @@ export default class LegendsNpcActorSheet extends LegendsActorSheet {
     const context = super.getData();
     context.principle = filter_items(context.items, 'npc-principle')[0];
     context.techniques = filter_items(context.items, 'technique');
-
     return context;
   }
 
@@ -33,8 +32,8 @@ export default class LegendsNpcActorSheet extends LegendsActorSheet {
   _onIncreaseNPCFatigue(event){
     event.preventDefault();
 
-    let newFatigueMax = this.actor.data.data.fatigue.max + 1;
-    let currentFatigue = this.actor.data.data.fatigue.value;
+    let newFatigueMax = this.actor.system.fatigue.max + 1;
+    let currentFatigue = this.actor.system.fatigue.value;
     let newFatigueRemaining = newFatigueMax - currentFatigue;
 
     this.actor.update({
@@ -58,8 +57,8 @@ export default class LegendsNpcActorSheet extends LegendsActorSheet {
   _onDecreaseNPCFatigue(event){
     event.preventDefault();
 
-    let newFatigueMax = Math.max((this.actor.data.data.fatigue.max - 1), 0);
-    let currentFatigue = Math.min(this.actor.data.data.fatigue.value, newFatigueMax);
+    let newFatigueMax = Math.max((this.actor.system.fatigue.max - 1), 0);
+    let currentFatigue = Math.min(this.actor.system.fatigue.value, newFatigueMax);
     let newFatigueRemaining = Math.min((newFatigueMax - currentFatigue), 0);
 
     this.actor.update({

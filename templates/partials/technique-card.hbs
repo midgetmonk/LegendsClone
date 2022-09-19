@@ -12,29 +12,29 @@
     {{/if}}
 
     <span class="data">
-      {{#if data.training}}
-        {{#if data.specialty}}
-          <span class="specialty {{data.training}}">{{data.specialty}}</span>
+      {{#if system.training}}
+        {{#if system.specialty}}
+          <span class="specialty {{system.training}}">{{system.specialty}}</span>
         {{/if}}
-        <img src="systems/legends/images/{{data.training}}.png" title="{{localize (tr_path "legends.training" data.training)}}" alt="{{localize (tr_path "legends.training" data.training)}}" class="icon" />
+        <img src="systems/legends/images/{{system.training}}.png" title="{{localize (tr_path "legends.training" system.training)}}" alt="{{localize (tr_path "legends.training" system.training)}}" class="icon" />
       {{/if}}
     </span>
   </h3>
   <h4 class="title{{#if (and npc inSheet)}} weapons{{else}} fire{{/if}}">
-    {{localize (tr_path "legends.techniques.approaches" data.approach)}}
-    {{#unless (or npc data.basic)}}
+    {{localize (tr_path "legends.techniques.approaches" system.approach)}}
+    {{#unless (or npc system.basic)}}
       <div class="float-right">
         {{#if inSheet}}
-          <a class="set-proficiency" data-level="learned" title="{{localize 'legends.techniques.proficiency.learn'}}">{{localize "legends.techniques.proficiency.learned"}} <i class="far fa-{{#if data.learned}}times-{{/if}}circle"></i></a>
+          <a class="set-proficiency" data-level="learned" title="{{localize 'legends.techniques.proficiency.learn'}}">{{localize "legends.techniques.proficiency.learned"}} <i class="far fa-{{#if system.learned}}times-{{/if}}circle"></i></a>
           &nbsp;
-          <a class="set-proficiency" data-level="practiced" title="{{localize 'legends.techniques.proficiency.practice'}}">{{localize "legends.techniques.proficiency.practiced"}} <i class="far fa-{{#if data.practiced}}times-{{/if}}circle"></i></a>
+          <a class="set-proficiency" data-level="practiced" title="{{localize 'legends.techniques.proficiency.practice'}}">{{localize "legends.techniques.proficiency.practiced"}} <i class="far fa-{{#if system.practiced}}times-{{/if}}circle"></i></a>
           &nbsp;
-          <a class="set-proficiency" data-level="mastered" title="{{localize 'legends.techniques.proficiency.master'}}">{{localize "legends.techniques.proficiency.mastered"}} <i class="far fa-{{#if data.mastered}}times-{{/if}}circle"></i></a>
+          <a class="set-proficiency" data-level="mastered" title="{{localize 'legends.techniques.proficiency.master'}}">{{localize "legends.techniques.proficiency.mastered"}} <i class="far fa-{{#if system.mastered}}times-{{/if}}circle"></i></a>
         {{else}}
-          {{#if data.mastered}}
+          {{#if system.mastered}}
             {{localize "legends.techniques.proficiency.mastered"}}
           {{else}}
-            {{#if data.practiced}}
+            {{#if system.practiced}}
               {{localize "legends.techniques.proficiency.practiced"}}
             {{else}}
               {{localize "legends.techniques.proficiency.learned"}}
@@ -45,7 +45,7 @@
     {{/unless}}
   </h4>
   {{#if inSheet}}<div class="drawer">{{/if}}
-    {{{ data.description }}}
+    {{{ system.description }}}
   {{#if inSheet}}</div>{{/if}}
 </section>
 {{#unless inSheet}}</div>{{/unless}}

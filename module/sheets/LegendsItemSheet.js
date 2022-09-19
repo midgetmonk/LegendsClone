@@ -1,6 +1,6 @@
 export default class LegendsItemSheet extends ItemSheet {
   get template(){
-    return `systems/legends/templates/sheets/items/${this.item.data.type}-sheet.hbs`;
+    return `systems/legends/templates/sheets/items/${this.item.type}-sheet.hbs`;
   };
 
   static get defaultOptions(){
@@ -10,8 +10,8 @@ export default class LegendsItemSheet extends ItemSheet {
     });
   }
 
-  getData(){
-    const context = super.getData();
+  async getData(){
+    const context = await super.getData();
     context.config = CONFIG.legends;
     return context;
   }

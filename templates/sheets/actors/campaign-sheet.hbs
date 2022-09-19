@@ -6,8 +6,8 @@
         <h1 class="block charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "legends.actor-sheet.name"}}"/></h1>
       </section>
       <section class="cell cell-2">
-        <select name="data.era" class="block">
-          {{#select data.data.era}}
+        <select name="system.era" class="block">
+          {{#select data.system.era}}
             {{#each config.campaignEras as |name era|}}
               <option value="{{era}}">{{localize name}} {{localize "legends.actor-sheet.campaign.eras.era" }}</option>
             {{/each}}
@@ -34,7 +34,7 @@
         <h2 class="title center underline">{{localize "legends.actor-sheet.campaign.scope"}}</h2>
         
         <div class="description">
-          {{editor content=data.data.scope target="data.scope" button=true owner=owner editable=editable}}
+          {{editor data.system.scope target="system.scope" button=true owner=owner editable=editable}}
         </div>
       </section>
 
@@ -45,8 +45,8 @@
 
           <div class="cell row">
             <div class="cell">
-              <select name="data.focus" class="block">
-                {{#select data.data.focus}}
+              <select name="system.focus" class="block">
+                {{#select data.system.focus}}
                   {{#each config.campaignFocus as |name focus|}}
                     <option value="{{focus}}">{{localize name}}</option>
                   {{/each}}
@@ -54,16 +54,14 @@
               </select>
             </div>
             <div class="cell">
-              {{#if data.data.customFocusEnabled }}
-                {{!-- <section class="cell"> --}}
-                  <input type="text" name="data.customFocus" value="{{data.data.customFocus}}" placeholder="{{localize "legends.actor-sheet.campaign.customFocusPlaceholder" }}" class="block" />
-                {{!-- </section> --}}
+              {{#if (eq data.system.focus "custom") }}
+                <input type="text" name="system.customFocus" value="{{data.system.customFocus}}" placeholder="{{localize "legends.actor-sheet.campaign.customFocusPlaceholder" }}" class="block" />
               {{/if}}
             </div>
           </div>
 
           <div class="description focus">
-            {{editor content=data.data.focusDesc target="data.focusDesc" button=true owner=owner editable=editable}}
+            {{editor data.system.focusDesc target="system.focusDesc" button=true owner=owner editable=editable}}
           </div>
         </section>
       </section>
@@ -75,18 +73,18 @@
       <section class="inciting-incident">
         <section class="cell">
           <h2 class="title center underline">{{localize "legends.actor-sheet.campaign.incitingIncident"}}</h2>
-          <input type="text" name="data.incitingIncident" value="{{data.data.incitingIncident}}" class="text" />
+          <input type="text" name="system.incitingIncident" value="{{data.system.incitingIncident}}" class="text" />
         </section>
       </section>
 
       <!-- Acts -->
       <section>
         <!-- Iterate to display each act -->
-        {{#each data.data.acts as |act id|}}
+        {{#each data.system.acts as |act id|}}
           <section class="cell act">
-            <h2 class="title center underline single-line" contenteditable="true" data-edit="data.acts.{{id}}.name">{{{act.name}}}</h2>
+            <h2 class="title center underline single-line" contenteditable="true" data-edit="system.acts.{{id}}.name">{{{act.name}}}</h2>
             <div class="description">
-              {{editor content=act.description target=(concat 'data.acts.' id '.description') button=true owner=../owner editable=../editable}}
+              {{editor act.description target=(concat 'system.acts.' id '.description') button=true owner=../owner editable=../editable}}
             </div>
           </section>
         {{/each}}
@@ -100,7 +98,7 @@
         <h2 class="title center underline">{{localize "legends.actor-sheet.campaign.relationships.allies"}}</h2>
         
         <div class="description">
-          {{editor content=data.data.allies target="data.allies" button=true owner=owner editable=editable}}
+          {{editor data.system.allies target="system.allies" button=true owner=owner editable=editable}}
         </div>
       </section>
 
@@ -109,7 +107,7 @@
         <h2 class="title center underline">{{localize "legends.actor-sheet.campaign.relationships.enemies"}}</h2>
         
         <div class="description">
-          {{editor content=data.data.enemies target="data.enemies" button=true owner=owner editable=editable}}
+          {{editor data.system.enemies target="system.enemies" button=true owner=owner editable=editable}}
         </div>
       </section>
     </div>

@@ -12,18 +12,12 @@ export default class LegendsCampaignActorSheet extends ActorSheet {
   }
 
   get template(){
-    return `systems/legends/templates/sheets/actors/${this.actor.data.type}-sheet.hbs`;
+    return `systems/legends/templates/sheets/actors/${this.actor.type}-sheet.hbs`;
   };
 
   getData(){
     const context = super.getData();
     context.config = CONFIG.legends;
-
-    // Checks if custom group focus is enabled
-    if(context.data.data.focus == "custom"){
-      context.data.data.customFocusEnabled = true;
-    }
-    
     return context;
   }
 
