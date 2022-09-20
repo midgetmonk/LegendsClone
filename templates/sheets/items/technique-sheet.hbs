@@ -14,7 +14,7 @@
         </tr>
         <tr>
           <td>
-            <input type="checkbox" name="system.basic" {{checked data.system.basic}}>
+            {{> "systems/legends/templates/partials/checkbox.hbs" name="system.basic" value=data.system.basic}}
           </td>
           <td>
             <select name="system.approach">
