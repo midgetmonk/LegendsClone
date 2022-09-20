@@ -1,4 +1,4 @@
-import { filter_items, filter_statuses, filter_techniques } from "../helpers.js";
+import { filter_items, filter_statuses } from "../helpers.js";
 import * as Dice from "../dice.js";
 
 export default class LegendsActorSheet extends ActorSheet {

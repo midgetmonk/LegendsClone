@@ -588,6 +588,24 @@
 .legends.sheet .statuses .negative .title a.menu {
   color: #b62127;
 }
+.sheet.journal-entry.legends-journal-sheet .journal-entry-content {
+  background-color: #f3efdc;
+  background-image: linear-gradient(#dfd3b4 0%, #f3efdc 150px, #f3efdc 100%);
+  font-family: 'BenchNine';
+  font-size: 1.1rem;
+}
+.sheet.journal-entry.legends-journal-sheet .journal-entry-content h1,
+.sheet.journal-entry.legends-journal-sheet .journal-entry-content h2,
+.sheet.journal-entry.legends-journal-sheet .journal-entry-content h3,
+.sheet.journal-entry.legends-journal-sheet .journal-entry-content h4,
+.sheet.journal-entry.legends-journal-sheet .journal-entry-content h5 {
+  border: none;
+  font-family: 'Village';
+  font-variant: small-caps;
+}
+.sheet.journal-entry.legends-journal-sheet .journal-entry-content h1 {
+  border-bottom: 2px solid #baaf6b;
+}
 .legends.sheet.npc-sheet .body h1 {
   border-bottom: 2px solid #baaf6b;
   font-size: 1.5rem;
