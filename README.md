@@ -4,7 +4,7 @@ A FoundryVTT system for [Avatar Legends RPG](https://magpiegames.com/avatarrpg) 
 
 <img src="https://i.imgur.com/b5SJHhQ.png" alt="Player character sheet" width="60%" />
 
-Screenshots: https://imgur.com/a/oDY4Zwk
+Additional screenshots: https://imgur.com/a/oDY4Zwk
 
 ## Installation
 To install the system, paste the manifest URL below into the Install System dialog on the Setup menu:
@@ -15,6 +15,8 @@ See [the Wiki](https://gitlab.com/pacosgrove1/legends/-/wikis/home) for specific
 
 ## Credits
 This system exists thanks to the excellent YouTube tutorial series by [Cédric Hauteville](https://www.youtube.com/user/LieutenantRazak).
+
+Spanish translation by [Ruy Leon](https://gitlab.com/Amharem).
 
 ### Fonts
 * [Bench Nine](https://www.fontsquirrel.com/fonts/benchnine) by Vernon Adams
