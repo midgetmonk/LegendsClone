@@ -8,6 +8,7 @@ import LegendsItemSheet from "./module/sheets/LegendsItemSheet.js";
 import preloadHandlebarsTemplates from "./module/preload.js";
 import * as Chat from "./module/chat.js";
 import * as Migrations from "./module/migrations.js";
+import LegendsJournalSheet from "./module/sheets/LegendsJournalSheet.js";
 
 function registerSystemSettings(){
   game.settings.register("legends", "systemMigrationVersion", {
@@ -56,6 +57,9 @@ Hooks.once("init", function(){
     types: ["campaign"],
     makeDefault: true
   });
+
+  // Journal sheet
+  Journal.registerSheet("legends", LegendsJournalSheet, { makeDefault: true })
 
   preloadHandlebarsTemplates();
   registerSystemSettings();

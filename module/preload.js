@@ -10,6 +10,7 @@ export default async function preloadHandlebarsTemplates(){
     "systems/legends/templates/sheets/actors/_fatigue.hbs",
     "systems/legends/templates/sheets/actors/_stats.hbs",
     "systems/legends/templates/sheets/actors/_trainings.hbs",
+    "systems/legends/templates/partials/checkbox.hbs",
     "templates/dice/roll.html"
   ];
 
