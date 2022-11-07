@@ -5,9 +5,9 @@ stages:
 
 workflow:
   rules:
-    - if: $CI_COMMIT_TAG
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
+    - if: $CI_COMMIT_TAG
 
 variables:
   ZIP_FILE_NAME: "legends-$CI_COMMIT_TAG.zip"
