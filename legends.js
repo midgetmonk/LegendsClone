@@ -19,17 +19,29 @@ function registerSystemSettings(){
   });
 
   game.settings.register(
-    "legends",
-    "tabbedPlayerSheet",
-    {
+    "legends", "tabbedPlayerSheet", {
       config: true,
       scope: "client",
       name: "SETTINGS.tabbedPlayerSheet.label",
       hint: "SETTINGS.tabbedPlayerSheet.hint",
       type: Boolean,
       default: true
-    }
-  );
+    });
+
+    game.settings.register(
+      "legends", "sheetColour", {
+        config: true,
+        scope: "client",
+        name: "SETTINGS.sheetColour.label",
+        hint: "SETTINGS.sheetColour.hint",
+        type: String,
+        choices: {
+          "default": "SETTINGS.sheetColour.default",
+          "quickstart": "SETTINGS.sheetColour.quickstart"
+        },
+        default: "default"
+      }
+    )
 }
 
 Hooks.once("init", function(){
@@ -73,15 +85,54 @@ Hooks.once("init", function(){
     return result;
   });
 
-  Handlebars.registerHelper("tr_path", function(path, key){
+  Handlebars.registerHelper("tr_path", (path, key) => {
     return path+"."+key;
   });
 
-  Handlebars.registerHelper("modulus", function(mod, index, content){
+  Handlebars.registerHelper("modulus", (mod, index, content) =>{
     if(index % mod == 0){
       return content;
     }
   });
+
+  Handlebars.registerHelper("moveCategoryVisible", (category, movesVisible) => {
+    if(category === "" || movesVisible[category]){
+      return true
+    }
+    return false
+  })
+
+  Handlebars.registerHelper("getByKey", (object, key) => {
+    return object[key]
+  })
+
+  Handlebars.registerHelper("rollApproach", approach => {
+    let path = "legends.none"
+    let params = {}
+    switch (approach) {
+      case "defend-maneuver":
+        path = "legends.roll.with"
+        params = {
+          approach: game.i18n.localize("legends.techniques.approaches.defend-maneuver"),
+          stat: "focus",
+          name: game.i18n.localize("legends.stats.focus")
+        }
+        break;
+      case "advance-attack":
+        path = "legends.roll.with";
+        params = {
+          approach: game.i18n.localize("legends.techniques.approaches.advance-attack"),
+          stat: "passion",
+          name: game.i18n.localize("legends.stats.passion")
+        }
+        break;
+      default:
+        path = "legends.roll.evade-observe";
+        params = {}
+        break;
+    }
+    return game.i18n.format(path, params)
+  })
 
   CONFIG.TinyMCE.content_css = "systems/legends/styles/tinymce.css";
 });
@@ -197,4 +248,4 @@ Hooks.once('diceSoNiceReady', dice3d => {
     bumpMaps: [,,,,,'systems/legends/images/dice/weapon-b.png'],
     system: 'legends-weapons', colorset: 'weapons'
   });
-})
+});

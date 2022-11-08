@@ -29,7 +29,7 @@ export function filter_items(collection, type, sort = false) {
  */
 export function filter_techniques(collection, approach) {
   return collection.filter(element => {
-    return element.type === 'technique' && element.data.approach === approach
+    return element.type === 'technique' && element.system.approach === approach
   });
 }
 

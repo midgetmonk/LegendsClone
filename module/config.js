@@ -61,3 +61,9 @@ legends.defaultTokens = {
   'feature': 'systems/legends/images/tokens/feature.png',
   'npc-principle': 'systems/legends/images/tokens/npc-principle.png'
 }
+
+legends.moveCategories = {
+  'basic': 'legends.moves.category.basic',
+  'balance': 'legends.moves.category.balance',
+  'playbook': 'legends.moves.category.playbook'
+}

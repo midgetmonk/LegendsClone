@@ -38,12 +38,12 @@
 }
 
 .title-font() {
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
 }
 
 .main-font() {
-  font-family: 'BenchNine';
+  font-family: "BenchNine";
   font-size: 1.1rem;
 }
 
@@ -64,17 +64,25 @@
 }
 
 .kanji-font() {
-  font-family: 'New Tegomin';
+  font-family: "New Tegomin";
 }
 
 /**
 * Colours
 **/
 
-@bg-color: #f3efdc;
-@bg-fade-color: #dfd3b4;
-@accent-color: #baaf6b;
-@accent-dark: #6e4e27;
+// PAPER
+@bg-color-quickstart: #f3efdc;
+@bg-fade-color-quickstart: #dfd3b4;
+@accent-color-quickstart: #baaf6b;
+@accent-dark-quickstart: #6e4e27;
+
+// BLUE
+@bg-color: #f0f1f5;
+@bg-fade-color: #b4bac8;
+@accent-color: #99bbe3;
+@accent-dark: #0d2d5d;
+
 @text-color: #111;
 
 @firebender: #b62127;
@@ -84,7 +92,9 @@
 @weaponsmith: #4d4d4f;
 @technologist: #6a2e7e;
 
-.bg-fade(@distance: 5%) {
+@dark-fire: #65110c;
+
+.bg-fade(@distance: 5%, @bg-color: @bg-color, @bg-fade-color: @bg-fade-color) {
   background-color: @bg-color;
   background-image: linear-gradient(@bg-fade-color 0%, @bg-color @distance, @bg-color 100%);
 }

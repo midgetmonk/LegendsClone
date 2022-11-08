@@ -116,7 +116,15 @@
       "edit": "Editar Movimiento",
       "delete": "Eliminar Movimiento",
       "new": "Nuevo Movimiento",
-      "roll-with": "Lanzar con"
+      "roll-with": "Lanzar con",
+      "roll": "¿Lanzar?",
+      "with": "Estadística",
+      "category": {
+        "label": "Categoría",
+        "basic": "Basico",
+        "balance": "Balance",
+        "playbook": "Libreto"
+      }
     },
     "condition": {
       "add": "Nueva Condición"
@@ -188,6 +196,12 @@
     "tabbedPlayerSheet": {
       "label": "Hoja de Personaje Minimizada",
       "hint": "Muestra la hoja de personaje con diseño minimizado"
+    },
+    "sheetColour": {
+      "label": "Sheet Color",
+      "hint": "The color scheme used by Player character sheets",
+      "default": "Default",
+      "quickstart": "Quickstart"
     }
   }
 }

@@ -13,6 +13,7 @@ export default class LegendsNpcActorSheet extends LegendsActorSheet {
     const context = super.getData();
     context.principle = filter_items(context.items, 'npc-principle')[0];
     context.techniques = filter_items(context.items, 'technique');
+    context.cssClass = game.settings.get("legends", "sheetColour") || "default";
     return context;
   }
 

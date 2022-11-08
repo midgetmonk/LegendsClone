@@ -116,7 +116,15 @@
       "edit": "Edit Move",
       "delete": "Delete Move",
       "new": "New Move",
-      "roll-with": "Roll with"
+      "roll-with": "Roll with",
+      "roll": "Roll?",
+      "with": "Stat",
+      "category": {
+        "label": "Source",
+        "basic": "Basic",
+        "balance": "Balance",
+        "playbook": "Playbook"
+      }
     },
     "condition": {
       "add": "New Condition"
@@ -157,8 +165,8 @@
       "group": "Group"
     },
     "roll":{
-      "with": "Roll with <a class=\"accent-dark move-roll\" data-move-name=\"{approach}\" data-move-stat=\"{stat}\"><i class=\"fas fa-dice small\"></i>{name}</a>",
-      "evade-observe": "Clear 1-fatigue &amp; roll with <a class=\"accent-dark move-roll\" data-move-name=\"Evade & Observe\" data-move-stat=\"creativity\"><i class=\"fas fa-dice small\"></i>Creativity</a> or <a class=\"accent-dark move-roll\" data-move-name=\"Evade & Observe\" data-move-stat=\"harmony\"><i class=\"fas fa-dice small\"></i>Harmony</a>",
+      "with": "Roll with <a class=\"fire-dark move-roll\" data-move-name=\"{approach}\" data-move-stat=\"{stat}\"><i class=\"fas fa-dice small\"></i> {name}</a>",
+      "evade-observe": "Clear 1-fatigue &amp; roll with <a class=\"fire-dark move-roll\" data-move-name=\"Evade & Observe\" data-move-stat=\"creativity\"><i class=\"fas fa-dice small\"></i> Creativity</a> or <a class=\"fire-dark move-roll\" data-move-name=\"Evade & Observe\" data-move-stat=\"harmony\"><i class=\"fas fa-dice small\"></i> Harmony</a>",
       "stat": "Rolling {stat}",
       "no-stat": "Rolling",
       "miss": "Miss",
@@ -188,6 +196,12 @@
     "tabbedPlayerSheet": {
       "label": "Tabbed Player Sheet",
       "hint": "Display the player character sheet with tabbed layout"
+    },
+    "sheetColour": {
+      "label": "Sheet Color",
+      "hint": "The color scheme used by Player character sheets",
+      "default": "Default",
+      "quickstart": "Quickstart"
     }
   }
 }
