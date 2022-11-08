@@ -28,7 +28,7 @@
       {{#if principle}}
         {{> "systems/legends/templates/partials/npc-principle-card.hbs" principle}}
       {{else}}
-        <h1 class="title">
+        <h1 class="title underline">
           Principle:
           None
           <p class="float-right small pad-75">
@@ -41,7 +41,7 @@
     </section>
 
     <section class="fatigue">
-      <h1 class="title">{{localize "legends.actor-sheet.fatigue"}}
+      <h1 class="title underline">{{localize "legends.actor-sheet.fatigue"}}
         <a class="decrease-fatigue black small" title="{{localize "legends.actor-sheet.npc.fatigue.remove"}}"><i class="fas fa-minus"></i></a>
         <a class="increase-fatigue black small" title="{{localize "legends.actor-sheet.npc.fatigue.add"}}"><i class="fas fa-plus"></i></a>
       </h1>
@@ -59,7 +59,7 @@
 
     <section class="technique-conditions row">
       <section class="technique-container cell cell-3">
-        <h1 class="title">
+        <h1 class="title underline">
           {{localize "legends.actor-sheet.npc.technique"}}
           <small>
             <a class="item-create fire title small" data-type="technique" title="{{localize "legends.moves.add"}}">
@@ -77,7 +77,7 @@
       </section>
 
       <section class="conditions cell cell-2">
-        <h1 class="title">{{ localize "legends.actor-sheet.conditions" }}
+        <h1 class="title underline">{{ localize "legends.actor-sheet.conditions" }}
           <a class="item-create fire small" data-type="condition" title="{{localize "legends.conditions.add"}}">
             <i class="fas fa-plus"></i> {{localize "legends.condition.add"}}
           </a>
@@ -86,7 +86,7 @@
           {{> "systems/legends/templates/partials/condition-card.hbs" condition inSheet=true npc=true}}
         {{/each}}
 
-        <h1 class="title pad-top">
+        <h1 class="title underline pad-top">
           {{ localize "legends.actor-sheet.statuses" }}
           <a class="item-create fire small" data-type="status" title="{{localize "legends.status.add"}}">
             <i class="fas fa-plus"></i> {{localize "legends.status.add"}}

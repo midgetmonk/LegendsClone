@@ -2,6 +2,43 @@
 
 @import "./config.less";
 
+.legends.sheet.quickstart {
+  .bg-fade(150px, @bg-color-quickstart, @bg-fade-color-quickstart);
+
+  .balance .balance-track {
+    &.black, &.white{
+      box-shadow: inset 1rem 1.4rem 0 @bg-color-quickstart, inset -1rem -1.4rem 0 @bg-color-quickstart;
+    }
+  }
+
+  .accent { color: @accent-color-quickstart; }
+  .accent-dark { color: @accent-dark-quickstart; }
+
+  .underline,
+  input,
+  select,
+  textarea,
+  .description,
+  .sheet-header .name,
+  .navigation .sheet-tabs.tabs,
+  .navigation .sheet-tabs.tabs .item {
+    border-color: @accent-color-quickstart;
+  }
+
+  .navigation{
+    .sheet-tabs.tabs{
+
+      .item{
+        color: @accent-dark-quickstart;
+
+        &:hover, &.active{
+          text-shadow: 0 0 10px @accent-color-quickstart;
+        }
+      }
+    }
+  }
+}
+
 .legends.sheet {
   margin: -8px;
   padding: 0.5rem;
@@ -272,7 +309,6 @@
     input{
       .main-font();
       margin: 0 0 0 0.5rem;
-      border-bottom: 1px solid @accent-color;
       border-radius: 0.25rem;
       background: rgba(255,255,255,0.5);
       padding: 0 0.25rem;

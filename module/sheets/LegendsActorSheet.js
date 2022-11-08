@@ -1,4 +1,4 @@
-import { filter_items, filter_statuses } from "../helpers.js";
+import { filter_items, filter_statuses, filter_techniques } from "../helpers.js";
 import * as Dice from "../dice.js";
 
 export default class LegendsActorSheet extends ActorSheet {
@@ -44,6 +44,7 @@ export default class LegendsActorSheet extends ActorSheet {
   getData(){
     const context = super.getData();
     context.config = CONFIG.legends;
+    context.cssClass = game.settings.get("legends", "sheetColour") || "default"
 
     context.feature = filter_items(context.items, 'feature')[0];
     context.conditions = filter_items(context.items, 'condition', true);
@@ -57,6 +58,19 @@ export default class LegendsActorSheet extends ActorSheet {
 
     if(this.actor.type == 'player'){
       context.displayTabbed = game.settings.get('legends','tabbedPlayerSheet');
+
+      context.techniquesByApproach = {}
+      Object.keys(CONFIG.legends.approaches).forEach(k => {
+        context.techniquesByApproach[k] ||= [];
+        context.techniquesByApproach[k] = filter_techniques(context.techniques, k);
+      })
+
+      context.movesVisible = {}
+      const keys = ['basic','balance', 'playbook'];
+      keys.forEach(k => {
+        let visible = this.actor.getFlag('legends', `moves-${k}`);
+        context.movesVisible[k] = visible === undefined ? true : visible;
+      });
     }
     return context;
   }
@@ -85,6 +99,8 @@ export default class LegendsActorSheet extends ActorSheet {
         // Advancements
         html.find('.set-adv-value').click(this._onSetAdvancementValue.bind(this));
         html.find('.set-adv-value').contextmenu(this._onClearAdvancement.bind(this));
+
+        html.find('.toggle-category').click(this._onToggleCategory.bind(this));
       }
 
       // toggle collapsible moves
@@ -523,5 +539,14 @@ export default class LegendsActorSheet extends ActorSheet {
 
     let element = event.currentTarget;
     $(element.closest('.item')).find('.drawer').slideToggle();
+  }
+
+  _onToggleCategory(event){
+    event.preventDefault();
+
+    const category = event.currentTarget.dataset.category;
+    let visible = this.actor.getFlag('legends', `moves-${category}`);
+    visible = visible === undefined ? true : visible;
+    this.actor.setFlag('legends', `moves-${category}`, !visible);
   }
 };

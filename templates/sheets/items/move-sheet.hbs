@@ -6,19 +6,39 @@
     <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
   </header>
   <section class="sheet-body">
-    <section class="rollable row">
-      <label class="cell title">
-        {{> "systems/legends/templates/partials/checkbox.hbs" name="system.rollable" value=data.system.rollable}}
-      </label>
-      <label class="cell title">{{localize "legends.moves.roll-with"}}</label>
-      <select class="cell cell-3" name="system.rollStat">
-        <option value="">{{localize "legends.common.none"}}</option>
-        {{#select data.system.rollStat}}
-          {{#each config.stats as |label value|}}
-            <option value="{{value}}">{{localize label}}</option>
-          {{/each}}
-        {{/select}}
-      </select>
+    <section class="row">
+      <table>
+        <tr>
+          <th class="title">{{localize "legends.moves.roll"}}</th>
+          <th class="title">{{localize "legends.moves.with"}}</th>
+          <th class="title">{{localize "legends.moves.category.label"}}</th>
+        </tr>
+        <tr>
+          <td>
+            {{> "systems/legends/templates/partials/checkbox.hbs" name="system.rollable" value=data.system.rollable}}
+          </td>
+          <td>
+            <select class="cell cell-3" name="system.rollStat">
+              <option value="">{{localize "legends.common.none"}}</option>
+              {{#select data.system.rollStat}}
+                {{#each config.stats as |label value|}}
+                  <option value="{{value}}">{{localize label}}</option>
+                {{/each}}
+              {{/select}}
+            </select>
+          </td>
+          <td>
+            <select class="cell cell-3" name="system.category">
+              <option value="">{{localize 'legends.common.none'}}</option>
+              {{#select data.system.category}}
+                {{#each config.moveCategories as |label value|}}
+                  <option value="{{value}}">{{localize label}}</option>
+                {{/each}}
+              {{/select}}
+            </select>
+          </td>
+        </tr>
+      </table>
     </section>
 
     {{> "systems/legends/templates/partials/description-editor.hbs" }}

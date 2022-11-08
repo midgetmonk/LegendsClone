@@ -115,7 +115,8 @@
     "move": {
       "templates": ["hasDescription"],
       "rollable": false,
-      "rollStat": ""
+      "rollStat": "",
+      "category": ""
     },
     "feature": {
       "templates": ["hasDescription"]

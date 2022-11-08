@@ -18,6 +18,7 @@ export default class LegendsCampaignActorSheet extends ActorSheet {
   getData(){
     const context = super.getData();
     context.config = CONFIG.legends;
+    context.cssClass = game.settings.get("legends", "sheetColour") || "default";
     return context;
   }
 

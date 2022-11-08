@@ -13,6 +13,7 @@ export default class LegendsItemSheet extends ItemSheet {
   async getData(){
     const context = await super.getData();
     context.config = CONFIG.legends;
+    context.cssClass = game.settings.get("legends", "sheetColour") || "default";
     return context;
   }
 

@@ -16,6 +16,7 @@
   .white { color: white; }
   .accent { color: @accent-color; }
   .accent-dark { color: @accent-dark; }
+  .fire-dark { color: @dark-fire; }
 
   .main-font();
 
@@ -102,12 +103,19 @@
   .pad-50{ margin: 0.5rem; }
   .pad-75{ margin: 0.75rem; }
   .pad-top{ margin: 1rem 0 0; }
+  .pad-bottom{ margin: 0 0 1rem; }
   .pad-sides{ margin: 0 0.5rem; }
   
   .no-margin { margin: 0 !important; }
 
   .underline{
     border-bottom: 2px solid @accent-color;
+    &.underline-fire{
+      border-bottom: 2px solid @dark-fire;
+    }
+    &.underline-thin{
+      border-width: 1.5px;
+    }
   }
 
   .kanji{

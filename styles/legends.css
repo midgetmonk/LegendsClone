@@ -34,11 +34,11 @@
 * Colours
 **/
 .window-header {
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
 }
 .legends {
-  font-family: 'BenchNine';
+  font-family: "BenchNine";
   font-size: 1.1rem;
 }
 .legends .water {
@@ -66,10 +66,13 @@
   color: white;
 }
 .legends .accent {
-  color: #baaf6b;
+  color: #99bbe3;
 }
 .legends .accent-dark {
-  color: #6e4e27;
+  color: #0d2d5d;
+}
+.legends .fire-dark {
+  color: #65110c;
 }
 .legends .row {
   display: flex;
@@ -95,7 +98,7 @@
 }
 .legends p,
 .legends li {
-  font-family: 'BenchNine';
+  font-family: "BenchNine";
   font-size: 1.1rem;
 }
 .legends p {
@@ -115,7 +118,7 @@
 .legends h3,
 .legends h4 {
   border: none;
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
 }
 .legends h1 input,
@@ -140,11 +143,11 @@
   font-size: 1.2rem;
 }
 .legends a {
-  color: #baaf6b;
+  color: #99bbe3;
 }
 .legends a:hover {
   color: black;
-  text-shadow: 0 0 6px #baaf6b;
+  text-shadow: 0 0 6px #99bbe3;
 }
 .legends .block {
   font-family: "Komikazoom";
@@ -156,7 +159,7 @@
   font-weight: normal;
 }
 .legends .title {
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
 }
 .legends .hand {
@@ -164,7 +167,7 @@
   font-size: 1.5rem;
 }
 .legends .text {
-  font-family: 'BenchNine';
+  font-family: "BenchNine";
   font-size: 1.1rem;
 }
 .legends .large {
@@ -200,6 +203,9 @@
 .legends .pad-top {
   margin: 1rem 0 0;
 }
+.legends .pad-bottom {
+  margin: 0 0 1rem;
+}
 .legends .pad-sides {
   margin: 0 0.5rem;
 }
@@ -207,11 +213,17 @@
   margin: 0 !important;
 }
 .legends .underline {
-  border-bottom: 2px solid #baaf6b;
+  border-bottom: 2px solid #99bbe3;
+}
+.legends .underline.underline-fire {
+  border-bottom: 2px solid #65110c;
+}
+.legends .underline.underline-thin {
+  border-width: 1.5px;
 }
 .legends .kanji::before,
 .legends .kanji::after {
-  font-family: 'New Tegomin';
+  font-family: "New Tegomin";
   color: #b62127;
   padding: 0;
   font-size: 70%;
@@ -247,9 +259,9 @@
 }
 .legends .technique h3 .data .specialty {
   border-radius: 0.6rem;
-  color: #f3efdc;
+  color: #f0f1f5;
   font-size: 0.7rem;
-  font-family: 'BenchNine';
+  font-family: "BenchNine";
   font-size: 1.1rem;
   font-weight: normal;
   text-transform: uppercase;
@@ -273,11 +285,42 @@
 .legends .technique h3 .data .specialty.weapon {
   background-color: #4d4d4f;
 }
+.legends.sheet.quickstart {
+  background-color: #f3efdc;
+  background-image: linear-gradient(#dfd3b4 0%, #f3efdc 150px, #f3efdc 100%);
+}
+.legends.sheet.quickstart .balance .balance-track.black,
+.legends.sheet.quickstart .balance .balance-track.white {
+  box-shadow: inset 1rem 1.4rem 0 #f3efdc, inset -1rem -1.4rem 0 #f3efdc;
+}
+.legends.sheet.quickstart .accent {
+  color: #baaf6b;
+}
+.legends.sheet.quickstart .accent-dark {
+  color: #6e4e27;
+}
+.legends.sheet.quickstart .underline,
+.legends.sheet.quickstart input,
+.legends.sheet.quickstart select,
+.legends.sheet.quickstart textarea,
+.legends.sheet.quickstart .description,
+.legends.sheet.quickstart .sheet-header .name,
+.legends.sheet.quickstart .navigation .sheet-tabs.tabs,
+.legends.sheet.quickstart .navigation .sheet-tabs.tabs .item {
+  border-color: #baaf6b;
+}
+.legends.sheet.quickstart .navigation .sheet-tabs.tabs .item {
+  color: #6e4e27;
+}
+.legends.sheet.quickstart .navigation .sheet-tabs.tabs .item:hover,
+.legends.sheet.quickstart .navigation .sheet-tabs.tabs .item.active {
+  text-shadow: 0 0 10px #baaf6b;
+}
 .legends.sheet {
   margin: -8px;
   padding: 0.5rem;
-  background-color: #f3efdc;
-  background-image: linear-gradient(#dfd3b4 0%, #f3efdc 150px, #f3efdc 100%);
+  background-color: #f0f1f5;
+  background-image: linear-gradient(#b4bac8 0%, #f0f1f5 150px, #f0f1f5 100%);
 }
 .legends.sheet .sheet-header {
   flex: none;
@@ -293,7 +336,7 @@
 }
 .legends.sheet .sheet-header .name {
   background: white;
-  border: 2px solid #baaf6b;
+  border: 2px solid #99bbe3;
   border-radius: 0.25rem;
   width: 98px;
   margin: 8px 2%;
@@ -316,14 +359,14 @@
   border: none;
   margin: 0.5rem 0;
   padding: 0.5rem;
-  border-top: 1px solid #baaf6b;
-  border-bottom: 1px solid #baaf6b;
+  border-top: 1px solid #99bbe3;
+  border-bottom: 1px solid #99bbe3;
 }
 .legends.sheet .navigation .sheet-tabs.tabs .item {
   display: block;
   width: 100%;
-  color: #6e4e27;
-  border-left: 1px solid #baaf6b;
+  color: #0d2d5d;
+  border-left: 1px solid #99bbe3;
 }
 .legends.sheet .navigation .sheet-tabs.tabs .item:first-child {
   border-left: none;
@@ -331,7 +374,7 @@
 .legends.sheet .navigation .sheet-tabs.tabs .item:hover,
 .legends.sheet .navigation .sheet-tabs.tabs .item.active {
   color: #111;
-  text-shadow: 0 0 10px #baaf6b;
+  text-shadow: 0 0 10px #99bbe3;
 }
 .legends.sheet .tab[data-tab] {
   display: none;
@@ -399,9 +442,9 @@
   font-size: 0.6rem;
   line-height: 1.5rem;
   text-align: center;
-  color: #6e4e27;
+  color: #0d2d5d;
   margin: 0 -4px;
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
 }
 .legends.sheet .balance ul.balance-center-track {
@@ -424,7 +467,7 @@
 }
 .legends.sheet .balance ul.balance-track.black,
 .legends.sheet .balance ul.balance-track.white {
-  box-shadow: inset 1rem 1.4rem 0 #f3efdc, inset -1rem -1.4rem 0 #f3efdc;
+  box-shadow: inset 1rem 1.4rem 0 #f0f1f5, inset -1rem -1.4rem 0 #f0f1f5;
 }
 .legends.sheet .balance ul.balance-track.black {
   background: black;
@@ -470,7 +513,7 @@
   flex: 1;
   display: flex;
   min-height: 100px;
-  border: 1px solid #baaf6b;
+  border: 1px solid #99bbe3;
   border-radius: 0.25rem;
   background: rgba(255, 255, 255, 0.5);
   padding: 0.5rem;
@@ -479,7 +522,7 @@
 .legends.sheet .description h2,
 .legends.sheet .description h3,
 .legends.sheet .description h4 {
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
 }
 .legends.sheet .description .editor {
@@ -496,7 +539,7 @@
 .legends.sheet select,
 .legends.sheet textarea {
   background: none;
-  border: 1px solid #baaf6b;
+  border: 1px solid #99bbe3;
   border-radius: 0;
   width: 96%;
   margin: 0 2%;
@@ -511,10 +554,9 @@
   line-height: 1.5rem;
 }
 .legends.sheet .labelled-input input {
-  font-family: 'BenchNine';
+  font-family: "BenchNine";
   font-size: 1.1rem;
   margin: 0 0 0 0.5rem;
-  border-bottom: 1px solid #baaf6b;
   border-radius: 0.25rem;
   background: rgba(255, 255, 255, 0.5);
   padding: 0 0.25rem;
@@ -568,7 +610,7 @@
   display: inline-block;
   margin: 0 1rem;
   flex: 1;
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
   opacity: 0.25;
 }
@@ -589,9 +631,9 @@
   color: #b62127;
 }
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content {
-  background-color: #f3efdc;
-  background-image: linear-gradient(#dfd3b4 0%, #f3efdc 150px, #f3efdc 100%);
-  font-family: 'BenchNine';
+  background-color: #f0f1f5;
+  background-image: linear-gradient(#b4bac8 0%, #f0f1f5 150px, #f0f1f5 100%);
+  font-family: "BenchNine";
   font-size: 1.1rem;
 }
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content h1,
@@ -600,14 +642,13 @@
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content h4,
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content h5 {
   border: none;
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
 }
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content h1 {
-  border-bottom: 2px solid #baaf6b;
+  border-bottom: 2px solid #99bbe3;
 }
 .legends.sheet.npc-sheet .body h1 {
-  border-bottom: 2px solid #baaf6b;
   font-size: 1.5rem;
 }
 .legends.sheet.npc-sheet .body h2 {
@@ -692,7 +733,7 @@
   flex-grow: 0;
 }
 .legends.sheet.campaign-sheet .body h1 {
-  border-bottom: 2px solid #baaf6b;
+  border-bottom: 2px solid #99bbe3;
   font-size: 1.5rem;
 }
 .legends.sheet.campaign-sheet .body h2 {
@@ -735,17 +776,17 @@
   margin-bottom: 10px;
 }
 .chat-message.message {
-  background: #dfd3b4;
+  background: #b4bac8;
 }
 .message-content .legends {
   padding: 0.5rem;
   margin: 0 -5px -5px;
-  background: #f3efdc;
-  border-top: 1px solid #baaf6b;
+  background: #f0f1f5;
+  border-top: 1px solid #99bbe3;
 }
 .message-content .legends .kanji::before,
 .message-content .legends .kanji::after {
-  font-family: 'New Tegomin';
+  font-family: "New Tegomin";
   color: #b62127;
   padding: 0;
   font-size: 70%;
@@ -767,7 +808,7 @@
 }
 .message-content .legends h3 {
   margin: 0;
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
 }
 .message-content .legends a.move-roll {
@@ -777,27 +818,27 @@
   border-radius: 0.25rem;
   border: 1px solid;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  background: #dfd3b4;
-  border-color: #baaf6b;
+  background: #b4bac8;
+  border-color: #99bbe3;
   color: #111;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .message-content .legends a.move-roll:hover {
-  background: #f0e4c5;
+  background: #c5cbd9;
 }
 .message-content .legends .dice-roll .dice-result {
-  font-family: 'BenchNine';
+  font-family: "BenchNine";
   font-size: 1.1rem;
 }
 .message-content .legends .dice-roll .dice-result .dice-formula,
 .message-content .legends .dice-roll .dice-result .dice-total,
 .message-content .legends .dice-roll .dice-result .dice-tooltip .part-total {
-  background: #dfd3b4;
-  border-color: #baaf6b;
+  background: #b4bac8;
+  border-color: #99bbe3;
   color: #111;
 }
 .message-content .legends .dice-roll .dice-result .dice-tooltip .part-header {
-  border-bottom: 1px solid #baaf6b;
+  border-bottom: 1px solid #99bbe3;
 }
 .dialog .block {
   font-family: "Komikazoom";
@@ -809,7 +850,7 @@
   font-weight: normal;
 }
 .dialog .title {
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
 }
 .dialog .hand {
@@ -817,17 +858,17 @@
   font-size: 1.5rem;
 }
 .dialog .text {
-  font-family: 'BenchNine';
+  font-family: "BenchNine";
   font-size: 1.1rem;
 }
 .dialog .window-header {
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
 }
 .dialog .window-content {
   padding: 0.5rem;
-  background-color: #f3efdc;
-  background-image: linear-gradient(#dfd3b4 0%, #f3efdc 20%, #f3efdc 100%);
+  background-color: #f0f1f5;
+  background-image: linear-gradient(#b4bac8 0%, #f0f1f5 20%, #f0f1f5 100%);
 }
 .dialog .window-content .dialog-content {
   margin: 0 0 1rem;
@@ -838,7 +879,7 @@
 .dialog .window-content .dialog-content .form-group input {
   text-align: center;
   background: white;
-  border: 2px solid #baaf6b;
+  border: 2px solid #99bbe3;
   border-radius: 2px;
   font-size: 1.5rem;
   height: 2rem;
@@ -852,20 +893,20 @@
 .dialog .window-content .dialog-buttons button {
   border: 1px solid;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  background: #dfd3b4;
-  border-color: #dfd3b4;
+  background: #b4bac8;
+  border-color: #b4bac8;
   color: #111;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .dialog .window-content .dialog-buttons button:hover {
-  background: #f0e4c5;
+  background: #c5cbd9;
 }
 .dialog .window-content .dialog-buttons button.normal,
 .dialog .window-content .dialog-buttons button.default {
-  background: #baaf6b;
-  border-color: #baaf6b;
+  background: #99bbe3;
+  border-color: #99bbe3;
 }
 .dialog .window-content .dialog-buttons button.normal:hover,
 .dialog .window-content .dialog-buttons button.default:hover {
-  background: #cbc07c;
+  background: #aaccf4;
 }

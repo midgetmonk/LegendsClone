@@ -87,11 +87,17 @@
           <a class="item-create fire" data-type="move" title="{{localize "legends.moves.add"}}">
             <i class="fas fa-plus"></i> {{localize "legends.moves.add"}}
           </a>
+          {{#each movesVisible as |value label|}}
+          |
+          <a class="toggle-category accent{{#if value}}-dark{{/if}}" data-category="{{label}}">{{localize (tr_path "legends.moves.category" label)}}</a>
+          {{/each}}
         </p>
 
         <div class="item-list col col-3">
           {{#each moves as |move id|}}
-            {{> "systems/legends/templates/partials/move-card.hbs" move inSheet=true}}
+            {{#if (moveCategoryVisible move.system.category ../movesVisible)}}
+              {{> "systems/legends/templates/partials/move-card.hbs" move inSheet=true}}
+            {{/if}}
           {{/each}}
         </div>
       </section>
@@ -115,11 +121,17 @@
             </a>
           </p>
 
-          <div class="item-list col col-2">
-            {{#each techniques as |technique id|}}
-              {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true}}
-            {{/each}}
-          </div>
+          {{#each config.approaches as |label key|}}
+            <h2 class="block no-margin">
+              {{localize label}}
+            </h2>
+            <h4 class="underline underline-thin fire-dark">{{{rollApproach key}}}</h4>
+            <div class="item-list col col-2 pad-bottom">
+              {{#each (getByKey ../techniquesByApproach key) as |technique|}}
+                {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true}}
+              {{/each}}
+            </div>
+          {{/each}}
         </section>
       </section>
     </div>
