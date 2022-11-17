@@ -25,6 +25,7 @@
     display: flex;
     flex: 0;
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .column{
@@ -40,6 +41,10 @@
     &.cell-4{ flex: 4 !important; }
   }
 
+  .flex-none {
+    flex: none !important;
+  }
+
   // Basic text
   p, li { .main-font(); }
 
@@ -49,7 +54,7 @@
   }
 
   input, textarea, select {
-    font-family: Arial, Helvetica, sans-serif;
+    .main-font();
   }
 
   img{

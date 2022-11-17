@@ -6,15 +6,6 @@
   src: url(fonts/prisoner/village.ttf);
 }
 @font-face {
-  font-family: "BenchNine";
-  src: url(fonts/bench_nine/BenchNine-Regular.ttf);
-}
-@font-face {
-  font-family: "BenchNine";
-  src: url(fonts/bench_nine/BenchNine-Bold.ttf);
-  font-weight: bold;
-}
-@font-face {
   font-family: "Hey August";
   src: url(fonts/hey_august/HeyAugust.ttf);
 }
@@ -30,6 +21,26 @@
   font-family: "New Tegomin";
   src: url(fonts/New_Tegomin/NewTegomin-Regular.ttf);
 }
+@font-face {
+  font-family: "Noto Sans";
+  src: url(fonts/Noto_Sans/NotoSans-Regular.ttf);
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url(fonts/Noto_Sans/NotoSans-Italic.ttf);
+  font-style: italic;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url(fonts/Noto_Sans/NotoSans-SemiBold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url(fonts/Noto_Sans/NotoSans-SemiBoldItalic.ttf);
+  font-weight: bold;
+  font-style: italic;
+}
 /**
 * Colours
 **/
@@ -38,8 +49,8 @@
   font-variant: small-caps;
 }
 .legends {
-  font-family: "BenchNine";
-  font-size: 1.1rem;
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
 }
 .legends .water {
   color: #4d63a9;
@@ -78,6 +89,7 @@
   display: flex;
   flex: 0;
   flex-direction: row;
+  justify-content: space-between;
 }
 .legends .column {
   display: flex;
@@ -96,10 +108,13 @@
 .legends .cell.cell-4 {
   flex: 4 !important;
 }
+.legends .flex-none {
+  flex: none !important;
+}
 .legends p,
 .legends li {
-  font-family: "BenchNine";
-  font-size: 1.1rem;
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
 }
 .legends p {
   margin: 0;
@@ -108,7 +123,8 @@
 .legends input,
 .legends textarea,
 .legends select {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
 }
 .legends img {
   border: 0;
@@ -167,8 +183,8 @@
   font-size: 1.5rem;
 }
 .legends .text {
-  font-family: "BenchNine";
-  font-size: 1.1rem;
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
 }
 .legends .large {
   font-size: 1.5em;
@@ -261,8 +277,8 @@
   border-radius: 0.6rem;
   color: #f0f1f5;
   font-size: 0.7rem;
-  font-family: "BenchNine";
-  font-size: 1.1rem;
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
   font-weight: normal;
   text-transform: uppercase;
   padding: 0 0.5rem;
@@ -459,6 +475,7 @@
   margin: 0.5rem;
   padding: 4px 0;
   border: 2px solid;
+  font-weight: bold;
 }
 .legends.sheet .balance ul.balance-track.black li.selected .num,
 .legends.sheet .balance ul.balance-track.white li.selected .num {
@@ -554,8 +571,8 @@
   line-height: 1.5rem;
 }
 .legends.sheet .labelled-input input {
-  font-family: "BenchNine";
-  font-size: 1.1rem;
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
   margin: 0 0 0 0.5rem;
   border-radius: 0.25rem;
   background: rgba(255, 255, 255, 0.5);
@@ -630,11 +647,14 @@
 .legends.sheet .statuses .negative .title a.menu {
   color: #b62127;
 }
+.cell.status {
+  max-width: 23%;
+}
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content {
   background-color: #f0f1f5;
   background-image: linear-gradient(#b4bac8 0%, #f0f1f5 150px, #f0f1f5 100%);
-  font-family: "BenchNine";
-  font-size: 1.1rem;
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
 }
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content h1,
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content h2,
@@ -827,8 +847,8 @@
   background: #c5cbd9;
 }
 .message-content .legends .dice-roll .dice-result {
-  font-family: "BenchNine";
-  font-size: 1.1rem;
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
 }
 .message-content .legends .dice-roll .dice-result .dice-formula,
 .message-content .legends .dice-roll .dice-result .dice-total,
@@ -858,8 +878,8 @@
   font-size: 1.5rem;
 }
 .dialog .text {
-  font-family: "BenchNine";
-  font-size: 1.1rem;
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
 }
 .dialog .window-header {
   font-family: "Village";

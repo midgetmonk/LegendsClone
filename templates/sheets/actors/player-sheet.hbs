@@ -40,16 +40,16 @@
           {{> "systems/legends/templates/sheets/actors/_balance.hbs" data}}
 
         </section>
-        <section class="column statuses pad-sides">
+        <section class="column statuses pad-sides flex-none">
           <h2 class="title center underline">{{localize "legends.actor-sheet.statuses"}}</h2>
           <section class="cell row positive">
             {{#each statuses.positive as |status id|}}
-              {{> "systems/legends/templates/partials/condition-card.hbs" status inSheet=true}}
+              {{> "systems/legends/templates/partials/status-card.hbs" status inSheet=true}}
             {{/each}}
           </section>
           <section class="cell row negative">
             {{#each statuses.negative as |status id|}}
-              {{> "systems/legends/templates/partials/condition-card.hbs" status inSheet=true}}
+              {{> "systems/legends/templates/partials/status-card.hbs" status inSheet=true}}
             {{/each}}
           </section>
 
@@ -205,7 +205,20 @@
             {{/times}}
           </h3>
 
-          <h4 class="title">
+          <h4 class="title accent-dark">
+            {{localize "legends.actor-sheet.player.growth-questions.title"}}
+          </h4>
+          {{#if growthQuestions}}
+          <ul>
+            {{#each growthQuestions as |question|}}
+            {{> "systems/legends/templates/partials/growth-question-card.hbs" question inSheet=true}}
+            {{/each}}
+          </ul>
+          {{else}}
+            <p><em>{{localize "legends.common.none"}}</em></p>
+          {{/if}}
+
+          <h4 class="title accent-dark">
             {{localize "legends.actor-sheet.player.advancements.title"}}
           </h4>
           <ul>
