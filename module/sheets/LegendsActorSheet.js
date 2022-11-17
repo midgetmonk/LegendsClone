@@ -58,6 +58,7 @@ export default class LegendsActorSheet extends ActorSheet {
 
     if(this.actor.type == 'player'){
       context.displayTabbed = game.settings.get('legends','tabbedPlayerSheet');
+      context.growthQuestions = filter_items(context.items, 'growth-question');
 
       context.techniquesByApproach = {}
       Object.keys(CONFIG.legends.approaches).forEach(k => {

@@ -105,7 +105,8 @@
       "feature",
       "moment-of-balance",
       "npc-principle",
-      "status"
+      "status",
+      "growth-question"
     ],
     "templates": {
       "hasDescription": {
@@ -148,6 +149,9 @@
       "templates": ["hasDescription"],
       "checked": false,
       "type": "positive"
+    },
+    "growth-question": {
+      "templates": ["hasDescription"]
     }
   }
 }

@@ -6,10 +6,6 @@
   src: url(fonts/prisoner/village.ttf);
 }
 @font-face {
-  font-family: "BenchNine";
-  src: url(fonts/bench_nine/BenchNine-Regular.ttf);
-}
-@font-face {
   font-family: "Hey August";
   src: url(fonts/hey_august/HeyAugust.ttf);
 }
@@ -25,18 +21,38 @@
   font-family: "New Tegomin";
   src: url(fonts/New_Tegomin/NewTegomin-Regular.ttf);
 }
+@font-face {
+  font-family: "Noto Sans";
+  src: url(fonts/Noto_Sans/NotoSans-Regular.ttf);
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url(fonts/Noto_Sans/NotoSans-Italic.ttf);
+  font-style: italic;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url(fonts/Noto_Sans/NotoSans-SemiBold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url(fonts/Noto_Sans/NotoSans-SemiBoldItalic.ttf);
+  font-weight: bold;
+  font-style: italic;
+}
 /**
 * Colours
 **/
 body {
-  font-family: 'BenchNine';
-  font-size: 1.1rem;
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
 }
 body h1,
 body h2,
 body h3,
 body h4 {
-  font-family: 'Village';
+  font-family: "Village";
   font-variant: small-caps;
   font-weight: normal;
   margin: 0 0 0.5rem;

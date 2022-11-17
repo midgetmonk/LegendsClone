@@ -2,9 +2,9 @@
 
 A FoundryVTT system for [Avatar Legends RPG](https://magpiegames.com/avatarrpg) characters.
 
-<img src="https://i.imgur.com/b5SJHhQ.png" alt="Player character sheet" width="60%" />
+<img src="https://i.imgur.com/y4Ent8b.png" alt="Player character sheet" width="60%" />
 
-Additional screenshots: https://imgur.com/a/oDY4Zwk
+Additional screenshots: https://imgur.com/a/wWJLdor
 
 ## Installation
 To install the system, paste the manifest URL below into the Install System dialog on the Setup menu:
@@ -19,7 +19,7 @@ This system exists thanks to the excellent YouTube tutorial series by [Cédric H
 Spanish translation by [Ruy Leon](https://gitlab.com/Amharem).
 
 ### Fonts
-* [Bench Nine](https://www.fontsquirrel.com/fonts/benchnine) by Vernon Adams
+* [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans) by Google Fonts
 * [Covered By Your Grace](https://fonts.google.com/specimen/Covered+By+Your+Grace?preview.text_type=alphabet&preview.size=37#standard-styles) by Kimberly Geswein
 * [Hey August](https://www.behance.net/gallery/84310469/Free-Hey-August-Handwritten-Font) by Khurasan Studio
 * [Komikazoom](https://www.1001fonts.com/komikazoom-font.html) by Apostrophic Labs

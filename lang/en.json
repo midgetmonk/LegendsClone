@@ -34,6 +34,9 @@
         "momentOfBalance": "Moment of Balance",
         "add-moment": "Add Moment of Balance",
         "growth": "Growth",
+        "growth-questions":{
+          "title": "Growth Questions"
+        },
         "advancements": {
           "title": "Growth Advancements",
           "playbook-move": "Take a new move from your playbook",
