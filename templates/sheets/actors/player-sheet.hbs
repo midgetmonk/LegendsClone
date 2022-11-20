@@ -209,7 +209,7 @@
             {{localize "legends.actor-sheet.player.growth-questions.title"}}
           </h4>
           {{#if growthQuestions}}
-          <ul>
+          <ul class="item-list">
             {{#each growthQuestions as |question|}}
             {{> "systems/legends/templates/partials/growth-question-card.hbs" question inSheet=true}}
             {{/each}}

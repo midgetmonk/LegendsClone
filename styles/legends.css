@@ -303,7 +303,7 @@
 }
 .legends.sheet.quickstart {
   background-color: #f3efdc;
-  background-image: linear-gradient(#dfd3b4 0%, #f3efdc 150px, #f3efdc 100%);
+  background-image: linear-gradient(#dfd3b4 0%, #f3efdc 100px, #f3efdc 100%);
 }
 .legends.sheet.quickstart .balance .balance-track.black,
 .legends.sheet.quickstart .balance .balance-track.white {
@@ -319,6 +319,7 @@
 .legends.sheet.quickstart input,
 .legends.sheet.quickstart select,
 .legends.sheet.quickstart textarea,
+.legends.sheet.quickstart table,
 .legends.sheet.quickstart .description,
 .legends.sheet.quickstart .sheet-header .name,
 .legends.sheet.quickstart .navigation .sheet-tabs.tabs,
@@ -336,7 +337,13 @@
   margin: -8px;
   padding: 0.5rem;
   background-color: #f0f1f5;
-  background-image: linear-gradient(#b4bac8 0%, #f0f1f5 150px, #f0f1f5 100%);
+  background-image: linear-gradient(#b4bac8 0%, #f0f1f5 100px, #f0f1f5 100%);
+}
+.legends.sheet.item-sheet header.sheet-header input,
+.legends.sheet.npc-sheet header.sheet-header input,
+.legends.sheet.item-sheet header.sheet-header select,
+.legends.sheet.npc-sheet header.sheet-header select {
+  background: rgba(255, 255, 255, 0.7);
 }
 .legends.sheet .sheet-header {
   flex: none;
@@ -557,9 +564,14 @@
 .legends.sheet textarea {
   background: none;
   border: 1px solid #99bbe3;
-  border-radius: 0;
+  border-radius: 0.25rem;
   width: 96%;
   margin: 0 2%;
+}
+.legends.sheet input:focus,
+.legends.sheet select:focus,
+.legends.sheet textarea:focus {
+  box-shadow: 0 0 3px #0d2d5d;
 }
 .legends.sheet .labelled-input {
   display: flex;
@@ -652,9 +664,13 @@
 }
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content {
   background-color: #f0f1f5;
-  background-image: linear-gradient(#b4bac8 0%, #f0f1f5 150px, #f0f1f5 100%);
+  background-image: linear-gradient(#b4bac8 0%, #f0f1f5 100px, #f0f1f5 100%);
   font-family: "Noto Sans";
   font-size: 0.8rem;
+}
+.sheet.journal-entry.legends-journal-sheet .journal-entry-content .journal-header {
+  font-family: "Village";
+  font-variant: small-caps;
 }
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content h1,
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content h2,
@@ -881,6 +897,9 @@
   font-family: "Noto Sans";
   font-size: 0.8rem;
 }
+.dialog .pad-bottom {
+  margin: 0 0 1rem;
+}
 .dialog .window-header {
   font-family: "Village";
   font-variant: small-caps;
@@ -898,16 +917,18 @@
 }
 .dialog .window-content .dialog-content .form-group input {
   text-align: center;
-  background: white;
+  background: rgba(255, 255, 255, 0.5);
   border: 2px solid #99bbe3;
   border-radius: 2px;
   font-size: 1.5rem;
   height: 2rem;
 }
+.dialog .window-content .dialog-content .form-group input:focus {
+  box-shadow: 0 0 3px #0d2d5d;
+}
 .dialog .window-content .dialog-content .form-group .form-text {
   flex: none;
   width: 100%;
-  font-size: 1.1rem;
   color: #4d4d4f;
 }
 .dialog .window-content .dialog-buttons button {

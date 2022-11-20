@@ -9,6 +9,8 @@
   .hand { .hand-font(); }
   .text { .main-font(); }
 
+  .pad-bottom{ margin: 0 0 1rem; }
+
   .window-header{
     .title-font();
   }
@@ -25,16 +27,18 @@
         }
         input{
           text-align: center;
-          background: white;
+          background: rgba(255,255,255,0.5);
           border: 2px solid @accent-color;
           border-radius: 2px;
           font-size: 1.5rem;
           height: 2rem;
+          &:focus{
+            box-shadow: 0 0 3px @accent-dark;
+          }
         }
         .form-text{
           flex: none;
           width: 100%;
-          font-size: 1.1rem;
           color: @weaponsmith;
         }
       }

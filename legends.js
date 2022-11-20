@@ -140,6 +140,10 @@ Hooks.once("init", function(){
 // Allow buttons in chat messages
 Hooks.on("renderChatLog", (_app, html, _data) => Chat.addChatListeners(html));
 
+Hooks.on("renderPause", (_app, html, _options) => {
+  html.find('img[src="icons/svg/clockwork.svg"]').attr("src", "systems/legends/images/pause.png");
+});
+
 Hooks.once("ready", () => {
   if(!game.user.isGM) return;
 

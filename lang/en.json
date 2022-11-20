@@ -168,8 +168,8 @@
       "group": "Group"
     },
     "roll":{
-      "with": "Roll with <a class=\"fire-dark move-roll\" data-move-name=\"{approach}\" data-move-stat=\"{stat}\"><i class=\"fas fa-dice small\"></i> {name}</a>",
-      "evade-observe": "Clear 1-fatigue &amp; roll with <a class=\"fire-dark move-roll\" data-move-name=\"Evade & Observe\" data-move-stat=\"creativity\"><i class=\"fas fa-dice small\"></i> Creativity</a> or <a class=\"fire-dark move-roll\" data-move-name=\"Evade & Observe\" data-move-stat=\"harmony\"><i class=\"fas fa-dice small\"></i> Harmony</a>",
+      "with": "Roll with <a class=\"fire-dark move-roll\" data-move-name=\"{approach}\" data-move-stat=\"{stat}\" data-move-approach=\"yes\"><i class=\"fas fa-dice small\"></i> {name}</a>",
+      "evade-observe": "Clear 1-fatigue &amp; roll with <a class=\"fire-dark move-roll\" data-move-name=\"Evade & Observe\" data-move-stat=\"creativity\" data-move-approach=\"yes\"><i class=\"fas fa-dice small\"></i> Creativity</a> or <a class=\"fire-dark move-roll\" data-move-name=\"Evade & Observe\" data-move-stat=\"harmony\" data-move-approach=\"yes\"><i class=\"fas fa-dice small\"></i> Harmony</a>",
       "stat": "Rolling {stat}",
       "no-stat": "Rolling",
       "miss": "Miss",
@@ -182,7 +182,12 @@
         "bonus-description": "Total of Forwards, Ongoing and Helping",
         "submit": "Roll"
       },
-      "no-actor": "You cannot roll Moves without an assigned Actor."
+      "no-actor": "You cannot roll Moves without an assigned Actor.",
+      "approach": {
+        "full": "<p>Choose one from this list:</p><ul><li>Mark 1-fatigue to use a learned technique</li><li>Use one practiced technique</li><li>Use two different basic or mastered techniques</li></ul>",
+        "hit": "<p>Use one basic or mastered technique</p>",
+        "miss": "<p>You stumble, but you can shift your balance away from center to use one basic technique.</p>"
+      }
     },
     "dialog": {
       "cancel": "Cancel"

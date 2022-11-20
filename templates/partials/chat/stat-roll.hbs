@@ -12,11 +12,14 @@
 
   {{#if (gte total 10)}}
   <h2 class="earth brush">{{localize "legends.roll.full"}}</h2>
+  {{#if approach}}{{{localize "legends.roll.approach.full"}}}{{/if}}
   {{else}}
   {{#if (gte total 7)}}
   <h2 class="water brush">{{localize "legends.roll.hit"}}</h2>
+  {{#if approach}}{{{localize "legends.roll.approach.hit"}}}{{/if}}
   {{else}}
   <h2 class="fire brush">{{localize "legends.roll.miss"}}</h2>
+  {{#if approach}}{{{localize "legends.roll.approach.miss"}}}{{/if}}
   {{/if}}
   {{/if}}
   {{{roll}}}

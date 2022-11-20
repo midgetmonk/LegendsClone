@@ -8,7 +8,8 @@
 export async function RollStat({
   statValue = null,
   statName = null,
-  moveName = null
+  moveName = null,
+  approach = null,
 } = {}){
   // Fetch the bonus/penalty values from the dialog
   let rollOptions = await GetRollOptions(statName, moveName);
@@ -53,7 +54,8 @@ export async function RollStat({
     name: statName,
     move: moveName,
     roll: renderedRoll,
-    total: rollResult._total
+    total: rollResult._total,
+    approach: approach
   }
 
   // Setup the chat message

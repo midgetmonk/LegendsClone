@@ -1,6 +1,6 @@
 # Avatar Legends RPG (Unofficial)
 
-A FoundryVTT system for [Avatar Legends RPG](https://magpiegames.com/avatarrpg) characters.
+A FoundryVTT system for [Avatar Legends RPG](https://magpiegames.com/pages/avatarrpg) characters.
 
 <img src="https://i.imgur.com/y4Ent8b.png" alt="Player character sheet" width="60%" />
 
@@ -12,6 +12,8 @@ To install the system, paste the manifest URL below into the Install System dial
 
 ## Usage
 See [the Wiki](https://gitlab.com/pacosgrove1/legends/-/wikis/home) for specific usage examples.
+
+**Please note:** there is **no** game content included in this system, but I do have [a separate Foundry module](https://gitlab.com/pacosgrove1/legends-compendia) that contains all the Playbook and Play Material data available on the [official site](https://magpiegames.com/pages/avatarrpg) downloads, formatted for easy adding to Player and NPC sheets.
 
 ## Credits
 This system exists thanks to the excellent YouTube tutorial series by [Cédric Hauteville](https://www.youtube.com/user/LieutenantRazak).
@@ -33,7 +35,7 @@ _Licence details are included in the font folders._
 * Icons from [Game-icons.net](https://game-icons.net/) under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/)
   * [Acrobatic](https://game-icons.net/1x1/darkzaitzev/acrobatic.html) and [Big gear](https://game-icons.net/1x1/darkzaitzev/big-gear.html) by [DarkZaitzey](http://darkzaitzev.deviantart.com/)
   * [Boomerang](https://game-icons.net/1x1/delapouite/boomerang.html), [Love mystery](https://game-icons.net/1x1/delapouite/love-mystery.html), [Person](https://game-icons.net/1x1/delapouite/person.html), [Summits](https://game-icons.net/1x1/delapouite/summits.html) and [Yin yang](https://game-icons.net/1x1/delapouite/yin-yang.html) by [Delapouite](https://delapouite.com/)
-  * [Backup](https://game-icons.net/1x1/lorc/backup.html), [Compass](https://game-icons.net/1x1/lorc/compass.html), [Waves](https://game-icons.net/1x1/lorc/waves.html), [Wind hole](https://game-icons.net/1x1/lorc/wind-hole.html) and [World](https://game-icons.net/1x1/lorc/world.html) by [Lorc](https://lorcblog.blogspot.com/)
+  * [Backup](https://game-icons.net/1x1/lorc/backup.html), [Compass](https://game-icons.net/1x1/lorc/compass.html), [Ink swirl](https://game-icons.net/1x1/lorc/ink-swirl.html), [Waves](https://game-icons.net/1x1/lorc/waves.html), [Wind hole](https://game-icons.net/1x1/lorc/wind-hole.html) and [World](https://game-icons.net/1x1/lorc/world.html) by [Lorc](https://lorcblog.blogspot.com/)
   * [Expander](https://game-icons.net/1x1/sbed/expander.html), [Flamer](https://game-icons.net/1x1/sbed/flamer.html) and [Poison cloud](https://game-icons.net/1x1/sbed/poison-cloud.html) by [sbed](http://opengameart.org/content/95-game-icons)
 
 ### Disclaimer

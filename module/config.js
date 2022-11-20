@@ -59,7 +59,8 @@ legends.defaultTokens = {
   'status': 'systems/legends/images/tokens/condition.png',
   'technique': 'systems/legends/images/tokens/technique.png',
   'feature': 'systems/legends/images/tokens/feature.png',
-  'npc-principle': 'systems/legends/images/tokens/npc-principle.png'
+  'npc-principle': 'systems/legends/images/tokens/npc-principle.png',
+  'growth-question': 'systems/legends/images/tokens/growth-question.png'
 }
 
 legends.moveCategories = {
