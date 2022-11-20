@@ -3,7 +3,7 @@
 @import "./config.less";
 
 .legends.sheet.quickstart {
-  .bg-fade(150px, @bg-color-quickstart, @bg-fade-color-quickstart);
+  .bg-fade(100px, @bg-color-quickstart, @bg-fade-color-quickstart);
 
   .balance .balance-track {
     &.black, &.white{
@@ -18,6 +18,7 @@
   input,
   select,
   textarea,
+  table,
   .description,
   .sheet-header .name,
   .navigation .sheet-tabs.tabs,
@@ -42,7 +43,15 @@
 .legends.sheet {
   margin: -8px;
   padding: 0.5rem;
-  .bg-fade(150px);
+  .bg-fade(100px);
+
+  &.item-sheet, &.npc-sheet{
+    header.sheet-header{
+      input, select{
+        background: rgba(255,255,255,0.7);
+      }
+    }
+  }
 
   .sheet-header{
     flex: none;
@@ -293,9 +302,12 @@
   input, select, textarea {
     background: none;
     border: 1px solid @accent-color;
-    border-radius: 0;
+    border-radius: 0.25rem;
     width: 96%;
     margin: 0 2%;
+    &:focus{
+      box-shadow: 0 0 3px @accent-dark;
+    }
   }
   
   .labelled-input{
@@ -396,7 +408,11 @@
 }
 
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content{
-  .bg-fade(150px);
+  .journal-header{
+    .title-font();
+  }
+
+  .bg-fade(100px);
   .main-font();
 
   h1, h2, h3, h4, h5 {
