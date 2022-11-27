@@ -192,7 +192,7 @@
           <label class="look">
             <span class="title"><strong>{{localize "legends.actor-sheet.player.look"}}:</strong></span>
             <div class="description">
-              {{editor data.system.description target="system.description" button=true owner=owner editable=editable}}
+              {{editor (enrichHTML data.system.description) target="system.description" button=true owner=owner editable=editable}}
             </div>
           </label>
 

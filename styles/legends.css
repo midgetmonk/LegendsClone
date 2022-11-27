@@ -147,23 +147,27 @@
   text-transform: inherit;
 }
 .legends h1 {
-  font-size: 2rem;
-}
-.legends h2 {
   font-size: 1.8rem;
 }
+.legends h2 {
+  font-size: 1.6rem;
+}
 .legends h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 .legends h4 {
   font-size: 1.2rem;
 }
 .legends a {
-  color: #99bbe3;
+  color: #0d2d5d;
 }
 .legends a:hover {
   color: black;
   text-shadow: 0 0 6px #99bbe3;
+}
+.legends a.content-link,
+.legends a.inline-roll {
+  color: #0d2d5d;
 }
 .legends .block {
   font-family: "Komikazoom";
@@ -236,6 +240,12 @@
 }
 .legends .underline.underline-thin {
   border-width: 1.5px;
+}
+.legends .skill-name {
+  color: #0d2d5d;
+  font-family: "Village";
+  font-variant: small-caps;
+  font-weight: bold;
 }
 .legends .kanji::before,
 .legends .kanji::after {
@@ -332,6 +342,16 @@
 .legends.sheet.quickstart .navigation .sheet-tabs.tabs .item:hover,
 .legends.sheet.quickstart .navigation .sheet-tabs.tabs .item.active {
   text-shadow: 0 0 10px #baaf6b;
+}
+.legends.sheet.quickstart a:hover {
+  text-shadow: 0 0 6px #baaf6b;
+}
+.legends.sheet.quickstart a.content-link,
+.legends.sheet.quickstart a.inline-roll {
+  color: #6e4e27;
+}
+.legends.sheet.quickstart .skill-name {
+  color: #6e4e27;
 }
 .legends.sheet {
   margin: -8px;
@@ -559,6 +579,9 @@
 .legends.sheet .description .editor .tox.tox-tinymce {
   min-height: 200px;
 }
+.legends.sheet .description:hover .editor-edit {
+  color: black;
+}
 .legends.sheet input,
 .legends.sheet select,
 .legends.sheet textarea {
@@ -683,6 +706,10 @@
 }
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content h1 {
   border-bottom: 2px solid #99bbe3;
+}
+.sheet.journal-entry.legends-journal-sheet .journal-entry-content a.content-link,
+.sheet.journal-entry.legends-journal-sheet .journal-entry-content a.inline-roll {
+  color: #0d2d5d;
 }
 .legends.sheet.npc-sheet .body h1 {
   font-size: 1.5rem;
@@ -812,13 +839,13 @@
   margin-bottom: 10px;
 }
 .chat-message.message {
-  background: #b4bac8;
+  background: #99bbe3;
 }
 .message-content .legends {
   padding: 0.5rem;
   margin: 0 -5px -5px;
   background: #f0f1f5;
-  border-top: 1px solid #99bbe3;
+  border-top: 1px solid #0d2d5d;
 }
 .message-content .legends .kanji::before,
 .message-content .legends .kanji::after {
@@ -852,10 +879,9 @@
   padding: 0.5rem;
   margin: 0.5rem 0;
   border-radius: 0.25rem;
-  border: 1px solid;
+  border: 1px solid #99bbe3;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
   background: #b4bac8;
-  border-color: #99bbe3;
   color: #111;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
