@@ -134,7 +134,19 @@ Hooks.once("init", function(){
     return game.i18n.format(path, params)
   })
 
+  Handlebars.registerHelper("enrichHTML", html => {
+    return TextEditor.enrichHTML(html, { async: false })
+  })
+
   CONFIG.TinyMCE.content_css = "systems/legends/styles/tinymce.css";
+  CONFIG.TinyMCE.style_formats.push(
+    {
+      title: 'Legends',
+      items: [
+        { title: 'Skill name', inline: 'span', classes: 'skill-name' }
+      ]
+    }
+  )
 });
 
 // Allow buttons in chat messages

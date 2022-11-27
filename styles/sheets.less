@@ -28,7 +28,6 @@
 
   .navigation{
     .sheet-tabs.tabs{
-
       .item{
         color: @accent-dark-quickstart;
 
@@ -37,6 +36,21 @@
         }
       }
     }
+  }
+
+  a{
+    &:hover {
+      text-shadow: 0 0 6px @accent-color-quickstart;
+    }
+
+    &.content-link,
+    &.inline-roll {
+      color: @accent-dark-quickstart;
+    }
+  }
+
+  .skill-name {
+    color: @accent-dark-quickstart;
   }
 }
 
@@ -272,7 +286,6 @@
     }
   }
 
-
   @editor-height: 100px;
   .description{
     flex: 1;
@@ -296,6 +309,9 @@
       .tox.tox-tinymce{
         min-height: @editor-height * 2;
       }
+    }
+    &:hover .editor-edit{
+      color: black;
     }
   }
 
@@ -410,6 +426,7 @@
 .sheet.journal-entry.legends-journal-sheet .journal-entry-content{
   .journal-header{
     .title-font();
+    font-variant: small-caps;
   }
 
   .bg-fade(100px);
@@ -422,5 +439,12 @@
 
   h1 {
     border-bottom: 2px solid @accent-color;
+  }
+
+  a{
+    &.content-link,
+    &.inline-roll {
+      color: @accent-dark;
+    }
   }
 }
