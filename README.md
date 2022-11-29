@@ -2,7 +2,7 @@
 
 A FoundryVTT system for [Avatar Legends RPG](https://magpiegames.com/pages/avatarrpg) characters.
 
-<img src="https://i.imgur.com/y4Ent8b.png" alt="Player character sheet" width="60%" />
+<img src="https://i.imgur.com/VA1c6cD.png" alt="Player character sheet" width="60%" />
 
 Additional screenshots: https://imgur.com/a/wWJLdor
 
