@@ -83,19 +83,33 @@
           {{localize "legends.actor-sheet.moves"}}
         </h2>
 
-        <p class="title small center">
+        <p class="small title center no-margin">
           <a class="item-create fire" data-type="move" title="{{localize "legends.moves.add"}}">
             <i class="fas fa-plus"></i> {{localize "legends.moves.add"}}
           </a>
-          {{#each movesVisible as |value label|}}
-          |
-          <a class="toggle-category accent{{#if value}}-dark{{/if}}" data-category="{{label}}">{{localize (tr_path "legends.moves.category" label)}}</a>
-          {{/each}}
         </p>
+
+        <div class="row">
+          <div class="cell"></div>
+          <div class="cell">
+            <section class="labelled-input">
+              <label class="title" for="{{field}}">{{{localize "legends.moves.category.label"}}}:</label>
+              <select class="moveCategorySelect">
+                <option value="all">{{localize "legends.moves.category.all"}}</option>
+                {{#select selectedMoveCategory}}
+                  {{#each moveCategories as |category|}}
+                    <option value="{{category}}">{{localize (tr_path "legends.moves.category" category)}}</option>
+                  {{/each}}
+                {{/select}}
+              </select>
+            </section>
+          </div>
+          <div class="cell"></div>
+        </div>
 
         <div class="item-list col col-3">
           {{#each moves as |move id|}}
-            {{#if (moveCategoryVisible move.system.category ../movesVisible)}}
+            {{#if (or (eq move.system.category ../selectedMoveCategory) (eq "all" ../selectedMoveCategory))}}
               {{> "systems/legends/templates/partials/move-card.hbs" move inSheet=true}}
             {{/if}}
           {{/each}}
@@ -111,7 +125,7 @@
         </section>
         {{/if}}
 
-        <section class="techniques cell pad-sides">
+        <section class="techniques cell">
           <h2 class="title underline center">
             {{localize "legends.actor-sheet.techniques"}}
           </h2>

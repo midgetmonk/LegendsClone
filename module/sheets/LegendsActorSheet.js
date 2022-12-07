@@ -44,7 +44,7 @@ export default class LegendsActorSheet extends ActorSheet {
   getData(){
     const context = super.getData();
     context.config = CONFIG.legends;
-    context.cssClass = game.settings.get("legends", "sheetColour") || "default"
+    context.cssClass = game.settings.get('legends', 'sheetColour') || 'default';
 
     context.feature = filter_items(context.items, 'feature')[0];
     context.conditions = filter_items(context.items, 'condition', true);
@@ -66,12 +66,8 @@ export default class LegendsActorSheet extends ActorSheet {
         context.techniquesByApproach[k] = filter_techniques(context.techniques, k);
       })
 
-      context.movesVisible = {}
-      const keys = ['basic','balance', 'playbook'];
-      keys.forEach(k => {
-        let visible = this.actor.getFlag('legends', `moves-${k}`);
-        context.movesVisible[k] = visible === undefined ? true : visible;
-      });
+      context.moveCategories = ['basic','balance', 'playbook'];
+      context.selectedMoveCategory = this.actor.getFlag('legends', 'moveCategory') || 'all';
     }
     return context;
   }
@@ -101,7 +97,8 @@ export default class LegendsActorSheet extends ActorSheet {
         html.find('.set-adv-value').click(this._onSetAdvancementValue.bind(this));
         html.find('.set-adv-value').contextmenu(this._onClearAdvancement.bind(this));
 
-        html.find('.toggle-category').click(this._onToggleCategory.bind(this));
+        // Filter Moves
+        html.find('.moveCategorySelect').change(this._onSelectMoveCategory.bind(this));
       }
 
       // toggle collapsible moves
@@ -544,12 +541,12 @@ export default class LegendsActorSheet extends ActorSheet {
     $(element.closest('.item')).find('.drawer').slideToggle();
   }
 
-  _onToggleCategory(event){
-    event.preventDefault();
-
-    const category = event.currentTarget.dataset.category;
-    let visible = this.actor.getFlag('legends', `moves-${category}`);
-    visible = visible === undefined ? true : visible;
-    this.actor.setFlag('legends', `moves-${category}`, !visible);
+  /**
+   * Select move category to display
+   * @param {Event} event
+   */
+  _onSelectMoveCategory(event){
+    console.log(event.currentTarget.value);
+    this.actor.setFlag('legends', 'moveCategory', event.currentTarget.value);
   }
 };

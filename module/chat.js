@@ -15,7 +15,7 @@ export function addChatListeners(html){
 function onMoveRoll(event){
   const card = event.currentTarget;
   let character = game.user.character;
-  if(character === undefined){
+  if(character === undefined || character === null){
     let message = game.i18n.localize('legends.roll.no-actor')
     ui.notifications.error(message);
     return;

@@ -4,8 +4,7 @@
     {{#if inSheet}}
       <a class="toggle-drawer black menu">{{name}}</a>
       <a class="item-roll small weapons">
-        <i class="fas fa-comment"></i>
-        {{localize "legends.common.to-chat"}}
+        <i class="fas fa-comment" title="{{localize "legends.common.to-chat"}}"></i>
       </a>
     {{else}}
       {{name}}
@@ -20,7 +19,7 @@
       {{/if}}
     </span>
   </h3>
-  <h4 class="title{{#if (and npc inSheet)}} weapons{{else}} fire{{/if}}">
+  <h4 class="title fire">
     {{localize (tr_path "legends.techniques.approaches" system.approach)}}
     {{#unless (or npc system.basic)}}
       <div class="float-right">

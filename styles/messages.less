@@ -2,8 +2,47 @@
 
 @import "./config.less";
 
-.chat-message.message{
-  background: @accent-color;
+.chat-message {
+  .main-font();
+  overflow: hidden;
+
+  &.whisper{
+    border: 2px solid @dark-fire;
+  }
+
+  &.message {
+    background: @bg-color;
+  }
+
+  .message-header{
+    color: @text-color;
+    margin: -5px -5px 0;
+    padding: 0.5rem;
+    background: @bg-color;
+    background-color: @bg-color;
+    background-image: linear-gradient(@bg-fade-color, @bg-color);
+    border-bottom: 2px solid @accent-color;
+    .message-sender{
+      .title-font();
+      font-size: 1rem;
+    }
+    .whisper-to{
+      .title-font();
+      font-size: 0.8rem;
+    }
+  }
+
+  .message-content{
+    margin: 0 -5px -5px;
+    padding: 0.5rem;
+    .main-font();
+  }
+
+  &.whisper{
+    .message-header{
+      border-color: @dark-fire;
+    }
+  }
 }
 
 .message-content{
@@ -35,11 +74,6 @@
       }
     }
 
-    padding: 0.5rem;
-    margin: 0 -5px -5px;
-    background: @bg-color;
-    border-top: 1px solid @accent-dark;
-
     h3{
       margin: 0;
       .title-font();
@@ -47,33 +81,31 @@
 
     a.move-roll{
       display: block;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border-radius: 0.25rem;
-      border: 1px solid @accent-color;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
-      background: @bg-fade-color;
-      color: @text-color;
-      text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-      &:hover{
-        background: @bg-fade-color + #111;
-      }
+      flex: 0 0 100%;
+      position: relative;
+      line-height: 2rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--color-border-light-2);
+      border-radius: 3px;
+      box-shadow: 0 0 2px #fff inset;
+      word-break: break-all;
+      .title-font();
+      font-weight: bold;
+      font-size: 1rem;
     }
 
-    .dice-roll{
-      .dice-result{
-        .main-font();
-
-        .dice-formula,
-        .dice-total,
-        .dice-tooltip .part-total{
-          background: @bg-fade-color;
-          border-color: @accent-color;
-          color: @text-color;
-        }
-
-        .dice-tooltip .part-header{
-          border-bottom: 1px solid @accent-color;
+    .dice-roll {
+      .dice-tooltip{
+        .dice {
+          .part-total{
+            .title-font();
+          }
+          .dice-rolls {
+            .roll.die{
+              .title-font();
+            }
+          }
         }
       }
     }

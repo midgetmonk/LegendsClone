@@ -124,6 +124,7 @@
       "with": "Stat",
       "category": {
         "label": "Source",
+        "all": "All",
         "basic": "Basic",
         "balance": "Balance",
         "playbook": "Playbook"
