@@ -276,9 +276,6 @@
     }
 
     h4 {
-      color: @firebender;
-      font-size: 0.9rem;
-
       a.set-proficiency{
         color: @text-color;
 
@@ -286,6 +283,23 @@
           color: @firebender !important;
         }
       }
+    }
+  }
+
+  h4.roll-approach{
+    padding-bottom: 0.25rem;
+    border-color: #65110c;
+    position: relative;
+
+    &:before{
+      content: '♦';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 20px;
+      text-align: center;
+      transform: translateX(-50%) translateY(50%);
+      font-size: 0.8rem;
     }
   }
 

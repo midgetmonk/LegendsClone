@@ -106,12 +106,15 @@ Hooks.once("init", function(){
     return object[key]
   })
 
+  Handlebars.registerHelper("lengthByKey", (object, key) => {
+    return object[key].length
+  })
+
   Handlebars.registerHelper("rollApproach", approach => {
-    let path = "legends.none"
+    let path = "legends.roll.with"
     let params = {}
     switch (approach) {
       case "defend-maneuver":
-        path = "legends.roll.with"
         params = {
           approach: game.i18n.localize("legends.techniques.approaches.defend-maneuver"),
           stat: "focus",
@@ -119,7 +122,6 @@ Hooks.once("init", function(){
         }
         break;
       case "advance-attack":
-        path = "legends.roll.with";
         params = {
           approach: game.i18n.localize("legends.techniques.approaches.advance-attack"),
           stat: "passion",

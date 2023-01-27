@@ -1,9 +1,9 @@
 <section class="cell cell-2 balance pad-sides">
-  <h2 class="title center underline">{{ localize "legends.actor-sheet.balance" }}</h2>
+  <h1 class="title center underline">{{ localize "legends.actor-sheet.balance" }}</h1>
 
   <h3 class="brush balance-black">
     <a class="principle-roll white" data-name="{{system.balance.topTrack}}" data-value="{{system.balance.value}}" data-negative="false"><i class="fas fa-dice"></i></a>
-    <input name="system.balance.topTrack" value="{{system.balance.topTrack}}" placeholder="Principle" />
+    <input name="system.balance.topTrack" value="{{system.balance.topTrack}}" placeholder="{{localize "legends.principle.title"}}" />
   </h3>
 
   <ul class="balance-track black">
@@ -42,7 +42,7 @@
     <li class="set-balance{{#if (eq system.balance.value -3)}} selected{{/if}}" data-current-balance="-3"><a class="num">+3</a></li>
   </ul>
   <h3 class="brush right balance-white">
-    <input name="system.balance.bottomTrack" value="{{system.balance.bottomTrack}}" placeholder="Principle" />
+    <input name="system.balance.bottomTrack" value="{{system.balance.bottomTrack}}" placeholder="{{localize "legends.principle.title"}}" />
     <a class="principle-roll black" data-name="{{system.balance.bottomTrack}}" data-value="{{system.balance.value}}" data-negative="true"><i class="fas fa-dice"></i></a>
   </h3>
 </section>

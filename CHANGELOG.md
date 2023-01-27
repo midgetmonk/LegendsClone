@@ -1,3 +1,7 @@
+## v1.0.0
+* Additional fixes to styling in chat
+* Force async on roll.roll() call to avoid deprecation warning
+
 ## v0.3.17
 
 * Chat message styling

@@ -41,7 +41,9 @@
 
         </section>
         <section class="column statuses pad-sides flex-none">
-          <h2 class="title center underline">{{localize "legends.actor-sheet.statuses"}}</h2>
+          <h1 class="title center underline">{{localize "legends.actor-sheet.statuses"}}</h1>
+          {{#if (or (gt statuses.positive.length 0) (gt statuses.negative.length 0))}}
+
           <section class="cell row positive">
             {{#each statuses.positive as |status id|}}
               {{> "systems/legends/templates/partials/status-card.hbs" status inSheet=true}}
@@ -53,41 +55,28 @@
             {{/each}}
           </section>
 
-          {{#if (or (lt statuses.positive.length 4) (lt statuses.negative.length 4))}}
-          <p class="title small">
-            <a class="item-create fire" data-type="status" title="{{localize "legends.status.add"}}">
-              <i class="fas fa-plus"></i> {{localize "legends.status.add"}}
-            </a>
-          </p>
+          {{else}}
+            <p>{{localize "legends.status.none" }}</p>
           {{/if}}
         </section>
       </section>
       <section class="cell conditions pad-sides">
-        <h2 class="title center underline">{{ localize "legends.actor-sheet.conditions" }}</h2>
-        {{#each conditions as |condition id|}}
-          {{> "systems/legends/templates/partials/condition-card.hbs" condition inSheet=true}}
-        {{/each}}
-        {{#if (lt conditions.length 5)}}
-        <p class="title small">
-          <a class="item-create fire" data-type="condition" title="{{localize "legends.condition.add"}}">
-            <i class="fas fa-plus"></i> {{localize "legends.condition.add"}}
-          </a>
-        </p>
+        <h1 class="title center underline">{{ localize "legends.actor-sheet.conditions" }}</h1>
+        {{#if (gt conditions.length 0)}}
+          {{#each conditions as |condition id|}}
+            {{> "systems/legends/templates/partials/condition-card.hbs" condition inSheet=true}}
+          {{/each}}
+        {{else}}
+          <p>{{localize "legends.condition.none" }}</p>
         {{/if}}
       </section>
     </div>
 
     <div class="{{#if displayTabbed}}tab-moves tab" data-group="primary" data-tab="moves{{/if}}">
       <section class="moves cell pad-sides">
-        <h2 class="title center underline">
+        <h1 class="title center underline">
           {{localize "legends.actor-sheet.moves"}}
-        </h2>
-
-        <p class="small title center no-margin">
-          <a class="item-create fire" data-type="move" title="{{localize "legends.moves.add"}}">
-            <i class="fas fa-plus"></i> {{localize "legends.moves.add"}}
-          </a>
-        </p>
+        </h1>
 
         <div class="row">
           <div class="cell"></div>
@@ -107,13 +96,17 @@
           <div class="cell"></div>
         </div>
 
-        <div class="item-list col col-3">
-          {{#each moves as |move id|}}
-            {{#if (or (eq move.system.category ../selectedMoveCategory) (eq "all" ../selectedMoveCategory))}}
-              {{> "systems/legends/templates/partials/move-card.hbs" move inSheet=true}}
-            {{/if}}
-          {{/each}}
-        </div>
+        {{#if (gt moves.length 0)}}
+          <div class="item-list col col-3">
+            {{#each moves as |move id|}}
+              {{#if (or (eq move.system.category ../selectedMoveCategory) (eq "all" ../selectedMoveCategory))}}
+                {{> "systems/legends/templates/partials/move-card.hbs" move inSheet=true}}
+              {{/if}}
+            {{/each}}
+          </div>
+        {{else}}
+          <p class="center">{{localize "legends.moves.none" }}</p>
+        {{/if}}
       </section>
     </div>
 
@@ -126,25 +119,23 @@
         {{/if}}
 
         <section class="techniques cell">
-          <h2 class="title underline center">
-            {{localize "legends.actor-sheet.techniques"}}
-          </h2>
-          <p class="title small center">
-            <a class="item-create fire" data-type="technique" title="{{localize "legends.techniques.add"}}">
-              <i class="fas fa-plus"></i> {{localize "legends.techniques.add"}}
-            </a>
-          </p>
-
+          <h1 class="title underline center">
+            {{localize "legends.techniques.title"}}
+          </h1>
           {{#each config.approaches as |label key|}}
             <h2 class="block no-margin">
               {{localize label}}
             </h2>
-            <h4 class="underline underline-thin fire-dark">{{{rollApproach key}}}</h4>
-            <div class="item-list col col-2 pad-bottom">
-              {{#each (getByKey ../techniquesByApproach key) as |technique|}}
-                {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true}}
-              {{/each}}
-            </div>
+            <h4 class="underline underline-thin fire-dark roll-approach">{{{rollApproach key}}}</h4>
+            {{#if (gt (lengthByKey ../techniquesByApproach key) 0)}}
+              <div class="item-list col col-2 pad-bottom">
+                {{#each (getByKey ../techniquesByApproach key) as |technique|}}
+                  {{> "systems/legends/templates/partials/technique-card.hbs" technique inSheet=true}}
+                {{/each}}
+              </div>
+            {{else}}
+              <p>{{localize "legends.techniques.none"}}</p>
+            {{/if}}
           {{/each}}
         </section>
       </section>
@@ -154,51 +145,41 @@
       <section class="cell row">
         <section class="cell item feature pad-sides" data-item-id="{{feature._id}}">
           {{#if feature}}
-          <h2 class="title center underline menu">
+          <h1 class="title center underline menu">
             <a class="black item-roll">{{feature.name}}</a>
-          </h2>
+          </h1>
           <section class="body">
             {{{feature.system.description}}}
           </section>
           {{else}}
-          <h2 class="title center underline">
-            {{localize "legends.actor-sheet.player.feature.title"}}
-          </h2>
-          <p class="center title small">
-            <a class="item-create fire" data-type="feature">
-              <i class="fas fa-plus"></i>
-              {{localize "legends.actor-sheet.player.feature.add"}}
-            </a>
-          </p>
+          <h1 class="title center underline">
+            {{localize "legends.feature.title"}}
+          </h1>
+          <p>{{localize "legends.feature.none" }}</p>
           {{/if}}
         </section>
 
         <section class="cell column pad-sides">
           <section class="item moment-of-balance" data-item-id="{{momentOfBalance._id}}">
           {{#if momentOfBalance}}
-            <h2 class="title balance menu center underline">
+            <h1 class="title balance menu center underline">
               <a class="item-roll black">
-                {{localize "legends.actor-sheet.player.momentOfBalance"}}
+                {{localize "legends.moment-of-balance.title"}}
               </a>
-            </h2>
+            </h1>
             <div class="moment">
               {{{momentOfBalance.system.description}}}
             </div>
           {{else}}
-            <h2 class="title balance center underline">
-              {{localize "legends.actor-sheet.player.momentOfBalance"}}
-            </h2>
+            <h1 class="title balance center underline">
+              {{localize "legends.moment-of-balance.title"}}
+            </h1>
             <div class="moment">
-              <p class="title small center">
-                <a class="item-create fire" data-type="moment-of-balance" title="{{localize "legends.moves.add"}}">
-                  <i class="fas fa-plus"></i>
-                  {{localize "legends.actor-sheet.player.add-moment"}}
-                </a>
-              </p>
+              <p>{{localize "legends.moment-of-balance.none" }}</p>
             </div>
           {{/if}}
 
-          <h2 class="title center underline">{{localize "legends.actor-sheet.player.about"}}</h2>
+          <h1 class="title center underline">{{localize "legends.actor-sheet.player.about"}}</h1>
 
           {{> "systems/legends/templates/partials/labelled-input.hbs" field="system.background" label="legends.actor-sheet.player.background" value=data.system.background}}
           {{> "systems/legends/templates/partials/labelled-input.hbs" field="system.demeanor" label="legends.actor-sheet.player.demeanor" value=data.system.demeanor}}
@@ -212,16 +193,16 @@
 
           {{> "systems/legends/templates/partials/labelled-input.hbs" field="system.hometown" label="legends.actor-sheet.player.hometown" value=data.system.hometown}}
 
-          <h3 class="title">
-            {{localize "legends.actor-sheet.player.growth"}}
+          <h2 class="title">
+            {{localize "legends.growth.title"}}
             {{#times 4}}
             <a class="check-box set-value{{#if (gte ../data.system.growth.value @index)}} filled{{/if}}" data-param="growth" data-new-value="{{@index}}"></a>
             {{/times}}
-          </h3>
+          </h2>
 
-          <h4 class="title accent-dark">
-            {{localize "legends.actor-sheet.player.growth-questions.title"}}
-          </h4>
+          <h3 class="title accent-dark">
+            {{localize "legends.growth.question.title"}}
+          </h3>
           {{#if growthQuestions}}
           <ul class="item-list">
             {{#each growthQuestions as |question|}}
@@ -229,16 +210,16 @@
             {{/each}}
           </ul>
           {{else}}
-            <p><em>{{localize "legends.common.none"}}</em></p>
+            <p>{{localize "legends.growth.question.none"}}</p>
           {{/if}}
 
-          <h4 class="title accent-dark">
-            {{localize "legends.actor-sheet.player.advancements.title"}}
-          </h4>
+          <h3 class="title accent-dark">
+            {{localize "legends.growth.advancement.title"}}
+          </h3>
           <ul>
             {{#each data.system.growth.advancements as |track name|}}
             <li>
-              {{localize (tr_path "legends.actor-sheet.player.advancements" name)}}
+              {{localize (tr_path "legends.growth.advancement" name)}}
               &nbsp;
               {{#times track.max}}
               <a class="check-box mini set-adv-value{{#if (gte track.value @index)}} filled{{/if}}" data-param="{{name}}" data-new-value="{{@index}}"></a>

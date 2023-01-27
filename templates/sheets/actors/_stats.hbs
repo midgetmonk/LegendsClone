@@ -1,5 +1,5 @@
 <section class="stats">
-  <h2 class="title center underline">{{ localize "legends.actor-sheet.stats" }}</h2>
+  <h1 class="title center underline">{{ localize "legends.actor-sheet.stats" }}</h1>
   {{#each system.stats as |val type| }}
   <h3>
     <input name="system.stats.{{type}}" value="{{val}}" type="number" max="3" min="-1" class="hand" />

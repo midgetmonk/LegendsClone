@@ -1,6 +1,6 @@
 @import "./config.less";
 
-.window-header{
+.window-header {
   .title-font();
 }
 
@@ -10,8 +10,8 @@
   margin-left: 37px;
 }
 
-#pause{
-  img{
+#pause {
+  img {
     content: url(../images/pause.png);
   }
 }
@@ -33,14 +33,14 @@
   .main-font();
 
   // Flex layout classes
-  .row{
+  .row {
     display: flex;
     flex: 0;
     flex-direction: row;
     justify-content: space-between;
   }
 
-  .column{
+  .column {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -48,9 +48,9 @@
   .cell {
     flex: 1;
 
-    &.cell-2{ flex: 2 !important; }
-    &.cell-3{ flex: 3 !important; }
-    &.cell-4{ flex: 4 !important; }
+    &.cell-2 { flex: 2 !important; }
+    &.cell-3 { flex: 3 !important; }
+    &.cell-4 { flex: 4 !important; }
   }
 
   .flex-none {
@@ -60,7 +60,7 @@
   // Basic text
   p, li { .main-font(); }
 
-  p{
+  p {
     margin: 0;
     margin-bottom: 0.7rem;
   }
@@ -69,7 +69,7 @@
     .main-font();
   }
 
-  img{
+  img {
     border: 0;
   }
 
@@ -91,7 +91,7 @@
   h4 { font-size: 1rem; }
 
   // Links
-  a{
+  a {
     color: @accent-dark;
     &:hover {
       color: black;
@@ -118,36 +118,36 @@
   // Alignment && position
   .left { text-align: left !important; }
   .center { text-align: center !important; }
-  .right{ text-align: right !important; }
+  .right { text-align: right !important; }
   .float-right { float: right; }
   .float-left { float: left; }
-  .pad-25{ margin: 0.25rem; }
-  .pad-50{ margin: 0.5rem; }
-  .pad-75{ margin: 0.75rem; }
-  .pad-top{ margin: 1rem 0 0; }
-  .pad-bottom{ margin: 0 0 1rem; }
-  .pad-sides{ margin: 0 0.5rem; }
+  .pad-25 { margin: 0.25rem; }
+  .pad-50 { margin: 0.5rem; }
+  .pad-75 { margin: 0.75rem; }
+  .pad-top { margin-top: 1rem; }
+  .pad-bottom { margin-bottom: 1rem; }
+  .pad-sides { margin-left: 0.5rem; margin-right: 0.5rem; }
   
   .no-margin { margin: 0 !important; }
 
-  .underline{
+  .underline {
     border-bottom: 2px solid @accent-color;
-    &.underline-fire{
+    &.underline-fire {
       border-bottom: 2px solid @dark-fire;
     }
-    &.underline-thin{
-      border-width: 1.5px;
+    &.underline-thin {
+      border-width: 1px;
     }
   }
 
-  .skill-name{
+  .skill-name {
     color: @accent-dark;
     .title-font();
     font-weight: bold;
     font-size:0.85rem;
   }
 
-  .kanji{
+  .kanji {
     &::before,
     &::after {
       .kanji-font();
@@ -157,7 +157,7 @@
       vertical-align: text-top;
     }
 
-    &.kanji-techniques{
+    &.kanji-techniques {
       &::before {
         content: '武';
       }
@@ -167,35 +167,35 @@
       }
     }
 
-    &.kanji-balance{
-      &::before{
+    &.kanji-balance {
+      &::before {
         content: '平';
       }
-      &::after{
+      &::after {
         content: '衡';
       }
     }
   }
 
-  .col{
-    &.col-2{ columns: 2; }
-    &.col-3{ columns: 3; }
-    .item{
+  .col {
+    &.col-2 { columns: 2; }
+    &.col-3 { columns: 3; }
+    .item {
       break-inside: avoid;
       page-break-inside: avoid;
     }
   }
 
-  .technique{
-    h3{
-      .data{
+  .technique {
+    h3 {
+      .data {
         float: right;
 
-        .icon{
+        .icon {
           width: 1.2rem;
         }
 
-        .specialty{
+        .specialty {
           border-radius: 0.6rem;
           color: @bg-color;
           font-size: 0.7rem;
@@ -204,12 +204,12 @@
           text-transform: uppercase;
           padding: 0 0.5rem;
 
-          &.air{ background-color: @airbender; }
-          &.earth{ background-color: @earthbender; }
-          &.fire{ background-color: @firebender; }
-          &.technology{ background-color: @technologist; }
-          &.water{ background-color: @waterbender; }
-          &.weapon{ background-color: @weaponsmith; }
+          &.air { background-color: @airbender; }
+          &.earth { background-color: @earthbender; }
+          &.fire { background-color: @firebender; }
+          &.technology { background-color: @technologist; }
+          &.water { background-color: @waterbender; }
+          &.weapon { background-color: @weaponsmith; }
         }
       }
     }
