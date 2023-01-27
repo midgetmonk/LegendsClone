@@ -5,48 +5,52 @@
 .chat-message {
   .main-font();
 
-  &.whisper{
+  &.whisper {
     border: 2px solid @dark-fire;
   }
 
   &.message {
-    background: @bg-color;
+    .bg-default();
   }
 
-  .message-header{
+  .message-header {
     color: @text-color;
     margin: -5px -5px 0;
     padding: 0.5rem;
-    background: @bg-color;
+    .bg-default();
     background-color: @bg-color;
     background-image: linear-gradient(@bg-fade-color, @bg-color);
     border-bottom: 2px solid @accent-color;
-    .message-sender{
+    .message-sender {
       .title-font();
       font-size: 1rem;
     }
-    .whisper-to{
+    .whisper-to {
       .title-font();
       font-size: 0.8rem;
     }
+
+    a:hover {
+      text-shadow: 0 0 8px @accent-color;
+    }
   }
 
-  .message-content{
+  .message-content {
     margin: 0 -5px -5px;
     padding: 0.5rem;
     .main-font();
   }
 
-  &.whisper{
-    .message-header{
+  &.whisper {
+    .message-header {
       border-color: @dark-fire;
     }
   }
 }
 
-.message-content{
-  .legends{
-    .kanji{
+.message-content {
+  .legends {
+    .kanji {
       &::before,
       &::after {
         .kanji-font();
@@ -57,28 +61,28 @@
       }
     }
 
-    .moment-of-balance{
-      .kanji{
+    .moment-of-balance {
+      .kanji {
         text-align: center;
-        &::before, &::after{
+        &::before, &::after {
           position: relative;
           top: 4px;
         }
-        &::before{
+        &::before {
           content: '平';
         }
-        &::after{
+        &::after {
           content: '衡';
         }
       }
     }
 
-    h3{
+    h3 {
       margin: 0;
       .title-font();
     }
 
-    a.move-roll{
+    a.move-roll {
       display: block;
       flex: 0 0 100%;
       position: relative;
@@ -94,19 +98,36 @@
       font-size: 1rem;
     }
 
-    .dice-roll {
-      .dice-tooltip{
-        .dice {
-          .part-total{
-            .title-font();
-          }
-          .dice-rolls {
-            .roll.die{
-              .title-font();
-            }
-          }
+    .dice-roll .dice-tooltip {
+      .dice {
+        .part-total {
+          .title-font();
+        }
+        .dice-rolls .roll.die {
+          .title-font();
         }
       }
     }
+  }
+}
+
+#chat-controls {
+  .main-font();
+  .roll-type-select {
+    .bg-default();
+  }
+  i {
+    color: @bg-color;
+  }
+  a:hover {
+    text-shadow: 0 0 8px @accent-color;
+  }
+}
+
+#chat-form #chat-message {
+  .main-font();
+  .bg-default();
+  &:focus {
+    box-shadow: 0 0 8px @accent-color;
   }
 }

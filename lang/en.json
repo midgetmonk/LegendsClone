@@ -3,7 +3,7 @@
     "common": {
       "description": "Description",
       "none": "None",
-      "to-chat": "To Chat"
+      "to-chat": "To chat"
     },
     "context-menu": {
       "edit": "Edit",
@@ -12,7 +12,6 @@
     "actor-sheet": {
       "clear-track": "Right-click to clear",
       "name": "Name",
-      "principle": "Principle",
       "stats": "Stats",
       "fatigue": "Fatigue",
       "clear-fatigue": "Clear Fatigue",
@@ -30,25 +29,7 @@
         "background": "Background",
         "demeanor": "Demeanor",
         "hometown": "Home&nbsp;Town",
-        "playbook": "Playbook",
-        "momentOfBalance": "Moment of Balance",
-        "add-moment": "Add Moment of Balance",
-        "growth": "Growth",
-        "growth-questions":{
-          "title": "Growth Questions"
-        },
-        "advancements": {
-          "title": "Growth Advancements",
-          "playbook-move": "Take a new move from your playbook",
-          "other-move": "Take a new move from another playbook",
-          "raise-stat": "Raise a stat by +1 (maximum of +2 to any stat)",
-          "shift-center": "Shift your Center by one step",
-          "moment": "Unlock your Moment of Balance"
-        },
-        "feature": {
-          "title": "Feature",
-          "add": "Add Feature"
-        }
+        "playbook": "Playbook"
       },
       "npc": {
         "drive": "Drive",
@@ -61,7 +42,6 @@
           "group": "NPC Group",
           "npc": "NPC"
         },
-        "add-principle": "Add Principle",
         "fatigue": {
           "add": "Increase max Fatigue",
           "remove": "Decrease max Fatigue"
@@ -112,7 +92,8 @@
       "new": {
         "name": "New {type}",
         "description": "<p>Description goes here.</p>"
-      }
+      },
+      "not-allowed": "This Item type cannot be added to this Actor."
     },
     "moves": {
       "add": "New Move",
@@ -128,18 +109,23 @@
         "basic": "Basic",
         "balance": "Balance",
         "playbook": "Playbook"
-      }
+      },
+      "none": "No Moves have been added. Drag some from the Item sidebar or compendium."
     },
     "condition": {
-      "add": "New Condition"
+      "add": "New Condition",
+      "none": "No Conditions have been added. Drag some from the Item sidebar or a compendium."
     },
     "status": {
+      "title": "Statuses",
       "add": "New Status",
       "positive": "Positive",
       "negative": "Negative",
-      "type": "Type"
+      "type": "Type",
+      "none": "No Statuses have been added. Drag some from the Item sidebar or a compendium."
     },
     "techniques": {
+      "title": "Techniques",
       "approach": "Approach",
       "basic": "Basic",
       "approaches": {
@@ -155,7 +141,8 @@
         "master": "Set Mastered",
         "mastered": "M"
       },
-      "add": "New Technique"
+      "add": "New Technique",
+      "none": "No Techniques have been added. Drag some from the Item sidebar or a compendium."
     },
     "training": {
       "specialty": "Specialty",
@@ -167,6 +154,34 @@
       "technology": "Technology",
       "none": "Universal",
       "group": "Group"
+    },
+    "feature": {
+      "title": "Playbook Feature",
+      "none": "No Playbook Feature has been added. Drag one from the Item sidebar or a compendium."
+    },
+    "moment-of-balance": {
+      "title": "Moment of Balance",
+      "add": "Add Moment of Balance",
+      "none": "No Moment of Balance has been added. Drag one from the Item sidebar or a compendium."
+    },
+    "growth": {
+      "title": "Growth",
+      "question": {
+        "title": "Growth Questions",
+        "none": "No Growth Questions have been added. Drag some from the Item sidebar or compendium."
+      },
+      "advancement": {
+        "title": "Growth Advancements",
+        "playbook-move": "Take a new move from your playbook",
+        "other-move": "Take a new move from another playbook",
+        "raise-stat": "Raise a stat by +1 (maximum of +2 to any stat)",
+        "shift-center": "Shift your Center by one step",
+        "moment": "Unlock your Moment of Balance"
+      }
+    },
+    "principle": {
+      "title": "Principle",
+      "none": "No NPC Principle has been added. Drag one from the Item sidebar or a compendium."
     },
     "roll":{
       "with": "Roll with <a class=\"fire-dark move-roll\" data-move-name=\"{approach}\" data-move-stat=\"{stat}\" data-move-approach=\"yes\"><i class=\"fas fa-dice small\"></i> {name}</a>",

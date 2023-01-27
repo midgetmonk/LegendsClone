@@ -15,6 +15,11 @@ export default class LegendsCampaignActorSheet extends ActorSheet {
     return `systems/legends/templates/sheets/actors/${this.actor.type}-sheet.hbs`;
   };
 
+  async _onDropItemCreate(_itemData) {
+    ui.notifications.error(game.i18n.format('legends.items.not-allowed'));
+    return null;
+  }
+
   getData(){
     const context = super.getData();
     context.config = CONFIG.legends;

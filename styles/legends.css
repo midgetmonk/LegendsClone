@@ -44,6 +44,9 @@
 /**
 * Colours
 **/
+.bg-default {
+  background: #f0f1f5;
+}
 .window-header {
   font-family: "Village";
   font-variant: small-caps;
@@ -229,13 +232,14 @@
   margin: 0.75rem;
 }
 .legends .pad-top {
-  margin: 1rem 0 0;
+  margin-top: 1rem;
 }
 .legends .pad-bottom {
-  margin: 0 0 1rem;
+  margin-bottom: 1rem;
 }
 .legends .pad-sides {
-  margin: 0 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 .legends .no-margin {
   margin: 0 !important;
@@ -247,7 +251,7 @@
   border-bottom: 2px solid #65110c;
 }
 .legends .underline.underline-thin {
-  border-width: 1.5px;
+  border-width: 1px;
 }
 .legends .skill-name {
   color: #0d2d5d;
@@ -555,15 +559,24 @@
 .legends.sheet .item.technique p {
   margin: 0;
 }
-.legends.sheet .item.technique h4 {
-  color: #b62127;
-  font-size: 0.9rem;
-}
 .legends.sheet .item.technique h4 a.set-proficiency {
   color: #111;
 }
 .legends.sheet .item.technique h4 a.set-proficiency .fa-times-circle {
   color: #b62127 !important;
+}
+.legends.sheet h4.roll-approach {
+  padding-bottom: 0.25rem;
+  border-color: #65110c;
+  position: relative;
+}
+.legends.sheet h4.roll-approach:before {
+  content: '♦';
+  position: absolute;
+  top: 60%;
+  left: calc(50% - 10px);
+  width: 20px;
+  text-align: center;
 }
 .legends.sheet .description {
   flex: 1;
@@ -888,6 +901,9 @@
   font-variant: small-caps;
   font-size: 0.8rem;
 }
+.chat-message .message-header a:hover {
+  text-shadow: 0 0 8px #99bbe3;
+}
 .chat-message .message-content {
   margin: 0 -5px -5px;
   padding: 0.5rem;
@@ -947,6 +963,27 @@
 .message-content .legends .dice-roll .dice-tooltip .dice .dice-rolls .roll.die {
   font-family: "Village";
   font-variant: small-caps;
+}
+#chat-controls {
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
+}
+#chat-controls .roll-type-select {
+  background: #f0f1f5;
+}
+#chat-controls i {
+  color: #f0f1f5;
+}
+#chat-controls a:hover {
+  text-shadow: 0 0 8px #99bbe3;
+}
+#chat-form #chat-message {
+  font-family: "Noto Sans";
+  font-size: 0.8rem;
+  background: #f0f1f5;
+}
+#chat-form #chat-message:focus {
+  box-shadow: 0 0 8px #99bbe3;
 }
 .dialog .block {
   font-family: "Komikazoom";

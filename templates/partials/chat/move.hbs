@@ -5,9 +5,9 @@
     <a class="move-roll text" data-move-name="{{name}}" data-stat-name="{{system.rollStat}}">
       <i class="fas fa-dice"></i>
       {{#if system.rollStat}}
-      {{localize (tr_path 'legends.stats' system.rollStat)}}
+        {{localize (tr_path 'legends.stats' system.rollStat)}}
       {{else}}
-      {{localize 'legends.roll.dialog.submit'}}
+        {{localize 'legends.roll.dialog.submit'}}
       {{/if}}
     </a>
   {{/if}}

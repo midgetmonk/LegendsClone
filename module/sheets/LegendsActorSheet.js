@@ -41,6 +41,26 @@ export default class LegendsActorSheet extends ActorSheet {
     }
   ];
 
+  /**
+   * Run validation on an Item before adding it to an Actor's sheet.
+   * @param {Object} itemData Data of the dropped item
+   * @returns
+   */
+  async _onDropItemCreate(itemData) {
+    const items = Array.isArray(itemData) ? itemData : [ itemData ];
+    const permittedNpcItems = ['technique', 'npc-principle', 'condition', 'status'];
+
+    if(this.actor.type === "npc") {
+      for (const item of items) {
+        if(!permittedNpcItems.includes(item.type)) {
+          ui.notifications.error(game.i18n.format('legends.items.not-allowed'));
+          return null;
+        }
+      }
+    }
+    return await super._onDropItemCreate(itemData);
+  }
+
   getData(){
     const context = super.getData();
     context.config = CONFIG.legends;
@@ -108,7 +128,6 @@ export default class LegendsActorSheet extends ActorSheet {
       html.find('.condition-toggle').click(this._onConditionToggle.bind(this));
 
       // Create, Edit and Delete Moves and Techniques
-      html.find('.item-create').click(this._onItemCreate.bind(this));
       html.find('.item-edit').click(this._onItemEdit.bind(this));
       html.find('.item-delete').click(this._onItemDelete.bind(this));
 
@@ -447,34 +466,6 @@ export default class LegendsActorSheet extends ActorSheet {
   }
 
   /**
-   * Create a new Item and assign it to the calling Actor
-   * @param {Event} event 
-   */
-  _onItemCreate(event) {
-    event.preventDefault();
-
-    let element = event.currentTarget;
-    let type = element.dataset.type;
-
-    let defaultData = {};
-    switch(type) {
-      case 'technique':
-        defaultData = { "learned": true }
-        break;
-      default:
-        defaultData = {}
-    }
-
-    let itemData = {
-      name: game.i18n.format('legends.items.new.name', {type: type}),
-      type: type,
-      data: { description: game.i18n.localize('legends.items.new.description'), ...defaultData }
-    }
-
-    this.actor.createEmbeddedDocuments("Item", [itemData]);
-  }
-
-  /**
    * Show the sheet for an Item
    * @param {Event} event
    */
@@ -546,7 +537,6 @@ export default class LegendsActorSheet extends ActorSheet {
    * @param {Event} event
    */
   _onSelectMoveCategory(event){
-    console.log(event.currentTarget.value);
     this.actor.setFlag('legends', 'moveCategory', event.currentTarget.value);
   }
 };

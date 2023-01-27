@@ -10,7 +10,7 @@
       "flags": {}
     }
   ],
-  "version": "0.3.18",
+  "version": "1.0.0",
   "minimumCoreVersion": "10",
   "compatibleCoreVersion": "10.286",
   "compatibility": {
@@ -19,7 +19,7 @@
   },
   "url": "https://gitlab.com/pacosgrove1/legends/",
   "manifest": "https://gitlab.com/api/v4/projects/pacosgrove1%2Flegends/packages/generic/legends/latest/system.json",
-  "download": "https://gitlab.com/pacosgrove1/legends/-/releases/v0.3.18/downloads/legends-v0.3.18.zip",
+  "download": "https://gitlab.com/pacosgrove1/legends/-/releases/v1.0.0/downloads/legends-v1.0.0.zip",
   "esmodules":[
     "legends.js"
   ],
