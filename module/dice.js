@@ -10,10 +10,10 @@ export async function RollStat({
   statName = null,
   moveName = null,
   approach = null,
-  penalties = null,
-  bonuses = null,
-  bonusMessage = null,
-  penaltyMessage = null
+  penalties = 0,
+  bonuses = 0,
+  bonusMessage = '',
+  penaltyMessage = ''
 } = {}){
   // Fetch the bonus/penalty values from the dialog
   let rollOptions = await GetRollOptions(statName, moveName, bonuses, penalties, bonusMessage, penaltyMessage);
