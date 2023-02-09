@@ -193,9 +193,9 @@
       "full": "Full Hit!",
       "dialog": {
         "penalty": "Penalties",
-        "penalty-description": "From Conditions and Statuses",
+        "penalty-description": "From Conditions and Statuses {penaltiesAppliedMessage}",
         "bonus": "Bonuses",
-        "bonus-description": "Total of Forwards, Ongoing and Helping",
+        "bonus-description": "Total of Forwards, Ongoing and Helping {bonusesAppliedMessage}",
         "submit": "Roll"
       },
       "no-actor": "You cannot roll Moves without an assigned Actor.",

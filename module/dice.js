@@ -10,9 +10,13 @@ export async function RollStat({
   statName = null,
   moveName = null,
   approach = null,
+  penalties = null,
+  bonuses = null,
+  bonusMessage = null,
+  penaltyMessage = null
 } = {}){
   // Fetch the bonus/penalty values from the dialog
-  let rollOptions = await GetRollOptions(statName, moveName);
+  let rollOptions = await GetRollOptions(statName, moveName, bonuses, penalties, bonusMessage, penaltyMessage);
 
   // Don't bother continuing if the roll was cancelled.
   if(rollOptions.cancelled){ return; }
@@ -76,9 +80,16 @@ export async function RollStat({
  * @param {String} statName The name of the Stat being rolled
  * @returns A Promise representing the Dialog to be displayed
  */
-async function GetRollOptions(statName, moveName = null){
+async function GetRollOptions(statName, moveName = null, bonuses = 0, penalties = 0, bonusMessage = '', penaltyMessage = ''){
   const template = "systems/legends/templates/partials/dialog/roll-dialog.hbs";
-  const html = await renderTemplate(template, {});
+  let tempContext = {
+    bonusValue: bonuses,
+    penaltyValue: penalties,
+    bonusMessage: bonusMessage,
+    penaltyMessage: penaltyMessage
+  }
+
+  const html = await renderTemplate(template, tempContext);
   let title = (statName !== null) ? game.i18n.format("legends.roll.stat", { stat: statName }) : game.i18n.format('legends.roll.no-stat');
 
   if(moveName !== null){

@@ -17,9 +17,9 @@
     "minimum": "10",
     "verified": "10"
   },
-  "url": "https://gitlab.com/pacosgrove1/legends/",
-  "manifest": "https://gitlab.com/api/v4/projects/pacosgrove1%2Flegends/packages/generic/legends/latest/system.json",
-  "download": "https://gitlab.com/pacosgrove1/legends/-/releases/v1.0.0/downloads/legends-v1.0.0.zip",
+  "url": "https://github.com/midgetmonk/LegendsClone",
+  "manifest": "https://github.com/midgetmonk/LegendsClone/releases/download/v1.0.0/system.json",
+  "download": "https://github.com/midgetmonk/Legends/releases/download/v1.0.0/Legends-v1.0.0.zip",
   "esmodules":[
     "legends.js"
   ],
