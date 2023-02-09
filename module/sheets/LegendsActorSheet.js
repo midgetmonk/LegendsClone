@@ -229,7 +229,7 @@ export default class LegendsActorSheet extends ActorSheet {
         if ((conditions[i].name === 'Afraid' && (moveName === 'Intimidate' || moveName === 'Call Someone Out')) ||
             (conditions[i].name === 'Insecure' && (moveName === 'Trick' || moveName === 'Resist Shifting Your Balance')) ||
             (conditions[i].name === 'Angry' && (moveName === 'Guide and Comfort' || moveName === 'Assess a Situation')) ||
-            (conditions[i].name === 'Troubled' && (moveName === 'Plead' || moveName === 'Rely on Your Skills or Training')) ||
+            (conditions[i].name === 'Troubled' && (moveName === 'Plead' || moveName === 'Rely on Your Skills & Training')) ||
             (conditions[i].name === 'Guilty' && moveName === 'Push Your Luck')
           ) {
           penalties = 2;
